@@ -1,562 +1,607 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tipgabrieldev - Desenvolvedor Front-end & Web Designer</title>
-    
-        <meta name="description" content="Gabriel - Desenvolvedor front-end especializado em React, JavaScript e web design. Criando experiências digitais modernas e funcionais.">
-    <meta name="keywords" content="desenvolvedor frontend, web designer, React, JavaScript, Tailwind CSS, portfólio">
-    <meta name="author" content="Gabriel - tipgabrieldev">
-    
-        <meta property="og:title" content="tipgabrieldev - Desenvolvedor Front-end">
-    <meta property="og:description" content="Criando experiências digitais modernas e funcionais">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tipgabrieldev.com">
-    
-        <script src="https://cdn.tailwindcss.com"></script>
-    
-        <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'matrix-green': '#0F4',
-                        'corporate-blue': '#3b82f6',
-                        'dark-bg': '#0f0f10'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                        'mono': ['Fira Code', 'monospace']
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.6s ease-out',
-                        'fade-in-left': 'fadeInLeft 0.6s ease-out',
-                        'fade-in-right': 'fadeInRight 0.6s ease-out',
-                        'pulse-slow': 'pulse 2s infinite'
-                    }
-                }
-            }
-        }
-    </script>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWixL5Xk8z5XGzC5tL5cI5d5b7zI8A9z0z5y4F4t5f5zI5b7C5tI5d5b5D5f5zI5b7A5tD5zI5d5A5zI5b7A5d5B5I5zI5d5A5zI5b5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-        <link rel="stylesheet" href="style.css">
-    
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
-    
-        <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tipgabrieldev - Desenvolvedor Front-end & Web Designer</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Gabriel - Desenvolvedor front-end especializado em React, JavaScript e web design. Criando experiências digitais modernas e funcionais.">
+    <meta name="keywords" content="desenvolvedor frontend, web designer, React, JavaScript, Tailwind CSS, portfólio">
+    <meta name="author" content="Gabriel - tipgabrieldev">
+    
+    <!-- Open Graph para redes sociais -->
+    <meta property="og:title" content="tipgabrieldev - Desenvolvedor Front-end">
+    <meta property="og:description" content="Criando experiências digitais modernas e funcionais">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tipgabrieldev.com">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config Customizado -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'matrix-green': '#0F4',
+                        'corporate-blue': '#3b82f6',
+                        'dark-bg': '#0f0f10'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['Fira Code', 'monospace']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'fade-in-left': 'fadeInLeft 0.6s ease-out',
+                        'fade-in-right': 'fadeInRight 0.6s ease-out',
+                        'pulse-slow': 'pulse 2s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Estilos customizados -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
 </head>
 <body class="bg-gray-50 text-gray-800">
-    
-        <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                                <div class="text-2xl font-bold text-gray-800 cursor-pointer" onclick="scrollToSection('hero')">
-                    tipgabrieldev
-                </div>
+    
+    <!-- Header de Navegação -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo/Marca -->
+                <div class="text-2xl font-bold text-gray-800 cursor-pointer" onclick="scrollToSection('hero')">
+                    tipgabrieldev
+                </div>
 
-                                <div class="hidden md:flex items-center space-x-8">
-                    <button onclick="scrollToSection('hero')" class="nav-link">Início</button>
-                    <button onclick="scrollToSection('about')" class="nav-link">Sobre</button>
-                    <button onclick="scrollToSection('portfolio')" class="nav-link">Projetos</button>
-                    <button onclick="scrollToSection('contact')" class="nav-link">Contato</button>
-                </div>
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <button onclick="scrollToSection('hero')" class="nav-link">Início</button>
+                    <button onclick="scrollToSection('about')" class="nav-link">Sobre</button>
+                    <button onclick="scrollToSection('portfolio')" class="nav-link">Projetos</button>
+                    <button onclick="scrollToSection('contact')" class="nav-link">Contato</button>
+                </div>
 
-                                <button id="mobile-menu-btn" class="md:hidden text-gray-800">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
+                <!-- Botão Menu Mobile -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-800">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
 
-                        <div id="mobile-menu" class="md:hidden mt-4 pb-4 hidden">
-                <div class="flex flex-col space-y-4">
-                    <button onclick="scrollToSection('hero')" class="nav-link-mobile">Início</button>
-                    <button onclick="scrollToSection('about')" class="nav-link-mobile">Sobre</button>
-                    <button onclick="scrollToSection('portfolio')" class="nav-link-mobile">Projetos</button>
-                    <button onclick="scrollToSection('contact')" class="nav-link-mobile">Contato</button>
-                </div>
-            </div>
-        </nav>
-    </header>
+            <!-- Menu Mobile -->
+            <div id="mobile-menu" class="md:hidden mt-4 pb-4 hidden">
+                <div class="flex flex-col space-y-4">
+                    <button onclick="scrollToSection('hero')" class="nav-link-mobile">Início</button>
+                    <button onclick="scrollToSection('about')" class="nav-link-mobile">Sobre</button>
+                    <button onclick="scrollToSection('portfolio')" class="nav-link-mobile">Projetos</button>
+                    <button onclick="scrollToSection('contact')" class="nav-link-mobile">Contato</button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-        <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-                <canvas id="matrix-canvas" class="absolute inset-0 z-0"></canvas>
-        
-                <div class="absolute inset-0 bg-black/30 z-10"></div>
-        
-                <div class="relative z-20 text-center text-white max-w-4xl mx-auto px-4">
-                        <div class="mb-8">
-                <div class="w-24 h-24 mx-auto bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                    <span class="text-2xl font-bold text-matrix-green">TGD</span>
-                </div>
-            </div>
-            
-                        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
-                tipgabrieldev
-            </h1>
-            
-            <h2 class="text-xl md:text-2xl text-matrix-green mb-6 font-light animate-fade-in-up" style="animation-delay: 0.2s;">
-                Desenvolvedor Front-end & Web Designer
-            </h2>
-            
-                        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.4s;">
-                Criando experiências digitais modernas e funcionais. 
-                Especializado em desenvolvimento front-end com foco em 
-                performance, usabilidade e design responsivo.
-            </p>
-            
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.6s;">
-                <button onclick="scrollToSection('portfolio')" class="btn-primary">
-                    Ver Projetos
-                </button>
-                <button onclick="scrollToSection('contact')" class="btn-outline">
-                    Entre em Contato
-                </button>
-            </div>
-        </div>
-        
-                <button onclick="scrollToSection('about')" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white/70 hover:text-white transition-colors duration-200 animate-bounce">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </button>
-    </section>
+    <!-- Seção Hero com Efeito Matrix -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+        <!-- Canvas do efeito Matrix -->
+        <canvas id="matrix-canvas" class="absolute inset-0 z-0"></canvas>
+        
+        <!-- Overlay para melhorar legibilidade -->
+        <div class="absolute inset-0 bg-black/30 z-10"></div>
+        
+        <!-- Conteúdo principal -->
+        <div class="relative z-20 text-center text-white max-w-4xl mx-auto px-4">
+            <!-- Logo placeholder - usuário substituirá pela logomarca -->
+            <div class="mb-8">
+                <div class="w-24 h-24 mx-auto bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                    <span class="text-2xl font-bold text-matrix-green">TGD</span>
+                </div>
+            </div>
+            
+            <!-- Apresentação principal -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
+                tipgabrieldev
+            </h1>
+            
+            <h2 class="text-xl md:text-2xl text-matrix-green mb-6 font-light animate-fade-in-up" style="animation-delay: 0.2s;">
+                Desenvolvedor Front-end & Web Designer
+            </h2>
+            
+            <!-- Mini bio do projeto -->
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.4s;">
+                Criando experiências digitais modernas e funcionais. 
+                Especializado em desenvolvimento front-end com foco em 
+                performance, usabilidade e design responsivo.
+            </p>
+            
+            <!-- Call to actions -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.6s;">
+                <button onclick="scrollToSection('portfolio')" class="btn-primary">
+                    Ver Projetos
+                </button>
+                <button onclick="scrollToSection('contact')" class="btn-outline">
+                    Entre em Contato
+                </button>
+            </div>
+        </div>
+        
+        <!-- Indicador de scroll -->
+        <button onclick="scrollToSection('about')" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white/70 hover:text-white transition-colors duration-200 animate-bounce">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </button>
+    </section>
 
-        <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4 max-w-6xl">
-                        <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-                    Sobre Mim
-                </h2>
-                <div class="w-24 h-1 bg-corporate-blue mx-auto mb-8"></div>
-            </div>
+    <!-- Seção Sobre -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <!-- Cabeçalho da seção -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Sobre Mim
+                </h2>
+                <div class="w-24 h-1 bg-corporate-blue mx-auto mb-8"></div>
+            </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                                <div class="order-2 md:order-1">
-                    <div class="w-full max-w-md mx-auto">
-                        <div class="aspect-square bg-gray-200 rounded-2xl flex items-center justify-center">
-                            <span class="text-6xl">👨‍💻</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <!-- Foto de perfil placeholder -->
+                <div class="order-2 md:order-1">
+                    <div class="w-full max-w-md mx-auto">
+                        <div class="aspect-square bg-gray-200 rounded-2xl flex items-center justify-center">
+                            <span class="text-6xl">👨\u200d💻</span>
+                        </div>
+                    </div>
+                </div>
 
-                                <div class="order-1 md:order-2">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                        Gabriel - Desenvolvedor Front-end
-                    </h3>
-                    <div class="space-y-4 text-gray-600 leading-relaxed">
-                        <p>
-                            Sou um desenvolvedor front-end apaixonado por criar experiências 
-                            digitais que combinam funcionalidade e estética. Com mais de X anos 
-                            de experiência, especializo-me em transformar ideias em interfaces 
-                            modernas e responsivas.
-                        </p>
-                        <p>
-                            Meu foco está em desenvolvimento de aplicações web utilizando as 
-                            mais recentes tecnologias do mercado, sempre priorizando performance, 
-                            acessibilidade e user experience.
-                        </p>
-                        <p>
-                            Quando não estou codando, gosto de estudar novas tecnologias, 
-                            contribuir com projetos open source e compartilhar conhecimento 
-                            com a comunidade de desenvolvedores.
-                        </p>
-                    </div>
+                <!-- Biografia -->
+                <div class="order-1 md:order-2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                        Gabriel - Desenvolvedor Front-end
+                    </h3>
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            Sou um desenvolvedor front-end apaixonado por criar experiências 
+                            digitais que combinam funcionalidade e estética. Com mais de X anos 
+                            de experiência, especializo-me em transformar ideias em interfaces 
+                            modernas e responsivas.
+                        </p>
+                        <p>
+                            Meu foco está em desenvolvimento de aplicações web utilizando as 
+                            mais recentes tecnologias do mercado, sempre priorizando performance, 
+                            acessibilidade e user experience.
+                        </p>
+                        <p>
+                            Quando não estou codando, gosto de estudar novas tecnologias, 
+                            contribuir com projetos open source e compartilhar conhecimento 
+                            com a comunidade de desenvolvedores.
+                        </p>
+                    </div>
 
-                                        <div class="mt-8">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-4">
-                            Conecte-se comigo:
-                        </h4>
-                        <div class="flex space-x-4">
-                            <a href="#" target="_blank" class="social-link" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" target="_blank" class="social-link" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" target="_blank" class="social-link" title="Behance">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" target="_blank" class="social-link" title="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <!-- Links para redes sociais -->
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">
+                            Conecte-se comigo:
+                        </h4>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="social-link" title="GitHub">GH</a>
+                            <a href="#" target="_blank" class="social-link" title="LinkedIn">LI</a>
+                            <a href="#" target="_blank" class="social-link" title="Behance">BE</a>
+                            <a href="#" target="_blank" class="social-link" title="Instagram">IG</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                                <div class="skill-card">
-                    <div class="text-corporate-blue mb-4 flex justify-center">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-3">
-                        Desenvolvimento Front-end
-                    </h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        HTML5, CSS3, JavaScript, React, Vue.js, Tailwind CSS
-                    </p>
-                </div>
+            <!-- Habilidades -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Desenvolvimento Front-end -->
+                <div class="skill-card">
+                    <div class="text-corporate-blue mb-4 flex justify-center">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                        Desenvolvimento Front-end
+                    </h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        HTML5, CSS3, JavaScript, React, Vue.js, Tailwind CSS
+                    </p>
+                </div>
 
-                                <div class="skill-card">
-                    <div class="text-corporate-blue mb-4 flex justify-center">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-3">
-                        Web Design
-                    </h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        UI/UX Design, Figma, Adobe Creative Suite, Prototipagem
-                    </p>
-                </div>
+                <!-- Web Design -->
+                <div class="skill-card">
+                    <div class="text-corporate-blue mb-4 flex justify-center">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                        Web Design
+                    </h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        UI/UX Design, Figma, Adobe Creative Suite, Prototipagem
+                    </p>
+                </div>
 
-                                <div class="skill-card">
-                    <div class="text-corporate-blue mb-4 flex justify-center">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-3">
-                        Design Responsivo
-                    </h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Mobile-first, Cross-browser, Performance Optimization
-                    </p>
-                </div>
+                <!-- Design Responsivo -->
+                <div class="skill-card">
+                    <div class="text-corporate-blue mb-4 flex justify-center">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                        Design Responsivo
+                    </h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Mobile-first, Cross-browser, Performance Optimization
+                    </p>
+                </div>
 
-                                <div class="skill-card">
-                    <div class="text-corporate-blue mb-4 flex justify-center">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-3">
-                        Tecnologias Web
-                    </h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        APIs REST, Git, Webpack, Node.js, SEO
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <!-- Tecnologias Web -->
+                <div class="skill-card">
+                    <div class="text-corporate-blue mb-4 flex justify-center">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                        Tecnologias Web
+                    </h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        APIs REST, Git, Webpack, Node.js, SEO
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="portfolio" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 max-w-7xl">
-                        <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-                    Meu Portfólio
-                </h2>
-                <div class="w-24 h-1 bg-corporate-blue mx-auto mb-8"></div>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Confira alguns dos meus trabalhos mais recentes em web design e desenvolvimento front-end
-                </p>
-            </div>
+    <!-- Seção Portfólio -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <!-- Cabeçalho da seção -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Meu Portfólio
+                </h2>
+                <div class="w-24 h-1 bg-corporate-blue mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Confira alguns dos meus trabalhos mais recentes em web design e desenvolvimento front-end
+                </p>
+            </div>
 
-                        <div class="flex flex-wrap justify-center gap-4 mb-12" id="portfolio-filters">
-                <button onclick="filterProjects('all')" class="filter-btn active" data-filter="all">
-                    Todos
-                </button>
-                <button onclick="filterProjects('web-design')" class="filter-btn" data-filter="web-design">
-                    Web Design
-                </button>
-                <button onclick="filterProjects('frontend')" class="filter-btn" data-filter="frontend">
-                    Frontend
-                </button>
-                <button onclick="filterProjects('fullstack')" class="filter-btn" data-filter="fullstack">
-                    Full Stack
-                </button>
-            </div>
+            <!-- Filtros de categoria -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12" id="portfolio-filters">
+                <button onclick="filterProjects('all')" class="filter-btn active" data-filter="all">
+                    Todos
+                </button>
+                <button onclick="filterProjects('web-design')" class="filter-btn" data-filter="web-design">
+                    Web Design
+                </button>
+                <button onclick="filterProjects('frontend')" class="filter-btn" data-filter="frontend">
+                    Frontend
+                </button>
+                <button onclick="filterProjects('fullstack')" class="filter-btn" data-filter="fullstack">
+                    Full Stack
+                </button>
+            </div>
 
-                        <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            </div>
+            <!-- Grid de projetos -->
+            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projetos serão inseridos dinamicamente via JavaScript -->
+            </div>
 
-                        <div id="no-projects" class="text-center py-12 hidden">
-                <p class="text-gray-500 text-lg">
-                    Nenhum projeto encontrado nesta categoria.
-                </p>
-            </div>
-        </div>
-    </section>
+            <!-- Mensagem quando não há projetos -->
+            <div id="no-projects" class="text-center py-12 hidden">
+                <p class="text-gray-500 text-lg">
+                    Nenhum projeto encontrado nesta categoria.
+                </p>
+            </div>
+        </div>
+    </section>
 
-        <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-4 max-w-6xl">
-                        <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-                    Entre em Contato
-                </h2>
-                <div class="w-24 h-1 bg-corporate-blue mx-auto mb-8"></div>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Vamos conversar sobre seu próximo projeto? Estou sempre aberto a novas oportunidades e colaborações.
-                </p>
-            </div>
+    <!-- Seção Contato -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <!-- Cabeçalho da seção -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Entre em Contato
+                </h2>
+                <div class="w-24 h-1 bg-corporate-blue mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Vamos conversar sobre seu próximo projeto? Estou sempre aberto a novas oportunidades e colaborações.
+                </p>
+            </div>
 
-            <div class="grid lg:grid-cols-2 gap-12">
-                                <div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-8">
-                        Informações de Contato
-                    </h3>
-                    
-                    <div class="space-y-6 mb-8">
-                                                <div class="flex items-center space-x-4">
-                            <div class="contact-icon">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">Email</h4>
-                                <a href="mailto:contato@tipgabrieldev.com" class="contact-link">
-                                    contato@tipgabrieldev.com
-                                </a>
-                            </div>
-                        </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Informações de contato -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8">
+                        Informações de Contato
+                    </h3>
+                    
+                    <div class="space-y-6 mb-8">
+                        <!-- Email -->
+                        <div class="flex items-center space-x-4">
+                            <div class="contact-icon">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800">Email</h4>
+                                <a href="mailto:contato@tipgabrieldev.com" class="contact-link">
+                                    contato@tipgabrieldev.com
+                                </a>
+                            </div>
+                        </div>
 
-                                                <div class="flex items-center space-x-4">
-                            <div class="contact-icon">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">Telefone</h4>
-                                <a href="tel:+5511999999999" class="contact-link">
-                                    +55 (11) 99999-9999
-                                </a>
-                            </div>
-                        </div>
+                        <!-- Telefone -->
+                        <div class="flex items-center space-x-4">
+                            <div class="contact-icon">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800">Telefone</h4>
+                                <a href="tel:+5511999999999" class="contact-link">
+                                    +55 (11) 99999-9999
+                                </a>
+                            </div>
+                        </div>
 
-                                                <div class="flex items-center space-x-4">
-                            <div class="contact-icon">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-800">Localização</h4>
-                                <p class="text-gray-600">São Paulo, SP - Brasil</p>
-                            </div>
-                        </div>
-                    </div>
+                        <!-- Localização -->
+                        <div class="flex items-center space-x-4">
+                            <div class="contact-icon">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800">Localização</h4>
+                                <p class="text-gray-600">São Paulo, SP - Brasil</p>
+                            </div>
+                        </div>
+                    </div>
 
-                                        <div class="bg-gray-50 p-6 rounded-xl">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-3">
-                            Disponibilidade
-                        </h4>
-                        <p class="text-gray-600 mb-4">
-                            Atualmente disponível para novos projetos freelance e oportunidades de trabalho.
-                        </p>
-                        <div class="flex items-center space-x-2 text-green-600">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span class="font-medium">Disponível para projetos</span>
-                        </div>
-                    </div>
-                </div>
+                    <!-- Disponibilidade -->
+                    <div class="bg-gray-50 p-6 rounded-xl">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                            Disponibilidade
+                        </h4>
+                        <p class="text-gray-600 mb-4">
+                            Atualmente disponível para novos projetos freelance e oportunidades de trabalho.
+                        </p>
+                        <div class="flex items-center space-x-2 text-green-600">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="font-medium">Disponível para projetos</span>
+                        </div>
+                    </div>
+                </div>
 
-                                <div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-8">
-                        Envie uma Mensagem
-                    </h3>
+                <!-- Formulário de contato -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8">
+                        Envie uma Mensagem
+                    </h3>
 
-                    <form id="contact-form" class="space-y-6">
-                                                <div>
-                            <label for="name" class="form-label">Nome *</label>
-                            <input type="text" id="name" name="name" class="form-input" placeholder="Seu nome completo" required>
-                        </div>
+                    <form id="contact-form" class="space-y-6">
+                        <!-- Nome -->
+                        <div>
+                            <label for="name" class="form-label">Nome *</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Seu nome completo" required>
+                        </div>
 
-                                                <div>
-                            <label for="email" class="form-label">Email *</label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="seu@email.com" required>
-                        </div>
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="seu@email.com" required>
+                        </div>
 
-                                                <div>
-                            <label for="subject" class="form-label">Assunto</label>
-                            <input type="text" id="subject" name="subject" class="form-input" placeholder="Sobre o que você gostaria de falar?">
-                        </div>
+                        <!-- Assunto -->
+                        <div>
+                            <label for="subject" class="form-label">Assunto</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="Sobre o que você gostaria de falar?">
+                        </div>
 
-                                                <div>
-                            <label for="message" class="form-label">Mensagem *</label>
-                            <textarea id="message" name="message" rows="5" class="form-input resize-vertical" placeholder="Descreva seu projeto ou dúvida..." required></textarea>
-                        </div>
+                        <!-- Mensagem -->
+                        <div>
+                            <label for="message" class="form-label">Mensagem *</label>
+                            <textarea id="message" name="message" rows="5" class="form-input resize-vertical" placeholder="Descreva seu projeto ou dúvida..." required></textarea>
+                        </div>
 
-                                                <button type="submit" id="submit-btn" class="btn-primary w-full">
-                            <svg id="send-icon" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                            </svg>
-                            <div id="loading-spinner" class="hidden animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent mr-2"></div>
-                            <span id="btn-text">Enviar Mensagem</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <!-- Botão de envio -->
+                        <button type="submit" id="submit-btn" class="btn-primary w-full">
+                            <svg id="send-icon" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                            <div id="loading-spinner" class="hidden animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent mr-2"></div>
+                            <span id="btn-text">Enviar Mensagem</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <footer class="bg-gray-900 text-white">
-                <div class="container mx-auto px-4 py-12">
-            <div class="grid md:grid-cols-4 gap-8">
-                                <div class="md:col-span-2">
-                    <h3 class="text-2xl font-bold mb-4">tipgabrieldev</h3>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Desenvolvedor front-end apaixonado por criar experiências digitais 
-                        modernas e funcionais. Transformando ideias em realidade através do código.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" target="_blank" class="footer-social-link" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" target="_blank" class="footer-social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" target="_blank" class="footer-social-link" title="Behance">
-                            <i class="fab fa-behance"></i>
-                        </a>
-                        <a href="#" target="_blank" class="footer-social-link" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <!-- Seção principal do rodapé -->
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Informações principais -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">tipgabrieldev</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Desenvolvedor front-end apaixonado por criar experiências digitais 
+                        modernas e funcionais. Transformando ideias em realidade através do código.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" target="_blank" class="footer-social-link" title="GitHub">GH</a>
+                        <a href="#" target="_blank" class="footer-social-link" title="LinkedIn">LI</a>
+                        <a href="#" target="_blank" class="footer-social-link" title="Behance">BE</a>
+                        <a href="#" target="_blank" class="footer-social-link" title="Instagram">IG</a>
+                    </div>
+                </div>
 
-                                <div>
-                    <h4 class="text-lg font-semibold mb-4">Navegação</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="footer-link">Sobre</a></li>
-                        <li><a href="#portfolio" class="footer-link">Projetos</a></li>
-                        <li><a href="#contact" class="footer-link">Contato</a></li>
-                        <li><a href="#" class="footer-link">Blog</a></li>
-                    </ul>
-                </div>
+                <!-- Links de navegação -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Navegação</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="footer-link">Sobre</a></li>
+                        <li><a href="#portfolio" class="footer-link">Projetos</a></li>
+                        <li><a href="#contact" class="footer-link">Contato</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                    </ul>
+                </div>
 
-                                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
-                    <div class="space-y-2 text-gray-400">
-                        <p>contato@tipgabrieldev.com</p>
-                        <p>+55 (11) 99999-9999</p>
-                        <p>São Paulo, SP - Brasil</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <!-- Informações de contato -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>contato@tipgabrieldev.com</p>
+                        <p>+55 (11) 99999-9999</p>
+                        <p>São Paulo, SP - Brasil</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <div class="border-t border-gray-800">
-            <div class="container mx-auto px-4 py-6">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                                        <div class="flex items-center space-x-2 text-gray-400 text-sm mb-4 md:mb-0">
-                        <span>&copy; <span id="current-year"></span> tipgabrieldev.</span>
-                        <span>Feito com</span>
-                        <svg class="w-4 h-4 text-red-500 fill-current" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span>por Gabriel</span>
-                    </div>
+        <!-- Barra inferior -->
+        <div class="border-t border-gray-800">
+            <div class="container mx-auto px-4 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <!-- Copyright -->
+                    <div class="flex items-center space-x-2 text-gray-400 text-sm mb-4 md:mb-0">
+                        <span>&copy; <span id="current-year"></span> tipgabrieldev.</span>
+                        <span>Feito com</span>
+                        <svg class="w-4 h-4 text-red-500 fill-current" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>por Gabriel</span>
+                    </div>
 
-                                        <div class="text-gray-400 text-sm mb-4 md:mb-0">
-                        <span>Desenvolvido com HTML, CSS, Tailwind & JavaScript</span>
-                    </div>
+                    <!-- Informações técnicas -->
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        <span>Desenvolvido com HTML, CSS, Tailwind & JavaScript</span>
+                    </div>
 
-                                        <button onclick="scrollToTop()" class="bg-corporate-blue hover:bg-blue-700 text-white p-2 rounded-lg transition-colors duration-200" title="Voltar ao topo">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </footer>
+                    <!-- Botão voltar ao topo -->
+                    <button onclick="scrollToTop()" class="bg-corporate-blue hover:bg-blue-700 text-white p-2 rounded-lg transition-colors duration-200" title="Voltar ao topo">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-        <div id="toast" class="fixed top-4 right-4 z-50 hidden">
-        <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-4 max-w-sm">
-            <div class="flex items-start">
-                <div class="flex-shrink-0">
-                    <svg id="toast-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-                <div class="ml-3 w-0 flex-1">
-                    <p id="toast-title" class="text-sm font-medium text-gray-900"></p>
-                    <p id="toast-description" class="mt-1 text-sm text-gray-500"></p>
-                </div>
-                <div class="ml-4 flex-shrink-0 flex">
-                    <button onclick="hideToast()" class="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Toast para notificações -->
+    <div id="toast" class="fixed top-4 right-4 z-50 hidden">
+        <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-4 max-w-sm">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <svg id="toast-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div class="ml-3 w-0 flex-1">
+                    <p id="toast-title" class="text-sm font-medium text-gray-900"></p>
+                    <p id="toast-description" class="mt-1 text-sm text-gray-500"></p>
+                </div>
+                <div class="ml-4 flex-shrink-0 flex">
+                    <button onclick="hideToast()" class="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <script src="data.js"></script>
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 
-        <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Gabriel - tipgabrieldev",
-        "jobTitle": "Desenvolvedor Front-end",
-        "description": "Desenvolvedor front-end especializado em React, JavaScript e web design",
-        "url": "https://tipgabrieldev.com",
-        "image": "https://tipgabrieldev.com/avatar.jpg",
-        "sameAs": [
-            "https://github.com/tipgabrieldev",
-            "https://linkedin.com/in/tipgabrieldev",
-            "https://behance.net/tipgabrieldev",
-            "https://instagram.com/tipgabrieldev"
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+55-11-99999-9999",
-            "contactType": "customer service",
-            "email": "contato@tipgabrieldev.com"
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "São Paulo",
-            "addressRegion": "SP",
-            "addressCountry": "BR"
-        },
-        "knowsAbout": [
-            "JavaScript",
-            "React",
-            "HTML5",
-            "CSS3",
-            "Tailwind CSS",
-            "Web Design",
-            "User Experience",
-            "Responsive Design"
-        ],
-        "alumniOf": {
-            "@type": "Organization",
-            "name": "Instituição de Ensino"
-        },
-        "workLocation": {
-            "@type": "Place",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "São Paulo",
-                "addressRegion": "SP",
-                "addressCountry": "BR"
-            }
-        }
-    }
-    </script>
+    <!-- JSON-LD Structured Data para SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gabriel - tipgabrieldev",
+        "jobTitle": "Desenvolvedor Front-end",
+        "description": "Desenvolvedor front-end especializado em React, JavaScript e web design",
+        "url": "https://tipgabrieldev.com",
+        "image": "https://tipgabrieldev.com/avatar.jpg",
+        "sameAs": [
+            "https://github.com/tipgabrieldev",
+            "https://linkedin.com/in/tipgabrieldev",
+            "https://behance.net/tipgabrieldev",
+            "https://instagram.com/tipgabrieldev"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-11-99999-9999",
+            "contactType": "customer service",
+            "email": "contato@tipgabrieldev.com"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+        },
+        "knowsAbout": [
+            "JavaScript",
+            "React",
+            "HTML5",
+            "CSS3",
+            "Tailwind CSS",
+            "Web Design",
+            "Frontend Development",
+            "User Experience",
+            "Responsive Design"
+        ],
+        "alumniOf": {
+            "@type": "Organization",
+            "name": "Instituição de Ensino"
+        },
+        "workLocation": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "São Paulo",
+                "addressRegion": "SP",
+                "addressCountry": "BR"
+            }
+        }
+    }
+    </script>
 
 </body>
 </html>
