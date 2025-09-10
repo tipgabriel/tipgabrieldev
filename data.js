@@ -101,27 +101,27 @@ const mockProjects = [
 // Categorias disponíveis para filtros
 const projectCategories = [
     { id: "all", label: "Todos", count: mockProjects.length },
-    { 
-        id: "web-design", 
-        label: "Web Design", 
-        count: mockProjects.filter(p => p.category === "web-design").length 
+    {
+        id: "web-design",
+        label: "Web Design",
+        count: mockProjects.filter(p => p.category === "web-design").length
     },
-    { 
-        id: "frontend", 
-        label: "Frontend", 
-        count: mockProjects.filter(p => p.category === "frontend").length 
+    {
+        id: "frontend",
+        label: "Frontend",
+        count: mockProjects.filter(p => p.category === "frontend").length
     },
-    { 
-        id: "fullstack", 
-        label: "Full Stack", 
-        count: mockProjects.filter(p => p.category === "fullstack").length 
+    {
+        id: "fullstack",
+        label: "Full Stack",
+        count: mockProjects.filter(p => p.category === "fullstack").length
     }
 ];
 
 // Tecnologias mais utilizadas
 const topTechnologies = [
     "React",
-    "JavaScript", 
+    "JavaScript",
     "Tailwind CSS",
     "Node.js",
     "TypeScript",
@@ -183,7 +183,7 @@ const developerInfo = {
     availability: "Disponível para freelances",
     social: {
         github: "https://github.com/tipgabrieldev",
-        linkedin: "https://linkedin.com/in/tipgabrieldev", 
+        linkedin: "https://linkedin.com/in/tipgabrieldev",
         behance: "https://behance.net/tipgabrieldev",
         instagram: "https://instagram.com/tipgabrieldev"
     }
