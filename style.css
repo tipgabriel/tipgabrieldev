@@ -359,17 +359,26 @@ body {
     background: #f3f4f6;
     color: #6b7280;
     border-radius: 0.5rem;
-    text-decoration: none;
-    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
 }
 
 .social-link:hover {
     background: #3b82f6;
     color: white;
     transform: translateY(-2px);
+}
+
+/* REGRAS ESPECÍFICAS PARA ALINHAMENTO DO ÍCONE */
+.social-link i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ===== FOOTER ===== */
@@ -388,17 +397,26 @@ body {
     height: 2.5rem;
     background: #374151;
     border-radius: 0.5rem;
-    color: #9ca3af;
-    text-decoration: none;
-    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    transition: all 0.2s ease;
 }
 
 .footer-social-link:hover {
     background: #3b82f6;
     color: white;
+}
+
+/* REGRAS ESPECÍFICAS PARA ALINHAMENTO DO ÍCONE */
+.footer-social-link i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ===== TOAST NOTIFICATIONS ===== */
@@ -437,6 +455,7 @@ body {
     .social-link {
         width: 2.5rem;
         height: 2.5rem;
+        font-size: 0.75rem;
     }
     
     .footer-social-link {
