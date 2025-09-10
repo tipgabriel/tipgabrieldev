@@ -529,3 +529,16 @@ a:focus {
         text-decoration: underline !important;
     }
 }
+
+/* Correção para o header ficar branco no topo */
+#header {
+  background-color: white !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+#header.scrolled {
+  background: white;
+  backdrop-filter: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
