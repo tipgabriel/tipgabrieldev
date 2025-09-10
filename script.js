@@ -7,78 +7,6 @@
 let currentFilter = 'all';
 let isSubmitting = false;
 
-// ===== DADOS DE PROJETOS (MOCK) =====
-// Este array simula os dados dos projetos do portfólio
-const mockProjects = [
-    {
-        title: 'Projeto SaaS Analytics',
-        description: 'Plataforma completa de dashboards e análise de dados para empresas SaaS, construída com React e Node.js.',
-        image: 'https://via.placeholder.com/600x400/3b82f6/ffffff?text=SaaS+Analytics',
-        category: 'fullstack',
-        categoryLabel: 'Full Stack',
-        technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
-        liveUrl: '#',
-        githubUrl: '#',
-        caseStudyUrl: '#'
-    },
-    {
-        title: 'E-commerce Moderno',
-        description: 'Loja virtual de alta performance com carrinho de compras, checkout e integração de pagamentos.',
-        image: 'https://via.placeholder.com/600x400/10b981/ffffff?text=E-commerce+Moderno',
-        category: 'frontend',
-        categoryLabel: 'Front-end',
-        technologies: ['React', 'Vite', 'Redux', 'Stripe API', 'Styled Components'],
-        liveUrl: '#',
-        githubUrl: '#',
-        caseStudyUrl: '#'
-    },
-    {
-        title: 'API de Gerenciamento de Tarefas',
-        description: 'API RESTful para criação e gerenciamento de tarefas, com autenticação JWT e validação de dados.',
-        image: 'https://via.placeholder.com/600x400/ef4444/ffffff?text=API+RESTful',
-        category: 'backend',
-        categoryLabel: 'Back-end',
-        technologies: ['Node.js', 'Express', 'JWT', 'PostgreSQL', 'Sequelize'],
-        liveUrl: null,
-        githubUrl: '#',
-        caseStudyUrl: '#'
-    },
-    {
-        title: 'Blog Pessoal',
-        description: 'Um blog responsivo e acessível para a publicação de artigos e tutoriais, com sistema de comentários.',
-        image: 'https://via.placeholder.com/600x400/9ca3af/ffffff?text=Blog+Pessoal',
-        category: 'frontend',
-        categoryLabel: 'Front-end',
-        technologies: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
-        liveUrl: '#',
-        githubUrl: '#',
-        caseStudyUrl: '#'
-    },
-    {
-        title: 'Sistema de Agendamento',
-        description: 'Aplicação para agendamento de consultas e serviços, com calendário interativo e notificações por email.',
-        image: 'https://via.placeholder.com/600x400/f59e0b/ffffff?text=Sistema+de+Agendamento',
-        category: 'fullstack',
-        categoryLabel: 'Full Stack',
-        technologies: ['Next.js', 'React Query', 'Prisma', 'PostgreSQL', 'Tailwind CSS'],
-        liveUrl: '#',
-        githubUrl: '#',
-        caseStudyUrl: '#'
-    },
-    {
-        title: 'API de Previsão do Tempo',
-        description: 'API com endpoints para buscar dados de clima em tempo real de diversas cidades do mundo.',
-        image: 'https://via.placeholder.com/600x400/525252/ffffff?text=API+de+Clima',
-        category: 'backend',
-        categoryLabel: 'Back-end',
-        technologies: ['Python', 'Flask', 'Requests', 'OpenWeatherMap API'],
-        liveUrl: null,
-        githubUrl: '#',
-        caseStudyUrl: '#'
-    }
-];
-
-
 // ===== INICIALIZAÇÃO DO SITE =====
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Portfólio tipgabrieldev iniciado');
@@ -91,14 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMobileMenu();
     updateCurrentYear();
     
-    // Configura listeners para os botões de filtro
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.getAttribute('data-filter');
-            filterProjects(filter);
-        });
-    });
-
     console.log('✅ Todos os componentes inicializados');
 });
 
@@ -171,10 +91,6 @@ function closeMobileMenu() {
 // ===== EFEITO MATRIX =====
 function initializeMatrixEffect() {
     const canvas = document.getElementById('matrix-canvas');
-    if (!canvas) {
-        console.warn('Canvas para efeito Matrix não encontrado. Efeito desativado.');
-        return;
-    }
     const ctx = canvas.getContext('2d');
     
     // Ajusta o canvas para tela inteira
@@ -560,7 +476,7 @@ function trackEvent(eventName, data = {}) {
     
     // Exemplo para Google Analytics
     // if (typeof gtag !== 'undefined') {
-    //      gtag('event', eventName, data);
+    //     gtag('event', eventName, data);
     // }
 }
 
