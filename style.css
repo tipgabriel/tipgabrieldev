@@ -359,12 +359,11 @@ body {
     background: #f3f4f6;
     color: #6b7280;
     border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    font-size: 1.25rem; /* Aumenta o tamanho do ícone */
-    transition: all 0.2s ease;
 }
 
 .social-link:hover {
@@ -389,13 +388,12 @@ body {
     height: 2.5rem;
     background: #374151;
     border-radius: 0.5rem;
+    color: #9ca3af;
+    text-decoration: none;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    font-size: 1rem; /* Aumenta o tamanho do ícone */
-    color: #9ca3af;
-    transition: all 0.2s ease;
 }
 
 .footer-social-link:hover {
@@ -439,11 +437,10 @@ body {
     .social-link {
         width: 2.5rem;
         height: 2.5rem;
-        font-size: 1rem; /* Ajuste para mobile */
     }
     
     .footer-social-link {
-        font-size: 0.875rem; /* Ajuste para mobile */
+        font-size: 0.75rem;
     }
 }
 
