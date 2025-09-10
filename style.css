@@ -112,6 +112,10 @@ body {
 }
 
 /* ===== HEADER E NAVEGAÇÃO ===== */
+#header {
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
 #header.scrolled {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
