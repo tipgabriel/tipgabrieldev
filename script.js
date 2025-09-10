@@ -23,18 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== HEADER E NAVEGAÇÃO =====
-function initializeHeader() {
-    const header = document.getElementById('header');
-    
-    // Detecta scroll para alterar aparência do header
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-}
+
 
 // Navegação suave para seções
 function scrollToSection(sectionId) {
