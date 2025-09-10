@@ -113,10 +113,11 @@ body {
 
 /* ===== HEADER E NAVEGAÇÃO ===== */
 #header.scrolled {
-    background: #fff
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
+
 
 .nav-link {
     color: #374151;
