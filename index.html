@@ -57,45 +57,44 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
     
-    <!-- Header de Navegação -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <!-- Logo/Marca -->
-                <div class="text-2xl font-bold text-gray-800 cursor-pointer" onclick="scrollToSection('hero')">
-                    tipgabrieldev
-                </div>
+   <!-- ===== HEADER E NAVEGAÇÃO ===== -->
+<header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+  <div class="container mx-auto flex justify-between items-center px-6 py-4">
+    <!-- Logo -->
+    <div class="text-2xl font-bold text-gray-800">
+      TipGabrielDev
+    </div>
 
-                <!-- Menu Desktop -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <button onclick="scrollToSection('hero')" class="nav-link">Início</button>
-                    <button onclick="scrollToSection('about')" class="nav-link">Sobre</button>
-                    <button onclick="scrollToSection('portfolio')" class="nav-link">Projetos</button>
-                    <button onclick="scrollToSection('contact')" class="nav-link">Contato</button>
-                </div>
+    <!-- Menu Desktop -->
+    <nav class="hidden md:flex space-x-8">
+      <button onclick="scrollToSection('hero')" class="nav-link text-gray-800 hover:text-blue-600 transition">Início</button>
+      <button onclick="scrollToSection('about')" class="nav-link text-gray-800 hover:text-blue-600 transition">Sobre</button>
+      <button onclick="scrollToSection('projects')" class="nav-link text-gray-800 hover:text-blue-600 transition">Projetos</button>
+      <button onclick="scrollToSection('contact')" class="nav-link text-gray-800 hover:text-blue-600 transition">Contato</button>
+    </nav>
 
-                <!-- Botão Menu Mobile -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-800">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
+    <!-- Botão Mobile -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-gray-800 hover:text-blue-600 focus:outline-none">
+        <!-- Ícone de hambúrguer -->
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
 
-            <!-- Menu Mobile -->
-            <div id="mobile-menu" class="md:hidden mt-4 pb-4 hidden">
-                <div class="flex flex-col space-y-4">
-                    <button onclick="scrollToSection('hero')" class="nav-link-mobile">Início</button>
-                    <button onclick="scrollToSection('about')" class="nav-link-mobile">Sobre</button>
-                    <button onclick="scrollToSection('portfolio')" class="nav-link-mobile">Projetos</button>
-                    <button onclick="scrollToSection('contact')" class="nav-link-mobile">Contato</button>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+    <nav class="flex flex-col space-y-4 px-6 py-4">
+      <button onclick="scrollToSection('hero')" class="nav-link text-gray-800 hover:text-blue-600 transition">Início</button>
+      <button onclick="scrollToSection('about')" class="nav-link text-gray-800 hover:text-blue-600 transition">Sobre</button>
+      <button onclick="scrollToSection('projects')" class="nav-link text-gray-800 hover:text-blue-600 transition">Projetos</button>
+      <button onclick="scrollToSection('contact')" class="nav-link text-gray-800 hover:text-blue-600 transition">Contato</button>
+    </nav>
+  </div>
+</header>
 
     <!-- Seção Hero com Efeito Matrix -->
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
