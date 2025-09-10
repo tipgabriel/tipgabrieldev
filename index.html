@@ -5,21 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tipgabrieldev - Desenvolvedor Front-end & Web Designer</title>
     
-    <!-- Meta tags para SEO -->
     <meta name="description" content="Gabriel - Desenvolvedor front-end especializado em React, JavaScript e web design. Criando experiências digitais modernas e funcionais.">
     <meta name="keywords" content="desenvolvedor frontend, web designer, React, JavaScript, Tailwind CSS, portfólio">
     <meta name="author" content="Gabriel - tipgabrieldev">
     
-    <!-- Open Graph para redes sociais -->
     <meta property="og:title" content="tipgabrieldev - Desenvolvedor Front-end">
     <meta property="og:description" content="Criando experiências digitais modernas e funcionais">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tipgabrieldev.com">
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tailwind Config Customizado -->
     <script>
         tailwind.config = {
             theme: {
@@ -44,29 +40,23 @@
         }
     </script>
     
-    <!-- Estilos customizados -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
 </head>
 <body class="bg-gray-50 text-gray-800">
     
-    <!-- Header de Navegação -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header id="header" class="bg-white fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
-                <!-- Logo/Marca -->
                 <div class="text-2xl font-bold text-gray-800 cursor-pointer" onclick="scrollToSection('hero')">
                     tipgabrieldev
                 </div>
 
-                <!-- Menu Desktop -->
                 <div class="hidden md:flex items-center space-x-8">
                     <button onclick="scrollToSection('hero')" class="nav-link">Início</button>
                     <button onclick="scrollToSection('about')" class="nav-link">Sobre</button>
@@ -74,7 +64,6 @@
                     <button onclick="scrollToSection('contact')" class="nav-link">Contato</button>
                 </div>
 
-                <!-- Botão Menu Mobile -->
                 <button id="mobile-menu-btn" class="md:hidden text-gray-800">
                     <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -85,7 +74,6 @@
                 </button>
             </div>
 
-            <!-- Menu Mobile -->
             <div id="mobile-menu" class="md:hidden mt-4 pb-4 hidden">
                 <div class="flex flex-col space-y-4">
                     <button onclick="scrollToSection('hero')" class="nav-link-mobile">Início</button>
@@ -97,24 +85,18 @@
         </nav>
     </header>
 
-    <!-- Seção Hero com Efeito Matrix -->
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        <!-- Canvas do efeito Matrix -->
         <canvas id="matrix-canvas" class="absolute inset-0 z-0"></canvas>
         
-        <!-- Overlay para melhorar legibilidade -->
         <div class="absolute inset-0 bg-black/30 z-10"></div>
         
-        <!-- Conteúdo principal -->
         <div class="relative z-20 text-center text-white max-w-4xl mx-auto px-4">
-            <!-- Logo placeholder - usuário substituirá pela logomarca -->
             <div class="mb-8">
                 <div class="w-24 h-24 mx-auto bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm">
                     <span class="text-2xl font-bold text-matrix-green">TGD</span>
                 </div>
             </div>
             
-            <!-- Apresentação principal -->
             <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
                 tipgabrieldev
             </h1>
@@ -123,14 +105,12 @@
                 Desenvolvedor Front-end & Web Designer
             </h2>
             
-            <!-- Mini bio do projeto -->
             <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.4s;">
                 Criando experiências digitais modernas e funcionais. 
                 Especializado em desenvolvimento front-end com foco em 
                 performance, usabilidade e design responsivo.
             </p>
             
-            <!-- Call to actions -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.6s;">
                 <button onclick="scrollToSection('portfolio')" class="btn-primary">
                     Ver Projetos
@@ -141,7 +121,6 @@
             </div>
         </div>
         
-        <!-- Indicador de scroll -->
         <button onclick="scrollToSection('about')" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white/70 hover:text-white transition-colors duration-200 animate-bounce">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -149,10 +128,8 @@
         </button>
     </section>
 
-    <!-- Seção Sobre -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-6xl">
-            <!-- Cabeçalho da seção -->
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
                     Sobre Mim
@@ -161,16 +138,14 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <!-- Foto de perfil placeholder -->
                 <div class="order-2 md:order-1">
                     <div class="w-full max-w-md mx-auto">
                         <div class="aspect-square bg-gray-200 rounded-2xl flex items-center justify-center">
-                            <span class="text-6xl">👨\u200d💻</span>
+                            <span class="text-6xl">👨‍💻</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Biografia -->
                 <div class="order-1 md:order-2">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6">
                         Gabriel - Desenvolvedor Front-end
@@ -194,7 +169,6 @@
                         </p>
                     </div>
 
-                    <!-- Links para redes sociais -->
                     <div class="mt-8">
                         <h4 class="text-lg font-semibold text-gray-800 mb-4">
                             Conecte-se comigo:
@@ -209,9 +183,7 @@
                 </div>
             </div>
 
-            <!-- Habilidades -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Desenvolvimento Front-end -->
                 <div class="skill-card">
                     <div class="text-corporate-blue mb-4 flex justify-center">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,7 +198,6 @@
                     </p>
                 </div>
 
-                <!-- Web Design -->
                 <div class="skill-card">
                     <div class="text-corporate-blue mb-4 flex justify-center">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -241,7 +212,6 @@
                     </p>
                 </div>
 
-                <!-- Design Responsivo -->
                 <div class="skill-card">
                     <div class="text-corporate-blue mb-4 flex justify-center">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -256,11 +226,10 @@
                     </p>
                 </div>
 
-                <!-- Tecnologias Web -->
                 <div class="skill-card">
                     <div class="text-corporate-blue mb-4 flex justify-center">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 019-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
                         </svg>
                     </div>
                     <h4 class="text-lg font-semibold text-gray-800 mb-3">
@@ -274,10 +243,8 @@
         </div>
     </section>
 
-    <!-- Seção Portfólio -->
     <section id="portfolio" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 max-w-7xl">
-            <!-- Cabeçalho da seção -->
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
                     Meu Portfólio
@@ -288,7 +255,6 @@
                 </p>
             </div>
 
-            <!-- Filtros de categoria -->
             <div class="flex flex-wrap justify-center gap-4 mb-12" id="portfolio-filters">
                 <button onclick="filterProjects('all')" class="filter-btn active" data-filter="all">
                     Todos
@@ -304,12 +270,9 @@
                 </button>
             </div>
 
-            <!-- Grid de projetos -->
             <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Projetos serão inseridos dinamicamente via JavaScript -->
-            </div>
+                </div>
 
-            <!-- Mensagem quando não há projetos -->
             <div id="no-projects" class="text-center py-12 hidden">
                 <p class="text-gray-500 text-lg">
                     Nenhum projeto encontrado nesta categoria.
@@ -318,10 +281,8 @@
         </div>
     </section>
 
-    <!-- Seção Contato -->
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-6xl">
-            <!-- Cabeçalho da seção -->
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
                     Entre em Contato
@@ -333,14 +294,12 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Informações de contato -->
                 <div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-8">
                         Informações de Contato
                     </h3>
                     
                     <div class="space-y-6 mb-8">
-                        <!-- Email -->
                         <div class="flex items-center space-x-4">
                             <div class="contact-icon">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -355,7 +314,6 @@
                             </div>
                         </div>
 
-                        <!-- Telefone -->
                         <div class="flex items-center space-x-4">
                             <div class="contact-icon">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -370,7 +328,6 @@
                             </div>
                         </div>
 
-                        <!-- Localização -->
                         <div class="flex items-center space-x-4">
                             <div class="contact-icon">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -385,7 +342,6 @@
                         </div>
                     </div>
 
-                    <!-- Disponibilidade -->
                     <div class="bg-gray-50 p-6 rounded-xl">
                         <h4 class="text-lg font-semibold text-gray-800 mb-3">
                             Disponibilidade
@@ -402,38 +358,32 @@
                     </div>
                 </div>
 
-                <!-- Formulário de contato -->
                 <div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-8">
                         Envie uma Mensagem
                     </h3>
 
                     <form id="contact-form" class="space-y-6">
-                        <!-- Nome -->
                         <div>
                             <label for="name" class="form-label">Nome *</label>
                             <input type="text" id="name" name="name" class="form-input" placeholder="Seu nome completo" required>
                         </div>
 
-                        <!-- Email -->
                         <div>
                             <label for="email" class="form-label">Email *</label>
                             <input type="email" id="email" name="email" class="form-input" placeholder="seu@email.com" required>
                         </div>
 
-                        <!-- Assunto -->
                         <div>
                             <label for="subject" class="form-label">Assunto</label>
                             <input type="text" id="subject" name="subject" class="form-input" placeholder="Sobre o que você gostaria de falar?">
                         </div>
 
-                        <!-- Mensagem -->
                         <div>
                             <label for="message" class="form-label">Mensagem *</label>
                             <textarea id="message" name="message" rows="5" class="form-input resize-vertical" placeholder="Descreva seu projeto ou dúvida..." required></textarea>
                         </div>
 
-                        <!-- Botão de envio -->
                         <button type="submit" id="submit-btn" class="btn-primary w-full">
                             <svg id="send-icon" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
@@ -447,12 +397,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white">
-        <!-- Seção principal do rodapé -->
         <div class="container mx-auto px-4 py-12">
             <div class="grid md:grid-cols-4 gap-8">
-                <!-- Informações principais -->
                 <div class="md:col-span-2">
                     <h3 class="text-2xl font-bold mb-4">tipgabrieldev</h3>
                     <p class="text-gray-400 mb-6 leading-relaxed">
@@ -467,7 +414,6 @@
                     </div>
                 </div>
 
-                <!-- Links de navegação -->
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Navegação</h4>
                     <ul class="space-y-2">
@@ -478,7 +424,6 @@
                     </ul>
                 </div>
 
-                <!-- Informações de contato -->
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contato</h4>
                     <div class="space-y-2 text-gray-400">
@@ -490,11 +435,9 @@
             </div>
         </div>
 
-        <!-- Barra inferior -->
         <div class="border-t border-gray-800">
             <div class="container mx-auto px-4 py-6">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <!-- Copyright -->
                     <div class="flex items-center space-x-2 text-gray-400 text-sm mb-4 md:mb-0">
                         <span>&copy; <span id="current-year"></span> tipgabrieldev.</span>
                         <span>Feito com</span>
@@ -504,12 +447,10 @@
                         <span>por Gabriel</span>
                     </div>
 
-                    <!-- Informações técnicas -->
                     <div class="text-gray-400 text-sm mb-4 md:mb-0">
                         <span>Desenvolvido com HTML, CSS, Tailwind & JavaScript</span>
                     </div>
 
-                    <!-- Botão voltar ao topo -->
                     <button onclick="scrollToTop()" class="bg-corporate-blue hover:bg-blue-700 text-white p-2 rounded-lg transition-colors duration-200" title="Voltar ao topo">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
@@ -520,7 +461,6 @@
         </div>
     </footer>
 
-    <!-- Toast para notificações -->
     <div id="toast" class="fixed top-4 right-4 z-50 hidden">
         <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-4 max-w-sm">
             <div class="flex items-start">
@@ -544,11 +484,9 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
     <script src="data.js"></script>
     <script src="script.js"></script>
 
-    <!-- JSON-LD Structured Data para SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
