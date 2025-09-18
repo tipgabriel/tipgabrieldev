@@ -278,10 +278,10 @@ function populateProjects() {
                     <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                         <button class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
                             <i data-lucide="external-link" class="h-4 w-4 mr-2"></i>
-                            Demo
+                            Explore o Website
                         </button>
                         <button class="px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200">
-                            <i data-lucide="github" class="h-4 w-4"></i>
+                            <i data-lucide="instagram" class="h-4 w-4"></i>
                         </button>
                     </div>
                 </div>
