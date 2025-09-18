@@ -16,8 +16,7 @@ const portfolioData = {
 
     skills: [
         "HTML5", "CSS3", "JavaScript", "Tailwind CSS", "JSON-LD",
-        "React", "Node.js", "MongoDB", "Git", "Responsive Design",
-        "UI/UX Design", "Performance Optimization", "SEO"
+        "Responsive Design", "UI/UX Design", "Performance Optimization", "SEO"
     ],
 
     experience: [
