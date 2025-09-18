@@ -129,10 +129,6 @@ function initializeElements() {
         menuIcon: document.getElementById('menu-icon'),
         closeIcon: document.getElementById('close-icon'),
         
-        // Matrix effect
-        matrixToggle: document.getElementById('matrix-toggle'),
-        matrixIcon: document.getElementById('matrix-icon'),
-        
         // Navigation
         viewProjectsBtn: document.getElementById('view-projects-btn'),
         navLinks: document.querySelectorAll('.nav-link, .mobile-nav-link'),
@@ -149,7 +145,11 @@ function initializeElements() {
         toastMessage: document.getElementById('toast-message'),
         
         // Header
-        header: document.getElementById('header')
+        header: document.getElementById('header'),
+        
+        // Theme icons
+        lightIcons: document.querySelectorAll('.light-icon'),
+        darkIcons: document.querySelectorAll('.dark-icon')
     };
 }
 
@@ -160,9 +160,6 @@ function setupEventListeners() {
     
     // Mobile menu
     elements.mobileMenuToggle?.addEventListener('click', toggleMobileMenu);
-    
-    // Matrix effect toggle
-    elements.matrixToggle?.addEventListener('click', toggleMatrix);
     
     // View projects button
     elements.viewProjectsBtn?.addEventListener('click', () => {
@@ -194,17 +191,41 @@ function setupEventListeners() {
 }
 
 function toggleTheme() {
-    const isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    const isLight = document.documentElement.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    
+    // Update theme icons
+    updateThemeIcons(isLight);
+    
+    // Update matrix opacity based on theme
+    if (window.matrixRain) {
+        window.matrixRain.updateOpacity(isLight ? 0.2 : 0.3);
+    }
+}
+
+function updateThemeIcons(isLight) {
+    elements.lightIcons.forEach(icon => {
+        icon.classList.toggle('hidden', !isLight);
+    });
+    elements.darkIcons.forEach(icon => {
+        icon.classList.toggle('hidden', isLight);
+    });
 }
 
 function initializeTheme() {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.classList.add('dark');
+    const isLight = savedTheme === 'light' || (!savedTheme && !prefersDark);
+    
+    if (isLight) {
+        document.documentElement.classList.add('light');
+    } else {
+        document.documentElement.classList.remove('light');
     }
+    
+    // Update theme icons
+    updateThemeIcons(isLight);
 }
 
 function toggleMobileMenu() {
@@ -225,30 +246,14 @@ function closeMobileMenu() {
     elements.closeIcon.classList.add('hidden');
 }
 
-function toggleMatrix() {
-    if (window.matrixRain) {
-        const isActive = window.matrixRain.toggle();
-        
-        // Update button icon and text
-        if (isActive) {
-            elements.matrixIcon.setAttribute('data-lucide', 'pause');
-        } else {
-            elements.matrixIcon.setAttribute('data-lucide', 'play');
-        }
-        
-        // Recreate icon
-        lucide.createIcons();
-    }
-}
-
 function setupScrollEffects() {
     window.addEventListener('scroll', () => {
         const scrolled = window.scrollY > 50;
         
         if (scrolled) {
-            elements.header.classList.add('bg-white/95', 'dark:bg-gray-900/95', 'backdrop-blur-md', 'shadow-lg');
+            elements.header.classList.add('header-bg', 'shadow-lg');
         } else {
-            elements.header.classList.remove('bg-white/95', 'dark:bg-gray-900/95', 'backdrop-blur-md', 'shadow-lg');
+            elements.header.classList.remove('header-bg', 'shadow-lg');
         }
     });
 }
@@ -264,7 +269,7 @@ function populateSkills() {
     if (!elements.skillsContainer) return;
     
     elements.skillsContainer.innerHTML = portfolioData.skills.map(skill => `
-        <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg text-sm hover:bg-blue-500 hover:text-white transition-colors duration-200 cursor-default">
+        <span class="px-3 py-2 bg-custom-tertiary text-custom-secondary rounded-lg text-sm hover:bg-blue-500 hover:text-white transition-all duration-200 cursor-default border border-gray-600">
             ${skill}
         </span>
     `).join('');
@@ -274,23 +279,23 @@ function populateExperience() {
     if (!elements.experienceContainer) return;
     
     elements.experienceContainer.innerHTML = portfolioData.experience.map(exp => `
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
+        <div class="card-bg p-6 rounded-lg shadow-lg card-hover">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                    <h3 class="text-xl font-semibold mb-1">${exp.position}</h3>
-                    <p class="text-blue-600 dark:text-blue-400 font-medium">${exp.company}</p>
+                    <h3 class="text-xl font-semibold mb-1 text-custom-primary">${exp.position}</h3>
+                    <p class="text-blue-400 font-medium">${exp.company}</p>
                 </div>
                 <div class="flex items-center mt-2 md:mt-0">
-                    <i data-lucide="calendar" class="h-4 w-4 mr-2 text-gray-500 dark:text-gray-400"></i>
-                    <span class="text-sm text-gray-500 dark:text-gray-400">${exp.period}</span>
+                    <i data-lucide="calendar" class="h-4 w-4 mr-2 text-custom-muted"></i>
+                    <span class="text-sm text-custom-muted">${exp.period}</span>
                 </div>
             </div>
-            <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+            <p class="text-custom-secondary mb-4 leading-relaxed">
                 ${exp.description}
             </p>
             <div class="flex flex-wrap gap-2">
                 ${exp.technologies.map(tech => `
-                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs border border-gray-300 dark:border-gray-600">
+                    <span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs border border-gray-600">
                         ${tech}
                     </span>
                 `).join('')}
@@ -306,7 +311,7 @@ function populateProjects() {
     if (!elements.projectsContainer) return;
     
     elements.projectsContainer.innerHTML = portfolioData.projects.map(project => `
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-200 dark:border-gray-700">
+        <div class="card-bg rounded-lg shadow-lg overflow-hidden card-hover group">
             <div class="relative overflow-hidden">
                 <img
                     src="${project.image}"
@@ -329,19 +334,19 @@ function populateProjects() {
             
             <div class="p-6">
                 <div class="flex items-center justify-between mb-3">
-                    <h3 class="text-lg font-semibold">${project.title}</h3>
-                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs border border-gray-300 dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-custom-primary">${project.title}</h3>
+                    <span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs border border-gray-600">
                         ${project.category}
                     </span>
                 </div>
                 
-                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                <p class="text-custom-muted text-sm leading-relaxed mb-4">
                     ${project.description}
                 </p>
                 
                 <div class="flex flex-wrap gap-1">
                     ${project.technologies.map(tech => `
-                        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs">
+                        <span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs">
                             ${tech}
                         </span>
                     `).join('')}
@@ -358,7 +363,7 @@ function populateTestimonials() {
     if (!elements.testimonialsContainer) return;
     
     elements.testimonialsContainer.innerHTML = portfolioData.testimonials.map(testimonial => `
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+        <div class="card-bg p-6 rounded-lg shadow-lg">
             <div class="flex items-start space-x-4">
                 <img
                     src="${testimonial.avatar}"
@@ -372,12 +377,12 @@ function populateTestimonials() {
                             <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
                         `).join('')}
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 italic mb-3">
+                    <p class="text-custom-muted italic mb-3">
                         "${testimonial.content}"
                     </p>
                     <div>
-                        <p class="font-semibold text-sm">${testimonial.name}</p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">${testimonial.role}</p>
+                        <p class="font-semibold text-sm text-custom-primary">${testimonial.name}</p>
+                        <p class="text-xs text-custom-muted">${testimonial.role}</p>
                     </div>
                 </div>
             </div>
