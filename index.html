@@ -246,27 +246,30 @@
     </header>
 
         <main class="pt-16">
-                <section id="home" class="relative flex items-center justify-center overflow-hidden py-24 md:py-32 lg:py-48">
-                        <div class="absolute inset-0 hero-gradient">
+                <section id="home" class="relative flex flex-col items-center justify-center overflow-hidden min-h-screen">
+                        <div class="absolute inset-0 bg-custom-primary">
                 <canvas id="matrix-canvas"></canvas>
                 <div class="absolute inset-0 bg-gradient-to-t from-custom-primary/20 to-transparent"></div>
             </div>
 
-                        <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 md:py-32">
                 <div class="max-w-4xl mx-auto space-y-4 md:space-y-6">
                     <div class="space-y-2 md:space-y-4">
-<svg class="w-full h-auto" viewBox="0 0 1500 150">
-    <defs>
-        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
-            <stop offset="50%" style="stop-color:rgb(168,85,247);stop-opacity:1" />
-            <stop offset="100%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
-        </linearGradient>
-    </defs>
-    <text x="50%" y="100" font-size="100" font-weight="bold" fill="url(#textGradient)" text-anchor="middle">
-        UI E UX Design com o TIP
-    </text>
-</svg>
+                        <svg class="w-full h-auto" viewBox="0 0 1500 150">
+                            <defs>
+                                <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:rgb(168,85,247);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <text x="50%" y="100" font-size="100" font-weight="bold" fill="url(#textGradient)" text-anchor="middle">
+                                UI E UX Design com o TIP
+                            </text>
+                        </svg>
+                        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-custom-primary">
+                            Desenvolvedor Full Stack
+                        </h1>
                         <p class="text-lg md:text-xl text-custom-secondary font-mono">
                             Coloque um TIP de performance e design no seu projeto
                         </p>
