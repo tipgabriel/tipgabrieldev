@@ -16,7 +16,7 @@ const portfolioData = {
 
     skills: [
         "HTML5", "CSS3", "JavaScript", "Tailwind CSS", "JSON-LD",
-        "Responsive Design", "UI/UX Design", "Performance Optimization", "SEO"
+        "Design Responsivo", "UI/UX Design", "Otimização e Perfomance", "SEO"
     ],
 
     experience: [
@@ -24,7 +24,7 @@ const portfolioData = {
             id: 1,
             position: "Desenvolvedor Frontend",
             company: "Projetos Independentes",
-            period: "2021 - 2022",
+            period: "2020 - Presente",
             description: "Criação de interfaces modernas e funcionais, focando em experiência do usuário e design responsivo. Desenvolvimento de identidades visuais e branding.",
             technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "Design"]
         }
