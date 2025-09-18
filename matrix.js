@@ -3,11 +3,11 @@ class MatrixRain {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
         if (!this.canvas) {
-            console.error(\'Matrix canvas not found\');
+            console.error('Matrix canvas not found');
             return;
         }
         
-        this.ctx = this.canvas.getContext(\'2d\');
+        this.ctx = this.canvas.getContext('2d');
         this.animationFrame = null;
         
         // Matrix characters (including some that look like Japanese/Chinese)
@@ -21,7 +21,7 @@ class MatrixRain {
         this.start();
         
         // Handle resize
-        window.addEventListener(\'resize\', () => {
+        window.addEventListener('resize', () => {
             this.setupCanvas();
             this.setupDrops();
         });
@@ -39,13 +39,13 @@ class MatrixRain {
         this.ctx.scale(devicePixelRatio, devicePixelRatio);
         
         // Scale back down using CSS
-        this.canvas.style.width = rect.width + \'px\';
-        this.canvas.style.height = rect.height + \'px\';
+        this.canvas.style.width = rect.width + 'px';
+        this.canvas.style.height = rect.height + 'px';
         
         this.width = rect.width;
         this.height = rect.height;
         
-        console.log(\'Matrix canvas setup:\', this.width, \'x\', this.height);
+        console.log('Matrix canvas setup:', this.width, 'x', this.height);
     }
     
     setupDrops() {
@@ -60,28 +60,28 @@ class MatrixRain {
             this.drops[i] = Math.random() * -100;
         }
         
-        console.log(\'Matrix drops setup:\', this.columns, \'columns\');
+        console.log('Matrix drops setup:', this.columns, 'columns');
     }
     
     draw() {
         // Create fade effect with semi-transparent background
         // Darker fade for better visibility of blue characters
-        this.ctx.fillStyle = \'rgba(1, 1, 1, 0.08)\';
+        this.ctx.fillStyle = 'rgba(1, 1, 1, 0.08)';
         this.ctx.fillRect(0, 0, this.width, this.height);
         
         // Set font
-        this.ctx.font = `${this.fontSize}px \'Courier New\', monospace`;
+        this.ctx.font = `${this.fontSize}px 'Courier New', monospace`;
         
         // Matrix colors - emphasis on bright blues for visibility
         const colors = [
-            \'#00ffff\',  // Cyan - bright
-            \'#00bfff\',  // Deep sky blue
-            \'#0080ff\',  // Blue
-            \'#00a3ff\',  // Light blue
-            \'#1e90ff\',  // Dodger blue
-            \'#4169e1\',  // Royal blue
-            \'#0066ff\',  // Blue
-            \'#00ced1\'   // Dark turquoise
+            '#00ffff',  // Cyan - bright
+            '#00bfff',  // Deep sky blue
+            '#0080ff',  // Blue
+            '#00a3ff',  // Light blue
+            '#1e90ff',  // Dodger blue
+            '#4169e1',  // Royal blue
+            '#0066ff',  // Blue
+            '#00ced1'   // Dark turquoise
         ];
         
         // Draw the characters
@@ -124,7 +124,7 @@ class MatrixRain {
     }
     
     start() {
-        console.log(\'Starting Matrix animation\');
+        console.log('Starting Matrix animation');
         this.draw();
     }
     
@@ -138,11 +138,11 @@ class MatrixRain {
 }
 
 // Initialize Matrix Rain when DOM is loaded
-document.addEventListener(\'DOMContentLoaded\', function() {
-    console.log(\'DOM loaded, initializing Matrix Rain\');
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing Matrix Rain');
     
     // Wait a bit for canvas to be properly rendered
     setTimeout(() => {
-        window.matrixRain = new MatrixRain(\'matrix-canvas\');
+        window.matrixRain = new MatrixRain('matrix-canvas');
     }, 100);
 });
