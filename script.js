@@ -2,15 +2,15 @@
 const portfolioData = {
     personal: {
         name: "TipGabrielDev",
-        title: "Desenvolvedor Full Stack",
-        bio: "Desenvolvedor apaixonado por tecnologia e inovação, especializado em criar soluções web modernas e funcionais. Com experiência em desenvolvimento frontend e backend, sempre busco entregar projetos de alta qualidade que superem as expectativas dos clientes.",
+        title: "Desenvolvedor Front-end",
+        bio: "Desenvolvedor apaixonado por tecnologia e inovação, especializado em criar soluções web modernas e funcionais. Café, código e criatividade: crio interfaces que funcionam e fazem sentido.",
         location: "Brasil",
-        email: "contato@tipgabrieldev.com",
-        phone: "+55 (11) 99999-9999"
+        email: "tipgabrieldev@proton.me",
+        phone: "+55 (31) 98204-2552"
     },
 
     social: {
-        github: "https://github.com/tipgabrieldev",
+        github: "https://github.com/tipgabriel",
         instagram: "https://instagram.com/tipgabrieldev"
     },
 
@@ -22,11 +22,11 @@ const portfolioData = {
     experience: [
         {
             id: 1,
-            position: "Desenvolvedor Frontend",
+            position: "Desenvolvedor Front-end",
             company: "Projetos Independentes",
             period: "2020 - Presente",
             description: "Criação de interfaces modernas e funcionais, focando em experiência do usuário e design responsivo. Desenvolvimento de identidades visuais e branding.",
-            technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "Design"]
+            technologies: ["HTML5", "CSS3", "Tailwind", "JavaScript", "JSON-LD", "Design", "Canva"]
         }
     ],
 
@@ -35,29 +35,29 @@ const portfolioData = {
             id: 1,
             title: "MeltrançasBH",
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
-            technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "JSON-LD"],
+            technologies: ["HTML5", "CSS3", "Tailwind", "JavaScript", "JSON-LD"],
             image: "meltrancasbh.png",
-            link: "https://studiomel.vercel.app/index.html", // placeholder para o usuário preencher
+            link: "https://studiomel.vercel.app/", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/studiomel/", // placeholder para o usuário preencher
             category: "Website Comercial",
             featured: true
         },
         {
             id: 2,
-            title: "Logo Barbearia André",
+            title: "Barbearia André",
             description: "Desenvolvimento de identidade visual completa para barbearia, incluindo logotipo, paleta de cores e aplicações em diversos materiais.",
-            technologies: ["Design", "Branding", "CSS", "HTML"],
+            technologies: ["Design", "Branding"],
             image: "barbearia-andre.png",
             link: "https://www.instagram.com/barbeariandreoficial032013/", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/barbeariandreoficial032013/",
-            category: "Branding & Design",
+            category: "Logo",
             featured: true
         },
         {
             id: 3,
             title: "HQ Azul Estelar e Verde Neon",
             description: "Website interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
-            technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "JSON-LD"],
+            technologies: ["HTML5", "CSS3", "Tailwind", "JavaScript", "JSON-LD"],
             image: "https://via.placeholder.com/600x400/06b6d4/ffffff?text=HQ+Azul+Estelar",
             link: "", // placeholder para o usuário preencher
             github: "",
@@ -69,17 +69,17 @@ const portfolioData = {
     testimonials: [
         {
             id: 1,
-            name: "Cliente Studiomel",
+            name: "Studiomel",
             role: "Proprietária do Estúdio",
             content: "O TipGabrielDev criou um site incrível que representa perfeitamente nosso trabalho. O design é moderno e funcional!",
-            avatar: "https://via.placeholder.com/60x60/6366f1/ffffff?text=M"
+            avatar: "mel.jpg"
         },
         {
             id: 2,
             name: "André Silva",
             role: "Barbearia André",
             content: "A identidade visual ficou perfeita! Conseguiu capturar exatamente o que eu imaginava para minha barbearia.",
-            avatar: "https://via.placeholder.com/60x60/8b5cf6/ffffff?text=A"
+            avatar: "barbearia-andre.png"
         }
     ]
 };
