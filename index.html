@@ -45,8 +45,8 @@
             --primary-purple: #8b5cf6;
             --matrix-blue: #00bfff;
             --bg-primary: #010101;
-            --bg-secondary: #0a0a0a;
-            --bg-tertiary: #1a1a1a;
+            --bg-secondary: #212121;
+            --bg-tertiary: #2a2a2a;
             --text-primary: #ffffff;
             --text-secondary: #e5e5e5;
             --text-muted: #a1a1a1;
@@ -71,10 +71,10 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.3;
+            opacity: 0.7;
         }
         
-        /* Custom colors for dark theme */
+        /* Custom colors for consistent dark theme */
         .bg-custom-primary { background-color: var(--bg-primary); }
         .bg-custom-secondary { background-color: var(--bg-secondary); }
         .bg-custom-tertiary { background-color: var(--bg-tertiary); }
@@ -82,24 +82,15 @@
         .text-custom-secondary { color: var(--text-secondary); }
         .text-custom-muted { color: var(--text-muted); }
         
-        /* Light theme overrides */
-        .light {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --bg-tertiary: #e9ecef;
-            --text-primary: #212529;
-            --text-secondary: #495057;
-            --text-muted: #6c757d;
+        /* White highlight sections */
+        .bg-white-section {
+            background-color: #ffffff;
+            color: #010101;
         }
         
-        .light body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-        }
-        
-        .light #matrix-canvas {
-            opacity: 0.2;
-        }
+        .bg-white-section .text-custom-primary { color: #010101; }
+        .bg-white-section .text-custom-secondary { color: #212121; }
+        .bg-white-section .text-custom-muted { color: #666666; }
         
         /* Header styles */
         .header-bg {
@@ -107,19 +98,10 @@
             backdrop-filter: blur(10px);
         }
         
-        .light .header-bg {
-            background-color: rgba(255, 255, 255, 0.95);
-        }
-        
         /* Card styles */
         .card-bg {
             background-color: var(--bg-secondary);
             border: 1px solid var(--bg-tertiary);
-        }
-        
-        .light .card-bg {
-            background-color: var(--bg-secondary);
-            border: 1px solid #dee2e6;
         }
         
         /* Input styles */
@@ -133,14 +115,10 @@
             color: var(--text-muted);
         }
         
-        .light .input-bg {
-            background-color: var(--bg-primary);
-            border: 1px solid #ced4da;
-            color: var(--text-primary);
-        }
-        
-        .light .input-bg::placeholder {
-            color: var(--text-muted);
+        .input-bg:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
         }
         
         /* Custom scrollbar */
@@ -201,8 +179,16 @@
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #001122 100%);
         }
         
-        .light .hero-gradient {
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #e3f2fd 100%);
+        /* Skills badges for white section */
+        .skill-badge-white {
+            background-color: #f0f0f0;
+            color: #010101;
+            border: 1px solid #ddd;
+        }
+        
+        .skill-badge-white:hover {
+            background-color: var(--primary-blue);
+            color: #ffffff;
         }
     </style>
 </head>
@@ -239,20 +225,10 @@
                     <a href="#contact" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
                         Contato
                     </a>
-                    
-                    <!-- Theme Toggle -->
-                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
-                        <i data-lucide="sun" class="h-4 w-4 hidden light-icon"></i>
-                        <i data-lucide="moon" class="h-4 w-4 dark-icon"></i>
-                    </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center space-x-2">
-                    <button id="theme-toggle-mobile" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
-                        <i data-lucide="sun" class="h-4 w-4 hidden light-icon"></i>
-                        <i data-lucide="moon" class="h-4 w-4 dark-icon"></i>
-                    </button>
+                <div class="md:hidden">
                     <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
                         <i data-lucide="menu" class="h-6 w-6 block" id="menu-icon"></i>
                         <i data-lucide="x" class="h-6 w-6 hidden" id="close-icon"></i>
@@ -325,40 +301,40 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20 bg-custom-secondary">
+        <section id="about" class="py-20 bg-white-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Sobre Mim</h2>
-                        <p class="text-lg text-custom-muted">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #010101;">Sobre Mim</h2>
+                        <p class="text-lg" style="color: #666666;">
                             Conheça um pouco da minha jornada e paixão pela tecnologia
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div class="space-y-6">
-                            <p class="text-custom-secondary leading-relaxed">
+                            <p class="leading-relaxed" style="color: #212121;">
                                 Desenvolvedor apaixonado por tecnologia e inovação, especializado em criar soluções web modernas e funcionais. Com experiência em desenvolvimento frontend e backend, sempre busco entregar projetos de alta qualidade que superem as expectativas dos clientes.
                             </p>
                             
                             <div class="space-y-4">
                                 <div class="flex items-center space-x-2">
                                     <i data-lucide="map-pin" class="h-4 w-4 text-blue-500"></i>
-                                    <span class="text-sm text-custom-secondary">Brasil</span>
+                                    <span class="text-sm" style="color: #212121;">Brasil</span>
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <i data-lucide="mail" class="h-4 w-4 text-blue-500"></i>
-                                    <span class="text-sm text-custom-secondary">contato@tipgabrieldev.com</span>
+                                    <span class="text-sm" style="color: #212121;">contato@tipgabrieldev.com</span>
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <i data-lucide="phone" class="h-4 w-4 text-blue-500"></i>
-                                    <span class="text-sm text-custom-secondary">+55 (11) 99999-9999</span>
+                                    <span class="text-sm" style="color: #212121;">+55 (11) 99999-9999</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="space-y-6">
-                            <h3 class="text-xl font-semibold mb-4 text-custom-primary">Habilidades Técnicas</h3>
+                            <h3 class="text-xl font-semibold mb-4" style="color: #010101;">Habilidades Técnicas</h3>
                             <div id="skills-container" class="flex flex-wrap gap-2">
                                 <!-- Skills will be populated by JavaScript -->
                             </div>
@@ -562,7 +538,7 @@
 
             <div class="border-t border-custom-secondary mt-8 pt-8 text-center">
                 <p class="text-custom-muted text-sm">
-                    © 2024 TipGabrielDev. Todos os direitos reservados.
+                    © <span id="current-year"></span> TipGabrielDev. Todos os direitos reservados.
                 </p>
             </div>
         </div>
