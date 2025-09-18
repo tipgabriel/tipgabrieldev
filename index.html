@@ -44,10 +44,18 @@
             --primary-blue: #3b82f6;
             --primary-purple: #8b5cf6;
             --matrix-blue: #00bfff;
+            --bg-primary: #010101;
+            --bg-secondary: #0a0a0a;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #e5e5e5;
+            --text-muted: #a1a1a1;
         }
         
         body {
             font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
         }
         
         .font-mono {
@@ -63,6 +71,76 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
+            opacity: 0.3;
+        }
+        
+        /* Custom colors for dark theme */
+        .bg-custom-primary { background-color: var(--bg-primary); }
+        .bg-custom-secondary { background-color: var(--bg-secondary); }
+        .bg-custom-tertiary { background-color: var(--bg-tertiary); }
+        .text-custom-primary { color: var(--text-primary); }
+        .text-custom-secondary { color: var(--text-secondary); }
+        .text-custom-muted { color: var(--text-muted); }
+        
+        /* Light theme overrides */
+        .light {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e9ecef;
+            --text-primary: #212529;
+            --text-secondary: #495057;
+            --text-muted: #6c757d;
+        }
+        
+        .light body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        
+        .light #matrix-canvas {
+            opacity: 0.2;
+        }
+        
+        /* Header styles */
+        .header-bg {
+            background-color: rgba(1, 1, 1, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .light .header-bg {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        /* Card styles */
+        .card-bg {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+        }
+        
+        .light .card-bg {
+            background-color: var(--bg-secondary);
+            border: 1px solid #dee2e6;
+        }
+        
+        /* Input styles */
+        .input-bg {
+            background-color: var(--bg-tertiary);
+            border: 1px solid #333333;
+            color: var(--text-primary);
+        }
+        
+        .input-bg::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .light .input-bg {
+            background-color: var(--bg-primary);
+            border: 1px solid #ced4da;
+            color: var(--text-primary);
+        }
+        
+        .light .input-bg::placeholder {
+            color: var(--text-muted);
         }
         
         /* Custom scrollbar */
@@ -71,7 +149,7 @@
         }
         
         ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.1);
+            background: var(--bg-secondary);
         }
         
         ::-webkit-scrollbar-thumb {
@@ -83,9 +161,52 @@
         html {
             scroll-behavior: smooth;
         }
+        
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+        }
+        
+        /* Button hover effects */
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+        }
+        
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+        }
+        
+        /* Navigation hover effects */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero section gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #001122 100%);
+        }
+        
+        .light .hero-gradient {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #e3f2fd 100%);
+        }
     </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+<body class="transition-colors duration-300">
     <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,41 +224,36 @@
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors duration-200 group">
+                    <a href="#home" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
                         Início
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-200 group-hover:w-full"></span>
                     </a>
-                    <a href="#about" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors duration-200 group">
+                    <a href="#about" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
                         Sobre
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-200 group-hover:w-full"></span>
                     </a>
-                    <a href="#experience" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors duration-200 group">
+                    <a href="#experience" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
                         Experiência
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-200 group-hover:w-full"></span>
                     </a>
-                    <a href="#projects" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors duration-200 group">
+                    <a href="#projects" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
                         Projetos
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-200 group-hover:w-full"></span>
                     </a>
-                    <a href="#contact" class="nav-link relative text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors duration-200 group">
+                    <a href="#contact" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
                         Contato
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-200 group-hover:w-full"></span>
                     </a>
                     
                     <!-- Theme Toggle -->
-                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
-                        <i data-lucide="sun" class="h-4 w-4 hidden dark:block"></i>
-                        <i data-lucide="moon" class="h-4 w-4 block dark:hidden"></i>
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
+                        <i data-lucide="sun" class="h-4 w-4 hidden light-icon"></i>
+                        <i data-lucide="moon" class="h-4 w-4 dark-icon"></i>
                     </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center space-x-2">
-                    <button id="theme-toggle-mobile" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
-                        <i data-lucide="sun" class="h-4 w-4 hidden dark:block"></i>
-                        <i data-lucide="moon" class="h-4 w-4 block dark:hidden"></i>
+                    <button id="theme-toggle-mobile" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
+                        <i data-lucide="sun" class="h-4 w-4 hidden light-icon"></i>
+                        <i data-lucide="moon" class="h-4 w-4 dark-icon"></i>
                     </button>
-                    <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
+                    <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
                         <i data-lucide="menu" class="h-6 w-6 block" id="menu-icon"></i>
                         <i data-lucide="x" class="h-6 w-6 hidden" id="close-icon"></i>
                     </button>
@@ -145,13 +261,13 @@
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 right-0 bg-white dark:bg-gray-900 border-t shadow-lg">
+            <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 right-0 card-bg border-t shadow-lg">
                 <div class="px-4 py-6 space-y-4">
-                    <a href="#home" class="mobile-nav-link block text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors duration-200 py-2">Início</a>
-                    <a href="#about" class="mobile-nav-link block text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors duration-200 py-2">Sobre</a>
-                    <a href="#experience" class="mobile-nav-link block text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors duration-200 py-2">Experiência</a>
-                    <a href="#projects" class="mobile-nav-link block text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors duration-200 py-2">Projetos</a>
-                    <a href="#contact" class="mobile-nav-link block text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors duration-200 py-2">Contato</a>
+                    <a href="#home" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Início</a>
+                    <a href="#about" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Sobre</a>
+                    <a href="#experience" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Experiência</a>
+                    <a href="#projects" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Projetos</a>
+                    <a href="#contact" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Contato</a>
                 </div>
             </div>
         </nav>
@@ -162,9 +278,9 @@
         <!-- Hero Section -->
         <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
             <!-- Matrix Rain Background -->
-            <div class="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-blue-50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950">
+            <div class="absolute inset-0 hero-gradient">
                 <canvas id="matrix-canvas"></canvas>
-                <div class="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent dark:from-gray-900/20"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-custom-primary/20 to-transparent"></div>
             </div>
 
             <!-- Hero Content -->
@@ -174,33 +290,28 @@
                         <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 bg-clip-text text-transparent animate-pulse">
                             TipGabrielDev
                         </h1>
-                        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-mono">
+                        <p class="text-xl md:text-2xl text-custom-secondary font-mono">
                             Desenvolvedor Full Stack
                         </p>
                     </div>
 
-                    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                    <p class="text-lg md:text-xl text-custom-muted max-w-2xl mx-auto leading-relaxed">
                         Desenvolvedor apaixonado por tecnologia e inovação, especializado em criar soluções web modernas e funcionais. Com experiência em desenvolvimento frontend e backend, sempre busco entregar projetos de alta qualidade que superem as expectativas dos clientes.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <button id="view-projects-btn" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center">
+                    <div class="flex justify-center">
+                        <button id="view-projects-btn" class="px-8 py-3 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center">
                             Ver Projetos
                             <i data-lucide="chevron-down" class="ml-2 h-4 w-4"></i>
-                        </button>
-                        
-                        <button id="matrix-toggle" class="px-8 py-3 border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white rounded-lg font-semibold transition-all duration-200 flex items-center">
-                            <i data-lucide="pause" class="mr-2 h-4 w-4" id="matrix-icon"></i>
-                            Matrix Effect
                         </button>
                     </div>
 
                     <!-- Social Links -->
                     <div class="flex justify-center space-x-6 pt-8">
-                        <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition-all duration-200 hover:scale-110">
+                        <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-all duration-200 hover:scale-110">
                             <i data-lucide="github" class="h-6 w-6"></i>
                         </a>
-                        <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-purple-500 transition-all duration-200 hover:scale-110">
+                        <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-purple-500 transition-all duration-200 hover:scale-110">
                             <i data-lucide="instagram" class="h-6 w-6"></i>
                         </a>
                     </div>
@@ -209,45 +320,45 @@
 
             <!-- Scroll Indicator -->
             <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <i data-lucide="chevron-down" class="h-6 w-6 text-gray-500 dark:text-gray-400"></i>
+                <i data-lucide="chevron-down" class="h-6 w-6 text-custom-muted"></i>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+        <section id="about" class="py-20 bg-custom-secondary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Sobre Mim</h2>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Sobre Mim</h2>
+                        <p class="text-lg text-custom-muted">
                             Conheça um pouco da minha jornada e paixão pela tecnologia
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div class="space-y-6">
-                            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            <p class="text-custom-secondary leading-relaxed">
                                 Desenvolvedor apaixonado por tecnologia e inovação, especializado em criar soluções web modernas e funcionais. Com experiência em desenvolvimento frontend e backend, sempre busco entregar projetos de alta qualidade que superem as expectativas dos clientes.
                             </p>
                             
                             <div class="space-y-4">
                                 <div class="flex items-center space-x-2">
                                     <i data-lucide="map-pin" class="h-4 w-4 text-blue-500"></i>
-                                    <span class="text-sm">Brasil</span>
+                                    <span class="text-sm text-custom-secondary">Brasil</span>
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <i data-lucide="mail" class="h-4 w-4 text-blue-500"></i>
-                                    <span class="text-sm">contato@tipgabrieldev.com</span>
+                                    <span class="text-sm text-custom-secondary">contato@tipgabrieldev.com</span>
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <i data-lucide="phone" class="h-4 w-4 text-blue-500"></i>
-                                    <span class="text-sm">+55 (11) 99999-9999</span>
+                                    <span class="text-sm text-custom-secondary">+55 (11) 99999-9999</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="space-y-6">
-                            <h3 class="text-xl font-semibold mb-4">Habilidades Técnicas</h3>
+                            <h3 class="text-xl font-semibold mb-4 text-custom-primary">Habilidades Técnicas</h3>
                             <div id="skills-container" class="flex flex-wrap gap-2">
                                 <!-- Skills will be populated by JavaScript -->
                             </div>
@@ -258,12 +369,12 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-20">
+        <section id="experience" class="py-20 bg-custom-primary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Experiência Profissional</h2>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Experiência Profissional</h2>
+                        <p class="text-lg text-custom-muted">
                             Minha trajetória no desenvolvimento web
                         </p>
                     </div>
@@ -276,12 +387,12 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+        <section id="projects" class="py-20 bg-custom-secondary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Projetos em Destaque</h2>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Projetos em Destaque</h2>
+                        <p class="text-lg text-custom-muted">
                             Alguns dos trabalhos que desenvolvi recentemente
                         </p>
                     </div>
@@ -294,12 +405,12 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section class="py-20">
+        <section class="py-20 bg-custom-primary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Depoimentos</h2>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Depoimentos</h2>
+                        <p class="text-lg text-custom-muted">
                             O que meus clientes dizem sobre meu trabalho
                         </p>
                     </div>
@@ -312,12 +423,12 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+        <section id="contact" class="py-20 bg-custom-secondary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Entre em Contato</h2>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Entre em Contato</h2>
+                        <p class="text-lg text-custom-muted">
                             Tem um projeto em mente? Vamos conversar!
                         </p>
                     </div>
@@ -326,31 +437,31 @@
                         <!-- Contact Info -->
                         <div class="space-y-8">
                             <div>
-                                <h3 class="text-xl font-semibold mb-6">Informações de Contato</h3>
+                                <h3 class="text-xl font-semibold mb-6 text-custom-primary">Informações de Contato</h3>
                                 <div class="space-y-4">
                                     <div class="flex items-center space-x-3">
                                         <i data-lucide="mail" class="h-5 w-5 text-blue-500"></i>
-                                        <span>contato@tipgabrieldev.com</span>
+                                        <span class="text-custom-secondary">contato@tipgabrieldev.com</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
                                         <i data-lucide="phone" class="h-5 w-5 text-blue-500"></i>
-                                        <span>+55 (11) 99999-9999</span>
+                                        <span class="text-custom-secondary">+55 (11) 99999-9999</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
                                         <i data-lucide="map-pin" class="h-5 w-5 text-blue-500"></i>
-                                        <span>Brasil</span>
+                                        <span class="text-custom-secondary">Brasil</span>
                                     </div>
                                 </div>
                             </div>
 
                             <div>
-                                <h3 class="text-xl font-semibold mb-6">Redes Sociais</h3>
+                                <h3 class="text-xl font-semibold mb-6 text-custom-primary">Redes Sociais</h3>
                                 <div class="flex space-x-4">
-                                    <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-200">
+                                    <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-blue-500 transition-colors duration-200">
                                         <i data-lucide="github" class="h-5 w-5"></i>
                                         <span>GitHub</span>
                                     </a>
-                                    <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-purple-500 transition-colors duration-200">
+                                    <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-purple-500 transition-colors duration-200">
                                         <i data-lucide="instagram" class="h-5 w-5"></i>
                                         <span>Instagram</span>
                                     </a>
@@ -359,7 +470,7 @@
                         </div>
 
                         <!-- Contact Form -->
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <div class="card-bg p-6 rounded-lg shadow-lg">
                             <form id="contact-form" class="space-y-6">
                                 <div>
                                     <input 
@@ -367,7 +478,7 @@
                                         name="name" 
                                         placeholder="Seu nome" 
                                         required
-                                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                                     >
                                 </div>
                                 <div>
@@ -376,7 +487,7 @@
                                         name="email" 
                                         placeholder="Seu email" 
                                         required
-                                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                                     >
                                 </div>
                                 <div>
@@ -385,12 +496,12 @@
                                         placeholder="Sua mensagem" 
                                         required
                                         rows="4"
-                                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none"
+                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
                                     ></textarea>
                                 </div>
                                 <button 
                                     type="submit"
-                                    class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
+                                    class="w-full px-6 py-3 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
                                 >
                                     <i data-lucide="mail" class="mr-2 h-4 w-4"></i>
                                     Enviar Mensagem
@@ -404,7 +515,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 dark:bg-gray-800 border-t dark:border-gray-700">
+    <footer class="bg-custom-tertiary border-t border-custom-secondary">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Logo e descrição -->
@@ -418,39 +529,39 @@
                             TipGabrielDev
                         </span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                    <p class="text-custom-muted text-sm">
                         Desenvolvedor Full Stack especializado em criar soluções web modernas e funcionais.
                     </p>
                 </div>
 
                 <!-- Links rápidos -->
                 <div class="space-y-4">
-                    <h3 class="font-semibold text-gray-900 dark:text-white">Links Rápidos</h3>
+                    <h3 class="font-semibold text-custom-primary">Links Rápidos</h3>
                     <div class="space-y-2">
-                        <a href="#home" class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-200 text-sm">Início</a>
-                        <a href="#about" class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-200 text-sm">Sobre</a>
-                        <a href="#experience" class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-200 text-sm">Experiência</a>
-                        <a href="#projects" class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-200 text-sm">Projetos</a>
-                        <a href="#contact" class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-200 text-sm">Contato</a>
+                        <a href="#home" class="block text-custom-muted hover:text-blue-500 transition-colors duration-200 text-sm">Início</a>
+                        <a href="#about" class="block text-custom-muted hover:text-blue-500 transition-colors duration-200 text-sm">Sobre</a>
+                        <a href="#experience" class="block text-custom-muted hover:text-blue-500 transition-colors duration-200 text-sm">Experiência</a>
+                        <a href="#projects" class="block text-custom-muted hover:text-blue-500 transition-colors duration-200 text-sm">Projetos</a>
+                        <a href="#contact" class="block text-custom-muted hover:text-blue-500 transition-colors duration-200 text-sm">Contato</a>
                     </div>
                 </div>
 
                 <!-- Redes sociais -->
                 <div class="space-y-4">
-                    <h3 class="font-semibold text-gray-900 dark:text-white">Conecte-se</h3>
+                    <h3 class="font-semibold text-custom-primary">Conecte-se</h3>
                     <div class="flex space-x-4">
-                        <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-200">
+                        <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-colors duration-200">
                             <i data-lucide="github" class="h-5 w-5"></i>
                         </a>
-                        <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-purple-500 transition-colors duration-200">
+                        <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-purple-500 transition-colors duration-200">
                             <i data-lucide="instagram" class="h-5 w-5"></i>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="border-t dark:border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-600 dark:text-gray-400 text-sm">
+            <div class="border-t border-custom-secondary mt-8 pt-8 text-center">
+                <p class="text-custom-muted text-sm">
                     © 2024 TipGabrielDev. Todos os direitos reservados.
                 </p>
             </div>
