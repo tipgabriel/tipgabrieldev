@@ -22,14 +22,6 @@ const portfolioData = {
     experience: [
         {
             id: 1,
-            position: "Desenvolvedor Full Stack Freelancer",
-            company: "TipGabrielDev Studio",
-            period: "2022 - Presente",
-            description: "Desenvolvimento de websites e aplicações web personalizadas para diversos clientes. Especializado em soluções responsivas e otimizadas para performance.",
-            technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "React", "Node.js"]
-        },
-        {
-            id: 2,
             position: "Desenvolvedor Frontend",
             company: "Projetos Independentes",
             period: "2021 - 2022",
@@ -44,9 +36,9 @@ const portfolioData = {
             title: "MeltrançasBH",
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
             technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "JSON-LD"],
-            image: "https://via.placeholder.com/600x400/6366f1/ffffff?text=MeltrançasBH",
-            link: "", // placeholder para o usuário preencher
-            github: "", // placeholder para o usuário preencher
+            image: "meltrancasbh.png",
+            link: "https://meltrancasbh.vercel.app/#", // placeholder para o usuário preencher
+            Instagram: "https://www.instagram.com/meltrancasbh/", // placeholder para o usuário preencher
             category: "Website Comercial",
             featured: true
         },
@@ -55,9 +47,9 @@ const portfolioData = {
             title: "Logo Barbearia André",
             description: "Desenvolvimento de identidade visual completa para barbearia, incluindo logotipo, paleta de cores e aplicações em diversos materiais.",
             technologies: ["Design", "Branding", "CSS", "HTML"],
-            image: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Barbearia+André",
-            link: "", // placeholder para o usuário preencher
-            github: "",
+            image: "barbearia-andre.png",
+            link: "https://www.instagram.com/barbeariandreoficial032013/", // placeholder para o usuário preencher
+            Instagram: "https://www.instagram.com/barbeariandreoficial032013/",
             category: "Branding & Design",
             featured: true
         },
