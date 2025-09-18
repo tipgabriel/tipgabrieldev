@@ -1,13 +1,19 @@
-// Matrix Rain Effect - Continuous Animation
+// Matrix Rain Effect - Continuous Animation with Slower Speed
 class MatrixRain {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
-        this.ctx = this.canvas.getContext('2d');
+        if (!this.canvas) {
+            console.error(\'Matrix canvas not found\');
+            return;
+        }
+        
+        this.ctx = this.canvas.getContext(\'2d\');
         this.animationFrame = null;
         
         // Matrix characters (including some that look like Japanese/Chinese)
-        this.chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?";
-        this.fontSize = 16;
+        this.chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ";
+        this.fontSize = 14;
+        this.dropSpeed = 0.3; // Slower speed
         
         // Initialize
         this.setupCanvas();
@@ -15,7 +21,7 @@ class MatrixRain {
         this.start();
         
         // Handle resize
-        window.addEventListener('resize', () => {
+        window.addEventListener(\'resize\', () => {
             this.setupCanvas();
             this.setupDrops();
         });
@@ -33,11 +39,13 @@ class MatrixRain {
         this.ctx.scale(devicePixelRatio, devicePixelRatio);
         
         // Scale back down using CSS
-        this.canvas.style.width = rect.width + 'px';
-        this.canvas.style.height = rect.height + 'px';
+        this.canvas.style.width = rect.width + \'px\';
+        this.canvas.style.height = rect.height + \'px\';
         
         this.width = rect.width;
         this.height = rect.height;
+        
+        console.log(\'Matrix canvas setup:\', this.width, \'x\', this.height);
     }
     
     setupDrops() {
@@ -51,27 +59,29 @@ class MatrixRain {
         for (let i = 0; i < this.columns; i++) {
             this.drops[i] = Math.random() * -100;
         }
+        
+        console.log(\'Matrix drops setup:\', this.columns, \'columns\');
     }
     
     draw() {
-        // Create fade effect with semi-transparent black background
-        // This creates the trailing effect - reduced opacity for subtlety
-        this.ctx.fillStyle = 'rgba(1, 1, 1, 0.03)';
+        // Create fade effect with semi-transparent background
+        // Darker fade for better visibility of blue characters
+        this.ctx.fillStyle = \'rgba(1, 1, 1, 0.08)\';
         this.ctx.fillRect(0, 0, this.width, this.height);
         
         // Set font
-        this.ctx.font = `${this.fontSize}px 'Courier New', monospace`;
+        this.ctx.font = `${this.fontSize}px \'Courier New\', monospace`;
         
-        // Matrix colors - different shades of blue/cyan for theme consistency
+        // Matrix colors - emphasis on bright blues for visibility
         const colors = [
-            '#00bfff',  // Deep sky blue
-            '#0080ff',  // Blue
-            '#00a3ff',  // Light blue
-            '#00d4ff',  // Cyan
-            '#4da6ff',  // Lighter blue
-            '#0066ff',  // Royal blue
-            '#1e90ff',  // Dodger blue
-            '#00ced1'   // Dark turquoise
+            \'#00ffff\',  // Cyan - bright
+            \'#00bfff\',  // Deep sky blue
+            \'#0080ff\',  // Blue
+            \'#00a3ff\',  // Light blue
+            \'#1e90ff\',  // Dodger blue
+            \'#4169e1\',  // Royal blue
+            \'#0066ff\',  // Blue
+            \'#00ced1\'   // Dark turquoise
         ];
         
         // Draw the characters
@@ -83,7 +93,7 @@ class MatrixRain {
             const color = colors[Math.floor(Math.random() * colors.length)];
             
             // Create brightness variation for depth effect
-            const brightness = Math.random() * 0.6 + 0.4; // 0.4 to 1.0
+            const brightness = Math.random() * 0.7 + 0.5; // 0.5 to 1.2 for better visibility
             this.ctx.fillStyle = color;
             this.ctx.globalAlpha = brightness;
             
@@ -92,20 +102,20 @@ class MatrixRain {
             const y = this.drops[i] * this.fontSize;
             
             // Only draw if character is within canvas bounds
-            if (y > 0 && y < this.height) {
+            if (y > 0 && y < this.height + this.fontSize) {
                 this.ctx.fillText(char, x, y);
             }
             
             // Reset alpha for next character
             this.ctx.globalAlpha = 1;
             
-            // Move drop down
-            if (y > this.height && Math.random() > 0.975) {
+            // Move drop down with slower speed
+            if (y > this.height && Math.random() > 0.98) {
                 // Reset to top with some randomness for natural look
-                this.drops[i] = Math.random() * -20;
+                this.drops[i] = Math.random() * -50;
             } else {
-                // Vary the drop speed slightly for more organic movement
-                this.drops[i] += Math.random() * 0.5 + 0.5;
+                // Slower drop speed for more cinematic effect
+                this.drops[i] += this.dropSpeed + (Math.random() * 0.2);
             }
         }
         
@@ -114,6 +124,7 @@ class MatrixRain {
     }
     
     start() {
+        console.log(\'Starting Matrix animation\');
         this.draw();
     }
     
@@ -124,21 +135,14 @@ class MatrixRain {
         // Clear canvas
         this.ctx.clearRect(0, 0, this.width, this.height);
     }
-    
-    // Method to adjust opacity based on theme
-    updateOpacity(opacity) {
-        this.canvas.style.opacity = opacity;
-    }
 }
 
 // Initialize Matrix Rain when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize matrix effect
-    window.matrixRain = new MatrixRain('matrix-canvas');
+document.addEventListener(\'DOMContentLoaded\', function() {
+    console.log(\'DOM loaded, initializing Matrix Rain\');
     
-    // Set initial opacity based on theme
-    const isLight = document.documentElement.classList.contains('light');
-    if (window.matrixRain) {
-        window.matrixRain.updateOpacity(isLight ? 0.2 : 0.3);
-    }
+    // Wait a bit for canvas to be properly rendered
+    setTimeout(() => {
+        window.matrixRain = new MatrixRain(\'matrix-canvas\');
+    }, 100);
 });
