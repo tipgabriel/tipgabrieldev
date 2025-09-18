@@ -99,7 +99,9 @@ let elements = {};
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Lucide icons
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
     
     // Get DOM elements
     initializeElements();
@@ -110,19 +112,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Populate content
     populateContent();
     
-    // Initialize theme
-    initializeTheme();
-    
     // Setup scroll effects
     setupScrollEffects();
+    
+    // Update copyright year
+    updateCopyrightYear();
 });
 
 function initializeElements() {
     elements = {
-        // Theme toggles
-        themeToggle: document.getElementById('theme-toggle'),
-        themeToggleMobile: document.getElementById('theme-toggle-mobile'),
-        
         // Mobile menu
         mobileMenuToggle: document.getElementById('mobile-menu-toggle'),
         mobileMenu: document.getElementById('mobile-menu'),
@@ -147,17 +145,12 @@ function initializeElements() {
         // Header
         header: document.getElementById('header'),
         
-        // Theme icons
-        lightIcons: document.querySelectorAll('.light-icon'),
-        darkIcons: document.querySelectorAll('.dark-icon')
+        // Copyright year
+        currentYear: document.getElementById('current-year')
     };
 }
 
 function setupEventListeners() {
-    // Theme toggles
-    elements.themeToggle?.addEventListener('click', toggleTheme);
-    elements.themeToggleMobile?.addEventListener('click', toggleTheme);
-    
     // Mobile menu
     elements.mobileMenuToggle?.addEventListener('click', toggleMobileMenu);
     
@@ -190,42 +183,11 @@ function setupEventListeners() {
     });
 }
 
-function toggleTheme() {
-    const isLight = document.documentElement.classList.toggle('light');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    
-    // Update theme icons
-    updateThemeIcons(isLight);
-    
-    // Update matrix opacity based on theme
-    if (window.matrixRain) {
-        window.matrixRain.updateOpacity(isLight ? 0.2 : 0.3);
+function updateCopyrightYear() {
+    const currentYear = new Date().getFullYear();
+    if (elements.currentYear) {
+        elements.currentYear.textContent = currentYear;
     }
-}
-
-function updateThemeIcons(isLight) {
-    elements.lightIcons.forEach(icon => {
-        icon.classList.toggle('hidden', !isLight);
-    });
-    elements.darkIcons.forEach(icon => {
-        icon.classList.toggle('hidden', isLight);
-    });
-}
-
-function initializeTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    const isLight = savedTheme === 'light' || (!savedTheme && !prefersDark);
-    
-    if (isLight) {
-        document.documentElement.classList.add('light');
-    } else {
-        document.documentElement.classList.remove('light');
-    }
-    
-    // Update theme icons
-    updateThemeIcons(isLight);
 }
 
 function toggleMobileMenu() {
@@ -269,7 +231,7 @@ function populateSkills() {
     if (!elements.skillsContainer) return;
     
     elements.skillsContainer.innerHTML = portfolioData.skills.map(skill => `
-        <span class="px-3 py-2 bg-custom-tertiary text-custom-secondary rounded-lg text-sm hover:bg-blue-500 hover:text-white transition-all duration-200 cursor-default border border-gray-600">
+        <span class="px-3 py-2 skill-badge-white rounded-lg text-sm transition-all duration-200 cursor-default">
             ${skill}
         </span>
     `).join('');
@@ -304,7 +266,9 @@ function populateExperience() {
     `).join('');
     
     // Re-initialize icons
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 }
 
 function populateProjects() {
@@ -356,7 +320,9 @@ function populateProjects() {
     `).join('');
     
     // Re-initialize icons
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 }
 
 function populateTestimonials() {
@@ -390,7 +356,9 @@ function populateTestimonials() {
     `).join('');
     
     // Re-initialize icons
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 }
 
 function handleContactSubmit(e) {
