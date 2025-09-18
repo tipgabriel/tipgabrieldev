@@ -37,8 +37,8 @@ const portfolioData = {
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
             technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "JSON-LD"],
             image: "meltrancasbh.png",
-            link: "https://meltrancasbh.vercel.app/index.html", // placeholder para o usuário preencher
-            Instagram: "https://www.instagram.com/meltrancasbh/", // placeholder para o usuário preencher
+            link: "https://studiomel.vercel.app/index.html", // placeholder para o usuário preencher
+            Instagram: "https://www.instagram.com/studiomel/", // placeholder para o usuário preencher
             category: "Website Comercial",
             featured: true
         },
@@ -69,7 +69,7 @@ const portfolioData = {
     testimonials: [
         {
             id: 1,
-            name: "Cliente MeltrançasBH",
+            name: "Cliente Studiomel",
             role: "Proprietária do Estúdio",
             content: "O TipGabrielDev criou um site incrível que representa perfeitamente nosso trabalho. O design é moderno e funcional!",
             avatar: "https://via.placeholder.com/60x60/6366f1/ffffff?text=M"
