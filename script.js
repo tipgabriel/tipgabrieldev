@@ -359,7 +359,7 @@ function handleContactSubmit(e) {
         email: formData.get('email'),
         message: formData.get('message')
     };
-    
+
     // In a real application, you would send this data to your backend
     console.log('Contact form submitted:', data);
 
