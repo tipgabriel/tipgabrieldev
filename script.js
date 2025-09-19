@@ -37,7 +37,7 @@ const portfolioData = {
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
             technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "JSON-LD"],
             image: "meltrancasbh.png",
-            link: "https://meltrancasbh.vercel.app/#", // placeholder para o usuário preencher
+            link: "https://meltrancasbh.vercel.app/index.html", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/meltrancasbh/", // placeholder para o usuário preencher
             category: "Website Comercial",
             featured: true
@@ -276,13 +276,13 @@ function populateProjects() {
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
-                        <button class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
+                        <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
                             <i data-lucide="external-link" class="h-4 w-4 mr-2"></i>
-                            Demo
-                        </button>
-                        <button class="px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200">
-                            <i data-lucide="github" class="h-4 w-4"></i>
-                        </button>
+                            Explore o Website
+                        </a>
+                        <a href="${project.Instagram}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
+                            <i data-lucide="instagram" class="h-4 w-4"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -379,4 +379,4 @@ function showToast(message) {
     setTimeout(() => {
         elements.toast.classList.add('translate-x-full');
     }, 3000);
-            }
+} 
