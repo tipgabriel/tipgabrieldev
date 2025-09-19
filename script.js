@@ -325,7 +325,7 @@ function populateTestimonials() {
                 <img
                     src="${testimonial.avatar}"
                     alt="${testimonial.name}"
-                    class="w-12 h-12 rounded-full flex-shrink-0"
+                    class="w-12 h-12 rounded-full flex-shrink-0 object-cover"
                     loading="lazy"
                 />
                 <div class="flex-1">
