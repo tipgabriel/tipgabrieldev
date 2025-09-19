@@ -130,8 +130,6 @@ function initializeElements() {
         
         // Form
         contactForm: document.getElementById('contact-form'),
-        toast: document.getElementById('toast'),
-        toastMessage: document.getElementById('toast-message'),
         
         // Header
         header: document.getElementById('header'),
@@ -362,21 +360,12 @@ function handleContactSubmit(e) {
         message: formData.get('message')
     };
     
-    // Simulate form submission
-    showToast('Mensagem enviada com sucesso! Retornarei em breve.');
+    // In a real application, you would send this data to your backend
+    console.log('Contact form submitted:', data);
+
+    // Alert the user that the message was sent (optional feedback)
+    alert('Mensagem enviada com sucesso! Retornarei em breve.');
     
     // Reset form
     e.target.reset();
-    
-    // In a real application, you would send this data to your backend
-    console.log('Contact form submitted:', data);
 }
-
-function showToast(message) {
-    elements.toastMessage.textContent = message;
-    elements.toast.classList.remove('translate-x-full');
-    
-    setTimeout(() => {
-        elements.toast.classList.add('translate-x-full');
-    }, 3000);
-} 
