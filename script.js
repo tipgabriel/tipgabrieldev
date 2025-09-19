@@ -268,12 +268,12 @@ function populateProjects() {
     elements.projectsContainer.innerHTML = portfolioData.projects.map(project => `
         <div class="card-bg rounded-lg shadow-lg overflow-hidden card-hover group">
             <div class="relative overflow-hidden">
-                <img
-                    src="${project.image}"
-                    alt="${project.title}"
-                    class="w-80 h-80 rounded-md object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                />
+               <img
+    src="${project.image}"
+    alt="${project.title}"
+    class="w-80 h-80 rounded-md object-cover object-center group-hover:scale-105 transition-transform duration-300"
+    loading="lazy"
+/>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                         <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
