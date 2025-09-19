@@ -77,7 +77,7 @@ const portfolioData = {
         {
             id: 2,
             name: "André",
-            role: "Barbearia André",
+            role: "Proprietário da Barbearia",
             content: "A identidade visual ficou perfeita! Conseguiu capturar exatamente o que eu imaginava para minha barbearia.",
             avatar: "barbearia-andre.png"
         }
