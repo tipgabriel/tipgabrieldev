@@ -271,7 +271,7 @@ function populateProjects() {
                 <img
                     src="${project.image}"
                     alt="${project.title}"
-                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    class="w-48 h-48 rounded-full flex-shrink-0 object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
