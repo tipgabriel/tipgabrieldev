@@ -71,14 +71,14 @@ const portfolioData = {
             id: 1,
             name: "Studiomel",
             role: "Proprietária do Estúdio",
-            content: "O TipGabrielDev criou um site incrível que representa perfeitamente nosso trabalho. O design é moderno e funcional!",
+            content: "O Tip mandou muito! O site ficou incrível, moderno e super funcional, do jeitinho que a gente precisava.",
             avatar: "mel.jpg"
         },
         {
             id: 2,
             name: "André",
             role: "Proprietário da Barbearia",
-            content: "A identidade visual ficou perfeita! Conseguiu capturar exatamente o que eu imaginava para minha barbearia.",
+            content: "O Tip conseguiu transformar minha ideia em uma identidade visual impecável para a barbearia. Ficou exatamente como eu imaginava!",
             avatar: "barbearia-andre.png"
         }
     ]
@@ -334,7 +334,7 @@ function populateTestimonials() {
                             <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
                         `).join('')}
                     </div>
-                    <p class="text-custom-muted italic mb-3">
+                    <p class="text-custom-muted normal mb-3">
                         "${testimonial.content}"
                     </p>
                     <div>
