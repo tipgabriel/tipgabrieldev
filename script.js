@@ -12,11 +12,11 @@ const portfolioData = {
     github: "https://github.com/tipgabriel",
     instagram: "https://instagram.com/tipgabrieldev"
   },
-  skills: [
+  skills: [ // Habilidades principais
     "HTML5","CSS3","JavaScript","Tailwind CSS","JSON-LD",
-    "Design Responsivo","UI/UX Design","Otimização e Performance","SEO"
+    "Design Responsivo","UI/UX Design","Otimização e Perfomance","SEO"
   ],
-  experience: [
+  experience: [ // Experiências
     {
       id: 1,
       position: "Desenvolvedor Front-end",
@@ -26,15 +26,15 @@ const portfolioData = {
       technologies: ["HTML5","CSS3","Tailwind","JavaScript","JSON-LD","Design","Canva"]
     }
   ],
-  projects: [
+  projects: [ // Projetos realizados
     {
       id: 1,
       title: "MeltrançasBH",
       description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
       technologies: ["HTML5","CSS3","Tailwind","JavaScript","JSON-LD"],
       image: "meltrancasbh.png",
-      link: "https://studiomel.vercel.app/",
-      Instagram: "https://www.instagram.com/studiomel/",
+      link: "https://studiomel.vercel.app/", // site
+      Instagram: "https://www.instagram.com/studiomel/", // insta
       category: "Website",
       featured: true
     },
@@ -44,8 +44,8 @@ const portfolioData = {
       description: "Desenvolvimento de identidade visual completa para barbearia, incluindo logotipo, paleta de cores e aplicações em diversos materiais.",
       technologies: ["Design","Branding"],
       image: "barbearia-andre.png",
-      link: "https://www.instagram.com/barbeariandreoficial032013/",
-      Instagram: "https://www.instagram.com/barbeariandreoficial032013/",
+      link: "https://www.instagram.com/barbeariandreoficial032013/", // site
+      Instagram: "https://www.instagram.com/barbeariandreoficial032013/", // insta
       category: "Logo",
       featured: true
     },
@@ -55,13 +55,13 @@ const portfolioData = {
       description: "Website interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
       technologies: ["HTML5","CSS3","Tailwind","JavaScript","JSON-LD"],
       image: "Azul-estelar.jpeg",
-      link: "https://hqsunrise.vercel.app/",
-      Instagram: "https://www.instagram.com/jessicapamela461/",
+      link: "https://hqsunrise.vercel.app/", // site
+      Instagram: "https://www.instagram.com/jessicapamela461/", // insta
       category: "Website",
       featured: true
     }
   ],
-  testimonials: [
+  testimonials: [ // Depoimentos de clientes
     {
       id: 1,
       name: "Studiomel",
@@ -82,91 +82,86 @@ const portfolioData = {
 // ==================== DOM Elements ====================
 let elements = {};
 
-// ==================== Inicialização ====================
-document.addEventListener("DOMContentLoaded", function() {
-  if (typeof lucide !== "undefined") lucide.createIcons();
-  initializeElements();
-  setupEventListeners();
-  populateContent();
-  setupScrollEffects();
-  updateCopyrightYear();
+// ==================== Inicialização do App ====================
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof lucide !== 'undefined') lucide.createIcons(); // Ativa ícones Lucide
+  initializeElements(); // Pega elementos do DOM
+  setupEventListeners(); // Define eventos
+  populateContent(); // Popula dados no site
+  setupScrollEffects(); // Efeitos de scroll
+  updateCopyrightYear(); // Atualiza ano no footer
 });
 
 // ==================== Funções de Inicialização ====================
-function initializeElements() {
+function initializeElements() { // Captura elementos HTML
   elements = {
-    mobileMenuToggle: document.getElementById("mobile-menu-toggle"),
-    mobileMenu: document.getElementById("mobile-menu"),
-    menuIcon: document.getElementById("menu-icon"),
-    closeIcon: document.getElementById("close-icon"),
-    viewProjectsBtn: document.getElementById("view-projects-btn"),
-    navLinks: document.querySelectorAll(".nav-link, .mobile-nav-link"),
-    skillsContainer: document.getElementById("skills-container"),
-    experienceContainer: document.getElementById("experience-container"),
-    projectsContainer: document.getElementById("projects-container"),
-    testimonialsContainer: document.getElementById("testimonials-container"),
-    contactForm: document.getElementById("contact-form"),
-    header: document.getElementById("header"),
-    currentYear: document.getElementById("current-year")
+    mobileMenuToggle: document.getElementById('mobile-menu-toggle'),
+    mobileMenu: document.getElementById('mobile-menu'),
+    menuIcon: document.getElementById('menu-icon'),
+    closeIcon: document.getElementById('close-icon'),
+    viewProjectsBtn: document.getElementById('view-projects-btn'),
+    navLinks: document.querySelectorAll('.nav-link, .mobile-nav-link'),
+    skillsContainer: document.getElementById('skills-container'),
+    experienceContainer: document.getElementById('experience-container'),
+    projectsContainer: document.getElementById('projects-container'),
+    testimonialsContainer: document.getElementById('testimonials-container'),
+    contactForm: document.getElementById('contact-form'),
+    header: document.getElementById('header'),
+    currentYear: document.getElementById('current-year')
   };
 }
 
 // ==================== Eventos ====================
 function setupEventListeners() {
-  elements.mobileMenuToggle?.addEventListener("click", toggleMobileMenu);
-  elements.viewProjectsBtn?.addEventListener("click", () => {
-    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+  elements.mobileMenuToggle?.addEventListener('click', toggleMobileMenu);
+  elements.viewProjectsBtn?.addEventListener('click', () => {
+    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
   });
-
-  elements.navLinks.forEach(link => {
-    link.addEventListener("click", e => {
+  elements.navLinks.forEach(link => { // Links do menu
+    link.addEventListener('click', (e) => {
       e.preventDefault();
-      const targetId = link.getAttribute("href");
+      const targetId = link.getAttribute('href');
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
+        targetElement.scrollIntoView({ behavior: 'smooth' });
         closeMobileMenu();
       }
     });
   });
-
-  elements.contactForm?.addEventListener("submit", handleContactSubmit);
-
-  document.addEventListener("click", e => {
-    if (!elements.mobileMenuToggle?.contains(e.target) && !elements.mobileMenu?.contains(e.target)) {
-      closeMobileMenu();
-    }
+  elements.contactForm?.addEventListener('submit', handleContactSubmit); // Formulário
+  document.addEventListener('click', (e) => { // Fecha menu ao clicar fora
+    if (!elements.mobileMenuToggle?.contains(e.target) && !elements.mobileMenu?.contains(e.target)) closeMobileMenu();
   });
 }
 
-// ==================== Utilitárias ====================
+// ==================== Funções utilitárias ====================
 function updateCopyrightYear() {
   const currentYear = new Date().getFullYear();
   if (elements.currentYear) elements.currentYear.textContent = currentYear;
 }
 
-function toggleMobileMenu() {
-  const isOpen = !elements.mobileMenu.classList.contains("hidden");
+function toggleMobileMenu() { // Alterna menu mobile
+  const isOpen = !elements.mobileMenu.classList.contains('hidden');
   if (isOpen) {
     closeMobileMenu();
   } else {
-    elements.mobileMenu.classList.remove("hidden");
-    elements.menuIcon.classList.add("hidden");
-    elements.closeIcon.classList.remove("hidden");
+    elements.mobileMenu.classList.remove('hidden');
+    elements.menuIcon.classList.add('hidden');
+    elements.closeIcon.classList.remove('hidden');
   }
 }
 
-function closeMobileMenu() {
-  elements.mobileMenu.classList.add("hidden");
-  elements.menuIcon.classList.remove("hidden");
-  elements.closeIcon.classList.add("hidden");
+function closeMobileMenu() { // Fecha menu mobile
+  elements.mobileMenu.classList.add('hidden');
+  elements.menuIcon.classList.remove('hidden');
+  elements.closeIcon.classList.add('hidden');
 }
 
-function setupScrollEffects() {
-  window.addEventListener("scroll", () => {
+function setupScrollEffects() { // Header com sombra ao rolar
+  window.addEventListener('scroll', () => {
     const scrolled = window.scrollY > 50;
-    if (scrolled) elements.header.classList.add("header-bg", "shadow-lg");
-    else elements.header.classList.remove("header-bg", "shadow-lg");
+    if (scrolled) elements.header.classList.add('header-bg','shadow-lg');
+    else elements.header.classList.remove('header-bg','shadow-lg');
   });
 }
 
@@ -178,14 +173,14 @@ function populateContent() {
   populateTestimonials();
 }
 
-function populateSkills() {
+function populateSkills() { // Lista de habilidades
   if (!elements.skillsContainer) return;
   elements.skillsContainer.innerHTML = portfolioData.skills.map(skill => `
     <span class="px-3 py-2 skill-badge-white rounded-lg text-sm transition-all duration-200 cursor-default">${skill}</span>
-  `).join("");
+  `).join('');
 }
 
-function populateExperience() {
+function populateExperience() { // Experiências
   if (!elements.experienceContainer) return;
   elements.experienceContainer.innerHTML = portfolioData.experience.map(exp => `
     <div class="card-bg p-6 rounded-lg shadow-lg card-hover">
@@ -201,14 +196,14 @@ function populateExperience() {
       </div>
       <p class="text-custom-secondary mb-4 leading-relaxed">${exp.description}</p>
       <div class="flex flex-wrap gap-2">
-        ${exp.technologies.map(tech => `<span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs border border-gray-600">${tech}</span>`).join("")}
+        ${exp.technologies.map(tech => `<span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs border border-gray-600">${tech}</span>`).join('')}
       </div>
     </div>
-  `).join("");
-  if (typeof lucide !== "undefined") lucide.createIcons();
+  `).join('');
+  if (typeof lucide !== 'undefined') lucide.createIcons(); // Atualiza ícones
 }
 
-function populateProjects() {
+function populateProjects() { // Projetos
   if (!elements.projectsContainer) return;
   elements.projectsContainer.innerHTML = portfolioData.projects.map(project => `
     <div class="card-bg rounded-lg shadow-lg overflow-hidden card-hover group">
@@ -232,15 +227,15 @@ function populateProjects() {
         </div>
         <p class="text-custom-muted text-sm leading-relaxed mb-4">${project.description}</p>
         <div class="flex flex-wrap gap-1">
-          ${project.technologies.map(tech => `<span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs">${tech}</span>`).join("")}
+          ${project.technologies.map(tech => `<span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs">${tech}</span>`).join('')}
         </div>
       </div>
     </div>
-  `).join("");
-  if (typeof lucide !== "undefined") lucide.createIcons();
+  `).join('');
+  if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
-function populateTestimonials() {
+function populateTestimonials() { // Depoimentos
   if (!elements.testimonialsContainer) return;
   elements.testimonialsContainer.innerHTML = portfolioData.testimonials.map(testimonial => `
     <div class="card-bg p-6 rounded-lg shadow-lg">
@@ -248,7 +243,7 @@ function populateTestimonials() {
         <img src="${testimonial.avatar}" alt="${testimonial.name}" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" loading="lazy"/>
         <div class="flex-1">
           <div class="flex items-center mb-2">
-            ${Array(5).fill().map(() => `<i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>`).join("")}
+            ${Array(5).fill().map(() => `<i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>`).join('')}
           </div>
           <p class="text-custom-muted normal mb-3">"${testimonial.content}"</p>
           <div>
@@ -258,21 +253,19 @@ function populateTestimonials() {
         </div>
       </div>
     </div>
-  `).join("");
-  if (typeof lucide !== "undefined") lucide.createIcons();
+  `).join('');
+  if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
 // ==================== Formulário de Contato ====================
 function handleContactSubmit(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
-  const data = {
-    name: formData.get("name"),
-    email: formData.get("email"),
-    message: formData.get("message")
+  const data = { 
+    name: formData.get('name'), 
+    email: formData.get('email'), 
+    message: formData.get('message') 
   };
-
-  console.log("Contact form submitted:", data);
-  alert("Mensagem enviada com sucesso! Retornarei em breve."); // feedback simples
   e.target.reset();
+  console.log('Contact form submitted:', data); // Aqui mandaria pro backend real
 }
