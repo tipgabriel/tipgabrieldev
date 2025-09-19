@@ -13,7 +13,7 @@ class MatrixRain {
         // Matrix characters (including some that look like Japanese/Chinese)
         this.chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ";
         this.fontSize = 14;
-        this.dropSpeed = 0.3; // Slower speed
+        this.dropSpeed = 0.6; // Ajustado para uma velocidade mais rápida
         
         // Initialize
         this.setupCanvas();
