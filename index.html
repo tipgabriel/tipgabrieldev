@@ -12,25 +12,20 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="Tipgabrieldev">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<!-- Meta TAG Google e SEO -->
 <meta name="google-site-verification" content="f0GNwv_W38ZzGOqRk6bynvKzHuPbdh33bK-iUWJ8rlU" />
 
-<!-- Informações básicas do site -->
 <title>Tipgabrieldev | Front-end, UI/UX e Desenvolvimento Web</title>
 <meta name="description" content="Tipgabrieldev transforma ideias em experiências digitais. Sites bonitos, responsivos e funcionais com foco em UI/UX e desenvolvimento Front-end.">
 <meta name="keywords" content="desenvolvimento web, front-end, UI, UX, sites responsivos, design web, Tipgabrieldev, HTML5, CSS3, Tailwind, JavaScript, JSON-LD">
 <meta name="author" content="Tipgabrieldev">
 <meta name="robots" content="index, follow">
 
-<!-- Meta tags para redes sociais -->
 <meta property="og:title" content="Tipgabrieldev | Front-end e UI/UX">
 <meta property="og:description" content="Transformando ideias em experiências digitais. Sites bonitos, responsivos e funcionais.">
 <meta property="og:type" content="website">
@@ -42,13 +37,10 @@
 <meta name="twitter:description" content="Transformando ideias em experiências digitais. Sites bonitos, responsivos e funcionais.">
 <meta name="twitter:image" content="https://www.tipgabrieldev.com/tipgabrieldev.png">
 
-<!-- Configurações de viewport para mobile -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -224,11 +216,9 @@
     </style>
 </head>
 <body class="transition-colors duration-300">
-    <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
                 <div class="flex items-center space-x-2">
                     <div class="relative">
                         <i data-lucide="code-2" class="h-8 w-8 text-blue-500"></i>
@@ -239,7 +229,6 @@
                     </span>
                 </div>
 
-                <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
                         Início
@@ -258,7 +247,6 @@
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
                         <i data-lucide="menu" class="h-6 w-6 block" id="menu-icon"></i>
@@ -267,7 +255,6 @@
                 </div>
             </div>
 
-            <!-- Mobile Menu -->
             <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 right-0 card-bg border-t shadow-lg">
                 <div class="px-4 py-6 space-y-4">
                     <a href="#home" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Início</a>
@@ -280,17 +267,13 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main class="pt-16">
-        <!-- Hero Section -->
         <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-            <!-- Matrix Rain Background -->
             <div class="absolute inset-0 hero-gradient">
                 <canvas id="matrix-canvas"></canvas>
                 <div class="absolute inset-0 bg-gradient-to-t from-custom-primary/20 to-transparent"></div>
             </div>
 
-            <!-- Hero Content -->
             <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-8">
                 <div class="max-w-4xl mx-auto space-y-4 md:space-y-6">
                     <div class="space-y-3 md:space-y-4">
@@ -312,7 +295,6 @@
                         </button>
                     </div>
 
-                    <!-- Social Links -->
                     <div class="flex justify-center space-x-6 pt-6 md:pt-8">
                         <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-all duration-200 hover:scale-110">
                             <i data-lucide="github" class="h-5 w-5 md:h-6 md:w-6"></i>
@@ -324,13 +306,11 @@
                 </div>
             </div>
 
-            <!-- Scroll Indicator -->
             <div class="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
                 <i data-lucide="chevron-down" class="h-5 w-5 md:h-6 md:w-6 text-custom-muted"></i>
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="py-20 bg-white-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
@@ -344,7 +324,7 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div class="space-y-6">
                             <p class="leading-relaxed" style="color: #212121;">
-                               Sou desenvolvedor Front-end e meu trampo é dar vida às ideias: telas rápidas, responsivas e com cara moderna. Gosto de deixar o CSS na linha, o JavaScript cooperando e cada detalhe no ponto certo.
+                                Sou desenvolvedor Front-end e meu trampo é dar vida às ideias: telas rápidas, responsivas e com cara moderna. Gosto de deixar o CSS na linha, o JavaScript cooperando e cada detalhe no ponto certo.
                             <br>No fim das contas, não é só sobre código — é sobre criar experiências que façam sentido de verdade pra quem usa. Se você procura alguém que entende de tecnologia sem falar como manual de instrução, é aqui que a gente se encontra.</p>
                             
                             <div class="space-y-4">
@@ -366,15 +346,13 @@
                         <div class="space-y-6">
                             <h3 class="text-xl font-semibold mb-4" style="color: #010101;">Habilidades Técnicas</h3>
                             <div id="skills-container" class="flex flex-wrap gap-2">
-                                <!-- Skills will be populated by JavaScript -->
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section id="experience" class="py-20 bg-custom-primary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-6xl mx-auto">
@@ -386,29 +364,68 @@
                     </div>
 
                     <div id="experience-container" class="space-y-8">
-                        <!-- Experience items will be populated by JavaScript -->
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>
 
        <section id="projects" class="py-20 bg-custom-secondary">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Projetos em Destaque</h2>
-                <p class="text-lg text-custom-muted">
-                    Alguns dos trabalhos que desenvolvi recentemente
-                </p>
-            </div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Projetos em Destaque</h2>
+                        <p class="text-lg text-custom-muted">
+                            Alguns dos trabalhos que desenvolvi recentemente
+                        </p>
+                    </div>
 
-            <div id="projects-container" class="flex flex-wrap justify-center gap-8">
+                    <div id="projects-container" class="flex flex-wrap justify-center gap-8">
+                        <div class="card-bg p-6 rounded-lg shadow-lg max-w-sm w-full card-hover">
+                            <img src="https://via.placeholder.com/400x200.png?text=Projeto+1" alt="Imagem do projeto Portfólio Tipgabrieldev" class="rounded-lg mb-4">
+                            <h3 class="text-xl font-semibold text-custom-primary mb-2">Tipgabrieldev Portfólio</h3>
+                            <p class="text-custom-secondary mb-4">Portfólio pessoal construído do zero, usando HTML, CSS (Tailwind) e JavaScript. Focado em performance e UI/UX.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-blue-500 hover:underline transition-colors duration-200 flex items-center">
+                                    <i data-lucide="github" class="h-4 w-4 mr-1"></i> Código
+                                </a>
+                                <a href="#" class="text-blue-500 hover:underline transition-colors duration-200 flex items-center">
+                                    <i data-lucide="external-link" class="h-4 w-4 mr-1"></i> Visualizar
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-bg p-6 rounded-lg shadow-lg max-w-sm w-full card-hover">
+                            <img src="https://via.placeholder.com/400x200.png?text=Projeto+2" alt="Imagem do projeto E-commerce Responsivo" class="rounded-lg mb-4">
+                            <h3 class="text-xl font-semibold text-custom-primary mb-2">E-commerce Responsivo</h3>
+                            <p class="text-custom-secondary mb-4">Loja virtual com design responsivo, gerenciamento de produtos e carrinho de compras dinâmico.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-blue-500 hover:underline transition-colors duration-200 flex items-center">
+                                    <i data-lucide="github" class="h-4 w-4 mr-1"></i> Código
+                                </a>
+                                <a href="#" class="text-blue-500 hover:underline transition-colors duration-200 flex items-center">
+                                    <i data-lucide="external-link" class="h-4 w-4 mr-1"></i> Visualizar
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card-bg p-6 rounded-lg shadow-lg max-w-sm w-full card-hover">
+                            <img src="https://via.placeholder.com/400x200.png?text=Projeto+3" alt="Imagem do projeto Clone de Interface" class="rounded-lg mb-4">
+                            <h3 class="text-xl font-semibold text-custom-primary mb-2">Clone de Interface de Streaming</h3>
+                            <p class="text-custom-secondary mb-4">Recriação da interface de um serviço de streaming, com carrossel de filmes e navegação de usuário intuitiva.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-blue-500 hover:underline transition-colors duration-200 flex items-center">
+                                    <i data-lucide="github" class="h-4 w-4 mr-1"></i> Código
+                                </a>
+                                <a href="#" class="text-blue-500 hover:underline transition-colors duration-200 flex items-center">
+                                    <i data-lucide="external-link" class="h-4 w-4 mr-1"></i> Visualizar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </div>
-    </div>
-</section>
+            </div>
+        </section>
 
-        <!-- Testimonials Section -->
         <section class="py-20 bg-custom-primary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
@@ -420,13 +437,11 @@
                     </div>
 
                     <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Testimonials will be populated by JavaScript -->
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-20 bg-custom-secondary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
@@ -438,7 +453,6 @@
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <!-- Contact Info -->
                         <div class="space-y-8">
                             <div>
                                 <h3 class="text-xl font-semibold mb-6 text-custom-primary">Informações de Contato</h3>
@@ -473,7 +487,6 @@
                             </div>
                         </div>
 
-                        <!-- Contact Form -->
                         <div class="card-bg p-6 rounded-lg shadow-lg">
                             <form id="contact-form" class="space-y-6">
                                 <div>
@@ -518,11 +531,9 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-custom-tertiary border-t border-custom-secondary">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Logo e descrição -->
                 <div class="space-y-4">
                     <div class="flex items-center space-x-2">
                         <div class="relative">
@@ -538,7 +549,6 @@
                     </p>
                 </div>
 
-                <!-- Links rápidos -->
                 <div class="space-y-4">
                     <h3 class="font-semibold text-custom-primary">Links Rápidos</h3>
                     <div class="space-y-2">
@@ -550,7 +560,6 @@
                     </div>
                 </div>
 
-                <!-- Redes sociais -->
                 <div class="space-y-4">
                     <h3 class="font-semibold text-custom-primary">Conecte-se</h3>
                     <div class="flex space-x-4">
@@ -572,7 +581,6 @@
         </div>
     </footer>
 
-    <!-- Toast Notification -->
     <div id="toast" class="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
         <div class="flex items-center">
             <i data-lucide="check-circle" class="h-5 w-5 mr-2"></i>
@@ -580,9 +588,7 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="matrix.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
