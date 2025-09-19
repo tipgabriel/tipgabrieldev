@@ -3,44 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tipgabrieldev - Desenvolvedor Front-end</title>
+    <title>TipGabrielDev - Desenvolvedor Full Stack</title>
+    <meta name="description" content="Desenvolvedor Full Stack especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD. Criando soluções web modernas e funcionais.">
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     
-    <meta name="description" content="Desenvolvedor Front-end especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD. Criando soluções web modernas e funcionais.">
-    <meta name="keywords" content="desenvolvimento web, front-end, UI, UX, sites responsivos, design web, Tipgabrieldev, HTML5, CSS3, Tailwind, JavaScript, JSON-LD">
-    <meta name="author" content="Tipgabrieldev">
-    <meta name="robots" content="index, follow">
-
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-title" content="Tipgabrieldev">
-
-    <meta name="google-site-verification" content="f0GNwv_W38ZzGOqRk6bynvKzHuPbdh33bK-iUWJ8rlU" />
-
-    <meta property="og:title" content="Tipgabrieldev | Front-end e UI/UX">
-    <meta property="og:description" content="Transformando ideias em experiências digitais. Sites bonitos, responsivos e funcionais.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tipgabrieldev.vercel.app/">
-    <meta property="og:image" content="https://tipgabrieldev.vercel.app//tipgabrieldev.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tipgabrieldev | Front-end e UI/UX">
-    <meta name="twitter:description" content="Transformando ideias em experiências digitais. Sites bonitos, responsivos e funcionais.">
-    <meta name="twitter:image" content="https://www.tipgabrieldev.com/tipgabrieldev.png">
-
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Tipgabrieldev",
-      "jobTitle": "Desenvolvedor Front-end",
+      "name": "TipGabrielDev",
+      "jobTitle": "Desenvolvedor Full Stack",
       "description": "Desenvolvedor especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD",
       "url": "https://tipgabrieldev.com",
       "sameAs": [
@@ -52,12 +40,11 @@
       "workLocation": "Brasil"
     }
     </script>
-
+    
     <style>
-        /* Importação das fontes */
+        /* Custom Tailwind Config */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
         
-        /* Variáveis CSS para cores */
         :root {
             --primary-blue: #3b82f6;
             --primary-purple: #8b5cf6;
@@ -70,7 +57,6 @@
             --text-muted: #a1a1a1;
         }
         
-        /* Estilos globais do corpo e fontes */
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-primary);
@@ -81,7 +67,7 @@
             font-family: 'JetBrains Mono', monospace;
         }
         
-        /* Efeito de chuva de Matrix no fundo */
+        /* Matrix Rain Canvas */
         #matrix-canvas {
             position: absolute;
             top: 0;
@@ -93,7 +79,7 @@
             opacity: 0.7;
         }
         
-        /* Cores customizadas para o tema escuro */
+        /* Custom colors for consistent dark theme */
         .bg-custom-primary { background-color: var(--bg-primary); }
         .bg-custom-secondary { background-color: var(--bg-secondary); }
         .bg-custom-tertiary { background-color: var(--bg-tertiary); }
@@ -101,7 +87,7 @@
         .text-custom-secondary { color: var(--text-secondary); }
         .text-custom-muted { color: var(--text-muted); }
         
-        /* Seções com fundo branco (diferentes cores de texto) */
+        /* White highlight sections */
         .bg-white-section {
             background-color: #ffffff;
             color: #010101;
@@ -111,51 +97,73 @@
         .bg-white-section .text-custom-secondary { color: #212121; }
         .bg-white-section .text-custom-muted { color: #666666; }
         
-        /* Estilos do cabeçalho fixo */
+        /* Header styles */
         .header-bg {
             background-color: rgba(1, 1, 1, 0.95);
             backdrop-filter: blur(10px);
         }
         
-        /* Estilos dos cartões */
+        /* Card styles */
         .card-bg {
             background-color: var(--bg-secondary);
             border: 1px solid var(--bg-tertiary);
         }
         
-        /* Estilos dos inputs de formulário */
+        /* Input styles */
         .input-bg {
             background-color: var(--bg-tertiary);
             border: 1px solid #333333;
             color: var(--text-primary);
         }
         
-        .input-bg::placeholder { color: var(--text-muted); }
+        .input-bg::placeholder {
+            color: var(--text-muted);
+        }
+        
         .input-bg:focus {
             border-color: var(--primary-blue);
             outline: none;
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
         }
         
-        /* Estilo da barra de rolagem customizada */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
             border-radius: 4px;
         }
         
-        /* Rolagem suave na página */
-        html { scroll-behavior: smooth; }
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
         
-        /* Efeitos de hover em cartões e botões */
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-4px); }
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
         
-        .btn-gradient { background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); }
-        .btn-gradient:hover { background: linear-gradient(135deg, #2563eb, #7c3aed); }
+        .card-hover:hover {
+            transform: translateY(-4px);
+        }
         
-        /* Efeito de sublinhado na navegação */
+        /* Button hover effects */
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+        }
+        
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+        }
+        
+        /* Navigation hover effects */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -167,12 +175,16 @@
             transition: width 0.3s ease;
         }
         
-        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover::after {
+            width: 100%;
+        }
         
-        /* Gradiente da seção principal (Hero) */
-        .hero-gradient { background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #001122 100%); }
+        /* Hero section gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #001122 100%);
+        }
         
-        /* Estilos dos 'badges' de habilidades */
+        /* Skills badges for white section */
         .skill-badge-white {
             background-color: #f0f0f0;
             color: #010101;
@@ -185,29 +197,42 @@
         }
     </style>
 </head>
-
 <body class="transition-colors duration-300">
+    <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
                 <div class="flex items-center space-x-2">
                     <div class="relative">
                         <i data-lucide="code-2" class="h-8 w-8 text-blue-500"></i>
                         <i data-lucide="zap" class="absolute -top-1 -right-1 h-4 w-4 text-purple-500"></i>
                     </div>
                     <span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                        Tipgabrieldev
+                        <a href="#">Tipgabrieldev</a>
                     </span>
                 </div>
 
+                <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">Início</a>
-                    <a href="#about" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">Sobre</a>
-                    <a href="#experience" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">Experiência</a>
-                    <a href="#projects" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">Projetos</a>
-                    <a href="#contact" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">Contato</a>
+                    <a href="#home" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
+                        Início
+                    </a>
+                    <a href="#about" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
+                        Sobre
+                    </a>
+                    <a href="#experience" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
+                        Experiência
+                    </a>
+                    <a href="#projects" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
+                        Projetos
+                    </a>
+                    <a href="#contact" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
+                        Contato
+                    </a>
                 </div>
 
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
                         <i data-lucide="menu" class="h-6 w-6 block" id="menu-icon"></i>
@@ -216,6 +241,7 @@
                 </div>
             </div>
 
+            <!-- Mobile Menu -->
             <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 right-0 card-bg border-t shadow-lg">
                 <div class="px-4 py-6 space-y-4">
                     <a href="#home" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Início</a>
@@ -228,66 +254,81 @@
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main class="pt-16">
-        <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <!-- Matrix Rain Background -->
             <div class="absolute inset-0 hero-gradient">
                 <canvas id="matrix-canvas"></canvas>
                 <div class="absolute inset-0 bg-gradient-to-t from-custom-primary/20 to-transparent"></div>
             </div>
 
-            <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-8">
-                <div class="max-w-4xl mx-auto space-y-4 md:space-y-6">
-                    <div class="space-y-3 md:space-y-4">
-                        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 bg-clip-text text-transparent animate-pulse">
-                            Tip também é Dev
-                        </h1>
-                        <p class="text-lg sm:text-xl md:text-2xl text-custom-secondary font-mono">
-                            Desenvolvedor Front-end
+            <!-- Hero Content -->
+            <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <div class="space-y-4">
+<svg class="w-full h-auto" viewBox="0 0 1500 150">
+    <defs>
+        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
+            <stop offset="50%" style="stop-color:rgb(168,85,247);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <text x="50%" y="100" font-size="100" font-weight="bold" fill="url(#textGradient)" text-anchor="middle">
+        UI E UX Design com o TIP
+    </text>
+</svg>
+                        <p class="text-xl md:text-2xl text-custom-secondary font-mono">
+                            Coloque um TIP de performance e design no seu projeto
                         </p>
                     </div>
 
-                    <p class="text-base sm:text-lg md:text-xl text-custom-muted max-w-2xl mx-auto leading-relaxed px-4 md:px-0">
-                        Café, código e criatividade: crio interfaces que funcionam e fazem sentido.
+                    <p class="text-lg md:text-xl text-custom-muted max-w-2xl mx-auto leading-relaxed">
+                        Front-end moderno, rápido e otimizado para o Google.
                     </p>
 
-                    <div class="flex justify-center pt-4 md:pt-6">
-                        <button id="view-projects-btn" class="px-6 md:px-8 py-3 md:py-4 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center">
+                    <div class="flex justify-center">
+                        <button id="view-projects-btn" class="px-8 py-3 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center">
                             Ver Projetos
                             <i data-lucide="chevron-down" class="ml-2 h-4 w-4"></i>
                         </button>
                     </div>
 
-                    <div class="flex justify-center space-x-6 pt-6 md:pt-8">
+                    <!-- Social Links -->
+                    <div class="flex justify-center space-x-6 pt-8">
                         <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-all duration-200 hover:scale-110">
-                            <i data-lucide="github" class="h-5 w-5 md:h-6 md:w-6"></i>
+                            <i data-lucide="github" class="h-6 w-6"></i>
                         </a>
                         <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-purple-500 transition-all duration-200 hover:scale-110">
-                            <i data-lucide="instagram" class="h-5 w-5 md:h-6 md:w-6"></i>
+                            <i data-lucide="instagram" class="h-6 w-6"></i>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <i data-lucide="chevron-down" class="h-5 w-5 md:h-6 md:w-6 text-custom-muted"></i>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i data-lucide="chevron-down" class="h-6 w-6 text-custom-muted"></i>
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="py-20 bg-white-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #010101;">Sobre Mim</h2>
                         <p class="text-lg" style="color: #666666;">
-                            Conheça um pouco da minha jornada e paixão pela tecnologia
+                            Mais que desenvolvedor: solucionador de problemas digitais
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div class="space-y-6">
                             <p class="leading-relaxed" style="color: #212121;">
-                                Sou desenvolvedor Front-end e meu trampo é dar vida às ideias: telas rápidas, responsivas e com cara moderna. Gosto de deixar o CSS na linha, o JavaScript cooperando e cada detalhe no ponto certo.
-                                <br>No fim das contas, não é só sobre código — é sobre criar experiências que façam sentido de verdade pra quem usa. Se você procura alguém que entende de tecnologia sem falar como manual de instrução, é aqui que a gente se encontra.
+                                Sou Gabriel: apaixonado por tecnologia desde sempre, e perito em transformar requisitos em algo que realmente funciona no dia-a-dia.
                             </p>
                             
                             <div class="space-y-4">
@@ -309,44 +350,51 @@
                         <div class="space-y-6">
                             <h3 class="text-xl font-semibold mb-4" style="color: #010101;">Habilidades Técnicas</h3>
                             <div id="skills-container" class="flex flex-wrap gap-2">
-                                </div>
+                                <!-- Skills will be populated by JavaScript -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience" class="py-20 bg-custom-primary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Experiência Profissional</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Especialista em front-end & SEO</h2>
                         <p class="text-lg text-custom-muted">
-                            Minha trajetória no desenvolvimento web
+                            Esqueça códigos confusos ou sites travados. Meu trabalho é entregar soluções web limpas, responsivas e fáceis de manter.
                         </p>
                     </div>
 
                     <div id="experience-container" class="space-y-8">
-                        </div>
+                        <!-- Experience items will be populated by JavaScript -->
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="py-20 bg-custom-secondary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Projetos em Destaque</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Portfólio de projetos: do rascunho ao produto lançado</h2>
                         <p class="text-lg text-custom-muted">
-                            Alguns dos trabalhos que desenvolvi recentemente
+                            Veja casos onde a prática fala mais alto que promessas. Cada projeto tem desafios diferentes — e soluções que agradecem.
                         </p>
                     </div>
-                    <div id="projects-container" class="flex flex-wrap justify-center gap-8">
-                        </div>
+
+                    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Projects will be populated by JavaScript -->
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Testimonials Section -->
         <section class="py-20 bg-custom-primary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
@@ -356,22 +404,27 @@
                             O que meus clientes dizem sobre meu trabalho
                         </p>
                     </div>
+
                     <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        </div>
+                        <!-- Testimonials will be populated by JavaScript -->
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="py-20 bg-custom-secondary">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Entre em Contato</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Pronto pra conversar sobre sua ideia?</h2>
                         <p class="text-lg text-custom-muted">
-                            Tem um projeto em mente? Bora trocar uma ideia!
+                            Seja pra reformular algo existente ou criar do zero, mande sua ideia. Juntos podemos construir algo sólido e útil.
                         </p>
                     </div>
+
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Contact Info -->
                         <div class="space-y-8">
                             <div>
                                 <h3 class="text-xl font-semibold mb-6 text-custom-primary">Informações de Contato</h3>
@@ -394,7 +447,7 @@
                             <div>
                                 <h3 class="text-xl font-semibold mb-6 text-custom-primary">Redes Sociais</h3>
                                 <div class="flex space-x-4">
-                                    <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-blue-500 transition-colors duration-200">
+                                    <a href="https://github.com/tipgabriel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-blue-500 transition-colors duration-200">
                                         <i data-lucide="github" class="h-5 w-5"></i>
                                         <span>GitHub</span>
                                     </a>
@@ -406,13 +459,14 @@
                             </div>
                         </div>
 
+                        <!-- Contact Form -->
                         <div class="card-bg p-6 rounded-lg shadow-lg">
                             <form id="contact-form" class="space-y-6">
                                 <div>
                                     <input 
                                         type="text" 
                                         name="name" 
-                                        placeholder="Como posso te chamar?" 
+                                        placeholder="Seu nome" 
                                         required
                                         class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                                     >
@@ -421,7 +475,7 @@
                                     <input 
                                         type="email" 
                                         name="email" 
-                                        placeholder="Qual seu email (prometo não mandar spam 👀)" 
+                                        placeholder="Seu email" 
                                         required
                                         class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                                     >
@@ -429,7 +483,7 @@
                                 <div>
                                     <textarea 
                                         name="message" 
-                                        placeholder="Manda o papo: o que você tá imaginando?" 
+                                        placeholder="Sua mensagem" 
                                         required
                                         rows="4"
                                         class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
@@ -440,7 +494,7 @@
                                     class="w-full px-6 py-3 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
                                 >
                                     <i data-lucide="mail" class="mr-2 h-4 w-4"></i>
-                                    Chamar no Código 🚀
+                                    Enviar Mensagem
                                 </button>
                             </form>
                         </div>
@@ -450,9 +504,11 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-custom-tertiary border-t border-custom-secondary">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Logo e descrição -->
                 <div class="space-y-4">
                     <div class="flex items-center space-x-2">
                         <div class="relative">
@@ -460,7 +516,7 @@
                             <i data-lucide="zap" class="absolute -top-1 -right-1 h-3 w-3 text-purple-500"></i>
                         </div>
                         <span class="text-lg font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                            Tipgabrieldev
+                            TipGabrielDev
                         </span>
                     </div>
                     <p class="text-custom-muted text-sm">
@@ -468,6 +524,7 @@
                     </p>
                 </div>
 
+                <!-- Links rápidos -->
                 <div class="space-y-4">
                     <h3 class="font-semibold text-custom-primary">Links Rápidos</h3>
                     <div class="space-y-2">
@@ -479,6 +536,7 @@
                     </div>
                 </div>
 
+                <!-- Redes sociais -->
                 <div class="space-y-4">
                     <h3 class="font-semibold text-custom-primary">Conecte-se</h3>
                     <div class="flex space-x-4">
@@ -494,12 +552,13 @@
 
             <div class="border-t border-custom-secondary mt-8 pt-8 text-center">
                 <p class="text-custom-muted text-sm">
-                    © <span id="current-year"></span> <a href="https://www.instagram.com/tipgabrieldev/">Tipgabrieldev</a>. Todos os direitos reservados.
+                    © <span id="current-year"></span> Tip. Todos os direitos reservados.
                 </p>
             </div>
         </div>
     </footer>
 
+    <!-- Toast Notification -->
     <div id="toast" class="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
         <div class="flex items-center">
             <i data-lucide="check-circle" class="h-5 w-5 mr-2"></i>
@@ -507,6 +566,7 @@
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="matrix.js"></script>
     <script src="script.js"></script>
 </body>
