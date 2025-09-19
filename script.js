@@ -39,7 +39,7 @@ const portfolioData = {
             image: "meltrancasbh.png",
             link: "https://studiomel.vercel.app/", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/studiomel/", // placeholder para o usuário preencher
-            category: "Website Comercial",
+            category: "Website",
             featured: true
         },
         {
@@ -61,7 +61,7 @@ const portfolioData = {
             image: "https://via.placeholder.com/600x400/06b6d4/ffffff?text=HQ+Azul+Estelar",
             link: "", // placeholder para o usuário preencher
             github: "",
-            category: "Website Interativo",
+            category: "Website",
             featured: true
         }
     ],
