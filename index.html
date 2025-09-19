@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tipgabrieldev - Desenvolvedor Front-end </title>
+    <title>Tipgabrieldev - Desenvolvedor front-end</title>
     <meta name="description" content="Desenvolvedor Full Stack especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD. Criando soluções web modernas e funcionais.">
 
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -38,9 +38,6 @@
     </script>
     
     <style>
-        /* Custom Tailwind Config */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
-        
         :root {
             --primary-blue: #3b82f6;
             --primary-purple: #8b5cf6;
@@ -63,7 +60,6 @@
             font-family: 'JetBrains Mono', monospace;
         }
         
-        /* Matrix Rain Canvas */
         #matrix-canvas {
             position: absolute;
             top: 0;
@@ -75,7 +71,6 @@
             opacity: 0.7;
         }
         
-        /* Custom colors for consistent dark theme */
         .bg-custom-primary { background-color: var(--bg-primary); }
         .bg-custom-secondary { background-color: var(--bg-secondary); }
         .bg-custom-tertiary { background-color: var(--bg-tertiary); }
@@ -83,7 +78,6 @@
         .text-custom-secondary { color: var(--text-secondary); }
         .text-custom-muted { color: var(--text-muted); }
         
-        /* White highlight sections */
         .bg-white-section {
             background-color: #ffffff;
             color: #010101;
@@ -93,19 +87,16 @@
         .bg-white-section .text-custom-secondary { color: #212121; }
         .bg-white-section .text-custom-muted { color: #666666; }
         
-        /* Header styles */
         .header-bg {
             background-color: rgba(1, 1, 1, 0.95);
             backdrop-filter: blur(10px);
         }
         
-        /* Card styles */
         .card-bg {
             background-color: var(--bg-secondary);
             border: 1px solid var(--bg-tertiary);
         }
         
-        /* Input styles */
         .input-bg {
             background-color: var(--bg-tertiary);
             border: 1px solid #333333;
@@ -122,7 +113,6 @@
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
         }
         
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -136,12 +126,10 @@
             border-radius: 4px;
         }
         
-        /* Smooth scroll */
         html {
             scroll-behavior: smooth;
         }
         
-        /* Card hover effects */
         .card-hover {
             transition: all 0.3s ease;
         }
@@ -150,7 +138,6 @@
             transform: translateY(-4px);
         }
         
-        /* Button hover effects */
         .btn-gradient {
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
         }
@@ -159,7 +146,6 @@
             background: linear-gradient(135deg, #2563eb, #7c3aed);
         }
         
-        /* Navigation hover effects */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -175,12 +161,10 @@
             width: 100%;
         }
         
-        /* Hero section gradient */
         .hero-gradient {
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #001122 100%);
         }
         
-        /* Skills badges for white section */
         .skill-badge-white {
             background-color: #f0f0f0;
             color: #010101;
@@ -192,7 +176,6 @@
             color: #ffffff;
         }
 
-        /* WhatsApp Button Pulsing Animation */
         #whatsapp-button {
             animation: pulse 2s infinite;
         }
@@ -222,9 +205,9 @@
                         <i data-lucide="code-2" class="h-8 w-8 text-blue-500"></i>
                         <i data-lucide="zap" class="absolute -top-1 -right-1 h-4 w-4 text-purple-500"></i>
                     </div>
-                    <span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                        <a href="#">Tipgabrieldev</a>
-                    </span>
+                    <a href="#home" class="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                        Tipgabrieldev
+                    </a>
                 </div>
 
                 <div class="hidden md:flex items-center space-x-8">
@@ -275,18 +258,9 @@
             <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <div class="max-w-4xl mx-auto space-y-8">
                     <div class="space-y-4">
-<svg class="w-full h-auto" viewBox="0 0 1500 150">
-    <defs>
-        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
-            <stop offset="50%" style="stop-color:rgb(168,85,247);stop-opacity:1" />
-            <stop offset="100%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
-        </linearGradient>
-    </defs>
-    <text x="50%" y="100" font-size="100" font-weight="bold" fill="url(#textGradient)" text-anchor="middle">
-        Tip também é dev
-    </text>
-</svg>
+                        <h1 class="text-4xl md:text-6xl font-extrabold bg-clip-text text-transparent" style="background-image: linear-gradient(to right, rgb(59, 130, 246), rgb(168, 85, 247), rgb(59, 130, 246));">
+                            Tip também é dev
+                        </h1>
                         <p class="text-xl md:text-2xl text-custom-secondary font-mono">
                             Coloque um TIP de performance e design no seu projeto
                         </p>
@@ -354,7 +328,7 @@
                         <div class="space-y-6">
                             <h3 class="text-xl font-semibold mb-4" style="color: #010101;">Habilidades Técnicas</h3>
                             <div id="skills-container" class="flex flex-wrap gap-2">
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -372,7 +346,7 @@
                     </div>
 
                     <div id="experience-container" class="space-y-8">
-                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -388,7 +362,7 @@
                     </div>
 
                     <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -404,7 +378,7 @@
                     </div>
 
                     <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -485,8 +459,7 @@
                                 </div>
                                 <button 
                                     type="submit"
-                                    class="w-full px-6 py-3 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
-                                >
+                                    class="w-full px-6 py-3 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
                                     <i data-lucide="mail" class="mr-2 h-4 w-4"></i>
                                     Enviar Mensagem
                                 </button>
