@@ -71,14 +71,14 @@ const portfolioData = {
             id: 1,
             name: "Studiomel",
             role: "Proprietária do Estúdio",
-            content: "O Tip mandou muito! O site ficou incrível, moderno e super funcional, do jeitinho que a gente precisava.",
+            content: "O site ficou incrível, moderno e super funcional, do jeitinho que a gente precisava.",
             avatar: "mel.jpg"
         },
         {
             id: 2,
             name: "André",
             role: "Proprietário da Barbearia",
-            content: "O Tip conseguiu transformar minha ideia em uma identidade visual impecável para a barbearia. Ficou exatamente como eu imaginava!",
+            content: "Transformou minha ideia em uma identidade visual impecável para a barbearia. Ficou exatamente como eu imaginava!",
             avatar: "barbearia-andre.png"
         }
     ]
