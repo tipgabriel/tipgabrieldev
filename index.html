@@ -54,7 +54,9 @@
       font-family: 'Inter', sans-serif;
       background: #010101;
       color: #fff;
-      display: none; /* evita piscar sem estilo */
+    }
+    .hidden {
+      display: none;
     }
     #matrix-canvas {
       position: absolute; top: 0; left: 0;
@@ -63,7 +65,7 @@
     }
   </style>
 </head>
-<body>
+<body class="hidden">
   <!-- Canvas efeito Matrix -->
   <canvas id="matrix-canvas"></canvas>
 
@@ -137,9 +139,9 @@
   <!-- Script principal -->
   <script src="script.js"></script>
   <script>
-    // mostra a página só depois que tudo carrega
-    window.addEventListener("load", () => {
-      document.body.style.display = "block";
+    // mostra a página assim que o DOM estiver pronto (sem piscar)
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.remove("hidden");
     });
   </script>
 </body>
