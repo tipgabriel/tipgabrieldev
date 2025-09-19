@@ -1,33 +1,25 @@
-<!DOCTYPE html> <!-- Documento HTML5 -->
-<html lang="pt-BR"> <!-- Idioma: Português do Brasil -->
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <!-- === Metadados essenciais === -->
-  <meta charset="utf-8"> <!-- Codificação -->
-  <meta name="viewport" content="width=device-width,initial-scale=1"> <!-- Responsividade -->
-  <title>Tipgabrieldev | Front-end, UI/UX e Desenvolvimento Web</title> <!-- Título da aba -->
-  <meta name="description" content="Tipgabrieldev transforma ideias em experiências digitais. Sites bonitos, responsivos e funcionais com foco em UI/UX e desenvolvimento Front-end."> <!-- SEO -->
-  <meta name="keywords" content="desenvolvimento web, front-end, UI, UX, sites responsivos, Tipgabrieldev, HTML5, CSS3, Tailwind, JavaScript, JSON-LD">
-  <meta name="author" content="Tipgabrieldev">
-  <meta name="robots" content="index,follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tipgabrieldev - Desenvolvedor Front-end</title>
+  <meta name="description" content="Desenvolvedor Full Stack especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD. Criando soluções web modernas e funcionais.">
 
-  <!-- === Favicons === -->
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <!-- Ícones -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <meta name="apple-mobile-web-app-title" content="Tipgabrieldev">
 
-  <!-- === Fonts & Tailwind === -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Meta TAG Google e SEO -->
-  <meta name="google-site-verification" content="f0GNwv_W38ZzGOqRk6bynvKzHuPbdh33bK-iUWJ8rlU" />
-  
-  <script src="https://cdn.tailwindcss.com" defer></script> <!-- Tailwind via CDN (defer pra não bloquear) -->
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- === Social previews (OpenGraph / Twitter) === -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow">
   <meta property="og:title" content="Tipgabrieldev | Front-end e UI/UX">
   <meta property="og:description" content="Transformando ideias em experiências digitais. Sites bonitos, responsivos e funcionais.">
   <meta property="og:type" content="website">
@@ -38,274 +30,117 @@
   <meta name="twitter:description" content="Transformando ideias em experiências digitais. Sites bonitos, responsivos e funcionais.">
   <meta name="twitter:image" content="https://tipgabrieldev.vercel.app/tipgabrieldev.png">
 
-  <!-- === Icons lib (Lucide) === -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
-  <!-- === JSON-LD para SEO (dados estruturados) === -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Tipgabrieldev",
-    "jobTitle":"Desenvolvedor Front-end",
-    "description":"Desenvolvedor especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD",
-    "url":"https://tipgabrieldev.com",
-    "sameAs":["https://github.com/tipgabrieldev","https://instagram.com/tipgabrieldev"],
-    "knowsAbout":["HTML","CSS","JavaScript","Tailwind CSS","JSON-LD","Web Development","Frontend Development"],
-    "alumniOf":"Desenvolvedor Autodidata",
-    "workLocation":"Brasil"
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tipgabrieldev",
+    "jobTitle": "Desenvolvedor Front-end",
+    "url": "https://tipgabrieldev.com",
+    "sameAs": [
+      "https://github.com/tipgabrieldev",
+      "https://instagram.com/tipgabrieldev"
+    ]
   }
   </script>
 
-  <!-- === Estilos customizados (tema escuro) === -->
+  <!-- Estilos -->
   <style>
-    /* Variáveis de tema */
-    :root{--primary-blue:#3b82f6;--primary-purple:#8b5cf6;--bg-primary:#010101;--bg-secondary:#212121;--bg-tertiary:#2a2a2a;--text-primary:#ffffff;--text-secondary:#e5e5e5;--text-muted:#a1a1a1}
-    html{scroll-behavior:smooth}
-    body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--text-primary);margin:0}
-    .font-mono{font-family:'JetBrains Mono',monospace}
-    /* Canvas "Matrix" */
-    #matrix-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.7}
-    /* Paleta custom */
-    .bg-custom-primary{background:var(--bg-primary)}.bg-custom-secondary{background:var(--bg-secondary)}.bg-custom-tertiary{background:var(--bg-tertiary)}
-    .text-custom-primary{color:var(--text-primary)}.text-custom-secondary{color:var(--text-secondary)}.text-custom-muted{color:var(--text-muted)}
-    .bg-white-section{background:#fff;color:#010101}.bg-white-section .text-custom-muted{color:#666}
-    /* Header blur */
-    .header-bg{background:rgba(1,1,1,.95);backdrop-filter:blur(10px)}
-    /* Cards e inputs */
-    .card-bg{background:var(--bg-secondary);border:1px solid var(--bg-tertiary)}
-    .input-bg{background:var(--bg-tertiary);border:1px solid #333;color:var(--text-primary);padding:.6rem}
-    .input-bg::placeholder{color:var(--text-muted)}
-    .input-bg:focus{outline:none;box-shadow:0 0 0 6px rgba(59,130,246,.06);border-color:var(--primary-blue)}
-    /* Scrollbar */
-    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-secondary)}::-webkit-scrollbar-thumb{background:linear-gradient(45deg,var(--primary-blue),var(--primary-purple));border-radius:4px}
-    /* Hover/transitions */
-    .card-hover{transition:all .28s ease}.card-hover:hover{transform:translateY(-4px)}
-    .btn-gradient{background:linear-gradient(135deg,var(--primary-blue),var(--primary-purple));color:#fff;padding:.65rem 1rem;border-radius:.6rem}
-    .btn-gradient:hover{transform:scale(1.02)}
-    .skill-badge-white{background:#f0f0f0;color:#010101;border:1px solid #ddd;padding:.35rem .6rem;border-radius:.6rem}
-    .nav-link{position:relative}
-    .nav-link::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:linear-gradient(90deg,var(--primary-blue),var(--primary-purple));transition:width .28s}
-    .nav-link:hover::after{width:100%}
-    .group-hover\:opacity-100:hover{opacity:1}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #010101;
+      color: #fff;
+      display: none; /* evita piscar sem estilo */
+    }
+    #matrix-canvas {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; opacity: 0.7;
+    }
   </style>
 </head>
-<body class="transition-colors duration-300">
-  <!-- AVISO: coloque este arquivo como index.html na raiz do projeto; scripts e imagens ao lado ou ajuste paths -->
+<body>
+  <!-- Canvas efeito Matrix -->
+  <canvas id="matrix-canvas"></canvas>
 
-  <!-- === Header / Nav (fixo no topo) === -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <!-- Logo -->
-        <div class="flex items-center space-x-2">
-          <div class="relative">
-            <i data-lucide="code-2" class="h-8 w-8 text-blue-500"></i>
-            <i data-lucide="zap" class="absolute -top-1 -right-1 h-4 w-4 text-purple-500"></i>
-          </div>
-          <span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Tipgabrieldev</span>
-        </div>
-        <!-- Desktop links -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#home" class="nav-link text-custom-secondary hover:text-blue-500">Início</a>
-          <a href="#about" class="nav-link text-custom-secondary hover:text-blue-500">Sobre</a>
-          <a href="#experience" class="nav-link text-custom-secondary hover:text-blue-500">Experiência</a>
-          <a href="#projects" class="nav-link text-custom-secondary hover:text-blue-500">Projetos</a>
-          <a href="#contact" class="nav-link text-custom-secondary hover:text-blue-500">Contato</a>
-        </div>
-        <!-- Mobile menu button -->
-        <div class="md:hidden">
-          <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
-            <i data-lucide="menu" id="menu-icon" class="h-6 w-6"></i>
-            <i data-lucide="x" id="close-icon" class="h-6 w-6 hidden"></i>
-          </button>
-        </div>
-      </div>
-      <!-- Mobile menu (inicia escondido) -->
-      <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 right-0 card-bg border-t shadow-lg">
-        <div class="px-4 py-6 space-y-4">
-          <a href="#home" class="mobile-nav-link block text-custom-secondary py-2">Início</a>
-          <a href="#about" class="mobile-nav-link block text-custom-secondary py-2">Sobre</a>
-          <a href="#experience" class="mobile-nav-link block text-custom-secondary py-2">Experiência</a>
-          <a href="#projects" class="mobile-nav-link block text-custom-secondary py-2">Projetos</a>
-          <a href="#contact" class="mobile-nav-link block text-custom-secondary py-2">Contato</a>
-        </div>
-      </div>
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-sm z-50">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <span class="text-lg font-bold">Tipgabrieldev</span>
+      <ul class="flex gap-6">
+        <li><a href="#sobre" class="hover:text-blue-400">Sobre</a></li>
+        <li><a href="#projetos" class="hover:text-blue-400">Projetos</a></li>
+        <li><a href="#contato" class="hover:text-blue-400">Contato</a></li>
+      </ul>
     </nav>
   </header>
 
-  <!-- === Main === -->
-  <main class="pt-16">
-    <!-- Hero: tela cheia com canvas Matrix -->
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-      <div class="absolute inset-0 hero-gradient">
-        <canvas id="matrix-canvas"></canvas> <!-- canvas para efeito visual (matrix.js) -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-      </div>
-      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-8">
-        <div class="max-w-4xl mx-auto space-y-4 md:space-y-6">
-          <div class="space-y-3 md:space-y-4">
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 bg-clip-text text-transparent animate-pulse">Tip também é Dev</h1>
-            <p class="text-lg sm:text-xl md:text-2xl text-custom-secondary font-mono">Desenvolvedor Front-end</p>
-          </div>
-          <p class="text-base sm:text-lg md:text-xl text-custom-muted max-w-2xl mx-auto leading-relaxed px-4 md:px-0">Café, código e criatividade: crio interfaces que funcionam e fazem sentido.</p>
-          <div class="flex justify-center pt-4 md:pt-6">
-            <button id="view-projects-btn" class="btn-gradient rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center">
-              Ver Projetos <i data-lucide="chevron-down" class="ml-2 h-4 w-4"></i>
-            </button>
-          </div>
-          <!-- Social icons -->
-          <div class="flex justify-center space-x-6 pt-6 md:pt-8">
-            <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-all duration-200 hover:scale-110"><i data-lucide="github" class="h-5 w-5 md:h-6 md:w-6"></i></a>
-            <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-purple-500 transition-all duration-200 hover:scale-110"><i data-lucide="instagram" class="h-5 w-5 md:h-6 md:w-6"></i></a>
-          </div>
-        </div>
-      </div>
-      <!-- scroll indicator -->
-      <div class="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"><i data-lucide="chevron-down" class="h-5 w-5 md:h-6 md:w-6 text-custom-muted"></i></div>
-    </section>
+  <!-- Hero -->
+  <section class="h-screen flex flex-col justify-center items-center text-center px-4">
+    <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+      Transformando ideias em experiências digitais
+    </h1>
+    <p class="mt-6 text-lg max-w-2xl">
+      Crio sites bonitos, responsivos e funcionais com foco em UI/UX e desenvolvimento Front-end.
+    </p>
+    <a href="#projetos" class="mt-8 px-6 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-600 hover:opacity-90">
+      Ver Projetos
+    </a>
+  </section>
 
-    <!-- About (seção branca para contraste) -->
-    <section id="about" class="py-20 bg-white-section">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color:#010101">Sobre Mim</h2>
-            <p class="text-lg" style="color:#666">Conheça um pouco da minha jornada e paixão pela tecnologia</p>
-          </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-              <p class="leading-relaxed" style="color:#212121">Sou desenvolvedor Front-end e meu trampo é dar vida às ideias: telas rápidas, responsivas e com cara moderna. Gosto de deixar o CSS na linha, o JavaScript cooperando e cada detalhe no ponto certo.<br>No fim das contas, não é só sobre código — é sobre criar experiências que façam sentido de verdade pra quem usa.</p>
-              <div class="space-y-4">
-                <div class="flex items-center space-x-2"><i data-lucide="map-pin" class="h-4 w-4 text-blue-500"></i><span class="text-sm" style="color:#212121">Brasil</span></div>
-                <div class="flex items-center space-x-2"><i data-lucide="mail" class="h-4 w-4 text-blue-500"></i><span class="text-sm" style="color:#212121">tipgabrieldev@proton.me</span></div>
-                <div class="flex items-center space-x-2"><i data-lucide="phone" class="h-4 w-4 text-blue-500"></i><span class="text-sm" style="color:#212121">+55 (31) 98204-2552</span></div>
-              </div>
-            </div>
-            <div class="space-y-6">
-              <h3 class="text-xl font-semibold mb-4" style="color:#010101">Habilidades Técnicas</h3>
-              <div id="skills-container" class="flex flex-wrap gap-2"></div> <!-- skills preenchidas via script.js -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Sobre -->
+  <section id="sobre" class="py-20 container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-6">Sobre mim</h2>
+    <p>
+      Sou desenvolvedor Front-end com paixão por transformar código em experiências que fazem sentido. 
+      Trabalho com HTML, CSS, JavaScript e Tailwind.
+    </p>
+  </section>
 
-    <!-- Experience -->
-    <section id="experience" class="py-20 bg-custom-primary">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Experiência Profissional</h2>
-            <p class="text-lg text-custom-muted">Minha trajetória no desenvolvimento web</p>
-          </div>
-          <div id="experience-container" class="space-y-8"></div> <!-- preenchido via script.js -->
-        </div>
+  <!-- Projetos -->
+  <section id="projetos" class="py-20 bg-gray-900 container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-6">Projetos</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="p-6 bg-gray-800 rounded shadow hover:translate-y-[-4px] transition">
+        <h3 class="text-xl font-semibold">Projeto 1</h3>
+        <p class="mt-2 text-gray-300">Descrição do projeto 1.</p>
       </div>
-    </section>
+      <div class="p-6 bg-gray-800 rounded shadow hover:translate-y-[-4px] transition">
+        <h3 class="text-xl font-semibold">Projeto 2</h3>
+        <p class="mt-2 text-gray-300">Descrição do projeto 2.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects -->
-    <section id="projects" class="py-20 bg-custom-secondary">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Projetos em Destaque</h2>
-            <p class="text-lg text-custom-muted">Alguns dos trabalhos que desenvolvi recentemente</p>
-          </div>
-          <div id="projects-container" class="flex flex-wrap justify-center gap-8"></div> <!-- preenchido via script.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-20 bg-custom-primary">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Depoimentos</h2>
-            <p class="text-lg text-custom-muted">O que meus clientes dizem sobre meu trabalho</p>
-          </div>
-          <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div> <!-- preenchido via script.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-20 bg-custom-secondary">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Entre em Contato</h2>
-            <p class="text-lg text-custom-muted">Tem um projeto em mente? Bora trocar uma ideia!</p>
-          </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Info de contato -->
-            <div class="space-y-8">
-              <div><h3 class="text-xl font-semibold mb-6 text-custom-primary">Informações de Contato</h3>
-                <div class="space-y-4">
-                  <div class="flex items-center space-x-3"><i data-lucide="mail" class="h-5 w-5 text-blue-500"></i><span class="text-custom-secondary">tipgabrieldev@proton.me</span></div>
-                  <div class="flex items-center space-x-3"><i data-lucide="phone" class="h-5 w-5 text-blue-500"></i><span class="text-custom-secondary">+55 (31) 98204-2552</span></div>
-                  <div class="flex items-center space-x-3"><i data-lucide="map-pin" class="h-5 w-5 text-blue-500"></i><span class="text-custom-secondary">Brasil</span></div>
-                </div>
-              </div>
-              <div><h3 class="text-xl font-semibold mb-6 text-custom-primary">Redes Sociais</h3>
-                <div class="flex space-x-4">
-                  <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-blue-500"><i data-lucide="github" class="h-5 w-5"></i><span>GitHub</span></a>
-                  <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-purple-500"><i data-lucide="instagram" class="h-5 w-5"></i><span>Instagram</span></a>
-                </div>
-              </div>
-            </div>
-            <!-- Form -->
-            <div class="card-bg p-6 rounded-lg shadow-lg">
-              <form id="contact-form" class="space-y-6">
-                <div><input type="text" name="name" placeholder="Como posso te chamar?" required class="w-full px-4 py-3 input-bg rounded-lg"></div>
-                <div><input type="email" name="email" placeholder="Qual seu email (prometo não mandar spam 👀)" required class="w-full px-4 py-3 input-bg rounded-lg"></div>
-                <div><textarea name="message" placeholder="Manda o papo: o que você tá imaginando?" required rows="4" class="w-full px-4 py-3 input-bg rounded-lg resize-none"></textarea></div>
-                <button type="submit" class="w-full btn-gradient rounded-lg font-semibold flex items-center justify-center"><i data-lucide="mail" class="mr-2 h-4 w-4"></i>Chamar no Código 🚀</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <!-- Contato -->
+  <section id="contato" class="py-20 container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-6">Contato</h2>
+    <form class="grid gap-4 max-w-lg">
+      <input type="text" placeholder="Nome" class="p-3 rounded bg-gray-800 border border-gray-700">
+      <input type="email" placeholder="Email" class="p-3 rounded bg-gray-800 border border-gray-700">
+      <textarea placeholder="Mensagem" class="p-3 rounded bg-gray-800 border border-gray-700"></textarea>
+      <button type="submit" class="px-6 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-600 hover:opacity-90">
+        Enviar
+      </button>
+    </form>
+  </section>
 
   <!-- Footer -->
-  <footer class="bg-custom-tertiary border-t border-custom-secondary">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="space-y-4">
-          <div class="flex items-center space-x-2">
-            <div class="relative"><i data-lucide="code-2" class="h-6 w-6 text-blue-500"></i><i data-lucide="zap" class="absolute -top-1 -right-1 h-3 w-3 text-purple-500"></i></div>
-            <span class="text-lg font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Tipgabrieldev</span>
-          </div>
-          <p class="text-custom-muted text-sm">Desenvolvedor Full Stack especializado em criar soluções web modernas e funcionais.</p>
-        </div>
-        <div class="space-y-4">
-          <h3 class="font-semibold text-custom-primary">Links Rápidos</h3>
-          <div class="space-y-2"><a href="#home" class="block text-custom-muted hover:text-blue-500 text-sm">Início</a><a href="#about" class="block text-custom-muted hover:text-blue-500 text-sm">Sobre</a><a href="#experience" class="block text-custom-muted hover:text-blue-500 text-sm">Experiência</a><a href="#projects" class="block text-custom-muted hover:text-blue-500 text-sm">Projetos</a><a href="#contact" class="block text-custom-muted hover:text-blue-500 text-sm">Contato</a></div>
-        </div>
-        <div class="space-y-4">
-          <h3 class="font-semibold text-custom-primary">Conecte-se</h3>
-          <div class="flex space-x-4"><a href="https://github.com/tipgabrieldev" target="_blank" class="text-custom-muted hover:text-blue-500"><i data-lucide="github" class="h-5 w-5"></i></a><a href="https://instagram.com/tipgabrieldev" target="_blank" class="text-custom-muted hover:text-purple-500"><i data-lucide="instagram" class="h-5 w-5"></i></a></div>
-        </div>
-      </div>
-      <div class="border-t border-custom-secondary mt-8 pt-8 text-center"><p class="text-custom-muted text-sm">© <span id="current-year"></span> <a href="https://www.instagram.com/tipgabrieldev/">Tipgabrieldev</a>. Todos os direitos reservados.</p></div>
-    </div>
+  <footer class="py-6 text-center text-gray-400 border-t border-gray-800">
+    © 2025 Tipgabrieldev - Todos os direitos reservados
   </footer>
 
-  <!-- Toast notification (slide in/out) -->
-  <div id="toast" class="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
-    <div class="flex items-center"><i data-lucide="check-circle" class="h-5 w-5 mr-2"></i><span id="toast-message">Mensagem enviada com sucesso!</span></div>
-  </div>
-
-  <!-- === Scripts externos (defer para rodar após parse) === -->
-  <!-- matrix.js: gera o efeito no canvas #matrix-canvas -->
-  <script src="./matrix.js" defer></script>
-  <!-- script.js: lógica do site (popula conteúdo, eventos, menu, form, etc.) -->
-  <script src="./script.js" defer></script>
-
-  <!-- Fallback para usuários com JS desativado -->
-  <noscript><div style="background:#111;color:#fff;padding:1rem;text-align:center">Este site funciona melhor com JavaScript ativado.</div></noscript>
+  <!-- Script principal -->
+  <script src="script.js"></script>
+  <script>
+    // mostra a página só depois que tudo carrega
+    window.addEventListener("load", () => {
+      document.body.style.display = "block";
+    });
+  </script>
 </body>
 </html>
