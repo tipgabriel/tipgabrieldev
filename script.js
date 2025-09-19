@@ -37,8 +37,9 @@ const portfolioData = {
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
             technologies: ["HTML5", "CSS3", "Tailwind", "JavaScript", "JSON-LD"],
             image: "meltrancasbh.png",
-            link: "https://studiomel.vercel.app/", // placeholder para o usuário preencher
-            Instagram: "https://www.instagram.com/studiomel/", // placeholder para o usuário preencher
+            link: "https://studiomel.vercel.app/",
+            repo: "https://github.com/tipgabriel/studiomel",
+            Instagram: "https://www.instagram.com/studiomel/",
             category: "Website",
             featured: true
         },
@@ -47,8 +48,8 @@ const portfolioData = {
             title: "Barbearia André",
             description: "Desenvolvimento de identidade visual completa para barbearia, incluindo logotipo, paleta de cores e aplicações em diversos materiais.",
             technologies: ["Design", "Branding"],
-            image: "barbearia-andre.png",
-            link: "https://www.instagram.com/barbeariandreoficial032013/", // placeholder para o usuário preencher
+            image: "image_071009.jpg",
+            link: null, // Não tem link de site, então é null
             Instagram: "https://www.instagram.com/barbeariandreoficial032013/",
             category: "Logo",
             featured: true
@@ -58,8 +59,9 @@ const portfolioData = {
             title: "HQ Azul Estelar e Verde Neon",
             description: "Website interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
             technologies: ["HTML5", "CSS3", "Tailwind", "JavaScript", "JSON-LD"],
-            image: "Azul-estelar.jpeg",
-            link: "https://hqsunrise.vercel.app/", // placeholder para o usuário preencher
+            image: "image_069901.jpg",
+            link: "https://hqsunrise.vercel.app/",
+            repo: "https://github.com/tipgabriel/hq-sunrise",
             Instagram: "https://www.instagram.com/jessicapamela461/",
             category: "Website",
             featured: true
@@ -276,13 +278,24 @@ function populateProjects() {
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
+                        ${project.link ? `
                         <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
                             <i data-lucide="external-link" class="h-4 w-4 mr-2"></i>
                             Explore o site
                         </a>
-                        <a href="${project.Instagram}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
-                            <i data-lucide="instagram" class="h-4 w-4"></i>
+                        ` : ''}
+                        ${project.repo ? `
+                        <a href="${project.repo}" target="_blank" rel="noopener noreferrer" class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
+                            <i data-lucide="github" class="h-4 w-4 mr-2"></i>
+                            Repositório
                         </a>
+                        ` : ''}
+                        ${project.Instagram ? `
+                        <a href="${project.Instagram}" target="_blank" rel="noopener noreferrer" class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
+                            <i data-lucide="instagram" class="h-4 w-4 mr-2"></i>
+                            Instagram
+                        </a>
+                        ` : ''}
                     </div>
                 </div>
             </div>
