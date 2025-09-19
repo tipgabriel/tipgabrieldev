@@ -264,16 +264,16 @@ function populateExperience() {
 
 function populateProjects() {
     if (!elements.projectsContainer) return;
-    
+
     elements.projectsContainer.innerHTML = portfolioData.projects.map(project => `
         <div class="card-bg rounded-lg shadow-lg overflow-hidden card-hover group">
             <div class="relative overflow-hidden">
-<img
-  src="${project.image}"
-  alt="${project.title}"
-  class="w-80 h-80 rounded-md object-cover object-top object-center group-hover:scale-105 transition-transform duration-300"
-  loading="lazy"
-/>
+                <img
+                    src="${project.image}"
+                    alt="${project.title}"
+                    class="w-80 h-80 rounded-md object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                         <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
@@ -286,7 +286,7 @@ function populateProjects() {
                     </div>
                 </div>
             </div>
-            
+
             <div class="p-6">
                 <div class="flex items-center justify-between mb-3">
                     <h3 class="text-lg font-semibold text-custom-primary">${project.title}</h3>
@@ -294,11 +294,11 @@ function populateProjects() {
                         ${project.category}
                     </span>
                 </div>
-                
+
                 <p class="text-custom-muted text-sm leading-relaxed mb-4">
                     ${project.description}
                 </p>
-                
+
                 <div class="flex flex-wrap gap-1">
                     ${project.technologies.map(tech => `
                         <span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs">
@@ -309,7 +309,7 @@ function populateProjects() {
             </div>
         </div>
     `).join('');
-    
+}
     // Re-initialize icons
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
