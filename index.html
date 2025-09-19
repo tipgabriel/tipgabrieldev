@@ -1,148 +1,513 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tipgabrieldev - Desenvolvedor Front-end</title>
-  <meta name="description" content="Desenvolvedor Full Stack especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD. Criando soluções web modernas e funcionais.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipgabrieldev - Desenvolvedor Front-end</title>
+    
+    <meta name="description" content="Desenvolvedor Front-end especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD. Criando soluções web modernas e funcionais.">
+    <meta name="keywords" content="desenvolvimento web, front-end, UI, UX, sites responsivos, design web, Tipgabrieldev, HTML5, CSS3, Tailwind, JavaScript, JSON-LD">
+    <meta name="author" content="Tipgabrieldev">
+    <meta name="robots" content="index, follow">
 
-  <!-- Ícones -->
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Tipgabrieldev">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="google-site-verification" content="f0GNwv_W38ZzGOqRk6bynvKzHuPbdh33bK-iUWJ8rlU" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Tipgabrieldev | Front-end e UI/UX">
+    <meta property="og:description" content="Transformando ideias em experiências digitais. Sites bonitos, responsivos e funcionais.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tipgabrieldev.vercel.app/">
+    <meta property="og:image" content="https://tipgabrieldev.vercel.app//tipgabrieldev.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tipgabrieldev | Front-end e UI/UX">
+    <meta name="twitter:description" content="Transformando ideias em experiências digitais. Sites bonitos, responsivos e funcionais.">
+    <meta name="twitter:image" content="https://www.tipgabrieldev.com/tipgabrieldev.png">
 
-  <!-- SEO -->
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Tipgabrieldev | Front-end e UI/UX">
-  <meta property="og:description" content="Transformando ideias em experiências digitais. Sites bonitos, responsivos e funcionais.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tipgabrieldev.vercel.app/">
-  <meta property="og:image" content="https://tipgabrieldev.vercel.app/tipgabrieldev.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tipgabrieldev | Front-end e UI/UX">
-  <meta name="twitter:description" content="Transformando ideias em experiências digitais. Sites bonitos, responsivos e funcionais.">
-  <meta name="twitter:image" content="https://tipgabrieldev.vercel.app/tipgabrieldev.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Tipgabrieldev",
-    "jobTitle": "Desenvolvedor Front-end",
-    "url": "https://tipgabrieldev.com",
-    "sameAs": [
-      "https://github.com/tipgabrieldev",
-      "https://instagram.com/tipgabrieldev"
-    ]
-  }
-  </script>
-
-  <!-- Estilos -->
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #010101;
-      color: #fff;
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tipgabrieldev",
+      "jobTitle": "Desenvolvedor Front-end",
+      "description": "Desenvolvedor especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD",
+      "url": "https://tipgabrieldev.com",
+      "sameAs": [
+        "https://github.com/tipgabrieldev",
+        "https://instagram.com/tipgabrieldev"
+      ],
+      "knowsAbout": ["HTML", "CSS", "JavaScript", "Tailwind CSS", "JSON-LD", "Web Development", "Frontend Development"],
+      "alumniOf": "Desenvolvedor Autodidata",
+      "workLocation": "Brasil"
     }
-    .hidden {
-      display: none;
-    }
-    #matrix-canvas {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none; opacity: 0.7;
-    }
-  </style>
+    </script>
+
+    <style>
+        /* Importação das fontes */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        
+        /* Variáveis CSS para cores */
+        :root {
+            --primary-blue: #3b82f6;
+            --primary-purple: #8b5cf6;
+            --matrix-blue: #00bfff;
+            --bg-primary: #010101;
+            --bg-secondary: #212121;
+            --bg-tertiary: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #e5e5e5;
+            --text-muted: #a1a1a1;
+        }
+        
+        /* Estilos globais do corpo e fontes */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Efeito de chuva de Matrix no fundo */
+        #matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.7;
+        }
+        
+        /* Cores customizadas para o tema escuro */
+        .bg-custom-primary { background-color: var(--bg-primary); }
+        .bg-custom-secondary { background-color: var(--bg-secondary); }
+        .bg-custom-tertiary { background-color: var(--bg-tertiary); }
+        .text-custom-primary { color: var(--text-primary); }
+        .text-custom-secondary { color: var(--text-secondary); }
+        .text-custom-muted { color: var(--text-muted); }
+        
+        /* Seções com fundo branco (diferentes cores de texto) */
+        .bg-white-section {
+            background-color: #ffffff;
+            color: #010101;
+        }
+        
+        .bg-white-section .text-custom-primary { color: #010101; }
+        .bg-white-section .text-custom-secondary { color: #212121; }
+        .bg-white-section .text-custom-muted { color: #666666; }
+        
+        /* Estilos do cabeçalho fixo */
+        .header-bg {
+            background-color: rgba(1, 1, 1, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Estilos dos cartões */
+        .card-bg {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+        }
+        
+        /* Estilos dos inputs de formulário */
+        .input-bg {
+            background-color: var(--bg-tertiary);
+            border: 1px solid #333333;
+            color: var(--text-primary);
+        }
+        
+        .input-bg::placeholder { color: var(--text-muted); }
+        .input-bg:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Estilo da barra de rolagem customizada */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
+            border-radius: 4px;
+        }
+        
+        /* Rolagem suave na página */
+        html { scroll-behavior: smooth; }
+        
+        /* Efeitos de hover em cartões e botões */
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); }
+        
+        .btn-gradient { background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); }
+        .btn-gradient:hover { background: linear-gradient(135deg, #2563eb, #7c3aed); }
+        
+        /* Efeito de sublinhado na navegação */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after { width: 100%; }
+        
+        /* Gradiente da seção principal (Hero) */
+        .hero-gradient { background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #001122 100%); }
+        
+        /* Estilos dos 'badges' de habilidades */
+        .skill-badge-white {
+            background-color: #f0f0f0;
+            color: #010101;
+            border: 1px solid #ddd;
+        }
+        
+        .skill-badge-white:hover {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+        }
+    </style>
 </head>
-<body class="hidden">
-  <!-- Canvas efeito Matrix -->
-  <canvas id="matrix-canvas"></canvas>
 
-  <!-- Header -->
-  <header class="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-sm z-50">
-    <nav class="container mx-auto flex justify-between items-center p-4">
-      <span class="text-lg font-bold">Tipgabrieldev</span>
-      <ul class="flex gap-6">
-        <li><a href="#sobre" class="hover:text-blue-400">Sobre</a></li>
-        <li><a href="#projetos" class="hover:text-blue-400">Projetos</a></li>
-        <li><a href="#contato" class="hover:text-blue-400">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="transition-colors duration-300">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="relative">
+                        <i data-lucide="code-2" class="h-8 w-8 text-blue-500"></i>
+                        <i data-lucide="zap" class="absolute -top-1 -right-1 h-4 w-4 text-purple-500"></i>
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                        Tipgabrieldev
+                    </span>
+                </div>
 
-  <!-- Hero -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-4">
-    <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-      Transformando ideias em experiências digitais
-    </h1>
-    <p class="mt-6 text-lg max-w-2xl">
-      Crio sites bonitos, responsivos e funcionais com foco em UI/UX e desenvolvimento Front-end.
-    </p>
-    <a href="#projetos" class="mt-8 px-6 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-600 hover:opacity-90">
-      Ver Projetos
-    </a>
-  </section>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">Início</a>
+                    <a href="#about" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">Sobre</a>
+                    <a href="#experience" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">Experiência</a>
+                    <a href="#projects" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">Projetos</a>
+                    <a href="#contact" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">Contato</a>
+                </div>
 
-  <!-- Sobre -->
-  <section id="sobre" class="py-20 container mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-6">Sobre mim</h2>
-    <p>
-      Sou desenvolvedor Front-end com paixão por transformar código em experiências que fazem sentido. 
-      Trabalho com HTML, CSS, JavaScript e Tailwind.
-    </p>
-  </section>
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
+                        <i data-lucide="menu" class="h-6 w-6 block" id="menu-icon"></i>
+                        <i data-lucide="x" class="h-6 w-6 hidden" id="close-icon"></i>
+                    </button>
+                </div>
+            </div>
 
-  <!-- Projetos -->
-  <section id="projetos" class="py-20 bg-gray-900 container mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-6">Projetos</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="p-6 bg-gray-800 rounded shadow hover:translate-y-[-4px] transition">
-        <h3 class="text-xl font-semibold">Projeto 1</h3>
-        <p class="mt-2 text-gray-300">Descrição do projeto 1.</p>
-      </div>
-      <div class="p-6 bg-gray-800 rounded shadow hover:translate-y-[-4px] transition">
-        <h3 class="text-xl font-semibold">Projeto 2</h3>
-        <p class="mt-2 text-gray-300">Descrição do projeto 2.</p>
-      </div>
+            <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 right-0 card-bg border-t shadow-lg">
+                <div class="px-4 py-6 space-y-4">
+                    <a href="#home" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Início</a>
+                    <a href="#about" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Sobre</a>
+                    <a href="#experience" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Experiência</a>
+                    <a href="#projects" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Projetos</a>
+                    <a href="#contact" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Contato</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-16">
+        <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 hero-gradient">
+                <canvas id="matrix-canvas"></canvas>
+                <div class="absolute inset-0 bg-gradient-to-t from-custom-primary/20 to-transparent"></div>
+            </div>
+
+            <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-8">
+                <div class="max-w-4xl mx-auto space-y-4 md:space-y-6">
+                    <div class="space-y-3 md:space-y-4">
+                        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 bg-clip-text text-transparent animate-pulse">
+                            Tip também é Dev
+                        </h1>
+                        <p class="text-lg sm:text-xl md:text-2xl text-custom-secondary font-mono">
+                            Desenvolvedor Front-end
+                        </p>
+                    </div>
+
+                    <p class="text-base sm:text-lg md:text-xl text-custom-muted max-w-2xl mx-auto leading-relaxed px-4 md:px-0">
+                        Café, código e criatividade: crio interfaces que funcionam e fazem sentido.
+                    </p>
+
+                    <div class="flex justify-center pt-4 md:pt-6">
+                        <button id="view-projects-btn" class="px-6 md:px-8 py-3 md:py-4 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center">
+                            Ver Projetos
+                            <i data-lucide="chevron-down" class="ml-2 h-4 w-4"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex justify-center space-x-6 pt-6 md:pt-8">
+                        <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-all duration-200 hover:scale-110">
+                            <i data-lucide="github" class="h-5 w-5 md:h-6 md:w-6"></i>
+                        </a>
+                        <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-purple-500 transition-all duration-200 hover:scale-110">
+                            <i data-lucide="instagram" class="h-5 w-5 md:h-6 md:w-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i data-lucide="chevron-down" class="h-5 w-5 md:h-6 md:w-6 text-custom-muted"></i>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-white-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #010101;">Sobre Mim</h2>
+                        <p class="text-lg" style="color: #666666;">
+                            Conheça um pouco da minha jornada e paixão pela tecnologia
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <p class="leading-relaxed" style="color: #212121;">
+                                Sou desenvolvedor Front-end e meu trampo é dar vida às ideias: telas rápidas, responsivas e com cara moderna. Gosto de deixar o CSS na linha, o JavaScript cooperando e cada detalhe no ponto certo.
+                                <br>No fim das contas, não é só sobre código — é sobre criar experiências que façam sentido de verdade pra quem usa. Se você procura alguém que entende de tecnologia sem falar como manual de instrução, é aqui que a gente se encontra.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="map-pin" class="h-4 w-4 text-blue-500"></i>
+                                    <span class="text-sm" style="color: #212121;">Brasil</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="mail" class="h-4 w-4 text-blue-500"></i>
+                                    <span class="text-sm" style="color: #212121;">tipgabrieldev@proton.me</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="phone" class="h-4 w-4 text-blue-500"></i>
+                                    <span class="text-sm" style="color: #212121;">+55 (31) 98204-2552</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-semibold mb-4" style="color: #010101;">Habilidades Técnicas</h3>
+                            <div id="skills-container" class="flex flex-wrap gap-2">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20 bg-custom-primary">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Experiência Profissional</h2>
+                        <p class="text-lg text-custom-muted">
+                            Minha trajetória no desenvolvimento web
+                        </p>
+                    </div>
+
+                    <div id="experience-container" class="space-y-8">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 bg-custom-secondary">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Projetos em Destaque</h2>
+                        <p class="text-lg text-custom-muted">
+                            Alguns dos trabalhos que desenvolvi recentemente
+                        </p>
+                    </div>
+                    <div id="projects-container" class="flex flex-wrap justify-center gap-8">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-custom-primary">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Depoimentos</h2>
+                        <p class="text-lg text-custom-muted">
+                            O que meus clientes dizem sobre meu trabalho
+                        </p>
+                    </div>
+                    <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-custom-secondary">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Entre em Contato</h2>
+                        <p class="text-lg text-custom-muted">
+                            Tem um projeto em mente? Bora trocar uma ideia!
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="text-xl font-semibold mb-6 text-custom-primary">Informações de Contato</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center space-x-3">
+                                        <i data-lucide="mail" class="h-5 w-5 text-blue-500"></i>
+                                        <span class="text-custom-secondary">tipgabrieldev@proton.me</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i data-lucide="phone" class="h-5 w-5 text-blue-500"></i>
+                                        <span class="text-custom-secondary">+55 (31) 98204-2552</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i data-lucide="map-pin" class="h-5 w-5 text-blue-500"></i>
+                                        <span class="text-custom-secondary">Brasil</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold mb-6 text-custom-primary">Redes Sociais</h3>
+                                <div class="flex space-x-4">
+                                    <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-blue-500 transition-colors duration-200">
+                                        <i data-lucide="github" class="h-5 w-5"></i>
+                                        <span>GitHub</span>
+                                    </a>
+                                    <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-purple-500 transition-colors duration-200">
+                                        <i data-lucide="instagram" class="h-5 w-5"></i>
+                                        <span>Instagram</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-bg p-6 rounded-lg shadow-lg">
+                            <form id="contact-form" class="space-y-6">
+                                <div>
+                                    <input 
+                                        type="text" 
+                                        name="name" 
+                                        placeholder="Como posso te chamar?" 
+                                        required
+                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                    >
+                                </div>
+                                <div>
+                                    <input 
+                                        type="email" 
+                                        name="email" 
+                                        placeholder="Qual seu email (prometo não mandar spam 👀)" 
+                                        required
+                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                    >
+                                </div>
+                                <div>
+                                    <textarea 
+                                        name="message" 
+                                        placeholder="Manda o papo: o que você tá imaginando?" 
+                                        required
+                                        rows="4"
+                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+                                    ></textarea>
+                                </div>
+                                <button 
+                                    type="submit"
+                                    class="w-full px-6 py-3 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
+                                >
+                                    <i data-lucide="mail" class="mr-2 h-4 w-4"></i>
+                                    Chamar no Código 🚀
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-custom-tertiary border-t border-custom-secondary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="relative">
+                            <i data-lucide="code-2" class="h-6 w-6 text-blue-500"></i>
+                            <i data-lucide="zap" class="absolute -top-1 -right-1 h-3 w-3 text-purple-500"></i>
+                        </div>
+                        <span class="text-lg font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                            Tipgabrieldev
+                        </span>
+                    </div>
+                    <p class="text-custom-muted text-sm">
+                        Desenvolvedor Full Stack especializado em criar soluções web modernas e funcionais.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="font-semibold text-custom-primary">Links Rápidos</h3>
+                    <div class="space-y-2">
+                        <a href="#home" class="block text-custom-muted hover:text-blue-500 transition-colors duration-200 text-sm">Início</a>
+                        <a href="#about" class="block text-custom-muted hover:text-blue-500 transition-colors duration-200 text-sm">Sobre</a>
+                        <a href="#experience" class="block text-custom-muted hover:text-blue-500 transition-colors duration-200 text-sm">Experiência</a>
+                        <a href="#projects" class="block text-custom-muted hover:text-blue-500 transition-colors duration-200 text-sm">Projetos</a>
+                        <a href="#contact" class="block text-custom-muted hover:text-blue-500 transition-colors duration-200 text-sm">Contato</a>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="font-semibold text-custom-primary">Conecte-se</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-colors duration-200">
+                            <i data-lucide="github" class="h-5 w-5"></i>
+                        </a>
+                        <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-purple-500 transition-colors duration-200">
+                            <i data-lucide="instagram" class="h-5 w-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-custom-secondary mt-8 pt-8 text-center">
+                <p class="text-custom-muted text-sm">
+                    © <span id="current-year"></span> <a href="https://www.instagram.com/tipgabrieldev/">Tipgabrieldev</a>. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex items-center">
+            <i data-lucide="check-circle" class="h-5 w-5 mr-2"></i>
+            <span id="toast-message">Mensagem enviada com sucesso!</span>
+        </div>
     </div>
-  </section>
 
-  <!-- Contato -->
-  <section id="contato" class="py-20 container mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-6">Contato</h2>
-    <form class="grid gap-4 max-w-lg">
-      <input type="text" placeholder="Nome" class="p-3 rounded bg-gray-800 border border-gray-700">
-      <input type="email" placeholder="Email" class="p-3 rounded bg-gray-800 border border-gray-700">
-      <textarea placeholder="Mensagem" class="p-3 rounded bg-gray-800 border border-gray-700"></textarea>
-      <button type="submit" class="px-6 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-600 hover:opacity-90">
-        Enviar
-      </button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-6 text-center text-gray-400 border-t border-gray-800">
-    © 2025 Tipgabrieldev - Todos os direitos reservados
-  </footer>
-
-  <!-- Script principal -->
-  <script src="script.js"></script>
-  <script>
-    // mostra a página assim que o DOM estiver pronto (sem piscar)
-    document.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.remove("hidden");
-    });
-  </script>
+    <script src="matrix.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
