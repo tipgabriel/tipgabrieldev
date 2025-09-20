@@ -34,7 +34,7 @@ const portfolioData = {
         {
             id: 1,
             title: "Studiomelbh",
-            description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
+            description: "Site completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
             technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
             image: "meltrancasbh.png",
             link: "https://meltrancasbh.vercel.app/index.html", // placeholder para o usuário preencher
@@ -55,8 +55,8 @@ const portfolioData = {
         },
         {
             id: 3,
-            title: "HQ Azul Estelar e Verde Neon",
-            description: "Website interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
+            title: "HQ Sunrise,
+            description: "Site interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
             technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
             image: "sunrise-logo.png",
             link: "https://sunrisehq.vercel.app/", // placeholder para o usuário preencher
@@ -69,7 +69,7 @@ const portfolioData = {
     testimonials: [
         {
             id: 1,
-            name: "Studiomel",
+            name: "StudiomelBH",
             role: "Proprietária do Estúdio",
             content: "Recomendo demais! O site ficou super fácil de navegar e entender. O Tip é incrível no que faz e ainda por cima muito atencioso.",
             avatar: "meltrancasbh.png"
@@ -271,7 +271,6 @@ function populateProjects() {
                     alt="${project.title}"
                     class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
-                    style="object-position: top;"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
