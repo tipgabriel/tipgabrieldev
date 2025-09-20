@@ -1,371 +1,178 @@
-// Portfolio Data
-const portfolioData = {
-    personal: {
-        name: "Tipgabrieldev",
-        title: "Desenvolvedor Front-end",
-        bio: "Desenvolvedor apaixonado por tecnologia e inovação, especializado em criar soluções web modernas e funcionais. Com experiência em desenvolvimento frontend e backend, sempre busco entregar projetos de alta qualidade que superem as expectativas dos clientes.",
-        location: "Brasil",
-        email: "tipgabrielde@proton.me",
-        phone: "+55 (31) 98204-2552"
-    },
+// Espera o HTML ser completamente carregado
+document.addEventListener('DOMContentLoaded', () => {
 
-    social: {
-        github: "https://github.com/tipgabriel",
-        instagram: "https://instagram.com/tipgabrieldev"
-    },
+    // Dados para as seções dinâmicas
+    const skills = [
+        { name: "HTML5", icon: "html5" },
+        { name: "CSS3", icon: "css3" },
+        { name: "JavaScript", icon: "js" },
+        { name: "React", icon: "react" },
+        { name: "Node.js", icon: "nodejs" },
+        { name: "Tailwind CSS", icon: "tailwind" },
+        { name: "GitHub", icon: "github" },
+        { name: "VS Code", icon: "vscode" },
+        { name: "Figma", icon: "figma" },
+    ];
 
-    skills: [
-        "HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD",
-        "Design Responsivo", "UI/UX Design", "Otimização e Perfomance", "SEO"
-    ],
-
-    experience: [
+    const experiences = [
         {
-            id: 1,
+            company: "Empresa XPTO",
             position: "Desenvolvedor Front-end",
-            company: "Projetos Independentes",
-            period: "2020 - Presente",
-            description: "Criação de interfaces modernas e funcionais, focando em experiência do usuário e design responsivo. Desenvolvimento de identidades visuais e branding.",
-            technologies: ["HTML5", "CSS3", "TAILWIND CSS", "JavaScript", "JSON-LD", "Design"]
-        }
-    ],
-
-    projects: [
-        {
-            id: 1,
-            title: "Studiomelbh",
-            description: "Site completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
-            technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
-            image: "meltrancasbh.png",
-            link: "https://meltrancasbh.vercel.app/index.html", // placeholder para o usuário preencher
-            Instagram: "https://www.instagram.com/meltrancasbh/", // placeholder para o usuário preencher
-            category: "Site",
-            featured: true
+            duration: "Janeiro 2023 - Presente",
+            description: "Responsável por desenvolver interfaces web responsivas e otimizadas. Trabalhei com HTML, CSS, JavaScript e React em projetos de e-commerce e portais corporativos.",
         },
         {
-            id: 2,
-            title: "Barbearia André",
-            description: "Desenvolvimento de identidade visual completa para barbearia, incluindo logotipo, paleta de cores e aplicações em diversos materiais.",
-            technologies: ["Design", "Branding"],
-            image: "barbearia-andre.png",
-            link: "https://www.instagram.com/barbeariandreoficial032013/", // placeholder para o usuário preencher
-            Instagram: "https://www.instagram.com/barbeariandreoficial032013/",
-            category: "Logo",
-            featured: true
+            company: "Startup XYZ",
+            position: "UI/UX Designer & Dev",
+            duration: "Março 2022 - Dezembro 2022",
+            description: "Participei do ciclo de design e desenvolvimento de produtos digitais, traduzindo wireframes e protótipos de Figma em código funcional.",
+        },
+    ];
+
+    const projects = [
+        {
+            title: "E-commerce de Roupas",
+            description: "Plataforma de vendas com carrinho de compras, sistema de login e filtros de produtos. Feito com React e Tailwind.",
+            link: "https://github.com/tipgabrieldev/ecommerce-project",
+            technologies: ["React", "Tailwind", "JavaScript"]
         },
         {
-            id: 3,
-            title: "HQ Sunrise,
-            description: "Site interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
-            technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
-            image: "sunrise-logo.png",
-            link: "https://sunrisehq.vercel.app/", // placeholder para o usuário preencher
-            Instagram: "https://www.instagram.com/jessicapamela461/",
-            category: "Site",
-            featured: true
-        }
-    ],
+            title: "Blog Pessoal",
+            description: "Site otimizado para SEO com sistema de comentários e painel de administração. Desenvolvido com HTML, CSS e um pouco de JS.",
+            link: "https://github.com/tipgabrieldev/blog-project",
+            technologies: ["HTML", "CSS", "JavaScript"]
+        },
+    ];
 
-    testimonials: [
+    const testimonials = [
         {
-            id: 1,
-            name: "StudiomelBH",
-            role: "Proprietária do Estúdio",
-            content: "Recomendo demais! O site ficou super fácil de navegar e entender. O Tip é incrível no que faz e ainda por cima muito atencioso.",
-            avatar: "meltrancasbh.png"
+            quote: "O Tipgabrieldev entregou um site incrível e superou minhas expectativas. Rápido, profissional e com uma atenção aos detalhes impecável.",
+            author: "João Silva",
+            role: "CEO, Empresa Fictícia"
         },
         {
-            id: 2,
-            name: "André",
-            role: "Proprietário da Barbearia",
-            content: "A identidade visual ficou perfeita! Conseguiu capturar exatamente o que eu imaginava para minha barbearia.",
-            avatar: "barbearia-andre.png"
-        }
-    ]
-};
+            quote: "Trabalhar com ele foi uma experiência fantástica. Ele transformou a ideia em uma realidade funcional e elegante. Recomendo muito!",
+            author: "Maria Oliveira",
+            role: "Fundadora, Startup Digital"
+        },
+    ];
 
-// DOM Elements
-let elements = {};
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-    
-    // Get DOM elements
-    initializeElements();
-    
-    // Setup event listeners
-    setupEventListeners();
-    
-    // Populate content
-    populateContent();
-    
-    // Setup scroll effects
-    setupScrollEffects();
-    
-    // Update copyright year
-    updateCopyrightYear();
-});
-
-function initializeElements() {
-    elements = {
-        // Mobile menu
-        mobileMenuToggle: document.getElementById('mobile-menu-toggle'),
-        mobileMenu: document.getElementById('mobile-menu'),
-        menuIcon: document.getElementById('menu-icon'),
-        closeIcon: document.getElementById('close-icon'),
-        
-        // Navigation
-        viewProjectsBtn: document.getElementById('view-projects-btn'),
-        navLinks: document.querySelectorAll('.nav-link, .mobile-nav-link'),
-        
-        // Content containers
-        skillsContainer: document.getElementById('skills-container'),
-        experienceContainer: document.getElementById('experience-container'),
-        projectsContainer: document.getElementById('projects-container'),
-        testimonialsContainer: document.getElementById('testimonials-container'),
-        
-        // Form
-        contactForm: document.getElementById('contact-form'),
-        
-        // Header
-        header: document.getElementById('header'),
-        
-        // Copyright year
-        currentYear: document.getElementById('current-year')
-    };
-}
-
-function setupEventListeners() {
-    // Mobile menu
-    elements.mobileMenuToggle?.addEventListener('click', toggleMobileMenu);
-    
-    // View projects button
-    elements.viewProjectsBtn?.addEventListener('click', () => {
-        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-    });
-    
-    // Navigation links
-    elements.navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-                closeMobileMenu();
-            }
+    // Funções para renderizar as seções
+    function renderSkills() {
+        const container = document.getElementById('skills-container');
+        if (!container) return;
+        skills.forEach(skill => {
+            const badge = document.createElement('span');
+            badge.className = "skill-badge-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1";
+            badge.innerHTML = `<i data-lucide="${skill.icon}" class="h-4 w-4"></i> ${skill.name}`;
+            container.appendChild(badge);
         });
-    });
-    
-    // Contact form
-    elements.contactForm?.addEventListener('submit', handleContactSubmit);
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!elements.mobileMenuToggle?.contains(e.target) && !elements.mobileMenu?.contains(e.target)) {
-            closeMobileMenu();
-        }
-    });
-}
-
-function updateCopyrightYear() {
-    const currentYear = new Date().getFullYear();
-    if (elements.currentYear) {
-        elements.currentYear.textContent = currentYear;
     }
-}
 
-function toggleMobileMenu() {
-    const isOpen = !elements.mobileMenu.classList.contains('hidden');
-    
-    if (isOpen) {
-        closeMobileMenu();
-    } else {
-        elements.mobileMenu.classList.remove('hidden');
-        elements.menuIcon.classList.add('hidden');
-        elements.closeIcon.classList.remove('hidden');
+    function renderExperience() {
+        const container = document.getElementById('experience-container');
+        if (!container) return;
+        experiences.forEach(exp => {
+            const card = document.createElement('div');
+            card.className = "card-bg p-6 rounded-lg shadow-lg space-y-4 card-hover";
+            card.innerHTML = `
+                <div class="flex items-center space-x-4">
+                    <i data-lucide="building" class="h-6 w-6 text-blue-500"></i>
+                    <h3 class="text-xl font-semibold text-custom-primary">${exp.company}</h3>
+                </div>
+                <p class="text-lg text-custom-secondary font-medium">${exp.position}</p>
+                <p class="text-sm text-custom-muted">${exp.duration}</p>
+                <p class="text-custom-secondary leading-relaxed">${exp.description}</p>
+            `;
+            container.appendChild(card);
+        });
     }
-}
 
-function closeMobileMenu() {
-    elements.mobileMenu.classList.add('hidden');
-    elements.menuIcon.classList.remove('hidden');
-    elements.closeIcon.classList.add('hidden');
-}
-
-function setupScrollEffects() {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY > 50;
-        
-        if (scrolled) {
-            elements.header.classList.add('header-bg', 'shadow-lg');
-        } else {
-            elements.header.classList.remove('header-bg', 'shadow-lg');
-        }
-    });
-}
-
-function populateContent() {
-    populateSkills();
-    populateExperience();
-    populateProjects();
-    populateTestimonials();
-}
-
-function populateSkills() {
-    if (!elements.skillsContainer) return;
-    
-    elements.skillsContainer.innerHTML = portfolioData.skills.map(skill => `
-        <span class="px-3 py-2 skill-badge-white rounded-lg text-sm transition-all duration-200 cursor-default">
-            ${skill}
-        </span>
-    `).join('');
-}
-
-function populateExperience() {
-    if (!elements.experienceContainer) return;
-    
-    elements.experienceContainer.innerHTML = portfolioData.experience.map(exp => `
-        <div class="card-bg p-6 rounded-lg shadow-lg card-hover">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                    <h3 class="text-xl font-semibold mb-1 text-custom-primary">${exp.position}</h3>
-                    <p class="text-blue-400 font-medium">${exp.company}</p>
-                </div>
-                <div class="flex items-center mt-2 md:mt-0">
-                    <i data-lucide="calendar" class="h-4 w-4 mr-2 text-custom-muted"></i>
-                    <span class="text-sm text-custom-muted">${exp.period}</span>
-                </div>
-            </div>
-            <p class="text-custom-secondary mb-4 leading-relaxed">
-                ${exp.description}
-            </p>
-            <div class="flex flex-wrap gap-2">
-                ${exp.technologies.map(tech => `
-                    <span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs border border-gray-600">
-                        ${tech}
-                    </span>
-                `).join('')}
-            </div>
-        </div>
-    `).join('');
-    
-    // Re-initialize icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-}
-
-function populateProjects() {
-    if (!elements.projectsContainer) return;
-    
-    elements.projectsContainer.innerHTML = portfolioData.projects.map(project => `
-        <div class="card-bg rounded-lg shadow-lg overflow-hidden card-hover group">
-            <div class="relative overflow-hidden">
-                <img
-                    src="${project.image}"
-                    alt="${project.title}"
-                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
-                        <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
-                            <i data-lucide="external-link" class="h-4 w-4 mr-2"></i>
-                            Visite o site
-                        </a>
-                        <a href="${project.Instagram}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
-                            <i data-lucide="instagram" class="h-4 w-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+    function renderProjects() {
+        const container = document.getElementById('projects-container');
+        if (!container) return;
+        projects.forEach(project => {
+            const card = document.createElement('div');
+            card.className = "card-bg p-6 rounded-lg shadow-lg space-y-4 max-w-sm w-full card-hover";
             
-            <div class="p-6">
-                <div class="flex items-center justify-between mb-3">
-                    <h3 class="text-lg font-semibold text-custom-primary">${project.title}</h3>
-                    <span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs border border-gray-600">
-                        ${project.category}
-                    </span>
+            let techBadges = project.technologies.map(tech => `
+                <span class="bg-blue-500/20 text-blue-300 text-xs px-2 py-1 rounded-full font-mono">${tech}</span>
+            `).join('');
+
+            card.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-semibold text-custom-primary">${project.title}</h3>
+                    <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-colors duration-200">
+                        <i data-lucide="github" class="h-5 w-5"></i>
+                    </a>
                 </div>
-                
-                <p class="text-custom-muted text-sm leading-relaxed mb-4">
-                    ${project.description}
-                </p>
-                
-                <div class="flex flex-wrap gap-1">
-                    ${project.technologies.map(tech => `
-                        <span class="px-2 py-1 bg-custom-tertiary text-custom-secondary rounded text-xs">
-                            ${tech}
-                        </span>
-                    `).join('')}
-                </div>
-            </div>
-        </div>
-    `).join('');
-    
-    // Re-initialize icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
+                <p class="text-custom-secondary text-sm">${project.description}</p>
+                <div class="flex flex-wrap gap-2 pt-2">${techBadges}</div>
+            `;
+            container.appendChild(card);
+        });
     }
-}
 
-function populateTestimonials() {
-    if (!elements.testimonialsContainer) return;
-    
-    elements.testimonialsContainer.innerHTML = portfolioData.testimonials.map(testimonial => `
-        <div class="card-bg p-6 rounded-lg shadow-lg">
-            <div class="flex items-start space-x-4">
-                <img
-                    src="${testimonial.avatar}"
-                    alt="${testimonial.name}"
-                    class="w-12 h-12 rounded-full flex-shrink-0"
-                    loading="lazy"
-                />
-                <div class="flex-1">
-                    <div class="flex items-center mb-2">
-                        ${Array(5).fill().map(() => `
-                            <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
-                        `).join('')}
-                    </div>
-                    <p class="text-custom-muted normal mb-3">
-                        "${testimonial.content}"
-                    </p>
-                    <div>
-                        <p class="font-semibold text-sm text-custom-primary">${testimonial.name}</p>
-                        <p class="text-xs text-custom-muted">${testimonial.role}</p>
-                    </div>
+    function renderTestimonials() {
+        const container = document.getElementById('testimonials-container');
+        if (!container) return;
+        testimonials.forEach(testimonial => {
+            const card = document.createElement('div');
+            card.className = "card-bg p-6 rounded-lg shadow-lg space-y-4 card-hover";
+            card.innerHTML = `
+                <i data-lucide="quote" class="h-8 w-8 text-blue-500"></i>
+                <p class="text-custom-secondary italic leading-relaxed">"${testimonial.quote}"</p>
+                <div class="border-t border-custom-tertiary pt-4">
+                    <p class="text-custom-primary font-semibold">${testimonial.author}</p>
+                    <p class="text-sm text-custom-muted">${testimonial.role}</p>
                 </div>
-            </div>
-        </div>
-    `).join('');
-    
-    // Re-initialize icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
+            `;
+            container.appendChild(card);
+        });
     }
-}
 
-function handleContactSubmit(e) {
-    e.preventDefault();
+    function handleScroll() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('header-bg');
+            header.classList.remove('bg-transparent');
+        } else {
+            header.classList.remove('header-bg');
+            header.classList.add('bg-transparent');
+        }
+    }
+
+    function handleMobileMenu() {
+        const toggleButton = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        toggleButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+    }
+
+    function handleYear() {
+        const currentYearSpan = document.getElementById('current-year');
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
     
-    const formData = new FormData(e.target);
-    const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        message: formData.get('message')
-    };
+    // Inicialização de todas as funções após o DOM estar pronto
+    renderSkills();
+    renderExperience();
+    renderProjects();
+    renderTestimonials();
+    handleMobileMenu();
+    handleYear();
 
-    // In a real application, you would send this data to your backend
-    console.log('Contact form submitted:', data);
+    // Eventos que dependem de interação do usuário
+    window.addEventListener('scroll', handleScroll);
 
-    // Alert the user that the message was sent (optional feedback)
-    alert('Mensagem enviada com sucesso! Retornarei em breve.');
-    
-    // Reset form
-    e.target.reset();
-}
+    // Chamar a função do Lucide para renderizar os ícones
+    // É CRUCIAL que isso venha DEPOIS de todos os `render`
+    lucide.createIcons();
+
+});
