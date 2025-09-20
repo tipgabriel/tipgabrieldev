@@ -58,7 +58,7 @@ const portfolioData = {
             title: "HQ Azul Estelar e Verde Neon",
             description: "Site interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
             technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
-            image: "hqsunrise.png",
+            image: "sunrise-logo.png",
             link: "https://hqsunrise.vercel.app/", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/jessicapamela461/",
             category: "Site",
