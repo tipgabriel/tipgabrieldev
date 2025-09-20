@@ -181,6 +181,23 @@
             background-color: var(--primary-blue);
             color: #ffffff;
         }
+
+        /* Efeito de pulso para o ícone do WhatsApp */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(34, 197, 94, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+
+        .animate-pulse-whatsapp {
+            animation: pulse 2s infinite;
+        }
     </style>
 </head>
 
@@ -503,6 +520,12 @@
             <i data-lucide="check-circle" class="h-5 w-5 mr-2"></i>
             <span id="toast-message">Mensagem enviada com sucesso!</span>
         </div>
+    </div>
+
+    <div class="fixed bottom-6 right-6 z-50 animate-pulse-whatsapp">
+        <a href="https://wa.me/5531982042552" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white p-3 rounded-full shadow-lg transition-transform hover:scale-110">
+            <i data-lucide="message-circle" class="h-8 w-8"></i>
+        </a>
     </div>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
