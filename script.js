@@ -33,7 +33,7 @@ const portfolioData = {
     projects: [
         {
             id: 1,
-            title: "MeltrançasBH",
+            title: "Studiomelbh",
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
             technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
             image: "meltrancasbh.png",
@@ -44,7 +44,7 @@ const portfolioData = {
         },
         {
             id: 2,
-            title: "Logo Barbearia André",
+            title: "Barbearia André",
             description: "Desenvolvimento de identidade visual completa para barbearia, incluindo logotipo, paleta de cores e aplicações em diversos materiais.",
             technologies: ["Design", "Branding"],
             image: "barbearia-andre.png",
@@ -269,7 +269,7 @@ function populateProjects() {
                 <img
                     src="${project.image}"
                     alt="${project.title}"
-                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    class="w-full h-48 object-cover object-position: top group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
