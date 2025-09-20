@@ -36,10 +36,10 @@ const portfolioData = {
             title: "MeltrançasBH",
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
             technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "JSON-LD"],
-            image: "meltrancasbh.png",
+            image: "studiomelbh.png",
             link: "https://meltrancasbh.vercel.app/index.html", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/meltrancasbh/", // placeholder para o usuário preencher
-            category: "Website Comercial",
+            category: "Site Comercial",
             featured: true
         },
         {
@@ -56,9 +56,9 @@ const portfolioData = {
         {
             id: 3,
             title: "HQ Azul Estelar e Verde Neon",
-            description: "Website interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
+            description: "Site interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
             technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "JSON-LD"],
-            image: "https://via.placeholder.com/600x400/06b6d4/ffffff?text=HQ+Azul+Estelar",
+            image: "hqsunrise.png",
             link: "", // placeholder para o usuário preencher
             github: "",
             category: "Website Interativo",
@@ -69,17 +69,17 @@ const portfolioData = {
     testimonials: [
         {
             id: 1,
-            name: "Cliente MeltrançasBH",
+            name: "StudiomeltrancasBH",
             role: "Proprietária do Estúdio",
             content: "O TipGabrielDev criou um site incrível que representa perfeitamente nosso trabalho. O design é moderno e funcional!",
-            avatar: "https://via.placeholder.com/60x60/6366f1/ffffff?text=M"
+            avatar: "studiomelbh.png"
         },
         {
             id: 2,
-            name: "André Silva",
-            role: "Barbearia André",
+            name: "André",
+            role: "Proprietário da Barbearia",
             content: "A identidade visual ficou perfeita! Conseguiu capturar exatamente o que eu imaginava para minha barbearia.",
-            avatar: "https://via.placeholder.com/60x60/8b5cf6/ffffff?text=A"
+            avatar: "barbearia-andre.png"
         }
     ]
 };
@@ -332,7 +332,7 @@ function populateTestimonials() {
                             <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
                         `).join('')}
                     </div>
-                    <p class="text-custom-muted italic mb-3">
+                    <p class="text-custom-muted normal mb-3">
                         "${testimonial.content}"
                     </p>
                     <div>
