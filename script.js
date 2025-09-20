@@ -71,7 +71,7 @@ const portfolioData = {
             id: 1,
             name: "MeltrançasBH",
             role: "Proprietária do Estúdio",
-            content: "O Tip criou um site incrível que representa perfeitamente nosso trabalho. O design é moderno e funcional!",
+            content: "Recomendo demais! O site ficou super fácil de navegar e entender. O Tip é incrível no que faz e ainda por cima muito atencioso.",
             avatar: "meltrancasbh.png"
         },
         {
