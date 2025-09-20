@@ -69,7 +69,7 @@ const portfolioData = {
     testimonials: [
         {
             id: 1,
-            name: "MeltrançasBH",
+            name: "Studiomel",
             role: "Proprietária do Estúdio",
             content: "Recomendo demais! O site ficou super fácil de navegar e entender. O Tip é incrível no que faz e ainda por cima muito atencioso.",
             avatar: "meltrancasbh.png"
