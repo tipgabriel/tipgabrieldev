@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tipgabrieldev - Desenvolvedor Front-end</title>
     
-    <meta name="description" content="Desenvolvedor Front-end especializado em HTML5, CSS3, Tailwind, JavaScript, e JSON-LD. Criando soluções web modernas e funcionais.">
+    <meta name="description" content="Desenvolvedor Full Stack especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD. Criando soluções web modernas e funcionais.">
     <meta name="keywords" content="desenvolvimento web, front-end, UI, UX, sites responsivos, design web, Tipgabrieldev, HTML5, CSS3, Tailwind, JavaScript, JSON-LD">
     <meta name="author" content="Tipgabrieldev">
     <meta name="robots" content="index, follow">
@@ -29,6 +29,8 @@
     <meta name="twitter:image" content="https://www.tipgabrieldev.com/tipgabrieldev.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -181,23 +183,6 @@
             background-color: var(--primary-blue);
             color: #ffffff;
         }
-
-        /* Efeito de pulso para o ícone do WhatsApp */
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 20px rgba(34, 197, 94, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
-            }
-        }
-
-        .animate-pulse-whatsapp {
-            animation: pulse 2s infinite;
-        }
     </style>
 </head>
 
@@ -324,7 +309,7 @@
                         <div class="space-y-6">
                             <h3 class="text-xl font-semibold mb-4" style="color: #010101;">Habilidades Técnicas</h3>
                             <div id="skills-container" class="flex flex-wrap gap-2">
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -342,7 +327,7 @@
                     </div>
 
                     <div id="experience-container" class="space-y-8">
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>
@@ -357,7 +342,7 @@
                         </p>
                     </div>
                     <div id="projects-container" class="flex flex-wrap justify-center gap-8">
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>
@@ -372,7 +357,7 @@
                         </p>
                     </div>
                     <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>
@@ -521,14 +506,6 @@
             <span id="toast-message">Mensagem enviada com sucesso!</span>
         </div>
     </div>
-
-    <div class="fixed bottom-6 right-6 z-50 animate-pulse-whatsapp">
-        <a href="https://wa.me/5531982042552" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white p-3 rounded-full shadow-lg transition-transform hover:scale-110">
-            <i data-lucide="message-circle" class="h-8 w-8"></i>
-        </a>
-    </div>
-
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
     <script src="matrix.js"></script>
     <script src="script.js"></script>
