@@ -33,7 +33,7 @@ const portfolioData = {
     projects: [
         {
             id: 1,
-            title: "MeltrançasBH",
+            title: "StudiomelBH",
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
             technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
             image: "studiomelbh.png",
@@ -44,7 +44,7 @@ const portfolioData = {
         },
         {
             id: 2,
-            title: "Logo Barbearia André",
+            title: "Barbearia André",
             description: "Desenvolvimento de identidade visual completa para barbearia, incluindo logotipo, paleta de cores e aplicações em diversos materiais.",
             technologies: ["Design", "Branding"],
             image: "barbearia-andre.png",
@@ -69,7 +69,7 @@ const portfolioData = {
     testimonials: [
         {
             id: 1,
-            name: "StudiomelBH",
+            name: "Melissa",
             role: "Proprietária do Estúdio",
             content: "Recomendo demais! O site ficou super fácil de navegar e entender. O Tip é incrível no que faz e ainda por cima muito atencioso.",
             avatar: "studiomelbh.png"
