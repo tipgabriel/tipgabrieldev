@@ -1,16 +1,16 @@
 // Portfolio Data
 const portfolioData = {
     personal: {
-        name: "TipGabrielDev",
-        title: "Desenvolvedor Full Stack",
+        name: "Tipgabrieldev",
+        title: "Desenvolvedor Front-end",
         bio: "Desenvolvedor apaixonado por tecnologia e inovação, especializado em criar soluções web modernas e funcionais. Com experiência em desenvolvimento frontend e backend, sempre busco entregar projetos de alta qualidade que superem as expectativas dos clientes.",
         location: "Brasil",
-        email: "contato@tipgabrieldev.com",
-        phone: "+55 (11) 99999-9999"
+        email: "tipgabrieldev@proton.me",
+        phone: "+55 (31) 98204-2552"
     },
 
     social: {
-        github: "https://github.com/tipgabrieldev",
+        github: "https://github.com/tipgabriel",
         instagram: "https://instagram.com/tipgabrieldev"
     },
 
@@ -22,11 +22,11 @@ const portfolioData = {
     experience: [
         {
             id: 1,
-            position: "Desenvolvedor Frontend",
+            position: "Desenvolvedor Front-end",
             company: "Projetos Independentes",
             period: "2020 - Presente",
             description: "Criação de interfaces modernas e funcionais, focando em experiência do usuário e design responsivo. Desenvolvimento de identidades visuais e branding.",
-            technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "Design"]
+            technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD", "Design"]
         }
     ],
 
@@ -35,33 +35,33 @@ const portfolioData = {
             id: 1,
             title: "MeltrançasBH",
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
-            technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "JSON-LD"],
+            technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
             image: "studiomelbh.png",
             link: "https://meltrancasbh.vercel.app/index.html", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/meltrancasbh/", // placeholder para o usuário preencher
-            category: "Site Comercial",
+            category: "Site",
             featured: true
         },
         {
             id: 2,
             title: "Logo Barbearia André",
             description: "Desenvolvimento de identidade visual completa para barbearia, incluindo logotipo, paleta de cores e aplicações em diversos materiais.",
-            technologies: ["Design", "Branding", "CSS", "HTML"],
+            technologies: ["Design", "Branding"],
             image: "barbearia-andre.png",
             link: "https://www.instagram.com/barbeariandreoficial032013/", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/barbeariandreoficial032013/",
-            category: "Branding & Design",
+            category: "Logo",
             featured: true
         },
         {
             id: 3,
             title: "HQ Azul Estelar e Verde Neon",
             description: "Site interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
-            technologies: ["HTML", "CSS", "JavaScript", "Tailwind", "JSON-LD"],
+            technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
             image: "hqsunrise.png",
-            link: "", // placeholder para o usuário preencher
-            github: "",
-            category: "Website Interativo",
+            link: "https://hqsunrise.vercel.app/", // placeholder para o usuário preencher
+            Instagram: "https://www.instagram.com/jessicapamela461/",
+            category: "Site",
             featured: true
         }
     ],
@@ -69,9 +69,9 @@ const portfolioData = {
     testimonials: [
         {
             id: 1,
-            name: "StudiomeltrancasBH",
+            name: "StudiomelBH",
             role: "Proprietária do Estúdio",
-            content: "O TipGabrielDev criou um site incrível que representa perfeitamente nosso trabalho. O design é moderno e funcional!",
+            content: "Recomendo demais! O site ficou super fácil de navegar e entender. O Tip é incrível no que faz e ainda por cima muito atencioso.",
             avatar: "studiomelbh.png"
         },
         {
