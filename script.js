@@ -39,7 +39,7 @@ const portfolioData = {
             image: "meltrancasbh.png",
             link: "https://meltrancasbh.vercel.app/index.html", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/meltrancasbh/", // placeholder para o usuário preencher
-            category: "Website Comercial",
+            category: "Site",
             featured: true
         },
         {
@@ -50,7 +50,7 @@ const portfolioData = {
             image: "barbearia-andre.png",
             link: "https://www.instagram.com/barbeariandreoficial032013/", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/barbeariandreoficial032013/",
-            category: "Branding & Design",
+            category: "Logo",
             featured: true
         },
         {
@@ -58,10 +58,10 @@ const portfolioData = {
             title: "HQ Azul Estelar e Verde Neon",
             description: "Website interativo para histórias em quadrinhos com design futurista, galeria de personagens e sistema de leitura online otimizado.",
             technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
-            image: "hqsunrise.png",
-            link: "", // placeholder para o usuário preencher
-            github: "",
-            category: "Website Interativo",
+            image: "sunrise-logo.png",
+            link: "https://sunrisehq.vercel.app/", // placeholder para o usuário preencher
+            Instagram: "https://www.instagram.com/jessicapamela461/",
+            category: "Site",
             featured: true
         }
     ],
@@ -69,7 +69,7 @@ const portfolioData = {
     testimonials: [
         {
             id: 1,
-            name: "Cliente MeltrançasBH",
+            name: "MeltrançasBH",
             role: "Proprietária do Estúdio",
             content: "O Tip criou um site incrível que representa perfeitamente nosso trabalho. O design é moderno e funcional!",
             avatar: "meltrancasbh.png"
@@ -77,9 +77,9 @@ const portfolioData = {
         {
             id: 2,
             name: "André",
-            role: "Barbearia André",
+            role: "Proprietário da Barbearia",
             content: "A identidade visual ficou perfeita! Conseguiu capturar exatamente o que eu imaginava para minha barbearia.",
-            avatar: "https://via.placeholder.com/60x60/8b5cf6/ffffff?text=A"
+            avatar: "barbearia-andre.png"
         }
     ]
 };
@@ -276,7 +276,7 @@ function populateProjects() {
                     <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                         <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
                             <i data-lucide="external-link" class="h-4 w-4 mr-2"></i>
-                            Explore o Website
+                            Visite o site
                         </a>
                         <a href="${project.Instagram}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
                             <i data-lucide="instagram" class="h-4 w-4"></i>
@@ -332,7 +332,7 @@ function populateTestimonials() {
                             <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
                         `).join('')}
                     </div>
-                    <p class="text-custom-muted italic mb-3">
+                    <p class="text-custom-muted normal mb-3">
                         "${testimonial.content}"
                     </p>
                     <div>
