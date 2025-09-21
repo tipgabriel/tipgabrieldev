@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tipgabrieldev - Desenvolvedor Front-end </title>
-    <meta name="description" content="Desenvolvedor Front-end especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD. Criando soluções web modernas e funcionais.">
+    <meta name="description" content="Desenvolvedor Front-end especializado em HTML5, CSS3, JavaScript, Tailwind e JSON-LD em Belo Horizonte - MG. Criando soluções web modernas e funcionais.">
 
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -24,9 +24,9 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "TipGabrielDev",
-      "jobTitle": "Desenvolvedor Full Stack",
-      "description": "Desenvolvedor especializado em HTML, CSS, JavaScript, Tailwind e JSON-LD",
+      "name": "Tipgabrieldev",
+      "jobTitle": "Desenvolvedor Front-end",
+      "description": "Desenvolvedor especializado em HTML5, CSS3, JavaScript, Tailwind e JSON-LD em Belo Horizonte - MG",
       "url": "https://tipgabrieldev.com",
       "sameAs": [
         "https://github.com/tipgabrieldev",
@@ -66,14 +66,14 @@
         
         /* Matrix Rain Canvas */
         #matrix-canvas {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1;
-            opacity: 0.9;
+            z-index: 1;
+            opacity: 0.7;
         }
         
         /* Custom colors for consistent dark theme */
@@ -96,7 +96,7 @@
         
         /* Header styles */
         .header-bg {
-            background-color: var(--bg-primary);
+            background-color: rgba(1, 1, 1, 0.95);
             backdrop-filter: blur(10px);
         }
         
@@ -176,9 +176,9 @@
             width: 100%;
         }
         
-        /* Hero section gradient ajustado */
+        /* Hero section gradient */
         .hero-gradient {
-            background: linear-gradient(135deg, rgba(1, 1, 1, 0.7) 0%, rgba(33, 33, 33, 0.6) 50%, rgba(0, 17, 34, 0.5) 100%);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, #001122 100%);
         }
         
         /* Skills badges for white section */
@@ -215,9 +215,7 @@
     </style>
 </head>
 <body class="transition-colors duration-300">
-    <canvas id="matrix-canvas"></canvas>
-
-    <header id="header" class="header-bg fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-2">
@@ -271,6 +269,7 @@
     <main class="pt-16">
         <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 hero-gradient">
+                <canvas id="matrix-canvas"></canvas>
                 <div class="absolute inset-0 bg-gradient-to-t from-custom-primary/20 to-transparent"></div>
             </div>
 
@@ -306,7 +305,7 @@
                     </div>
 
                     <div class="flex justify-center space-x-6 pt-8">
-                        <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-all duration-200 hover:scale-110">
+                        <a href="https://github.com/tipgabriel" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-all duration-200 hover:scale-110">
                             <i data-lucide="github" class="h-6 w-6"></i>
                         </a>
                         <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-purple-500 transition-all duration-200 hover:scale-110">
@@ -327,14 +326,14 @@
                     <div class="text-center mb-16">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #010101;">Sobre Mim</h2>
                         <p class="text-lg" style="color: #666666;">
-                                Mais que código: experiência e confiança para empreendedores que querem crescer online
+                            Mais que código: experiência e confiança para empreendedores que querem crescer online
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div class="space-y-6">
                             <p class="leading-relaxed" style="color: #212121;">
-                                        Sou o Gabriel, conhecido como Tip. Meu foco é dar vida a projetos digitais
+                                Sou o Gabriel, conhecido como Tip. Meu foco é dar vida a projetos digitais
     com front-end sólido e design inteligente. Não crio só telas bonitas — penso em
     usabilidade, performance e no impacto que seu negócio precisa ter online.
                             </p>
@@ -358,7 +357,7 @@
                         <div class="space-y-6">
                             <h3 class="text-xl font-semibold mb-4" style="color: #010101;">Habilidades Técnicas</h3>
                             <div id="skills-container" class="flex flex-wrap gap-2">
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -448,9 +447,11 @@
                                 <div class="flex space-x-4">
                                     <a href="https://github.com/tipgabriel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-blue-500 transition-colors duration-200">
                                         <i data-lucide="github" class="h-5 w-5"></i>
+                                        <span>GitHub</span>
                                     </a>
                                     <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-purple-500 transition-colors duration-200">
                                         <i data-lucide="instagram" class="h-5 w-5"></i>
+                                        <span>Instagram</span>
                                     </a>
                                 </div>
                             </div>
@@ -534,9 +535,11 @@
                     <div class="flex space-x-4">
                         <a href="https://github.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-blue-500 transition-colors duration-200">
                             <i data-lucide="github" class="h-5 w-5"></i>
+                            <span>GitHub</span>
                         </a>
                         <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="text-custom-muted hover:text-purple-500 transition-colors duration-200">
                             <i data-lucide="instagram" class="h-5 w-5"></i>
+                            <span>Instagram</span>
                         </a>
                     </div>
                 </div>
