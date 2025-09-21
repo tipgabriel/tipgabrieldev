@@ -96,7 +96,7 @@
         
         /* Header styles */
         .header-bg {
-            background-color: rgba(1, 1, 1, 0.95);
+            background-color: var(--bg-primary); /* Fundo 100% opaco */
             backdrop-filter: blur(10px);
         }
         
@@ -217,7 +217,7 @@
 <body class="transition-colors duration-300">
     <canvas id="matrix-canvas"></canvas>
 
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header id="header" class="header-bg fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-2">
