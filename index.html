@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -67,13 +66,13 @@
         
         /* Matrix Rain Canvas */
         #matrix-canvas {
-            position: absolute;
+            position: fixed; /* Corrigido: Mude de 'absolute' para 'fixed' */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: -1; /* Corrigido: Mude de '1' para '-1' para ficar no fundo */
             opacity: 0.7;
         }
         
@@ -216,6 +215,8 @@
     </style>
 </head>
 <body class="transition-colors duration-300">
+    <canvas id="matrix-canvas"></canvas>
+
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -270,7 +271,6 @@
     <main class="pt-16">
         <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 hero-gradient">
-                <canvas id="matrix-canvas"></canvas>
                 <div class="absolute inset-0 bg-gradient-to-t from-custom-primary/20 to-transparent"></div>
             </div>
 
@@ -327,14 +327,14 @@
                     <div class="text-center mb-16">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #010101;">Sobre Mim</h2>
                         <p class="text-lg" style="color: #666666;">
-                            Mais que código: experiência e confiança para empreendedores que querem crescer online
+                                Mais que código: experiência e confiança para empreendedores que querem crescer online
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div class="space-y-6">
                             <p class="leading-relaxed" style="color: #212121;">
-                                    Sou o Gabriel, conhecido como Tip. Meu foco é dar vida a projetos digitais
+                                        Sou o Gabriel, conhecido como Tip. Meu foco é dar vida a projetos digitais
     com front-end sólido e design inteligente. Não crio só telas bonitas — penso em
     usabilidade, performance e no impacto que seu negócio precisa ter online.
                             </p>
@@ -358,7 +358,7 @@
                         <div class="space-y-6">
                             <h3 class="text-xl font-semibold mb-4" style="color: #010101;">Habilidades Técnicas</h3>
                             <div id="skills-container" class="flex flex-wrap gap-2">
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -466,8 +466,7 @@
                                         name="name" 
                                         placeholder="Como posso te chamar?" 
                                         required
-                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                    >
+                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200">
                                 </div>
                                 <div>
                                     <input 
@@ -475,8 +474,7 @@
                                         name="email" 
                                         placeholder="Qual seu melhor e-mail?" 
                                         required
-                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                    >
+                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200">
                                 </div>
                                 <div>
                                     <textarea 
