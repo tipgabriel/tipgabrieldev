@@ -66,13 +66,13 @@
         
         /* Matrix Rain Canvas */
         #matrix-canvas {
-            position: absolute;
+            position: fixed; /* Mude para 'fixed' para o loop constante */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1; /* Corrigido: Volte para '1' ou outro valor positivo */
+            z-index: -1; /* Mude para '-1' para ficar atrás de tudo */
             opacity: 0.7;
         }
         
@@ -215,6 +215,8 @@
     </style>
 </head>
 <body class="transition-colors duration-300">
+    <canvas id="matrix-canvas"></canvas>
+
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -269,7 +271,6 @@
     <main class="pt-16">
         <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 hero-gradient">
-                <canvas id="matrix-canvas"></canvas>
                 <div class="absolute inset-0 bg-gradient-to-t from-custom-primary/20 to-transparent"></div>
             </div>
 
@@ -447,11 +448,9 @@
                                 <div class="flex space-x-4">
                                     <a href="https://github.com/tipgabriel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-blue-500 transition-colors duration-200">
                                         <i data-lucide="github" class="h-5 w-5"></i>
-                                        <span>GitHub</span>
                                     </a>
                                     <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-custom-muted hover:text-purple-500 transition-colors duration-200">
                                         <i data-lucide="instagram" class="h-5 w-5"></i>
-                                        <span>Instagram</span>
                                     </a>
                                 </div>
                             </div>
