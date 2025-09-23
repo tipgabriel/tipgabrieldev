@@ -37,7 +37,7 @@ const portfolioData = {
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
             technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
             image: "studiomelbh.png",
-            link: "https://meltrancasbh.vercel.app", // placeholder para o usuário preencher
+            link: "https://studiomelbh.vercel.app/", // placeholder para o usuário preencher
             Instagram: "https://www.instagram.com/studiomelbh/", // placeholder para o usuário preencher
             category: "Site",
             featured: true
