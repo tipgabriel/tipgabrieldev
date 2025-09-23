@@ -37,8 +37,8 @@ const portfolioData = {
             description: "Website completo para estúdio de tranças afro, incluindo galeria de trabalhos, agendamento online e informações sobre serviços especializados.",
             technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "JSON-LD"],
             image: "studiomelbh.png",
-            link: "https://meltrancasbh.vercel.app/index.html", // placeholder para o usuário preencher
-            Instagram: "https://www.instagram.com/meltrancasbh/", // placeholder para o usuário preencher
+            link: "https://meltrancasbh.vercel.app", // placeholder para o usuário preencher
+            Instagram: "https://www.instagram.com/studiomelbh/", // placeholder para o usuário preencher
             category: "Site",
             featured: true
         },
@@ -276,7 +276,7 @@ function populateProjects() {
                     <div class="absolute bottom-4 left-4 right-4 flex space-x-2">
                         <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="flex-1 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
                             <i data-lucide="external-link" class="h-4 w-4 mr-2"></i>
-                            Explore o Website
+                            Ver projeto
                         </a>
                         <a href="${project.Instagram}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center text-sm">
                             <i data-lucide="instagram" class="h-4 w-4"></i>
