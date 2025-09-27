@@ -1,921 +1,239 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Desenvolvedor de Sites em Belo Horizonte | Tipgabrieldev - Front-end e Sites Estáticos</title>
-    <meta name="description" content="Criação de sites estáticos, front-end moderno e desenvolvimento web em Belo Horizonte - MG. Especialista em HTML5, CSS3, JavaScript, Tailwind e SEO local para destacar sua empresa online.">
+<title>Desenvolvedor de Sites em Belo Horizonte | Tipgabrieldev - Front-end e Sites Estáticos</title>
+<meta name="description" content="Criação de sites estáticos, front-end moderno e desenvolvimento web em Belo Horizonte - MG. Especialista em HTML5, CSS3, JavaScript, Tailwind e SEO local para destacar sua empresa online.">
 
-    <meta name="keywords" content="desenvolvimento de sites Belo Horizonte, desenvolvedor front-end BH, criação de sites estáticos BH, programador web Belo Horizonte, sites responsivos BH, Tipgabrieldev">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <link rel="canonical" href="https://tipgabrieldev.vercel.app/" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
-    <meta property="og:title" content="Desenvolvedor de Sites em Belo Horizonte | Tipgabrieldev">
-    <meta property="og:description" content="Sites estáticos rápidos, responsivos e otimizados para SEO. Atuação em Belo Horizonte - MG.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tipgabrieldev.com/">
-    <meta property="og:image" content="https://tipgabrieldev.com/preview.png">
+<style>
+:root {
+    --primary-blue: #3b82f6;
+    --primary-purple: #8b5cf6;
+    --matrix-blue: #00ff00;
+    --bg-primary: #010101;
+    --bg-secondary: #212121;
+    --bg-tertiary: #2a2a2a;
+    --text-primary: #ffffff;
+    --text-secondary: #e5e5e5;
+    --text-muted: #a1a1a1;
+}
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Desenvolvedor de Sites em Belo Horizonte | Tipgabrieldev">
-    <meta name="twitter:description" content="Especialista em sites estáticos, front-end e SEO local em Belo Horizonte - MG.">
-    <meta name="twitter:image" content="https://tipgabrieldev.com/preview.png">
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 
-    <meta name="google-site-verification" content="f0GNwv_W38ZzGOqRk6bynvKzHuPbdh33bK-iUWJ8rlU" />
+.font-mono { font-family: 'JetBrains Mono', monospace; }
 
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+#matrix-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
 
-    <script src="https://cdn.tailwindcss.com"></script>
+.hero-gradient {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, var(--bg-primary) 100%);
+    z-index: 1;
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+main section { position: relative; }
 
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+.skill-badge-white {
+    background-color: #f0f0f0;
+    color: #010101;
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+}
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Tipgabrieldev",
-      "image": "https://tipgabrieldev.com/preview.png",
-      "url": "https://tipgabrieldev.vercel.app/",
-      "telephone": "+55 (31) 98204-2552",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Belo Horizonte",
-        "addressRegion": "MG",
-        "addressCountry": "BR"
-      },
-      "priceRange": "$$",
-      "description": "Desenvolvimento front-end e sites estáticos em Belo Horizonte - MG. HTML5, CSS3, JavaScript, Tailwind e SEO local.",
-      "sameAs": [
-        "https://github.com/tipgabrieldev",
-        "https://instagram.com/tipgabrieldev"
-      ]
-    }
-    </script>
-    
-    <style>
-        /* Custom Tailwind Config */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
-        
-        :root {
-            --primary-blue: #3b82f6;
-            --primary-purple: #8b5cf6;
-            --matrix-blue: #00bfff;
-            --bg-primary: #010101;
-            --bg-secondary: #212121;
-            --bg-tertiary: #2a2a2a;
-            --text-primary: #ffffff;
-            --text-secondary: #e5e5e5;
-            --text-muted: #a1a1a1;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-        }
-        
-        .font-mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        /* Matrix Rain Canvas */
-        #matrix-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.1; /* Reduzindo a opacidade para melhor legibilidade */
-        }
-        
-        /* Custom colors for consistent dark theme */
-        .bg-custom-primary { background-color: var(--bg-primary); }
-        .bg-custom-secondary { background-color: var(--bg-secondary); }
-        .bg-custom-tertiary { background-color: var(--bg-tertiary); }
-        .text-custom-primary { color: var(--text-primary); }
-        .text-custom-secondary { color: var(--text-secondary); }
-        .text-custom-muted { color: var(--text-muted); }
-        
-        /* White highlight sections */
-        .bg-white-section {
-            background-color: #ffffff;
-            color: #010101;
-        }
-        
-        .bg-white-section h2, .bg-white-section h3 { color: #010101 !important; }
-        .bg-white-section p, .bg-white-section span, .bg-white-section a { color: #212121; }
-        .bg-white-section .text-custom-muted { color: #666666; }
-        
-        /* Header styles */
-        .header-bg {
-            background-color: rgba(1, 1, 1, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        
-        /* Card styles */
-        .card-bg {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--bg-tertiary);
-        }
-        
-        /* Input styles */
-        .input-bg {
-            background-color: var(--bg-tertiary);
-            border: 1px solid #333333;
-            color: var(--text-primary);
-        }
-        
-        .input-bg::placeholder {
-            color: var(--text-muted);
-        }
-        
-        .input-bg:focus {
-            border-color: var(--primary-blue);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
-        }
-        
-        /* Custom scrollbar (desktop only) */
-        @media (min-width: 1024px) {
-            ::-webkit-scrollbar {
-                width: 8px;
-            }
-            
-            ::-webkit-scrollbar-track {
-                background: var(--bg-secondary);
-            }
-            
-            ::-webkit-scrollbar-thumb {
-                background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
-                border-radius: 4px;
-            }
-        }
-        
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Card hover effects */
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-4px);
-        }
-        
-        /* Button hover effects */
-        .btn-gradient {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-        }
-        
-        .btn-gradient:hover {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-        }
-        
-        /* Navigation hover effects */
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero section gradient */
-        .hero-gradient {
-            /* Adicione uma camada sutil de cor no background para melhorar o contraste com o Matrix */
-            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, var(--bg-primary) 100%);
-        }
-        
-        /* Skills badges for white section */
-        .skill-badge-white {
-            background-color: #f0f0f0;
-            color: #010101;
-            border: 1px solid #ddd;
-        }
-        
-        .skill-badge-white:hover {
-            background-color: var(--primary-blue);
-            color: #ffffff;
-            border-color: var(--primary-blue);
-        }
+.btn-gradient {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+}
+.btn-gradient:hover { background: linear-gradient(135deg, #2563eb, #7c3aed); }
 
-        /* WhatsApp Button Pulsing Animation */
-        #whatsapp-button {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
-            }
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
-        /* Classes para a Seção de Experiência (Timeline) */
-        .timeline-item {
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: var(--bg-tertiary); /* Cor da linha vertical */
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -6px; /* Ajuste para centralizar o dot na linha */
-            top: 4px; /* Ajuste para alinhar com o texto */
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background-color: var(--primary-blue); /* Cor do ponto */
-            border: 2px solid var(--bg-primary); /* Borda para contraste */
-            z-index: 10;
-        }
-    </style>
+a { text-decoration: none; color: inherit; }
+</style>
 </head>
 <body class="transition-colors duration-300">
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-bg shadow-lg">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-2">
-                    <div class="relative">
-                        <i data-lucide="code-2" class="h-8 w-8 text-blue-500"></i>
-                        <i data-lucide="zap" class="absolute -top-1 -right-1 h-4 w-4 text-purple-500"></i>
-                    </div>
-                    <span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                        <a href="#">Tipgabrieldev</a>
-                    </span>
-                </div>
 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
-                        Início
-                    </a>
-                    <a href="#about" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
-                        Sobre
-                    </a>
-                    <a href="#experience" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
-                        Experiência
-                    </a>
-                    <a href="#projects" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
-                        Projetos
-                    </a>
-                    <a href="#contact" class="nav-link relative text-custom-secondary hover:text-blue-500 transition-colors duration-200">
-                        Contato
-                    </a>
-                </div>
+<header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 p-4 shadow-lg">
+    <nav class="flex justify-between items-center max-w-7xl mx-auto">
+        <span class="text-xl font-bold text-white">Tipgabrieldev</span>
+        <div class="space-x-4">
+            <a href="#home" class="hover:text-blue-400">Home</a>
+            <a href="#sobre" class="hover:text-blue-400">Sobre</a>
+            <a href="#experiencia" class="hover:text-blue-400">Experiência</a>
+            <a href="#projetos" class="hover:text-blue-400">Projetos</a>
+            <a href="#contato" class="hover:text-blue-400">Contato</a>
+        </div>
+    </nav>
+</header>
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-custom-secondary transition-colors duration-200">
-                        <i data-lucide="menu" class="h-6 w-6 block text-custom-primary" id="menu-icon"></i>
-                        <i data-lucide="x" class="h-6 w-6 hidden text-custom-primary" id="close-icon"></i>
-                    </button>
-                </div>
+<main class="pt-16">
+
+<!-- HOME / MATRIX -->
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <canvas id="matrix-canvas"></canvas>
+    <div class="hero-gradient"></div>
+    <div class="relative z-10 text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4">
+            Tip também é dev
+        </h1>
+        <p class="text-xl md:text-2xl font-mono text-green-400">
+            Sites que não só funcionam — mas vendem a sua ideia.
+        </p>
+        <a href="#contato" class="mt-6 inline-block px-6 py-3 font-semibold text-white rounded-lg btn-gradient">Fale comigo</a>
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="py-20 px-4 bg-bg-secondary text-white">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Quem é Tipgabriel</h2>
+        <p class="text-lg text-gray-300 mb-6">Uma vida marcada pela luta e superação. Desenvolvedor de sites com foco em resultados e design moderno.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-4 bg-bg-tertiary rounded-lg shadow-md">
+                <h3 class="font-semibold mb-2">Missão</h3>
+                <p class="text-gray-400">Criar sites que entreguem valor real aos clientes, combinando estética e funcionalidade.</p>
             </div>
-
-            <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 right-0 card-bg border-t border-custom-tertiary shadow-xl">
-                <div class="px-4 py-4 space-y-2">
-                    <a href="#home" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2 border-b border-custom-tertiary/50">Início</a>
-                    <a href="#about" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2 border-b border-custom-tertiary/50">Sobre</a>
-                    <a href="#experience" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2 border-b border-custom-tertiary/50">Experiência</a>
-                    <a href="#projects" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2 border-b border-custom-tertiary/50">Projetos</a>
-                    <a href="#contact" class="mobile-nav-link block text-custom-secondary hover:text-blue-500 transition-colors duration-200 py-2">Contato</a>
-                </div>
+            <div class="p-4 bg-bg-tertiary rounded-lg shadow-md">
+                <h3 class="font-semibold mb-2">Visão</h3>
+                <p class="text-gray-400">Ser referência em Belo Horizonte para empresas que buscam presença digital de qualidade.</p>
             </div>
-        </nav>
-    </header>
-
-    <main class="pt-16">
-        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 hero-gradient">
-                <canvas id="matrix-canvas"></canvas>
-            </div>
-
-            <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-                <div class="max-w-4xl mx-auto space-y-8">
-                    <div class="space-y-4">
-                        <svg class="w-full h-auto max-w-5xl mx-auto" viewBox="0 0 1500 150">
-                            <defs>
-                                <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
-                                    <stop offset="50%" style="stop-color:rgb(168,85,247);stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                            <text x="50%" y="100" font-size="100" font-weight="bold" fill="url(#textGradient)" text-anchor="middle" class="tracking-tighter md:tracking-normal font-extrabold" style="font-family: 'Inter', sans-serif;">
-                                Tip também é dev
-                            </text>
-                        </svg>
-                        <p class="text-xl md:text-3xl text-custom-secondary font-mono tracking-tighter">
-                            Sites que não só funcionam — mas vendem a sua ideia.
-                        </p>
-                    </div>
-
-                    <p class="text-lg md:text-xl text-custom-muted max-w-2xl mx-auto leading-relaxed">
-                        **Front-end rápido**, bonito e **otimizado** para destacar sua marca no Google, com foco em **SEO Local** para empreendedores de Belo Horizonte.
-                    </p>
-
-                    <div class="flex justify-center pt-4">
-                        <a href="#projects" class="px-8 py-3 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center shadow-lg hover:shadow-blue-500/50">
-                            Ver Projetos
-                            <i data-lucide="chevron-down" class="ml-2 h-4 w-4"></i>
-                        </a>
-                    </div>
-
-                    <div class="flex justify-center space-x-6 pt-8">
-                        <a href="https://github.com/tipgabriel" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-custom-muted hover:text-blue-500 transition-all duration-200 hover:scale-110">
-                            <i data-lucide="github" class="h-6 w-6"></i>
-                        </a>
-                        <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-custom-muted hover:text-purple-500 transition-all duration-200 hover:scale-110">
-                            <i data-lucide="instagram" class="h-6 w-6"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-                <i data-lucide="chevron-down" class="h-6 w-6 text-custom-muted"></i>
-            </div>
-        </section>
-
-        <section id="about" class="py-20 bg-white-section">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Sobre Mim</h2>
-                        <p class="text-lg text-custom-muted">
-                            Mais que código: experiência e confiança para empreendedores que querem crescer online
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                        <div class="space-y-6">
-                            <p class="leading-relaxed text-custom-secondary text-lg">
-                                Sou o **Gabriel**, conhecido como **Tip**. Meu foco é dar vida a projetos digitais
-                                com front-end sólido e design inteligente. Não crio só telas bonitas — penso em
-                                **usabilidade, performance e no impacto** que seu negócio precisa ter online.
-                                Desde o HTML limpo até a otimização de SEO, meu objetivo é transformar sua presença digital em uma **máquina de vendas**.
-                            </p>
-                            
-                            <div class="space-y-4 pt-4">
-                                <h3 class="text-xl font-semibold mb-2 text-black">Entre em Contato:</h3>
-                                <div class="flex items-center space-x-2">
-                                    <i data-lucide="map-pin" class="h-4 w-4 text-blue-500"></i>
-                                    <span class="text-sm text-custom-secondary">Belo Horizonte, MG, Brasil</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <i data-lucide="mail" class="h-4 w-4 text-blue-500"></i>
-                                    <span class="text-sm text-custom-secondary">tipgabrieldev@proton.me</span>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <i data-lucide="phone" class="h-4 w-4 text-blue-500"></i>
-                                    <span class="text-sm text-custom-secondary">+55 (31) 98204-2552</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-y-6">
-                            <h3 class="text-xl font-semibold">Habilidades Técnicas</h3>
-                            <div id="skills-container" class="flex flex-wrap gap-2">
-                                </div>
-
-                            <h3 class="text-xl font-semibold pt-4">Ferramentas e Metodologias</h3>
-                            <div id="tools-container" class="flex flex-wrap gap-2">
-                                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="py-20 bg-custom-primary">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Especialista em Front-end e SEO para negócios reais</h2>
-                        <p class="text-lg text-custom-muted">
-                            Nada de códigos enrolados ou sites que travam. Meu trabalho é entregar soluções limpas, responsivas e que realmente ajudam seu negócio a crescer.
-                        </p>
-                    </div>
-
-                    <div id="experience-container" class="space-y-12 lg:space-y-16">
-                        </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="py-20 bg-custom-secondary">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Portfólio: ideias que viraram resultados</h2>
-                        <p class="text-lg text-custom-muted">
-                            Aqui você encontra projetos feitos para empreendedores e marcas que precisavam de presença online de verdade. Cada site foi pensado para resolver um problema e gerar confiança.
-                        </p>
-                    </div>
-
-                    <div id="projects-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-20 bg-custom-primary">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">O que dizem de trabalhar comigo</h2>
-                        <p class="text-lg text-custom-muted">
-                            Mais do que entregar um site bonito, meu foco é deixar clientes tranquilos sabendo que o digital deles está em boas mãos.
-                        </p>
-                    </div>
-
-                    <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-20 bg-custom-secondary">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-custom-primary">Vamos tirar sua ideia do papel?</h2>
-                        <p class="text-lg text-custom-muted">
-                            Se você precisa de um site que passe confiança e destaque sua marca, é só me chamar. Juntos podemos construir algo prático, bonito e estratégico para o seu negócio.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div class="space-y-10">
-                            <div>
-                                <h3 class="text-2xl font-semibold mb-6 text-custom-primary">Informações de Contato</h3>
-                                <div class="space-y-4">
-                                    <div class="flex items-center space-x-3">
-                                        <i data-lucide="mail" class="h-5 w-5 text-blue-500"></i>
-                                        <a href="mailto:tipgabrieldev@proton.me" class="text-custom-secondary hover:text-blue-500 transition-colors duration-200">tipgabrieldev@proton.me</a>
-                                    </div>
-                                    <div class="flex items-center space-x-3">
-                                        <i data-lucide="phone" class="h-5 w-5 text-blue-500"></i>
-                                        <a href="tel:+5531982042552" class="text-custom-secondary hover:text-blue-500 transition-colors duration-200">+55 (31) 98204-2552</a>
-                                    </div>
-                                    <div class="flex items-center space-x-3">
-                                        <i data-lucide="map-pin" class="h-5 w-5 text-blue-500"></i>
-                                        <span class="text-custom-secondary">Brasil</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <h3 class="text-2xl font-semibold mb-6 text-custom-primary">Redes Sociais</h3>
-                                <div class="flex space-x-6">
-                                    <a href="https://github.com/tipgabriel" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="flex items-center space-x-2 text-custom-muted hover:text-blue-500 transition-colors duration-200">
-                                        <i data-lucide="github" class="h-6 w-6"></i>
-                                        <span class="hidden sm:inline">GitHub</span>
-                                    </a>
-                                    <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex items-center space-x-2 text-custom-muted hover:text-purple-500 transition-colors duration-200">
-                                        <i data-lucide="instagram" class="h-6 w-6"></i>
-                                        <span class="hidden sm:inline">Instagram</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-bg p-6 rounded-lg shadow-2xl border border-custom-tertiary">
-                            <form id="contact-form" class="space-y-6" action="[SEU_ENDPOINT_FORM]" method="POST">
-                                <div>
-                                    <input 
-                                        type="text" 
-                                        name="name" 
-                                        placeholder="Como posso te chamar?" 
-                                        required
-                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                    >
-                                </div>
-                                <div>
-                                    <input 
-                                        type="email" 
-                                        name="email" 
-                                        placeholder="Qual seu melhor e-mail?" 
-                                        required
-                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                    >
-                                </div>
-                                <div>
-                                    <textarea 
-                                        name="message" 
-                                        placeholder="Me conta sua ideia ou o que precisa no seu site" 
-                                        required
-                                        rows="6"
-                                        class="w-full px-4 py-3 input-bg rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
-                                    ></textarea>
-                                </div>
-                                <button 
-                                    type="submit"
-                                    class="w-full px-6 py-3 btn-gradient text-white rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center shadow-lg"
-                                >
-                                    <i data-lucide="send" class="mr-2 h-4 w-4"></i>
-                                    Enviar Mensagem
-                                </button>
-                                <p id="form-status" class="text-center text-sm pt-2 text-custom-muted hidden"></p>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-custom-tertiary border-t border-custom-secondary">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-2">
-                        <div class="relative">
-                            <i data-lucide="code-2" class="h-6 w-6 text-blue-500"></i>
-                            <i data-lucide="zap" class="absolute -top-1 -right-1 h-3 w-3 text-purple-500"></i>
-                        </div>
-                        <span class="text-lg font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                            Tipgabrieldev
-                        </span>
-                    </div>
-                    <p class="text-custom-muted text-sm max-w-xs">
-                        Front-end rápido, seguro e otimizado para empreendedores que querem destacar sua marca online.
-                    </p>
-                </div>
-
-                <div class="space-y-4">
-                    <h3 class="font-semibold text-custom-primary text-lg">Links Rápidos</h3>
-                    <div class="grid grid-cols-2 gap-2 text-sm">
-                        <a href="#home" class="text-custom-muted hover:text-blue-500 transition-colors duration-200">Início</a>
-                        <a href="#about" class="text-custom-muted hover:text-blue-500 transition-colors duration-200">Sobre</a>
-                        <a href="#experience" class="text-custom-muted hover:text-blue-500 transition-colors duration-200">Experiência</a>
-                        <a href="#projects" class="text-custom-muted hover:text-blue-500 transition-colors duration-200">Projetos</a>
-                        <a href="#contact" class="text-custom-muted hover:text-blue-500 transition-colors duration-200">Contato</a>
-                    </div>
-                </div>
-
-                <div class="space-y-4">
-                    <h3 class="font-semibold text-custom-primary text-lg">Conecte-se</h3>
-                    <div class="flex space-x-6">
-                        <a href="https://github.com/tipgabriel/tipgabrieldev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-custom-muted hover:text-blue-500 transition-colors duration-200 flex items-center space-x-2">
-                            <i data-lucide="github" class="h-5 w-5"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://instagram.com/tipgabrieldev" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-custom-muted hover:text-purple-500 transition-colors duration-200 flex items-center space-x-2">
-                            <i data-lucide="instagram" class="h-5 w-5"></i>
-                            <span>Instagram</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-custom-secondary mt-8 pt-8 text-center">
-                <p class="text-custom-muted text-sm">
-                    © <span id="current-year"></span> Tipgabrieldev. Construindo presença digital com confiança. Todos os direitos reservados.
-                </p>
+            <div class="p-4 bg-bg-tertiary rounded-lg shadow-md">
+                <h3 class="font-semibold mb-2">Valores</h3>
+                <p class="text-gray-400">Ética, inovação e resultado prático para cada projeto.</p>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <a href="https://wa.me/5531982042552?text=Ol%C3%A1%21+Vim+pelo+seu+portf%C3%B3lio+e+gostaria+de+mais+informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" id="whatsapp-button" class="fixed bottom-6 right-6 z-50 p-4 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.371c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-        </svg>
-    </a>
+<!-- EXPERIÊNCIA -->
+<section id="experiencia" class="py-20 px-4 bg-bg-primary text-white">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Experiência</h2>
+        <p class="text-lg text-gray-300 mb-8">Projetos reais que geraram resultados para clientes.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-4 bg-bg-tertiary rounded-lg shadow-md">
+                <h3 class="font-semibold mb-2">Front-end</h3>
+                <p class="text-gray-400">Desenvolvimento de interfaces modernas com HTML, CSS, JavaScript e TailwindCSS.</p>
+            </div>
+            <div class="p-4 bg-bg-tertiary rounded-lg shadow-md">
+                <h3 class="font-semibold mb-2">SEO Local</h3>
+                <p class="text-gray-400">Otimização de sites para alcançar clientes em Belo Horizonte e região.</p>
+            </div>
+            <div class="p-4 bg-bg-tertiary rounded-lg shadow-md">
+                <h3 class="font-semibold mb-2">Projetos Estáticos</h3>
+                <p class="text-gray-400">Criação de sites rápidos, seguros e com visual impressionante.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <script>
-        // Função para Inicializar os Ícones Lucide (Importante!)
-        lucide.createIcons();
+<!-- PROJETOS -->
+<section id="projetos" class="py-20 px-4 bg-bg-secondary text-white">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Projetos</h2>
+        <p class="text-lg text-gray-300 mb-8">Alguns trabalhos recentes que refletem minha paixão pelo front-end.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-4 bg-bg-tertiary rounded-lg shadow-md">
+                <h3 class="font-semibold mb-2">Projeto 1</h3>
+                <p class="text-gray-400">Site de apresentação para empresa local, com design moderno e responsivo.</p>
+            </div>
+            <div class="p-4 bg-bg-tertiary rounded-lg shadow-md">
+                <h3 class="font-semibold mb-2">Projeto 2</h3>
+                <p class="text-gray-400">Landing page para campanha digital, otimizada para conversão.</p>
+            </div>
+            <div class="p-4 bg-bg-tertiary rounded-lg shadow-md">
+                <h3 class="font-semibold mb-2">Projeto 3</h3>
+                <p class="text-gray-400">Portfólio interativo para profissional de tecnologia, totalmente dinâmico.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        // 1. Script da Chuva de Matrix
-        const matrixCanvas = document.getElementById('matrix-canvas');
-        if (matrixCanvas) {
-            const ctx = matrixCanvas.getContext('2d');
+<!-- CONTATO -->
+<section id="contato" class="py-20 px-4 bg-bg-primary text-white">
+    <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Fale comigo</h2>
+        <p class="text-lg text-gray-300 mb-8">Envie sua mensagem e vamos conversar sobre seu projeto.</p>
+        <form class="grid gap-4">
+            <input type="text" placeholder="Seu nome" class="p-3 rounded-lg bg-bg-tertiary text-white border border-gray-700 focus:outline-none">
+            <input type="email" placeholder="Seu e-mail" class="p-3 rounded-lg bg-bg-tertiary text-white border border-gray-700 focus:outline-none">
+            <textarea placeholder="Mensagem" rows="5" class="p-3 rounded-lg bg-bg-tertiary text-white border border-gray-700 focus:outline-none"></textarea>
+            <button type="submit" class="p-3 rounded-lg btn-gradient font-semibold">Enviar</button>
+        </form>
+    </div>
+</section>
 
-            matrixCanvas.height = window.innerHeight;
-            matrixCanvas.width = window.innerWidth;
+<!-- FOOTER -->
+<footer class="py-6 bg-bg-secondary text-gray-400 text-center">
+    &copy; 2025 Tipgabrieldev. Todos os direitos reservados.
+</footer>
 
-            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%^&*()_+-=~`|[]{}<>,./?';
-            const fontSize = 16;
-            const columns = matrixCanvas.width / fontSize;
+<script>
+lucide.createIcons();
 
-            let drops = [];
-            for (let i = 0; i < columns; i++) {
-                drops[i] = 1;
-            }
+// MATRIX EFFECT
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%^&*()_+-=~`|[]{}<>,./?';
+const fontSize = 16;
+const columns = Math.floor(width / fontSize);
+const drops = Array(columns).fill(1);
 
-            function drawMatrix() {
-                // Fundo com opacidade baixa para efeito de 'trail'
-                ctx.fillStyle = 'rgba(1, 1, 1, 0.04)';
-                ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+function draw() {
+    ctx.fillStyle = 'rgba(1, 1, 1, 0.05)';
+    ctx.fillRect(0, 0, width, height);
 
-                ctx.fillStyle = 'var(--matrix-blue)'; // Cor Matrix Blue
-                ctx.font = fontSize + 'px ' + 'JetBrains Mono';
+    ctx.fillStyle = 'var(--matrix-blue)';
+    ctx.font = fontSize + 'px JetBrains Mono';
 
-                for (let i = 0; i < drops.length; i++) {
-                    const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-                    // Enviando a gota de volta para o topo quando sair da tela
-                    if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
+        if (drops[i] * fontSize > height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+    }
+}
 
-                    drops[i]++;
-                }
-            }
+setInterval(draw, 33);
 
-            // Redesenha a Matrix a cada 33ms (~30 FPS)
-            setInterval(drawMatrix, 33);
+window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
+</script>
 
-            // Ajusta o canvas ao redimensionar a janela
-            window.addEventListener('resize', () => {
-                matrixCanvas.height = window.innerHeight;
-                matrixCanvas.width = window.innerWidth;
-                drops = [];
-                const newColumns = matrixCanvas.width / fontSize;
-                for (let i = 0; i < newColumns; i++) {
-                    drops[i] = 1;
-                }
-            });
-        }
-
-        // 2. Script para Conteúdo Dinâmico e Interatividade
-
-        // Dados estáticos para preencher o portfólio, experiência e habilidades
-        const data = {
-            skills: [
-                { name: 'HTML5', icon: 'zap' },
-                { name: 'CSS3', icon: 'zap' },
-                { name: 'JavaScript', icon: 'zap' },
-                { name: 'Tailwind CSS', icon: 'star' },
-                { name: 'SEO Local', icon: 'search' },
-                { name: 'Performance', icon: 'gauge' },
-                { name: 'Responsividade', icon: 'smartphone' },
-            ],
-            tools: [
-                { name: 'Git & GitHub', icon: 'git-branch' },
-                { name: 'Figma', icon: 'layout-grid' },
-                { name: 'Vercel', icon: 'cloud' },
-                { name: 'Design System', icon: 'palette' },
-            ],
-            experience: [
-                {
-                    title: 'Desenvolvedor Front-end Freelancer',
-                    period: '2021 — Presente',
-                    company: 'Tipgabrieldev',
-                    description: 'Especialista em criar sites estáticos de alta performance para pequenos e médios negócios, com foco em conversão e visibilidade no Google (SEO). Utilizo stacks modernas (HTML, Tailwind, JavaScript) para garantir velocidade e design responsivo.',
-                    tags: ['HTML5', 'Tailwind', 'SEO', 'JavaScript']
-                },
-                {
-                    title: 'Criação de Landing Pages Otimizadas',
-                    period: '2022 — Presente',
-                    company: 'Marketing Digital',
-                    description: 'Desenvolvimento de Landing Pages (LP) focadas em captação de leads e vendas. Implementação de táticas de otimização de taxa de conversão (CRO) e integração com ferramentas de marketing.',
-                    tags: ['Landing Page', 'CRO', 'Performance', 'A/B Testing']
-                },
-                {
-                    title: 'Manutenção e Otimização de Sites',
-                    period: '2023 — Presente',
-                    company: 'Consultoria',
-                    description: 'Prestação de serviços de manutenção corretiva e evolutiva em sites existentes, incluindo refatoração de código legado e otimização de velocidade (Core Web Vitals) para melhor ranqueamento.',
-                    tags: ['Refactoring', 'Web Vitals', 'Manutenção']
-                }
-            ],
-            projects: [
-                {
-                    title: 'Clínica Odontológica BH',
-                    description: 'Site institucional completo com foco em SEO local e agendamento rápido via WhatsApp. Design elegante e moderno.',
-                    tags: ['Tailwind CSS', 'HTML', 'SEO Local'],
-                    link: '#'
-                },
-                {
-                    title: 'Portfólio de Fotografia',
-                    description: 'Galeria de alta velocidade otimizada para carregamento de imagens em dispositivos móveis. Totalmente responsivo.',
-                    tags: ['Performance', 'Grid Layout', 'JavaScript'],
-                    link: '#'
-                },
-                {
-                    title: 'Landing Page SaaS',
-                    description: 'Página de vendas com design limpo e chamadas para ação (CTAs) estratégicas para maximizar a conversão.',
-                    tags: ['CRO', 'Tailwind', 'Figma'],
-                    link: '#'
-                }
-            ],
-            testimonials: [
-                {
-                    quote: 'O Tip entregou um site rápido e muito bem estruturado. Em poucas semanas, já vimos resultados no Google.',
-                    author: 'Ana Paula S.',
-                    role: 'Dona de Clínica'
-                },
-                {
-                    quote: 'A comunicação foi excelente e o resultado final superou minhas expectativas. Recomendo para quem busca qualidade.',
-                    author: 'Marcos R.',
-                    role: 'Empreendedor Digital'
-                }
-            ]
-        };
-
-        // Funções de Renderização
-
-        function renderSkills() {
-            const container = document.getElementById('skills-container');
-            const toolsContainer = document.getElementById('tools-container');
-
-            data.skills.forEach(skill => {
-                const badge = `
-                    <div class="skill-badge-white px-3 py-1 text-sm rounded-full font-medium transition-all duration-200 cursor-default flex items-center shadow-sm hover:shadow-lg">
-                        <i data-lucide="${skill.icon}" class="h-4 w-4 mr-2 text-blue-500"></i>
-                        <span>${skill.name}</span>
-                    </div>
-                `;
-                container.innerHTML += badge;
-            });
-            
-            data.tools.forEach(tool => {
-                const badge = `
-                    <div class="skill-badge-white px-3 py-1 text-sm rounded-full font-medium transition-all duration-200 cursor-default flex items-center shadow-sm hover:shadow-lg">
-                        <i data-lucide="${tool.icon}" class="h-4 w-4 mr-2 text-purple-500"></i>
-                        <span>${tool.name}</span>
-                    </div>
-                `;
-                toolsContainer.innerHTML += badge;
-            });
-            lucide.createIcons(); // Re-renderiza os ícones
-        }
-
-        function renderExperience() {
-            const container = document.getElementById('experience-container');
-            data.experience.forEach(item => {
-                const tagsHtml = item.tags.map(tag => `<span class="px-3 py-1 text-xs font-mono text-blue-300 bg-blue-900/50 rounded-full">${tag}</span>`).join('');
-                
-                const experienceItem = `
-                    <div class="timeline-item flex items-start">
-                        <div class="timeline-dot"></div>
-                        <div class="pl-8 flex-1 space-y-2 card-bg p-5 rounded-lg border-l-2 border-blue-500/50">
-                            <h3 class="text-xl font-semibold text-custom-primary">${item.title}</h3>
-                            <p class="text-sm font-mono text-blue-400">${item.company} <span class="text-custom-muted">| ${item.period}</span></p>
-                            <p class="text-custom-secondary leading-relaxed">${item.description}</p>
-                            <div class="flex flex-wrap gap-2 pt-2">
-                                ${tagsHtml}
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += experienceItem;
-            });
-        }
-
-        function renderProjects() {
-            const container = document.getElementById('projects-container');
-            data.projects.forEach(project => {
-                const tagsHtml = project.tags.map(tag => `<span class="text-xs font-mono text-custom-muted bg-custom-tertiary px-2 py-0.5 rounded">${tag}</span>`).join('');
-                
-                const projectCard = `
-                    <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="card-hover block card-bg p-6 rounded-lg shadow-xl border border-custom-tertiary space-y-4">
-                        <div class="flex justify-between items-center">
-                            <i data-lucide="monitor" class="h-6 w-6 text-blue-500"></i>
-                            <i data-lucide="arrow-up-right" class="h-4 w-4 text-custom-muted"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-custom-primary">${project.title}</h3>
-                        <p class="text-custom-secondary text-sm">${project.description}</p>
-                        <div class="flex flex-wrap gap-2 pt-2">
-                            ${tagsHtml}
-                        </div>
-                    </a>
-                `;
-                container.innerHTML += projectCard;
-            });
-            lucide.createIcons();
-        }
-
-        function renderTestimonials() {
-            const container = document.getElementById('testimonials-container');
-            data.testimonials.forEach(testimonial => {
-                const testimonialCard = `
-                    <div class="card-bg p-6 rounded-lg shadow-xl border border-custom-tertiary space-y-4">
-                        <i data-lucide="quote" class="h-8 w-8 text-purple-500 mb-2"></i>
-                        <p class="italic text-custom-secondary leading-relaxed">"${testimonial.quote}"</p>
-                        <div class="pt-2">
-                            <p class="font-semibold text-custom-primary">${testimonial.author}</p>
-                            <p class="text-sm text-custom-muted">${testimonial.role}</p>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += testimonialCard;
-            });
-            lucide.createIcons();
-        }
-
-        // Funções de Interatividade
-
-        function setupInteractivity() {
-            // Mobile Menu Toggle
-            const toggleButton = document.getElementById('mobile-menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuIcon = document.getElementById('menu-icon');
-            const closeIcon = document.getElementById('close-icon');
-            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-            toggleButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                menuIcon.classList.toggle('hidden');
-                closeIcon.classList.toggle('hidden');
-            });
-
-            // Fechar menu ao clicar em um link (mobile)
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                });
-            });
-
-            // Scroll para Projetos no Hero
-            const viewProjectsBtn = document.getElementById('view-projects-btn');
-            if (viewProjectsBtn) {
-                viewProjectsBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-                });
-            }
-
-            // Ano atual no Footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-
-            // Simulação de Submissão de Formulário
-            const form = document.getElementById('contact-form');
-            const formStatus = document.getElementById('form-status');
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                formStatus.classList.remove('hidden', 'text-red-500', 'text-green-500');
-                formStatus.textContent = 'Enviando...';
-                formStatus.classList.add('text-blue-500');
-
-                setTimeout(() => {
-                    formStatus.textContent = 'Mensagem enviada com sucesso! Em breve entrarei em contato. ✅';
-                    formStatus.classList.remove('text-blue-500');
-                    formStatus.classList.add('text-green-500');
-                    form.reset();
-                }, 1500); // Simula o envio
-            });
-
-            // Header Background Scroll Effect
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('shadow-xl', 'border-b', 'border-custom-tertiary');
-                } else {
-                    header.classList.remove('shadow-xl', 'border-b', 'border-custom-tertiary');
-                }
-            });
-        }
-
-        // Inicialização Principal
-        document.addEventListener('DOMContentLoaded', () => {
-            renderSkills();
-            renderExperience();
-            renderProjects();
-            renderTestimonials();
-            setupInteractivity();
-        });
-    </script>
 </body>
 </html>
