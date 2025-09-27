@@ -4,17 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Desenvolvedor de Sites em Belo Horizonte | Tipgabrieldev - Front-end e Sites Estáticos</title>
-<meta name="description" content="Criação de sites estáticos, front-end moderno e desenvolvimento web em Belo Horizonte - MG. Especialista em HTML5, CSS3, JavaScript, Tailwind e SEO local para destacar sua empresa online.">
+<title>Desenvolvedor de Sites em Belo Horizonte | Tipgabrieldev</title>
+<meta name="description" content="Criação de sites estáticos, front-end moderno e desenvolvimento web em Belo Horizonte - MG. Especialista em HTML5, CSS3, JavaScript, Tailwind e SEO local.">
 
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
@@ -22,7 +18,7 @@
 :root {
     --primary-blue: #3b82f6;
     --primary-purple: #8b5cf6;
-    --matrix-blue: #00ff00;
+    --matrix-green: #00ff00;
     --bg-primary: #010101;
     --bg-secondary: #212121;
     --bg-tertiary: #2a2a2a;
@@ -37,13 +33,12 @@ body {
     color: var(--text-primary);
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
 }
 
 .font-mono { font-family: 'JetBrains Mono', monospace; }
 
 #matrix-canvas {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -60,25 +55,10 @@ body {
     z-index: 1;
 }
 
-main section { position: relative; }
-
-.skill-badge-white {
-    background-color: #f0f0f0;
-    color: #010101;
-    border-radius: 9999px;
-    padding: 0.25rem 0.75rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 0.875rem;
-}
-
 .btn-gradient {
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
 }
 .btn-gradient:hover { background: linear-gradient(135deg, #2563eb, #7c3aed); }
-
-a { text-decoration: none; color: inherit; }
 </style>
 </head>
 <body class="transition-colors duration-300">
@@ -86,7 +66,16 @@ a { text-decoration: none; color: inherit; }
 <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 p-4 shadow-lg">
     <nav class="flex justify-between items-center max-w-7xl mx-auto">
         <span class="text-xl font-bold text-white">Tipgabrieldev</span>
-        <div class="space-x-4">
+        <div class="md:hidden">
+            <button id="menu-btn" class="text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <div id="menu" class="hidden md:flex space-x-4">
             <a href="#home" class="hover:text-blue-400">Home</a>
             <a href="#sobre" class="hover:text-blue-400">Sobre</a>
             <a href="#experiencia" class="hover:text-blue-400">Experiência</a>
@@ -94,11 +83,17 @@ a { text-decoration: none; color: inherit; }
             <a href="#contato" class="hover:text-blue-400">Contato</a>
         </div>
     </nav>
+    <div id="mobile-menu" class="md:hidden hidden mt-2 flex flex-col space-y-2">
+        <a href="#home" class="text-white px-4 py-2 hover:bg-gray-800 rounded">Home</a>
+        <a href="#sobre" class="text-white px-4 py-2 hover:bg-gray-800 rounded">Sobre</a>
+        <a href="#experiencia" class="text-white px-4 py-2 hover:bg-gray-800 rounded">Experiência</a>
+        <a href="#projetos" class="text-white px-4 py-2 hover:bg-gray-800 rounded">Projetos</a>
+        <a href="#contato" class="text-white px-4 py-2 hover:bg-gray-800 rounded">Contato</a>
+    </div>
 </header>
 
-<main class="pt-16">
+<main class="pt-16 relative">
 
-<!-- HOME / MATRIX -->
 <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <canvas id="matrix-canvas"></canvas>
     <div class="hero-gradient"></div>
@@ -113,7 +108,6 @@ a { text-decoration: none; color: inherit; }
     </div>
 </section>
 
-<!-- SOBRE -->
 <section id="sobre" class="py-20 px-4 bg-bg-secondary text-white">
     <div class="max-w-5xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Quem é Tipgabriel</h2>
@@ -135,7 +129,6 @@ a { text-decoration: none; color: inherit; }
     </div>
 </section>
 
-<!-- EXPERIÊNCIA -->
 <section id="experiencia" class="py-20 px-4 bg-bg-primary text-white">
     <div class="max-w-5xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Experiência</h2>
@@ -157,7 +150,6 @@ a { text-decoration: none; color: inherit; }
     </div>
 </section>
 
-<!-- PROJETOS -->
 <section id="projetos" class="py-20 px-4 bg-bg-secondary text-white">
     <div class="max-w-5xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Projetos</h2>
@@ -179,7 +171,6 @@ a { text-decoration: none; color: inherit; }
     </div>
 </section>
 
-<!-- CONTATO -->
 <section id="contato" class="py-20 px-4 bg-bg-primary text-white">
     <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Fale comigo</h2>
@@ -193,7 +184,6 @@ a { text-decoration: none; color: inherit; }
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="py-6 bg-bg-secondary text-gray-400 text-center">
     &copy; 2025 Tipgabrieldev. Todos os direitos reservados.
 </footer>
@@ -201,33 +191,45 @@ a { text-decoration: none; color: inherit; }
 <script>
 lucide.createIcons();
 
+// MENU HAMBÚRGUER
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
+
 // MATRIX EFFECT
 const canvas = document.getElementById('matrix-canvas');
 const ctx = canvas.getContext('2d');
+
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
+
 const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%^&*()_+-=~`|[]{}<>,./?';
 const fontSize = 16;
 const columns = Math.floor(width / fontSize);
 const drops = Array(columns).fill(1);
 
-function draw() {
-    ctx.fillStyle = 'rgba(1, 1, 1, 0.05)';
+function drawMatrix() {
+    ctx.fillStyle = 'rgba(1,1,1,0.05)';
     ctx.fillRect(0, 0, width, height);
 
-    ctx.fillStyle = 'var(--matrix-blue)';
+    ctx.fillStyle = 'var(--matrix-green)';
     ctx.font = fontSize + 'px JetBrains Mono';
 
     for (let i = 0; i < drops.length; i++) {
         const text = letters.charAt(Math.floor(Math.random() * letters.length));
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        if (drops[i] * fontSize > height && Math.random() > 0.975) drops[i] = 0;
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
         drops[i]++;
     }
 }
 
-setInterval(draw, 33);
+setInterval(drawMatrix, 33);
 
 window.addEventListener('resize', () => {
     width = canvas.width = window.innerWidth;
