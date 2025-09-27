@@ -11,7 +11,7 @@
 <link rel="shortcut icon" href="/favicon.ico" />
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght+400;500;600&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
 <style>
@@ -60,27 +60,45 @@ body {
 }
 .btn-gradient:hover { background: linear-gradient(135deg, #2563eb, #7c3aed); }
 
-/* --- APRIMORAMENTO PRINCIPAL COM GRID E FLEX --- */
+/* --- REGRAS DE GRID LAYOUT NO CSS CUSTOMIZADO --- */
 
-/* Uso de Grid na Estrutura Principal para Melhor Responsividade */
-.main-content-grid {
+/* Grid Padrão de 3 Colunas (Para Missão/Visão e Experiências) */
+.layout-grid-3 {
+    /* Padrão Mobile: Coluna Única */
     display: grid;
-    /* Colunas ajustáveis: 1 coluna em telas pequenas, 2 em médias e 3 em grandes (opcional) */
-    grid-template-columns: 1fr; /* Padrão Mobile */
-    gap: 2rem; /* Espaçamento entre as seções */
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Gap de 6 no Tailwind */
 }
-
-/* Aplicação de Media Query do Tailwind: md: (768px) */
+/* Breakpoint Médio (md: 768px) */
 @media (min-width: 768px) {
-    .main-content-grid {
-        /* Define 2 colunas para o corpo principal, útil para layout de revista ou dashboard */
-        grid-template-columns: repeat(2, 1fr);
-        /* Exemplo: fazer a seção "Sobre" ocupar a largura total no topo */
-        /* Mas, para um portfólio de rolagem simples, manteremos a estrutura de blocos */
+    .layout-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Estilo para as "Cards" que usam Flexbox internamente para alinhamento */
+/* Grid para Projetos (2 colunas em telas médias, 3 em grandes) */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+/* Breakpoint Médio (md: 768px) */
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* Breakpoint Grande (lg: 1024px) */
+@media (min-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* --- REGRAS DE FLEXBOX NO CSS CUSTOMIZADO --- */
+
+/* Card que usa Flexbox para Alinhamento Vertical Centralizado */
 .flex-card {
     display: flex;
     flex-direction: column;
@@ -90,6 +108,26 @@ body {
     background-color: var(--bg-tertiary);
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Card de Projeto com Flexbox para "space-between" (Rodapé no final) */
+.project-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background-color: var(--bg-tertiary);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    height: 100%; /* Garante que todos tenham a mesma altura */
+}
+
+/* Flexbox para o menu mobile */
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem; /* mt-2 */
+    gap: 0.5rem; /* space-y-2 */
 }
 </style>
 </head>
@@ -115,7 +153,7 @@ body {
             <a href="#contato" class="hover:text-blue-400">Contato</a>
         </div>
     </nav>
-    <div id="mobile-menu" class="md:hidden hidden mt-2 flex flex-col space-y-2">
+        <div id="mobile-menu" class="md:hidden hidden mobile-menu"> 
         <a href="#home" class="text-white px-4 py-2 hover:bg-gray-800 rounded">Home</a>
         <a href="#sobre" class="text-white px-4 py-2 hover:bg-gray-800 rounded">Sobre</a>
         <a href="#experiencia" class="text-white px-4 py-2 hover:bg-gray-800 rounded">Experiência</a>
@@ -145,7 +183,7 @@ body {
         <h2 class="text-3xl font-bold mb-4">Quem é Tipgabriel</h2>
         <p class="text-lg text-gray-300 mb-6">Uma vida marcada pela luta e superação. Desenvolvedor de sites com foco em resultados e design moderno.</p>
         
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="layout-grid-3">
             <div class="flex-card">
                 <i data-lucide="target" class="w-8 h-8 text-blue-400 mb-2"></i>
                 <h3 class="font-semibold mb-2">Missão</h3>
@@ -170,7 +208,7 @@ body {
         <h2 class="text-3xl font-bold mb-4">Experiência e Habilidades</h2>
         <p class="text-lg text-gray-300 mb-8">Projetos reais que geraram resultados para clientes.</p>
         
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="layout-grid-3">
             <div class="flex-card">
                 <i data-lucide="code" class="w-8 h-8 text-blue-400 mb-2"></i>
                 <h3 class="font-semibold mb-2">Front-end</h3>
@@ -195,8 +233,8 @@ body {
         <h2 class="text-3xl font-bold mb-4">Projetos em Destaque</h2>
         <p class="text-lg text-gray-300 mb-8">Alguns trabalhos recentes que refletem minha paixão pelo front-end.</p>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="p-6 bg-bg-tertiary rounded-lg shadow-xl text-left flex flex-col justify-between">
+        <div class="project-grid">
+            <div class="project-item">
                 <div>
                     <h3 class="font-semibold text-xl mb-2 text-blue-400">Projeto 1: Site Institucional</h3>
                     <p class="text-gray-400">Site de apresentação para empresa local, com design moderno e responsivo, focado em alta velocidade de carregamento.</p>
@@ -206,7 +244,7 @@ body {
                     <span class="text-xs font-mono text-gray-500 bg-gray-800 px-2 py-1 rounded">Tailwind</span>
                 </div>
             </div>
-            <div class="p-6 bg-bg-tertiary rounded-lg shadow-xl text-left flex flex-col justify-between">
+            <div class="project-item">
                 <div>
                     <h3 class="font-semibold text-xl mb-2 text-purple-400">Projeto 2: Landing Page</h3>
                     <p class="text-gray-400">Landing page para campanha digital, otimizada para conversão, integrando formulário avançado de contato.</p>
@@ -216,7 +254,7 @@ body {
                     <span class="text-xs font-mono text-gray-500 bg-gray-800 px-2 py-1 rounded">SEO</span>
                 </div>
             </div>
-            <div class="p-6 bg-bg-tertiary rounded-lg shadow-xl text-left flex flex-col justify-between">
+            <div class="project-item">
                 <div>
                     <h3 class="font-semibold text-xl mb-2 text-green-400">Projeto 3: Portfólio Interativo</h3>
                     <p class="text-gray-400">Portfólio interativo para profissional de tecnologia, totalmente dinâmico com efeitos de rolagem e animações.</p>
