@@ -18,8 +18,7 @@
                 extend: {
                     colors: {
                         'primary': '#0D9488', 
-                        'accent': '#06B6D4',  // Cyan 500 - Destaque Neon
-                        // CORES CORRIGIDAS/CONFIRMADAS
+                        'accent': '#06B6D4', // Cyan 500 - Destaque Neon
                         'background-base': '#171717', 
                         'background-dark': '#1a1a1a', 
                         'background-light': '#222222', 
@@ -37,7 +36,6 @@
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
                         },
-                        // KEYFRAME DO WHATSAPP REVISADO
                         whatsappPulse: {
                             '0%, 100%': { transform: 'scale(1)', opacity: 1 },
                             '50%': { transform: 'scale(1.1)', opacity: 0.9 },
@@ -46,7 +44,6 @@
                     animation: {
                         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                         'bounce-slow': 'bounceSlow 2s infinite ease-in-out',
-                        // Animação para uso no CSS customizado
                         'whatsapp-pulse': 'whatsappPulse 1.5s infinite ease-in-out', 
                     },
                 }
@@ -55,27 +52,31 @@
     </script>
 
     <style>
+        /* ESTILOS DE BASE E FUNDO */
         body {
-            /* CORREÇÃO 1: Fundo Base */
+            /* Fundo Base definido no Tailwind config, mas reforcado e com gradiente sutil */
             background-color: #171717;
             /* Fundo gradiente sutil com base #171717 para dar profundidade */
-            background: radial-gradient(circle at top left, #171717, #1a1a1a);
+            background: radial-gradient(circle at top left, #171717 10%, #1a1a1a 100%);
             /* Impede o scroll horizontal */
             overflow-x: hidden;
-        }
-        
-        /* Ajuste de Tipografia para Mobile */
-        #hero h1 { font-size: 3.75rem; }
-        @media (max-width: 640px) {
-            #hero h1 { font-size: 3rem; }
+            /* Scroll suave para links de âncora */
+            scroll-behavior: smooth;
         }
 
-        section h2 { font-size: 3rem; }
+        /* TIPOGRAFIA E RESPONSIVIDADE */
+        /* Ajuste de Tipografia para Mobile */
+        #hero h1 { font-size: 3.75rem; } /* text-6xl (maior que o padrao para desktop) */
         @media (max-width: 640px) {
-            section h2 { font-size: 2.25rem; }
+            #hero h1 { font-size: 3rem; } /* text-4xl em mobile */
         }
         
-        /* CORREÇÃO 2: Ícone do WhatsApp Perfeitamente Redondo e PULSANDO */
+        section h2 { font-size: 3rem; } /* text-5xl para desktop */
+        @media (max-width: 640px) {
+            section h2 { font-size: 2.25rem; } /* text-4xl em mobile */
+        }
+
+        /* ANIMAÇÃO E BOTÃO FLUTUANTE DO WHATSAPP */
         .whatsapp-btn {
             background-color: #25D366; /* Verde Padrão WhatsApp */ 
             width: 3.5rem; 
@@ -85,19 +86,60 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%; 
-            /* Aplicando a animação diretamente no CSS customizado para garantir prioridade */
+            /* Aplicando a animação de pulsação customizada */
             animation: whatsappPulse 1.5s infinite ease-in-out; 
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6); /* Sombra mais visível */
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6);
+            /* Garante que o ícone fique no centro */
+            line-height: 1;
+            transition: all 0.3s ease;
         }
-        .whatsapp-hover:hover {
+        .whatsapp-btn:hover {
             background-color: #128C7E; /* Verde escuro no hover */
             animation: none; /* Para a pulsação ao fazer hover */
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg); /* Leve giro no hover */
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.9); /* Sombra acentuada no hover */
         }
 
-        /* Classes do Menu Hambúrguer */
-        .mobile-menu-open { display: flex; }
-        .mobile-menu-closed { display: none; }
+        /* ESTILOS DE LINK DE NAVEGAÇÃO */
+        /* Efeito de sublinhado sutil nos links do cabeçalho */
+        .header-link {
+            position: relative;
+        }
+        .header-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px; /* Distância do texto */
+            left: 0;
+            background-color: #06B6D4; /* Cor 'accent' */
+            transition: width 0.3s ease-in-out;
+        }
+        .header-link:hover::after {
+            width: 100%;
+        }
+
+        /* ESTILOS DE CARTÃO DE PROJETO (PROJECT CARD) */
+        .project-card {
+            /* Adiciona uma transição suave para as transformações e sombras */
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* ease-in-out mais sofisticado */
+        }
+        
+        .project-card:hover {
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.7); /* Mantém o neon shadow */
+            transform: translateY(-5px) scale(1.02); /* Leve levantamento e zoom */
+            border-color: #06B6D4; /* Borda acentuada no hover */
+        }
+
+        /* CLASSES DO MENU HAMBÚRGUER (Ajuste para garantir que flex-col funcione) */
+        .mobile-menu-open { 
+            display: flex; 
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+        .mobile-menu-closed { 
+            display: none; 
+        }
+
     </style>
 </head>
 
@@ -121,9 +163,9 @@
         </nav>
         
         <ul id="mobile-menu" class="mobile-menu-closed flex-col text-center bg-background-dark w-full py-4 sm:hidden border-t border-gray-700/50">
-            <li class="py-2"><a href="#about" class="block text-xl hover:text-accent transition duration-300" onclick="document.getElementById('mobile-menu').classList.toggle('mobile-menu-open');">Sobre Mim</a></li>
-            <li class="py-2"><a href="#projects" class="block text-xl hover:text-accent transition duration-300" onclick="document.getElementById('mobile-menu').classList.toggle('mobile-menu-open');">Projetos</a></li>
-            <li class="py-2"><a href="#contact" class="block text-xl hover:text-accent transition duration-300" onclick="document.getElementById('mobile-menu').classList.toggle('mobile-menu-open');">Contato</a></li>
+            <li class="py-2"><a href="#about" class="block text-xl hover:text-accent transition duration-300">Sobre Mim</a></li>
+            <li class="py-2"><a href="#projects" class="block text-xl hover:text-accent transition duration-300">Projetos</a></li>
+            <li class="py-2"><a href="#contact" class="block text-xl hover:text-accent transition duration-300">Contato</a></li>
         </ul>
     </header>
 
@@ -166,7 +208,7 @@
         </h2>
         <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
             
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50">
                 <img src="barbearia-andre.png" alt="Barbearia André" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
                 <div class="p-6">
                     <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">Barbearia André</h3>
@@ -174,7 +216,7 @@
                     <a href="https://www.instagram.com/barbeariandreoficial032013/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
                 </div>
             </div>
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50">
                 <img src="studiomelbh.png" alt="StudiomelBH" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
                 <div class="p-6">
                     <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">StudiomelBH</h3>
@@ -182,7 +224,7 @@
                     <a href="https://studiomelbh.vercel.app/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
                 </div>
             </div>
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50">
                 <img src="sunrisehq.png" alt="SunriseHQ" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
                 <div class="p-6">
                     <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">HQ - Sunrise</h3>
@@ -190,7 +232,7 @@
                     <a href="https://hqsunrise.vercel.app/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
                 </div>
             </div>
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50">
                 <img src="URL_DA_IMAGEM_DO_PROJETO_GUILD_ORIGEM" alt="Guild Origem" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
                 <div class="p-6">
                     <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">Guild Origem</h3>
@@ -198,12 +240,22 @@
                     <a href="https://guildorigem.vercel.app/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
                 </div>
             </div>
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50">
                 <img src="otip.png" alt="otip" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
                 <div class="p-6">
                     <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">otip (Landing Page)</h3>
                     <p class="text-gray-400 mb-4 text-sm">Criação de um site ou aplicativo com foco em dicas personalizadas.</p>
                     <a href="https://otip.vercel.app/index.html" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
+                </div>
+            </div>
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50 opacity-50 cursor-not-allowed">
+                <div class="w-full h-48 flex items-center justify-center bg-gray-900/50 text-gray-500">
+                    <i class="fas fa-code text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">Novo Projeto em Breve</h3>
+                    <p class="text-gray-400 mb-4 text-sm">O próximo pode ser o seu! Entre em contato para saber mais.</p>
+                    <a href="#contact" class="w-full inline-block text-center bg-gray-600/50 text-gray-300 font-bold py-2 rounded cursor-pointer transition duration-300">Entre em Contato</a>
                 </div>
             </div>
         </div>
@@ -263,7 +315,7 @@
     </footer>
 
     <a href="https://wa.me/31982042552" target="_blank"
-        class="fixed bottom-6 right-6 z-50 whatsapp-btn whatsapp-hover"
+        class="fixed bottom-6 right-6 z-50 whatsapp-btn"
         aria-label="Fale comigo pelo WhatsApp">
         <i class="fab fa-whatsapp text-white text-xl"></i>
     </a>
@@ -271,21 +323,31 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // LÓGICA DO MENU HAMBÚRGUER
+            // LÓGICA DO MENU HAMBÚRGUER E TROCA DE ÍCONE
             const menuButton = document.getElementById('menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuLinks = mobileMenu.querySelectorAll('a');
+            const menuIcon = menuButton.querySelector('i'); // Seleciona o ícone
 
             const toggleMenu = () => {
                 mobileMenu.classList.toggle('mobile-menu-open');
                 mobileMenu.classList.toggle('mobile-menu-closed');
+                
+                // Troca o ícone
+                if (mobileMenu.classList.contains('mobile-menu-open')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times'); // Ícone de fechar (X)
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars'); // Ícone de menu
+                }
             };
 
             menuButton.addEventListener('click', toggleMenu);
 
             // Fechar o menu ao clicar em um link
             menuLinks.forEach(link => {
-                link.addEventListener('click', toggleMenu);
+                link.addEventListener('click', toggleMenu); 
             });
 
             // ATUALIZAÇÃO AUTOMÁTICA DO ANO NO RODAPÉ
@@ -301,6 +363,7 @@
 
                     const targetElement = document.querySelector(this.getAttribute('href'));
                     const headerHeight = document.querySelector('header').offsetHeight;
+                    // Subtrai a altura do header + um pequeno offset (20px)
                     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
 
                     window.scrollTo({
@@ -310,6 +373,7 @@
                 });
             });
 
+            // OBSERVER PARA ANIMAÇÃO FADE-IN-UP AO SCROLLAR
             const sections = document.querySelectorAll('section:not(#hero)');
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
             const sectionObserver = new IntersectionObserver((entries, observer) => {
