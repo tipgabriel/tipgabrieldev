@@ -17,14 +17,14 @@
             theme: {
                 extend: {
                     colors: {
-                        'primary': '#0D9488', // Teal 600 - Verde-Azulado Sutil
+                        'primary': '#0D9488', 
                         'accent': '#06B6D4',  // Cyan 500 - Destaque Neon
-                        'background-dark': '#1a1a1a', // Cor de fundo principal
-                        'background-light': '#262626', // Cinza escuro para cards
+                        'background-dark': '#1a1a1a', 
+                        'background-light': '#262626', 
                     },
                     fontFamily: {
                         sans: ['"Baloo 2"', 'sans-serif'],
-                        'serif-display': ['"Baloo 2"', 'sans-serif'], // Usa Baloo 2 para todos os títulos também
+                        'serif-display': ['"Baloo 2"', 'sans-serif'],
                     },
                     keyframes: {
                         fadeInUp: {
@@ -50,12 +50,23 @@
             /* Fundo gradiente sutil */
             background: radial-gradient(circle at top left, #0a0a0a, #1a1a1a);
         }
-        .header-link.active-link {
-            border-bottom: 2px solid #06B6D4; /* Destaque na página atual */
-            color: #06B6D4;
+        /* Flexbox no Header */
+        header nav {
+             /* Tailwind já faz isso: flex justify-between items-center */
         }
+        
+        /* Flexbox na seção Sobre Mim (já ajustada para mobile/desktop) */
+        #about > div {
+             /* Tailwind já faz isso: flex flex-col md:flex-row items-center gap-12 */
+        }
+
+        /* Grid Layout na seção Projetos (usando classes Tailwind) */
+        #projects .project-grid {
+             /* Tailwind já faz isso: grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 */
+             display: grid; 
+        }
+
         .whatsapp-btn {
-            /* Fundo verde WhatsApp */
             background-color: #25D366; 
             padding: 1rem;
             line-height: 0;
@@ -118,7 +129,7 @@
         <h2 class="text-5xl font-extrabold text-center mb-16 text-accent tracking-wide">
             Projetos Recentes
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             
             <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
                 <img src="barbearia-andre.png" alt="Barbearia André" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
@@ -246,15 +257,14 @@
                 yearSpan.textContent = new Date().getFullYear();
             }
 
-            // Smooth scrolling para os links de navegação
+            // Smooth scrolling com ajuste de cabeçalho (utiliza Flexbox para calcular altura)
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
-                    // Ajuste para rolar abaixo do header fixo
                     const targetElement = document.querySelector(this.getAttribute('href'));
                     const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20; // -20px de margem
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
 
                     window.scrollTo({
                         top: targetPosition,
@@ -263,13 +273,13 @@
                 });
             });
 
-            // Animação de entrada para seções (usando Intersection Observer)
-            const sections = document.querySelectorAll('section:not(#hero)'); // Exclui a seção hero
+            // Animação de entrada para seções (utiliza Intersection Observer)
+            const sections = document.querySelectorAll('section:not(#hero)');
 
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.15 // Gatilho quando 15% da seção está visível
+                threshold: 0.15 
             };
 
             const sectionObserver = new IntersectionObserver((entries, observer) => {
