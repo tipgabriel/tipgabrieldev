@@ -80,7 +80,7 @@
             border-color: #06b6d4 !important;
         }
         
-        /* 6. Animação de Pulsação para o WhatsApp (Ajustada para a cor #25D366) */
+        /* 6. Animação de Pulsação para o WhatsApp */
         @keyframes pulse-whatsapp {
             0% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); /* Cor: #25D366 com 70% de opacidade */
@@ -102,9 +102,15 @@
             background-color: rgba(31, 41, 55, 0.9); /* Fundo semi-transparente para o bloco de contato */
         }
         
-        /* 8. NOVO: Cor Padrão do WhatsApp */
-        .whatsapp-bg {
+        /* 8. NOVO: Estilo Padrão do WhatsApp com CIRCULO PERFEITO */
+        .whatsapp-btn {
             background-color: #25D366; 
+            width: 60px; /* Largura fixa */
+            height: 60px; /* Altura fixa (igual à largura para um círculo) */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0; /* Remove o padding da classe padrão do Tailwind para usar width/height */
         }
         .whatsapp-hover:hover {
             background-color: #1DA851; /* Levemente mais escuro no hover */
@@ -346,7 +352,7 @@
     </script>
     
     <a href="https://wa.me/31982042552" target="_blank"
-       class="fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg transition duration-300 transform hover:scale-110 animate-pulse-whatsapp whatsapp-bg whatsapp-hover"
+       class="fixed bottom-6 right-6 z-50 rounded-full shadow-lg transition duration-300 transform hover:scale-110 animate-pulse-whatsapp whatsapp-btn whatsapp-hover"
        aria-label="Fale comigo pelo WhatsApp">
         
         <i class="fab fa-whatsapp text-white text-3xl"></i>
