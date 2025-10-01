@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seu Nome - Portfólio de Projetos</title>
-    <!-- Inclua o CSS do Tailwind aqui -->
-    <link href="./css/style.css" rel="stylesheet">
+    <!-- Inclua o CDN do Tailwind CSS para usar as classes diretamente -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Você pode adicionar estilos personalizados aqui se precisar de algo que o Tailwind não oferece nativamente */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Efeito de hover personalizado para os links de navegação */
+        .header-link {
+            position: relative;
+            text-decoration: none;
+        }
+        .header-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #06b6d4; /* Tailwind cyan-500 */
+            transition: width 0.3s ease-out, left 0.3s ease-out;
+        }
+        .header-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    </style>
     <!-- JSON-LD para SEO -->
     <script type="application/ld+json">
         {
@@ -52,23 +77,23 @@
 <body class="bg-gray-900 text-gray-200 font-sans">
 
     <!-- Header -->
-    <header class="bg-[#171717] py-4 shadow-lg">
+    <header class="bg-[#171717] py-4 shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto flex justify-between items-center px-4">
             <a href="#" class="text-2xl font-bold text-white">Seu Nome</a>
             <ul class="flex space-x-6">
-                <li><a href="#about" class="hover:text-cyan-400 transition duration-300">Sobre Mim</a></li>
-                <li><a href="#projects" class="hover:text-cyan-400 transition duration-300">Projetos</a></li>
-                <li><a href="#contact" class="hover:text-cyan-400 transition duration-300">Contato</a></li>
+                <li><a href="#about" class="header-link hover:text-cyan-400 transition duration-300">Sobre Mim</a></li>
+                <li><a href="#projects" class="header-link hover:text-cyan-400 transition duration-300">Projetos</a></li>
+                <li><a href="#contact" class="header-link hover:text-cyan-400 transition duration-300">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="hero" class="h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('URL_DA_SUA_IMAGEM_DE_HERO');">
-        <div class="bg-black bg-opacity-70 p-8 rounded-lg">
+        <div class="bg-black bg-opacity-70 p-8 rounded-lg animate-fade-in">
             <h1 class="text-5xl font-extrabold mb-4 text-white">Olá, eu sou [Seu Nome]</h1>
             <p class="text-xl text-gray-300">Desenvolvedor Web com paixão por criar experiências digitais incríveis.</p>
-            <a href="#projects" class="mt-8 inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-full transition duration-300">Ver Projetos</a>
+            <a href="#projects" class="mt-8 inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 animate-bounce-slow">Ver Projetos</a>
         </div>
     </section>
 
@@ -77,7 +102,7 @@
         <h2 class="text-4xl font-bold text-center mb-12 text-white">Sobre Mim</h2>
         <div class="flex flex-col md:flex-row items-center gap-8">
             <div class="md:w-1/3">
-                <img src="URL_DA_SUA_IMAGEM_DE_PERFIL" alt="Sua Imagem" class="rounded-full w-48 h-48 object-cover mx-auto shadow-lg">
+                <img src="URL_DA_SUA_IMAGEM_DE_PERFIL" alt="Sua Imagem" class="rounded-full w-48 h-48 object-cover mx-auto shadow-lg border-4 border-cyan-500">
             </div>
             <div class="md:w-2/3 text-lg leading-relaxed text-gray-300">
                 <p class="mb-4">Aqui você pode falar um pouco sobre sua trajetória, suas paixões no desenvolvimento, as tecnologias que domina e seus objetivos.</p>
@@ -91,7 +116,7 @@
         <h2 class="text-4xl font-bold text-center mb-12 text-white">Meus Projetos</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <!-- Projeto 1: Barbearia André -->
-            <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="project-card bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="URL_DA_IMAGEM_DO_PROJETO_BARBEARIA_ANDRE" alt="Barbearia André" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold mb-2 text-white">Barbearia André</h3>
@@ -101,7 +126,7 @@
             </div>
 
             <!-- Projeto 2: StudiomelBH -->
-            <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="project-card bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="URL_DA_IMAGEM_DO_PROJETO_STUDIOMELBH" alt="StudiomelBH" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold mb-2 text-white">StudiomelBH</h3>
@@ -111,7 +136,7 @@
             </div>
 
             <!-- Projeto 3: SunriseHQ -->
-            <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="project-card bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="URL_DA_IMAGEM_DO_PROJETO_SUNRISEHQ" alt="SunriseHQ" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold mb-2 text-white">SunriseHQ</h3>
@@ -121,7 +146,7 @@
             </div>
 
             <!-- Projeto 4: MegaTIP -->
-            <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="project-card bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="URL_DA_IMAGEM_DO_PROJETO_MEGATIP" alt="MegaTIP" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold mb-2 text-white">MegaTIP</h3>
@@ -131,7 +156,7 @@
             </div>
 
             <!-- Projeto 5: Guild Origem -->
-            <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="project-card bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="URL_DA_IMAGEM_DO_PROJETO_GUILD_ORIGEM" alt="Guild Origem" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold mb-2 text-white">Guild Origem</h3>
@@ -141,7 +166,7 @@
             </div>
 
             <!-- Projeto 6: otip -->
-            <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="project-card bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="URL_DA_IMAGEM_DO_PROJETO_OTIP" alt="otip" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold mb-2 text-white">otip</h3>
@@ -183,9 +208,76 @@
         <p class="mt-2">Feito com <span class="text-red-500">&hearts;</span> e código.</p>
     </footer>
 
-    <!-- Script JavaScript para interatividade (opcional) -->
-    <script src="./js/main.js"></script>
     <!-- Inclua Font Awesome para os ícones, se estiver usando -->
     <script src="https://kit.fontawesome.com/SUA_CHAVE_DO_FONT_AWESOME.js" crossorigin="anonymous"></script>
+
+    <!-- Script JavaScript para interatividade (inline) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling para os links de navegação
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Animação de entrada para seções (ex: "About" e "Projects")
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up'); // Adiciona uma classe de animação
+                        observer.unobserve(entry.target); // Para de observar depois de animar
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                section.classList.add('opacity-0'); // Oculta as seções inicialmente
+                sectionObserver.observe(section);
+            });
+
+            // Adiciona classes para animações do Tailwind no CSS inline
+            // Isto é feito programaticamente para garantir que as animações sejam carregadas
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                .animate-fade-in {
+                    animation: fadeIn 1s ease-out forwards;
+                }
+
+                @keyframes fadeInUp {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                .animate-fade-in-up {
+                    animation: fadeInUp 0.8s ease-out forwards;
+                }
+
+                @keyframes bounceSlow {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-10px); }
+                }
+                .animate-bounce-slow {
+                    animation: bounceSlow 2s infinite ease-in-out;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>
