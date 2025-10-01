@@ -1,228 +1,241 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tipgabrieldev</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tipgabrieldev | Desenvolvedor Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Importando fonte arredondada -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: 'Baloo 2', sans-serif;
-      background: radial-gradient(circle at top left, #0a0a0a, #1a1a1a);
-      color: #f0f0f0;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0D9488', // Teal 600 - Verde-Azulado Sutil
+                        'accent': '#06B6D4',  // Cyan 500 - Destaque Neon
+                        'background-dark': '#1a1a1a', // Cor de fundo principal
+                        'background-light': '#262626', // Cinza escuro para cards
+                    },
+                    fontFamily: {
+                        sans: ['"Baloo 2"', 'sans-serif'],
+                        'serif-display': ['"Baloo 2"', 'sans-serif'], // Usa Baloo 2 para todos os títulos também
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        },
+                        bounceSlow: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'bounce-slow': 'bounceSlow 2s infinite ease-in-out',
+                    },
+                }
+            }
+        }
+    </script>
 
-    header {
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-
-    header h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      color: #8A2BE2; /* Roxo da logo */
-      text-shadow: 2px 2px 15px rgba(138, 43, 226, 0.6);
-      letter-spacing: 2px;
-    }
-
-    header p {
-      font-size: 1.4rem;
-      color: #ccc;
-      margin-top: 0.5rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 2rem;
-      margin-top: 2rem;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #8A2BE2, #6d1bb5);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s ease;
-      box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
-    }
-
-    .btn:hover {
-      background: linear-gradient(135deg, #a950ff, #8A2BE2);
-      transform: scale(1.05);
-    }
-
-    section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    section h2 {
-      font-size: 2.5rem;
-      color: #8A2BE2;
-      margin-bottom: 1.5rem;
-    }
-
-    section p {
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.8;
-      font-size: 1.1rem;
-      color: #e0e0e0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #aaa;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 2rem;
-    }
-  </style>
+    <style>
+        body {
+            /* Fundo gradiente sutil */
+            background: radial-gradient(circle at top left, #0a0a0a, #1a1a1a);
+        }
+        .header-link.active-link {
+            border-bottom: 2px solid #06B6D4; /* Destaque na página atual */
+            color: #06B6D4;
+        }
+        .whatsapp-btn {
+            /* Fundo verde WhatsApp */
+            background-color: #25D366; 
+            padding: 1rem;
+            line-height: 0;
+        }
+        .whatsapp-hover:hover {
+            background-color: #128C7E;
+        }
+    </style>
 </head>
-<body class="text-gray-200 font-sans">
 
-    <header class="bg-[#171717] py-4 shadow-lg sticky top-0 z-50">
+<body class="text-gray-200">
+
+    <header class="bg-background-dark py-4 shadow-xl sticky top-0 z-50 border-b border-gray-800">
         <nav class="container mx-auto flex justify-between items-center px-4">
-            <a href="#" class="text-2xl font-bold text-white font-serif-display">tipgabrieldev</a>
-            <ul class="flex space-x-6">
-                <li><a href="#about" class="header-link hover:text-cyan-400 transition duration-300">Sobre Mim</a></li>
-                <li><a href="#projects" class="header-link hover:text-cyan-400 transition duration-300">Projetos</a></li>
-                <li><a href="#contact" class="header-link hover:text-cyan-400 transition duration-300">Contato</a></li>
+            <a href="#" class="text-3xl font-extrabold text-white tracking-wider">
+                tip<span class="text-accent">gabriel</span>dev
+            </a>
+            <ul class="flex space-x-6 text-lg font-semibold">
+                <li><a href="#about" class="header-link transition duration-300 hover:text-accent">Sobre Mim</a></li>
+                <li><a href="#projects" class="header-link transition duration-300 hover:text-accent">Projetos</a></li>
+                <li><a href="#contact" class="header-link transition duration-300 hover:text-accent">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="hero" class="h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('tipbackground.png');">
-        <div class="bg-black bg-opacity-70 p-8 rounded-lg animate-fade-in shadow-2xl">
-            <h1 class="text-5xl font-extrabold mb-4 text-white font-serif-display">Olá, eu sou o TIP</h1>
-            <p class="text-xl text-gray-300">Desenvolvedor Web com paixão por criar experiências digitais incríveis.</p>
-            <a href="#projects" class="mt-8 inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 animate-bounce-slow shadow-cyan-500/50 shadow-lg">Ver Projetos</a>
-        </div>
-    </section>
-
-    <section id="about" class="container mx-auto py-20 px-4">
-        <h2 class="text-4xl font-bold text-center mb-12 text-white font-serif-display">Sobre Mim</h2>
-        <div class="flex flex-col md:flex-row items-center gap-8 bg-gray-900/70 p-8 rounded-xl shadow-2xl">
-            <div class="md:w-1/3">
-                <img src="tip.jpg" alt="Sua Imagem" class="rounded-full w-48 h-48 object-cover mx-auto shadow-xl border-4 border-cyan-500 ring-2 ring-cyan-500/50">
-            </div>
-            <div class="md:w-2/3 text-lg leading-relaxed text-gray-300">
-                <p class="mb-4">Aqui você pode falar um pouco sobre sua trajetória, suas paixões no desenvolvimento, as tecnologias que domina e seus objetivos.</p>
-                <p>Mencione como você gosta de transformar ideias em realidade e a importância de um bom design e funcionalidade em seus projetos.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="container mx-auto py-20 px-4">
-        <h2 class="text-4xl font-bold text-center mb-12 text-white font-serif-display">Meus Projetos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            
-            <div class="project-card rounded-lg shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300">
-                <img src="barbearia-andre.png" alt="Barbearia André" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">Barbearia André</h3>
-                    <p class="text-gray-400 mb-4">Um projeto de site moderno e responsivo para uma barbearia, focado na experiência do usuário e agendamento online.</p>
-                    <a href="https://www.instagram.com/barbeariandreoficial032013/" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
-                </div>
-            </div>
-
-            <div class="project-card rounded-lg shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300">
-                <img src="studiomelbh.png" alt="StudiomelBH" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">StudiomelBH</h3>
-                    <p class="text-gray-400 mb-4">Desenvolvimento de um site para estúdio de fotografia, com galeria de trabalhos e informações de contato.</p>
-                    <a href="https://studiomelbh.vercel.app/" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
-                </div>
-            </div>
-
-            <div class="project-card rounded-lg shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300">
-                <img src="sunrisehq.png" alt="SunriseHQ" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">HQ - Sunrise</h3>
-                    <p class="text-gray-400 mb-4">Um projeto para plataforma ou comunidade online, focado em interação e conteúdo dinâmico.</p>
-                    <a href="https://hqsunrise.vercel.app/" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
-                </div>
-            </div>
-
-            <div class="project-card rounded-lg shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300">
-                <img src="URL_DA_IMAGEM_DO_PROJETO_GUILD_ORIGEM" alt="Guild Origem" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">Guild Origem</h3>
-                    <p class="text-gray-400 mb-4">Desenvolvimento de um site para guilda de jogos, com informações sobre membros, regras e eventos.</p>
-                    <a href="https://guildorigem.vercel.app/" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
-                </div>
-            </div>
-
-            <div class="project-card rounded-lg shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300">
-                <img src="otip.png" alt="otip" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">otip</h3>
-                    <p class="text-gray-400 mb-4">Criação de um site ou aplicativo com foco em dicas personalizadas ou soluções inovadoras.</p>
-                    <a href="https://otip.vercel.app/index.html" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-    <section id="contact" class="container mx-auto py-20 px-4 text-center">
-        <h2 class="text-4xl font-bold mb-8 text-white font-serif-display">Entre em Contato</h2>
-        <p class="text-lg mb-12 text-gray-300">Gostou do que viu? Vamos construir algo incrível juntos!</p>
+    <section id="hero" class="h-screen flex items-center justify-center text-center bg-cover bg-center relative" style="background-image: url('tipbackground.png');">
+        <div class="absolute inset-0 bg-black/80"></div>
         
-        <div class="max-w-4xl mx-auto p-8 rounded-xl shadow-2xl contact-card border border-gray-800/50">
+        <div class="relative p-10 rounded-xl bg-background-light/90 backdrop-blur-sm animate-fade-in shadow-[0_0_50px_rgba(6,182,212,0.5)] max-w-2xl mx-auto">
+            <p class="text-lg font-bold text-accent mb-2">FULL STACK DEV | FREELANCER</p>
+            <h1 class="text-6xl sm:text-7xl font-extrabold mb-4 text-white leading-tight tracking-wider">
+                Construindo a Web, <span class="text-accent">Linha por Linha.</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-8">
+                Desenvolvedor Web com paixão por criar experiências digitais rápidas, modernas e intuitivas.
+            </p>
+            <a href="#projects" class="inline-block bg-accent hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 animate-bounce-slow shadow-xl shadow-accent/40">
+                Ver Projetos <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="container mx-auto py-24 px-4 opacity-0">
+        <h2 class="text-5xl font-extrabold text-center mb-16 text-accent tracking-wide">
+            Minha Jornada
+        </h2>
+        <div class="flex flex-col lg:flex-row items-center gap-12 bg-background-light p-10 rounded-2xl shadow-inner shadow-gray-800/50 border border-gray-800">
+            <div class="lg:w-1/3 text-center">
+                <img src="tip.jpg" alt="Sua Imagem" class="rounded-full w-56 h-56 object-cover mx-auto shadow-2xl border-4 border-accent ring-4 ring-accent/30 hover:ring-accent/70 transition duration-500">
+            </div>
+            <div class="lg:w-2/3 text-lg leading-relaxed text-gray-300 text-left">
+                <p class="mb-4 text-xl font-semibold text-white">Olá, sou Gabriel, o desenvolvedor por trás da TIP!</p>
+                <p class="mb-4">Minha jornada na programação é movida pela curiosidade e pelo desejo de transformar ideias complexas em soluções digitais elegantes e acessíveis. Especializado em **Front-end** com foco em **performance** e **design responsivo**, garanto que cada projeto não apenas funcione perfeitamente, mas também ofereça uma experiência de usuário de primeira linha.</p>
+                <p>Domino tecnologias como **HTML5, CSS3 (Tailwind, SASS)** e **JavaScript (React/Vue)**, sempre buscando as melhores práticas para entregar código limpo e escalável. Vamos criar seu próximo projeto de destaque!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container mx-auto py-24 px-4 opacity-0">
+        <h2 class="text-5xl font-extrabold text-center mb-16 text-accent tracking-wide">
+            Projetos Recentes
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
+                <img src="barbearia-andre.png" alt="Barbearia André" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">Barbearia André</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Site moderno e responsivo para agendamento, com foco em galeria de serviços e localização.</p>
+                    <a href="https://www.instagram.com/barbeariandreoficial032013/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">
+                        Ver Projeto <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
+                <img src="studiomelbh.png" alt="StudiomelBH" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">StudiomelBH</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Site de estúdio de fotografia, minimalista e elegante, priorizando a exibição visual do portfólio.</p>
+                    <a href="https://studiomelbh.vercel.app/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">
+                        Ver Projeto <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
+                <img src="sunrisehq.png" alt="SunriseHQ" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">HQ - Sunrise</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Plataforma de conteúdo com layout dinâmico e focado em leitura, ideal para quadrinhos ou blog.</p>
+                    <a href="https://hqsunrise.vercel.app/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">
+                        Ver Projeto <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
+                <img src="URL_DA_IMAGEM_DO_PROJETO_GUILD_ORIGEM" alt="Guild Origem" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">Guild Origem</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Design focado em comunidade e conteúdo, com visual que remete a temática de jogos e eSports.</p>
+                    <a href="https://guildorigem.vercel.app/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">
+                        Ver Projeto <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
+                <img src="otip.png" alt="otip" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">otip (Landing Page)</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Landing page focada em conversão, com copy chamativa e design limpo para apresentar um serviço.</p>
+                    <a href="https://otip.vercel.app/index.html" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">
+                        Ver Projeto <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="contact" class="container mx-auto py-24 px-4 text-center opacity-0">
+        <h2 class="text-5xl font-extrabold mb-16 text-accent tracking-wide">
+            Vamos Construir Algo?
+        </h2>
+        
+        <div class="max-w-4xl mx-auto p-10 rounded-2xl shadow-2xl bg-background-light border border-gray-700/50">
+            <h3 class="text-2xl font-bold text-white mb-6">Minhas Redes e Contatos Diretos:</h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
                 
-                <a href="mailto:seuemail@exemplo.com" class="block p-6 bg-gray-800 rounded-lg hover:bg-cyan-900 transition duration-300 shadow-lg group">
-                    <i class="fas fa-envelope text-4xl mb-3 text-cyan-400 group-hover:text-white transition duration-300"></i>
+                <a href="mailto:seuemail@exemplo.com" class="block p-6 bg-gray-800 rounded-lg transition duration-300 shadow-xl border border-gray-700/50 hover:bg-accent/20">
+                    <i class="fas fa-envelope text-4xl mb-3 text-accent transition duration-300"></i>
                     <h3 class="text-xl font-semibold text-white">Email Profissional</h3>
                     <p class="text-gray-400 text-sm mt-1">seuemail@exemplo.com</p>
                 </a>
 
-                <a href="https://linkedin.com/in/seuusuario" target="_blank" class="block p-6 bg-gray-800 rounded-lg hover:bg-cyan-900 transition duration-300 shadow-lg group">
-                    <i class="fab fa-linkedin text-4xl mb-3 text-cyan-400 group-hover:text-white transition duration-300"></i>
+                <a href="https://linkedin.com/in/seuusuario" target="_blank" class="block p-6 bg-gray-800 rounded-lg transition duration-300 shadow-xl border border-gray-700/50 hover:bg-accent/20">
+                    <i class="fab fa-linkedin text-4xl mb-3 text-accent transition duration-300"></i>
                     <h3 class="text-xl font-semibold text-white">LinkedIn</h3>
                     <p class="text-gray-400 text-sm mt-1">Conecte-se à minha rede.</p>
                 </a>
 
-                <a href="https://github.com/seuusuario" target="_blank" class="block p-6 bg-gray-800 rounded-lg hover:bg-cyan-900 transition duration-300 shadow-lg group">
-                    <i class="fab fa-github text-4xl mb-3 text-cyan-400 group-hover:text-white transition duration-300"></i>
+                <a href="https://github.com/seuusuario" target="_blank" class="block p-6 bg-gray-800 rounded-lg transition duration-300 shadow-xl border border-gray-700/50 hover:bg-accent/20">
+                    <i class="fab fa-github text-4xl mb-3 text-accent transition duration-300"></i>
                     <h3 class="text-xl font-semibold text-white">GitHub</h3>
                     <p class="text-gray-400 text-sm mt-1">Veja meus códigos-fonte.</p>
                 </a>
             </div>
             
-            <h3 class="text-2xl font-bold text-white mb-6 border-t border-gray-700 pt-6">Ou envie uma mensagem direta:</h3>
+            <h3 class="text-2xl font-bold text-white mb-6 border-t border-gray-700 pt-6">Envie sua mensagem:</h3>
 
-            <form class="max-w-lg mx-auto">
+            <form class="max-w-lg mx-auto text-left">
                 <div class="mb-6">
-                    <input type="text" id="name" name="name" placeholder="Como podemos te chamar?" class="w-full px-4 py-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none contact-input">
+                    <input type="text" id="name" name="name" placeholder="Nome Completo" class="w-full px-4 py-3 rounded-md bg-gray-700/50 text-white border border-gray-600 focus:ring-accent focus:border-accent focus:outline-none transition duration-300">
                 </div>
                 <div class="mb-6">
-                    <input type="email" id="email" name="email" placeholder="Insira o seu melhor email" class="w-full px-4 py-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none contact-input">
+                    <input type="email" id="email" name="email" placeholder="Email para Contato" class="w-full px-4 py-3 rounded-md bg-gray-700/50 text-white border border-gray-600 focus:ring-accent focus:border-accent focus:outline-none transition duration-300">
                 </div>
                 <div class="mb-6">
-                    <textarea id="message" name="message" rows="5" placeholder="Sua Mensagem" class="w-full px-4 py-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none contact-input"></textarea>
+                    <textarea id="message" name="message" rows="5" placeholder="Sua Ideia ou Mensagem" class="w-full px-4 py-3 rounded-md bg-gray-700/50 text-white border border-gray-600 focus:ring-accent focus:border-accent focus:outline-none transition duration-300"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-md transition duration-300 shadow-lg shadow-cyan-600/30">Enviar Mensagem</button>
+                <button type="submit" class="w-full bg-accent hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-md transition duration-300 shadow-lg shadow-accent/30 text-lg">
+                    Enviar Mensagem
+                </button>
             </form>
         </div>
     </section>
 
-    <footer class="bg-[#171717] py-8 text-center text-gray-400">
+    <footer class="bg-background-dark py-8 text-center text-gray-400 border-t border-accent/20">
         <p>&copy; <span id="current-year">2025</span> tipgabrieldev. Todos os direitos reservados.</p>
-        <p class="mt-2">Feito com <span class="text-red-500">&hearts;</span> e código.</p>
+        <p class="mt-2">Feito com <span class="text-red-500">&hearts;</span> e código. | Design Cyber-Minimalista.</p>
     </footer>
+
+    <a href="https://wa.me/31982042552" target="_blank"
+        class="fixed bottom-6 right-6 z-50 rounded-full shadow-2xl transition duration-300 transform hover:scale-110 whatsapp-btn"
+        aria-label="Fale comigo pelo WhatsApp">
+        <i class="fab fa-whatsapp text-white text-3xl"></i>
+    </a>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -238,72 +251,41 @@
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    // Ajuste para rolar abaixo do header fixo
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20; // -20px de margem
+
+                    window.scrollTo({
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 });
             });
 
-            // Animação de entrada para seções (ex: "About" e "Projects")
-            const sections = document.querySelectorAll('section');
+            // Animação de entrada para seções (usando Intersection Observer)
+            const sections = document.querySelectorAll('section:not(#hero)'); // Exclui a seção hero
 
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.1
+                threshold: 0.15 // Gatilho quando 15% da seção está visível
             };
 
             const sectionObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animate-fade-in-up');
+                        entry.target.classList.remove('opacity-0');
                         observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
             sections.forEach(section => {
-                section.classList.add('opacity-0');
                 sectionObserver.observe(section);
             });
-
-            // Adiciona classes para animações (para garantir que funcionem com o Tailwind CDN)
-            const style = document.createElement('style');
-            style.innerHTML += `
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-                .animate-fade-in {
-                    animation: fadeIn 1s ease-out forwards;
-                }
-
-                @keyframes fadeInUp {
-                    from { opacity: 0; transform: translateY(20px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                .animate-fade-in-up {
-                    animation: fadeInUp 0.8s ease-out forwards;
-                }
-
-                @keyframes bounceSlow {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-10px); }
-                }
-                .animate-bounce-slow {
-                    animation: bounceSlow 2s infinite ease-in-out;
-                }
-            `;
-            document.head.appendChild(style);
         });
     </script>
-    
-    <a href="https://wa.me/31982042552" target="_blank"
-       class="fixed bottom-6 right-6 z-50 rounded-full shadow-lg transition duration-300 transform hover:scale-110 animate-pulse-whatsapp whatsapp-btn whatsapp-hover"
-       aria-label="Fale comigo pelo WhatsApp">
-        
-        <i class="fab fa-whatsapp text-white text-3xl"></i>
-    </a>
-    
 </body>
 </html>
