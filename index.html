@@ -19,11 +19,12 @@
                     colors: {
                         'primary': '#0D9488', 
                         'accent': '#06B6D4',  // Cyan 500 - Destaque Neon
+                        // NOVO: Cores de fundo base
+                        'background-base': '#171717', 
                         'background-dark': '#1a1a1a', 
-                        'background-light': '#262626', 
+                        'background-light': '#222222', // Um pouco mais claro que o dark
                     },
                     fontFamily: {
-                        // NOVO: Usando Public Sans como fonte principal
                         sans: ['"Public Sans"', 'sans-serif'],
                         'serif-display': ['"Public Sans"', 'sans-serif'],
                     },
@@ -54,61 +55,51 @@
 
     <style>
         body {
-            background: radial-gradient(circle at top left, #0a0a0a, #1a1a1a);
+            /* NOVO: Fundo gradiente sutil com base #171717 */
+            background: radial-gradient(circle at top left, #171717, #1a1a1a);
         }
         
-        /* Ajuste de Tipografia para Mobile (MANTIDO) */
-        #hero h1 {
-            font-size: 3.75rem; /* 6xl */
-        }
+        /* Ajuste de Tipografia para Mobile */
+        #hero h1 { font-size: 3.75rem; /* 6xl */ }
         @media (max-width: 640px) {
-            #hero h1 {
-                font-size: 3rem; /* 5xl no mobile */
-            }
+            #hero h1 { font-size: 3rem; /* 5xl no mobile */ }
         }
 
-        section h2 {
-            font-size: 3rem; /* 5xl */
-        }
+        section h2 { font-size: 3rem; /* 5xl */ }
         @media (max-width: 640px) {
-            section h2 {
-                font-size: 2.25rem; /* 4xl no mobile */
-            }
+            section h2 { font-size: 2.25rem; /* 4xl no mobile */ }
         }
         
-        /* NOVO: Ícone do WhatsApp Perfeitamente Redondo */
+        /* Ícone do WhatsApp Perfeitamente Redondo e Pulsando (Cores padrão) */
         .whatsapp-btn {
-            background-color: #25D366; 
-            width: 3.5rem; /* Largura definida */
-            height: 3.5rem; /* Altura igual à largura */
-            line-height: 3.5rem; /* Centraliza verticalmente o ícone */
-            padding: 0; /* Remove padding */
+            background-color: #25D366; /* Verde Padrão WhatsApp */ 
+            width: 3.5rem; 
+            height: 3.5rem; 
+            line-height: 3.5rem; 
+            padding: 0; 
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%; /* Torna-o perfeitamente redondo */
+            border-radius: 50%; 
             /* Aplicando a animação de pulsação */
             animation: whatsappPulse 2s infinite ease-in-out; 
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); /* Sombra sutil verde */
         }
         .whatsapp-hover:hover {
-            background-color: #128C7E;
+            background-color: #128C7E; /* Verde escuro no hover */
             animation: none; /* Para a pulsação ao fazer hover */
         }
 
-        /* Classes do Menu Hambúrguer (MANTIDAS) */
-        .mobile-menu-open {
-            display: flex;
-        }
-        .mobile-menu-closed {
-            display: none;
-        }
+        /* Classes do Menu Hambúrguer */
+        .mobile-menu-open { display: flex; }
+        .mobile-menu-closed { display: none; }
     </style>
 </head>
 
-<body class="text-gray-200">
+<body class="text-gray-200 bg-background-base">
 
     <header class="bg-background-dark py-4 shadow-xl sticky top-0 z-50 border-b border-gray-800">
-        <nav class="container mx-auto flex justify-between items-center px-4">
+        <nav class="container mx-auto flex justify-between items-center px-4 sm:px-6">
             <a href="#" class="text-3xl font-extrabold text-white tracking-wider">
                 tip<span class="text-accent">gabriel</span>dev
             </a>
@@ -134,7 +125,7 @@
     <section id="hero" class="h-screen flex items-center justify-center text-center bg-cover bg-center relative" style="background-image: url('tipbackground.png');">
         <div class="absolute inset-0 bg-black/80"></div>
         
-        <div class="relative p-8 sm:p-10 rounded-xl bg-background-light/90 backdrop-blur-sm animate-fade-in shadow-[0_0_50px_rgba(6,182,212,0.5)] max-w-2xl mx-auto">
+        <div class="relative p-8 sm:p-10 rounded-xl bg-background-light/90 backdrop-blur-sm animate-fade-in shadow-[0_0_50px_rgba(6,182,212,0.5)] max-w-2xl mx-auto m-4 sm:m-0">
             <p class="text-base sm:text-lg font-bold text-accent mb-2">FULL STACK DEV | FREELANCER</p>
             <h1 class="font-extrabold mb-4 text-white leading-tight tracking-wider">
                 Construindo a Web, <span class="text-accent">Linha por Linha.</span>
@@ -148,7 +139,7 @@
         </div>
     </section>
 
-    <section id="about" class="container mx-auto py-20 sm:py-24 px-4 opacity-0">
+    <section id="about" class="container mx-auto py-20 sm:py-24 px-4 sm:px-6 opacity-0">
         <h2 class="font-extrabold text-center mb-12 sm:mb-16 text-accent tracking-wide">
             Minha Jornada
         </h2>
@@ -164,7 +155,7 @@
         </div>
     </section>
 
-    <section id="projects" class="container mx-auto py-20 sm:py-24 px-4 opacity-0">
+    <section id="projects" class="container mx-auto py-20 sm:py-24 px-4 sm:px-6 opacity-0">
         <h2 class="font-extrabold text-center mb-12 sm:mb-16 text-accent tracking-wide">
             Projetos Recentes
         </h2>
@@ -213,7 +204,7 @@
         </div>
     </section>
 
-    <section id="contact" class="container mx-auto py-20 sm:py-24 px-4 text-center opacity-0">
+    <section id="contact" class="container mx-auto py-20 sm:py-24 px-4 sm:px-6 text-center opacity-0">
         <h2 class="font-extrabold mb-12 sm:mb-16 text-accent tracking-wide">
             Vamos Construir Algo?
         </h2>
