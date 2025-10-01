@@ -1,52 +1,44 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tipgabrieldev</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tipgabrieldev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fontes Futuristas -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=JetBrains+Mono&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <style>
+/* ======== ESTILO TIPGABRIELDEV CYBERPUNK ======== */
 
-    <style>
-/* ======== ESTILO TIPGABRIELDEV ======== */
-
-/* Fontes já definidas no HTML (Playfair Display + Poppins) */
-.font-sans {
-  font-family: 'Poppins', sans-serif;
-}
-.font-serif-display {
-  font-family: 'Playfair Display', serif;
-}
-
-/* 1. Fundo animado escuro com textura elegante */
 body {
-  background: radial-gradient(circle at top left, #0f0f0f, #000000 70%);
-  background-attachment: fixed;
-  color: #d1d5db; /* Tailwind gray-300 */
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #050505, #000 70%);
+  color: #d1d5db;
+  overflow-x: hidden;
 }
 
-/* 2. Header fixo com efeito de brilho */
+/* Cabeçalho neon */
 header {
-  background: rgba(23, 23, 23, 0.95);
-  border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+  background: rgba(15, 15, 25, 0.95);
+  border-bottom: 1px solid rgba(0, 255, 204, 0.4);
   backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.15);
 }
 header a {
-  text-shadow: 0 0 5px rgba(6, 182, 212, 0.6);
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.6);
 }
 
-/* 3. Links de navegação */
+/* Links do header */
 .header-link {
   position: relative;
-  text-decoration: none;
   transition: color 0.3s ease;
 }
 .header-link::after {
@@ -56,131 +48,110 @@ header a {
   height: 2px;
   bottom: -6px;
   left: 0;
-  background-color: #06b6d4;
+  background-color: #00ffcc;
   transition: width 0.3s ease-in-out;
 }
 .header-link:hover {
-  color: #06b6d4;
+  color: #00ffcc;
 }
 .header-link:hover::after {
   width: 100%;
 }
 
-/* 4. Seção Hero com efeito glow */
-#hero {
-  background-blend-mode: multiply;
-}
+/* Hero */
 #hero h1 {
-  color: #fff;
-  text-shadow: 0 0 15px rgba(6, 182, 212, 0.7);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5rem;
+  color: #00ffcc;
+  text-shadow: 0 0 12px #00ffcc, 0 0 20px #007766;
 }
 #hero p {
-  color: #a1a1aa;
+  color: #aaa;
 }
-
-/* 5. Botão principal */
 #hero a {
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+  background: linear-gradient(90deg, #00ffcc, #0099ff);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
 }
 #hero a:hover {
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.9);
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.9);
+  background: linear-gradient(90deg, #0099ff, #00ffcc);
 }
 
-/* 6. Cartões de projetos */
+/* Cards de projeto */
 .project-card {
-  background: rgba(31, 41, 55, 0.8);
-  border: 1px solid rgba(6, 182, 212, 0.3);
-  backdrop-filter: blur(12px);
+  background: rgba(15, 20, 35, 0.9);
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  backdrop-filter: blur(8px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .project-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.4);
 }
 .project-card h3 {
-  text-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
 }
 
-/* 7. Seção Sobre */
-#about img {
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
-}
-
-/* 8. Inputs e formulário */
+/* Inputs */
 .contact-input {
-  background: rgba(31, 41, 55, 0.85);
-  border: 1px solid rgba(75, 85, 99, 0.6);
-  transition: border 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(15, 20, 35, 0.85);
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  font-family: 'JetBrains Mono', monospace;
 }
 .contact-input:focus {
-  border-color: #06b6d4;
-  box-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+  border-color: #00ffcc;
+  box-shadow: 0 0 12px rgba(0, 255, 204, 0.6);
 }
 
-/* 9. Botão enviar */
+/* Botão enviar */
 button[type="submit"] {
-  background: linear-gradient(90deg, #06b6d4, #0891b2);
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+  background: linear-gradient(90deg, #00ffcc, #0099ff);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
 }
 button[type="submit"]:hover {
-  background: linear-gradient(90deg, #0891b2, #0e7490);
-  box-shadow: 0 0 25px rgba(6, 182, 212, 0.7);
+  background: linear-gradient(90deg, #0099ff, #00ffcc);
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.7);
 }
 
-/* 10. Rodapé */
+/* Footer */
 footer {
-  border-top: 1px solid rgba(6, 182, 212, 0.2);
+  border-top: 1px solid rgba(0, 255, 204, 0.2);
+  color: #666;
+  font-family: 'JetBrains Mono', monospace;
 }
 footer span {
-  text-shadow: 0 0 5px rgba(6, 182, 212, 0.5);
+  text-shadow: 0 0 6px rgba(0, 255, 204, 0.6);
 }
 
-/* 11. Animação WhatsApp */
+/* Botão WhatsApp neon */
 @keyframes pulse-whatsapp {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 153, 0.7); }
+  70% { box-shadow: 0 0 0 25px rgba(0, 255, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 153, 0); }
 }
 .animate-pulse-whatsapp {
   animation: pulse-whatsapp 2s infinite;
 }
 .whatsapp-btn {
-  background-color: #25D366;
+  background-color: #00ff99;
   width: 65px;
   height: 65px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 255, 153, 0.6);
+  transition: transform 0.3s ease;
 }
 .whatsapp-btn:hover {
-  background-color: #1DA851;
+  background-color: #00cc77;
   transform: scale(1.1);
 }
-
-    </style>
-    
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "ProfilePage",
-          "name": "Seu Nome - Portfólio de Desenvolvedor",
-          "url": "URL_DO_SEU_PORTFOLIO",
-          "description": "Portfólio de projetos de desenvolvimento web e design.",
-          "image": "URL_PARA_UMA_IMAGEM_DE_PERFIL_OU_LOGO",
-          "mainEntity": {
-            "@type": "Person",
-            "name": "Seu Nome",
-            "jobTitle": "Desenvolvedor Web"
-          }
-        }
-    </script>
+  </style>
 </head>
 <body class="text-gray-200 font-sans">
 
