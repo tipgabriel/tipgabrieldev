@@ -3,393 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tipgabrieldev | Desenvolvedor Web</title>
+    <title>InovaLab | Portfólio de Inovação e Foco Máximo</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
     <script>
+        // Configuração opcional do Tailwind para cores customizadas
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'primary': '#0D9488', 
-                        'accent': '#06B6D4', // Cyan 500 - Destaque Neon
-                        'background-base': '#171717', 
-                        'background-dark': '#1a1a1a', 
-                        'background-light': '#222222', 
-                    },
-                    fontFamily: {
-                        sans: ['"Public Sans"', 'sans-serif'],
-                        'serif-display': ['"Public Sans"', 'sans-serif'],
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: 0, transform: 'translateY(20px)' },
-                            '100%': { opacity: 1, transform: 'translateY(0)' },
-                        },
-                        bounceSlow: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        whatsappPulse: {
-                            '0%, 100%': { transform: 'scale(1)', opacity: 1 },
-                            '50%': { transform: 'scale(1.1)', opacity: 0.9 },
-                        }
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'bounce-slow': 'bounceSlow 2s infinite ease-in-out',
-                        'whatsapp-pulse': 'whatsappPulse 1.5s infinite ease-in-out', 
-                    },
+                        'inov-indigo': '#4F46E5', // Um índigo mais vibrante
+                        'inov-gray': '#1F2937',
+                    }
                 }
             }
         }
     </script>
-
+    
     <style>
-        /* ESTILOS DE BASE E FUNDO */
-        body {
-            /* Fundo Base definido no Tailwind config, mas reforcado e com gradiente sutil */
-            background-color: #171717;
-            /* Fundo gradiente sutil com base #171717 para dar profundidade */
-            background: radial-gradient(circle at top left, #171717 10%, #1a1a1a 100%);
-            /* Impede o scroll horizontal */
-            overflow-x: hidden;
-            /* Scroll suave para links de âncora */
-            scroll-behavior: smooth;
-        }
-
-        /* TIPOGRAFIA E RESPONSIVIDADE */
-        /* Ajuste de Tipografia para Mobile */
-        #hero h1 { font-size: 3.75rem; } /* text-6xl (maior que o padrao para desktop) */
-        @media (max-width: 640px) {
-            #hero h1 { font-size: 3rem; } /* text-4xl em mobile */
-        }
-        
-        section h2 { font-size: 3rem; } /* text-5xl para desktop */
-        @media (max-width: 640px) {
-            section h2 { font-size: 2.25rem; } /* text-4xl em mobile */
-        }
-
-        /* ANIMAÇÃO E BOTÃO FLUTUANTE DO WHATSAPP */
-        .whatsapp-btn {
-            background-color: #25D366; /* Verde Padrão WhatsApp */ 
-            width: 3.5rem; 
-            height: 3.5rem; 
-            padding: 0; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%; 
-            /* Aplicando a animação de pulsação customizada */
-            animation: whatsappPulse 1.5s infinite ease-in-out; 
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6);
-            /* Garante que o ícone fique no centro */
-            line-height: 1;
-            transition: all 0.3s ease;
-        }
-        .whatsapp-btn:hover {
-            background-color: #128C7E; /* Verde escuro no hover */
-            animation: none; /* Para a pulsação ao fazer hover */
-            transform: scale(1.1) rotate(5deg); /* Leve giro no hover */
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.9); /* Sombra acentuada no hover */
-        }
-
-        /* ESTILOS DE LINK DE NAVEGAÇÃO */
-        /* Efeito de sublinhado sutil nos links do cabeçalho */
-        .header-link {
-            position: relative;
-        }
-        .header-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px; /* Distância do texto */
-            left: 0;
-            background-color: #06B6D4; /* Cor 'accent' */
-            transition: width 0.3s ease-in-out;
-        }
-        .header-link:hover::after {
-            width: 100%;
-        }
-
-        /* ESTILOS DE CARTÃO DE PROJETO (PROJECT CARD) */
         .project-card {
-            /* Adiciona uma transição suave para as transformações e sombras */
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* ease-in-out mais sofisticado */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-        
         .project-card:hover {
-            box-shadow: 0 0 25px rgba(6, 182, 212, 0.7); /* Mantém o neon shadow */
-            transform: translateY(-5px) scale(1.02); /* Leve levantamento e zoom */
-            border-color: #06B6D4; /* Borda acentuada no hover */
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4); /* Sombra com a cor de inovação */
         }
-
-        /* CLASSES DO MENU HAMBÚRGUER (Ajuste para garantir que flex-col funcione) */
-        .mobile-menu-open { 
-            display: flex; 
-            animation: fadeInUp 0.4s ease-out forwards;
-        }
-        .mobile-menu-closed { 
-            display: none; 
-        }
-
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alexandre Silva",
+      "url": "https://seulinkdoportfolio.com",
+      "image": "https://seulinkdofoto.com/foto.jpg",
+      "jobTitle": "Engenheiro de Front-end | Foco em Inovação",
+      "sameAs": [
+        "https://www.linkedin.com/in/seulinkedin",
+        "https://github.com/seuusuario"
+      ],
+      "description": "Portfólio de desenvolvimento front-end com ênfase em performance, arquitetura moderna (Grid/Flexbox/Tailwind) e soluções criativas."
+    }
+    </script>
 </head>
 
-<body class="text-gray-200 bg-background-base">
+<body class="bg-gray-50 text-inov-gray antialiased min-h-screen">
 
-    <header class="bg-background-dark py-4 shadow-xl sticky top-0 z-50 border-b border-gray-800">
-        <nav class="container mx-auto flex justify-between items-center px-4 sm:px-6">
-            <a href="#" class="text-3xl font-extrabold text-white tracking-wider">
-                tip<span class="text-accent">gabriel</span>dev
-            </a>
+    <header class="sticky top-0 z-20 bg-white shadow-xl">
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-inov-indigo">Inova<span class="text-inov-gray">Lab</span></h1>
+            
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#projetos" class="hover:text-inov-indigo transition duration-200">Projetos</a>
+                <a href="#foco" class="hover:text-inov-indigo transition duration-200">Foco Tech</a>
+                <a href="#contato" class="hover:text-inov-indigo transition duration-200">Contato</a>
+            </nav>
 
-            <ul class="hidden sm:flex space-x-6 text-lg font-semibold">
-                <li><a href="#about" class="header-link transition duration-300 hover:text-accent">Sobre Mim</a></li>
-                <li><a href="#projects" class="header-link transition duration-300 hover:text-accent">Projetos</a></li>
-                <li><a href="#contact" class="header-link transition duration-300 hover:text-accent">Contato</a></li>
-            </ul>
-
-            <button id="menu-button" class="sm:hidden text-white text-2xl focus:outline-none p-2 rounded-md hover:bg-gray-700 transition duration-300" aria-label="Abrir Menu">
-                <i class="fas fa-bars"></i>
+            <button id="menu-toggle" class="md:hidden p-2 rounded-md hover:bg-gray-100 transition duration-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
-        </nav>
+        </div>
         
-        <ul id="mobile-menu" class="mobile-menu-closed flex-col text-center bg-background-dark w-full py-4 sm:hidden border-t border-gray-700/50">
-            <li class="py-2"><a href="#about" class="block text-xl hover:text-accent transition duration-300">Sobre Mim</a></li>
-            <li class="py-2"><a href="#projects" class="block text-xl hover:text-accent transition duration-300">Projetos</a></li>
-            <li class="py-2"><a href="#contact" class="block text-xl hover:text-accent transition duration-300">Contato</a></li>
-        </ul>
+        <nav id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t border-gray-100">
+            <a href="#projetos" class="block p-4 text-center hover:bg-gray-50">Projetos</a>
+            <a href="#foco" class="block p-4 text-center hover:bg-gray-50">Foco Tech</a>
+            <a href="#contato" class="block p-4 text-center hover:bg-gray-50">Contato</a>
+        </nav>
     </header>
 
-    <section id="hero" class="h-screen flex items-center justify-center text-center bg-cover bg-center relative" style="background-image: url('tipbackground.png');">
-        <div class="absolute inset-0 bg-black/80"></div>
-        
-        <div class="relative p-8 sm:p-10 rounded-xl bg-background-light/90 backdrop-blur-sm animate-fade-in shadow-[0_0_50px_rgba(6,182,212,0.5)] max-w-2xl mx-auto m-4 sm:m-0">
-            <p class="text-base sm:text-lg font-bold text-accent mb-2">FULL STACK DEV | FREELANCER</p>
-            <h1 class="font-extrabold mb-4 text-white leading-tight tracking-wider">
-                Construindo a Web, <span class="text-accent">Linha por Linha.</span>
-            </h1>
-            <p class="text-lg sm:text-xl text-gray-300 mb-8">
-                Desenvolvedor Web com paixão por criar experiências digitais rápidas, modernas e intuitivas.
+    <main class="container mx-auto p-4 sm:p-8">
+
+        <section id="hero" class="py-20 text-center bg-inov-indigo text-white rounded-xl shadow-2xl mb-16">
+            <h2 class="text-6xl font-black mb-4">Inovação e Performance</h2>
+            <p class="text-xl max-w-3xl mx-auto opacity-90">Soluções digitais com **Foco Máximo** na experiência do usuário e na arquitetura de código moderna: **Grid, Flexbox e Tailwind**.
             </p>
-            <a href="#projects" class="inline-block bg-accent hover:bg-cyan-600 text-white font-bold py-3 px-6 sm:px-8 rounded-full text-lg transition duration-300 animate-bounce-slow shadow-xl shadow-accent/40">
-                Ver Projetos <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-        </div>
-    </section>
+            <a href="#projetos" class="mt-8 inline-block bg-white text-inov-indigo text-lg px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 transform hover:scale-105">Veja os Projetos Chave</a>
+        </section>
 
-    <section id="about" class="container mx-auto py-20 sm:py-24 px-4 sm:px-6 opacity-0">
-        <h2 class="font-extrabold text-center mb-12 sm:mb-16 text-accent tracking-wide">
-            Minha Jornada
-        </h2>
-        <div class="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 bg-background-light p-6 sm:p-10 rounded-2xl shadow-inner shadow-gray-800/50 border border-gray-800">
-            <div class="lg:w-1/3">
-                <img src="tip.jpg" alt="Sua Imagem" class="rounded-full w-48 h-48 sm:w-56 sm:h-56 object-cover mx-auto shadow-2xl border-4 border-accent ring-4 ring-accent/30 hover:ring-accent/70 transition duration-500">
-            </div>
-            <div class="lg:w-2/3 text-base sm:text-lg leading-relaxed text-gray-300 text-left">
-                <p class="mb-3 sm:mb-4 text-lg sm:text-xl font-semibold text-white">Olá, sou Gabriel, o desenvolvedor por trás da TIP!</p>
-                <p class="mb-3 sm:mb-4">Minha jornada na programação é movida pela curiosidade e pelo desejo de transformar ideias complexas em soluções digitais elegantes e acessíveis. Especializado em **Front-end** com foco em **performance** e **design responsivo**, garanto que cada projeto não apenas funcione perfeitamente, mas também ofereça uma experiência de usuário de primeira linha.</p>
-                <p>Domino tecnologias como **HTML5, CSS3 (Tailwind, SASS)** e **JavaScript (React/Vue)**, sempre buscando as melhores práticas para entregar código limpo e escalável. Vamos criar seu próximo projeto de destaque!</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="container mx-auto py-20 sm:py-24 px-4 sm:px-6 opacity-0">
-        <h2 class="font-extrabold text-center mb-12 sm:mb-16 text-accent tracking-wide">
-            Projetos Recentes
-        </h2>
-        <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+        <section id="projetos" class="mb-20">
+            <h3 class="text-4xl font-bold text-center mb-12 text-inov-indigo">Portfólio Modular</h3>
             
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50">
-                <img src="barbearia-andre.png" alt="Barbearia André" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
-                <div class="p-6">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">Barbearia André</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Site moderno e responsivo para agendamento.</p>
-                    <a href="https://www.instagram.com/barbeariandreoficial032013/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
-                </div>
-            </div>
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50">
-                <img src="studiomelbh.png" alt="StudiomelBH" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
-                <div class="p-6">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">StudiomelBH</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Desenvolvimento de um site para estúdio de fotografia.</p>
-                    <a href="https://studiomelbh.vercel.app/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
-                </div>
-            </div>
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50">
-                <img src="sunrisehq.png" alt="SunriseHQ" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
-                <div class="p-6">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">HQ - Sunrise</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Plataforma de conteúdo com layout dinâmico.</p>
-                    <a href="https://hqsunrise.vercel.app/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
-                </div>
-            </div>
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50">
-                <img src="URL_DA_IMAGEM_DO_PROJETO_GUILD_ORIGEM" alt="Guild Origem" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
-                <div class="p-6">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">Guild Origem</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Desenvolvimento de um site para guilda de jogos.</p>
-                    <a href="https://guildorigem.vercel.app/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
-                </div>
-            </div>
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50">
-                <img src="otip.png" alt="otip" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
-                <div class="p-6">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">otip (Landing Page)</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Criação de um site ou aplicativo com foco em dicas personalizadas.</p>
-                    <a href="https://otip.vercel.app/index.html" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
-                </div>
-            </div>
-            <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden border border-gray-700/50 opacity-50 cursor-not-allowed">
-                <div class="w-full h-48 flex items-center justify-center bg-gray-900/50 text-gray-500">
-                    <i class="fas fa-code text-5xl"></i>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">Novo Projeto em Breve</h3>
-                    <p class="text-gray-400 mb-4 text-sm">O próximo pode ser o seu! Entre em contato para saber mais.</p>
-                    <a href="#contact" class="w-full inline-block text-center bg-gray-600/50 text-gray-300 font-bold py-2 rounded cursor-pointer transition duration-300">Entre em Contato</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="container mx-auto py-20 sm:py-24 px-4 sm:px-6 text-center opacity-0">
-        <h2 class="font-extrabold mb-12 sm:mb-16 text-accent tracking-wide">
-            Vamos Construir Algo?
-        </h2>
-        
-        <div class="max-w-4xl mx-auto p-6 sm:p-10 rounded-2xl shadow-2xl bg-background-light border border-gray-700/50">
-            <h3 class="text-xl sm:text-2xl font-bold text-white mb-6">Minhas Redes e Contatos Diretos:</h3>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+            <div id="project-grid" class="grid gap-8 
+                                            grid-cols-1       /* Mobile */
+                                            md:grid-cols-2    /* Tablet */
+                                            xl:grid-cols-3">  /* Desktop */
                 
-                <a href="mailto:seuemail@exemplo.com" class="block p-4 sm:p-6 bg-gray-800 rounded-lg transition duration-300 shadow-xl border border-gray-700/50 hover:bg-accent/20">
-                    <i class="fas fa-envelope text-3xl sm:text-4xl mb-3 text-accent transition duration-300"></i>
-                    <h3 class="text-lg sm:text-xl font-semibold text-white">Email Profissional</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm mt-1">seuemail@exemplo.com</p>
-                </a>
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg border-t-4 border-inov-indigo cursor-pointer" data-tech="Grid Tailwind">
+                    <h4 class="text-2xl font-bold mb-3">01. Arquitetura Modular (Grid)</h4>
+                    <p class="text-gray-600 mb-4">Desenvolvimento de um dashboard complexo utilizando **CSS Grid** e layout Bento Box para foco e visualização de dados.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-inov-indigo/20 text-inov-indigo">Grid Layout</span>
+                        <span class="tag bg-inov-indigo/20 text-inov-indigo">Tailwind</span>
+                    </div>
+                </div>
 
-                <a href="https://linkedin.com/in/seuusuario" target="_blank" class="block p-4 sm:p-6 bg-gray-800 rounded-lg transition duration-300 shadow-xl border border-gray-700/50 hover:bg-accent/20">
-                    <i class="fab fa-linkedin text-3xl sm:text-4xl mb-3 text-accent transition duration-300"></i>
-                    <h3 class="text-lg sm:text-xl font-semibold text-white">LinkedIn</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm mt-1">Conecte-se à minha rede.</p>
-                </a>
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg border-t-4 border-yellow-500 cursor-pointer" data-tech="Flexbox JavaScript">
+                    <h4 class="text-2xl font-bold mb-3">02. Micro-Interações (JS)</h4>
+                    <p class="text-gray-600 mb-4">Criação de componentes dinâmicos com **Flexbox** e Vanilla **JavaScript** para alta performance sem frameworks.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-yellow-500/20 text-yellow-700">Flexbox</span>
+                        <span class="tag bg-yellow-500/20 text-yellow-700">JavaScript</span>
+                    </div>
+                </div>
 
-                <a href="https://github.com/seuusuario" target="_blank" class="block p-4 sm:p-6 bg-gray-800 rounded-lg transition duration-300 shadow-xl border border-gray-700/50 hover:bg-accent/20">
-                    <i class="fab fa-github text-3xl sm:text-4xl mb-3 text-accent transition duration-300"></i>
-                    <h3 class="text-lg sm:text-xl font-semibold text-white">GitHub</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm mt-1">Veja meus códigos-fonte.</p>
-                </a>
-            </div>
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500 cursor-pointer" data-tech="SEO Inovação">
+                    <h4 class="text-2xl font-bold mb-3">03. Otimização Estrutural (JSON-LD)</h4>
+                    <p class="text-gray-600 mb-4">Estratégia de SEO técnico com **JSON-LD** e código limpo para **foco máximo** na indexação e visibilidade.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag bg-green-500/20 text-green-700">JSON-LD</span>
+                        <span class="tag bg-green-500/20 text-green-700">SEO</span>
+                    </div>
+                </div>
+
+                </div>
             
-            <h3 class="text-xl sm:text-2xl font-bold text-white mb-6 border-t border-gray-700 pt-6">Envie sua mensagem:</h3>
+            <div class="flex justify-center mt-12 gap-4">
+                <button class="filter-btn bg-inov-indigo text-white px-4 py-2 rounded-full hover:bg-inov-indigo/80 transition" data-filter="Todos">Todos</button>
+                <button class="filter-btn bg-gray-200 text-inov-gray px-4 py-2 rounded-full hover:bg-inov-indigo hover:text-white transition" data-filter="Grid">Grid Layout</button>
+                <button class="filter-btn bg-gray-200 text-inov-gray px-4 py-2 rounded-full hover:bg-inov-indigo hover:text-white transition" data-filter="JavaScript">JavaScript</button>
+            </div>
+        </section>
 
-            <form class="max-w-lg mx-auto text-left">
-                <div class="mb-6">
-                    <input type="text" id="name" name="name" placeholder="Nome Completo" class="w-full px-4 py-3 rounded-md bg-gray-700/50 text-white border border-gray-600 focus:ring-accent focus:border-accent focus:outline-none transition duration-300 text-sm sm:text-base">
-                </div>
-                <div class="mb-6">
-                    <input type="email" id="email" name="email" placeholder="Email para Contato" class="w-full px-4 py-3 rounded-md bg-gray-700/50 text-white border border-gray-600 focus:ring-accent focus:border-accent focus:outline-none transition duration-300 text-sm sm:text-base">
-                </div>
-                <div class="mb-6">
-                    <textarea id="message" name="message" rows="5" placeholder="Sua Ideia ou Mensagem" class="w-full px-4 py-3 rounded-md bg-gray-700/50 text-white border border-gray-600 focus:ring-accent focus:border-accent focus:outline-none transition duration-300 text-sm sm:text-base"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-accent hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-md transition duration-300 shadow-lg shadow-accent/30 text-base sm:text-lg">
-                    Enviar Mensagem
-                </button>
-            </form>
+        <section id="foco" class="mb-20">
+            <h3 class="text-4xl font-bold text-center mb-12 text-inov-indigo">Foco Máximo em Tecnologia</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 text-center">
+                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">HTML5</div>
+                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">CSS3</div>
+                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">JavaScript</div>
+                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">Tailwind CSS</div>
+                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">Grid Layout</div>
+                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">Flexbox</div>
+            </div>
+        </section>
+        
+        <section id="contato" class="py-16 bg-inov-indigo/10 rounded-xl mb-12 text-center">
+            <h3 class="text-3xl font-bold mb-4">Pronto para Inovar?</h3>
+            <p class="text-lg mb-8 text-inov-gray/80">Entre em contato para discutir seu próximo projeto com foco máximo.</p>
+            <a href="mailto:seuemail@dominio.com" class="inline-block bg-inov-indigo text-white text-xl px-10 py-4 rounded-full font-semibold shadow-lg hover:bg-inov-indigo/90 transition duration-300">Vamos Conversar</a>
+        </section>
+    </main>
+
+    <footer class="bg-inov-gray text-white p-6">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
+            <p class="mb-4 md:mb-0">Construído com Inovação e Foco. 2025</p>
+            <div class="flex space-x-4">
+                <a href="https://github.com/seuusuario" target="_blank" class="hover:text-inov-indigo">GitHub</a>
+                <a href="https://www.linkedin.com/in/seulinkedin" target="_blank" class="hover:text-inov-indigo">LinkedIn</a>
+            </div>
         </div>
-    </section>
-
-    <footer class="bg-background-dark py-6 sm:py-8 text-center text-gray-400 border-t border-accent/20 text-xs sm:text-sm">
-        <p>&copy; <span id="current-year">2025</span> tipgabrieldev. Todos os direitos reservados.</p>
-        <p class="mt-2">Feito com <span class="text-red-500">&hearts;</span> e código. | Design Cyber-Minimalista.</p>
     </footer>
 
-    <a href="https://wa.me/31982042552" target="_blank"
-        class="fixed bottom-6 right-6 z-50 whatsapp-btn"
-        aria-label="Fale comigo pelo WhatsApp">
-        <i class="fab fa-whatsapp text-white text-xl"></i>
-    </a>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // LÓGICA DO MENU HAMBÚRGUER E TROCA DE ÍCONE
-            const menuButton = document.getElementById('menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuLinks = mobileMenu.querySelectorAll('a');
-            const menuIcon = menuButton.querySelector('i'); // Seleciona o ícone
-
-            const toggleMenu = () => {
-                mobileMenu.classList.toggle('mobile-menu-open');
-                mobileMenu.classList.toggle('mobile-menu-closed');
-                
-                // Troca o ícone
-                if (mobileMenu.classList.contains('mobile-menu-open')) {
-                    menuIcon.classList.remove('fa-bars');
-                    menuIcon.classList.add('fa-times'); // Ícone de fechar (X)
-                } else {
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars'); // Ícone de menu
-                }
-            };
-
-            menuButton.addEventListener('click', toggleMenu);
-
-            // Fechar o menu ao clicar em um link
-            menuLinks.forEach(link => {
-                link.addEventListener('click', toggleMenu); 
-            });
-
-            // ATUALIZAÇÃO AUTOMÁTICA DO ANO NO RODAPÉ
-            const yearSpan = document.getElementById('current-year');
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
-            }
-
-            // SMOOTH SCROLL E ANIMAÇÕES
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetElement = document.querySelector(this.getAttribute('href'));
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    // Subtrai a altura do header + um pequeno offset (20px)
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // OBSERVER PARA ANIMAÇÃO FADE-IN-UP AO SCROLLAR
-            const sections = document.querySelectorAll('section:not(#hero)');
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-            const sectionObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-fade-in-up');
-                        entry.target.classList.remove('opacity-0');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                sectionObserver.observe(section);
-            });
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
