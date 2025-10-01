@@ -16,105 +16,154 @@
 
 
     <style>
-        /* 0. Configuração de Fontes Personalizadas no Tailwind */
-        .font-sans {
-            font-family: 'Poppins', sans-serif;
-        }
-        .font-serif-display {
-            font-family: 'Playfair Display', serif;
-        }
+/* ======== ESTILO TIPGABRIELDEV ======== */
 
-        /* 1. Comportamento de rolagem suave (mantido) */
-        html {
-            scroll-behavior: smooth;
-        }
+/* Fontes já definidas no HTML (Playfair Display + Poppins) */
+.font-sans {
+  font-family: 'Poppins', sans-serif;
+}
+.font-serif-display {
+  font-family: 'Playfair Display', serif;
+}
 
-        /* 2. Fundo de Gradiente Escuro (Misturando #171717 e #000) */
-        body {
-            background: linear-gradient(-45deg, #171717, #000000, #171717, #000000);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-        }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+/* 1. Fundo animado escuro com textura elegante */
+body {
+  background: radial-gradient(circle at top left, #0f0f0f, #000000 70%);
+  background-attachment: fixed;
+  color: #d1d5db; /* Tailwind gray-300 */
+}
 
-        /* 3. Efeito de Hover de Link de Navegação */
-        .header-link {
-            position: relative;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .header-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: -8px;
-            left: 0;
-            background-color: #06b6d4; /* Tailwind cyan-500 */
-            border-radius: 1.5px;
-            transition: width 0.3s ease-in-out;
-        }
-        .header-link:hover::after {
-            width: 100%;
-        }
+/* 2. Header fixo com efeito de brilho */
+header {
+  background: rgba(23, 23, 23, 0.95);
+  border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+  backdrop-filter: blur(10px);
+}
+header a {
+  text-shadow: 0 0 5px rgba(6, 182, 212, 0.6);
+}
 
-        /* 4. Glassmorphism para os Cartões de Projeto (project-card) */
-        .project-card {
-            background-color: rgba(31, 41, 55, 0.7); /* bg-gray-800 com transparência */
-            border: 1px solid rgba(6, 182, 212, 0.2); /* Borda sutil em ciano */
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-        }
-        .project-card:hover {
-            box-shadow: 0 8px 40px rgba(6, 182, 212, 0.2);
-        }
+/* 3. Links de navegação */
+.header-link {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.header-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: #06b6d4;
+  transition: width 0.3s ease-in-out;
+}
+.header-link:hover {
+  color: #06b6d4;
+}
+.header-link:hover::after {
+  width: 100%;
+}
 
-        /* 5. Estilo de Foco para Inputs e Textareas no Formulário */
-        .contact-input:focus {
-            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.5);
-            border-color: #06b6d4 !important;
-        }
-        
-        /* 6. Animação de Pulsação para o WhatsApp */
-        @keyframes pulse-whatsapp {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); /* Cor: #25D366 com 70% de opacidade */
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
+/* 4. Seção Hero com efeito glow */
+#hero {
+  background-blend-mode: multiply;
+}
+#hero h1 {
+  color: #fff;
+  text-shadow: 0 0 15px rgba(6, 182, 212, 0.7);
+}
+#hero p {
+  color: #a1a1aa;
+}
 
-        .animate-pulse-whatsapp {
-            animation: pulse-whatsapp 2s infinite;
-        }
+/* 5. Botão principal */
+#hero a {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+}
+#hero a:hover {
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.9);
+}
 
-        /* 7. Estilo adicional para o cartão de contato */
-        .contact-card {
-            background-color: rgba(31, 41, 55, 0.9); /* Fundo semi-transparente para o bloco de contato */
-        }
-        
-        /* 8. NOVO: Estilo Padrão do WhatsApp com CIRCULO PERFEITO */
-        .whatsapp-btn {
-            background-color: #25D366; 
-            width: 60px; /* Largura fixa */
-            height: 60px; /* Altura fixa (igual à largura para um círculo) */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0; /* Remove o padding da classe padrão do Tailwind para usar width/height */
-        }
-        .whatsapp-hover:hover {
-            background-color: #1DA851; /* Levemente mais escuro no hover */
-        }
+/* 6. Cartões de projetos */
+.project-card {
+  background: rgba(31, 41, 55, 0.8);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+}
+.project-card h3 {
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+}
+
+/* 7. Seção Sobre */
+#about img {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+}
+
+/* 8. Inputs e formulário */
+.contact-input {
+  background: rgba(31, 41, 55, 0.85);
+  border: 1px solid rgba(75, 85, 99, 0.6);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-input:focus {
+  border-color: #06b6d4;
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+}
+
+/* 9. Botão enviar */
+button[type="submit"] {
+  background: linear-gradient(90deg, #06b6d4, #0891b2);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+}
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #0891b2, #0e7490);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.7);
+}
+
+/* 10. Rodapé */
+footer {
+  border-top: 1px solid rgba(6, 182, 212, 0.2);
+}
+footer span {
+  text-shadow: 0 0 5px rgba(6, 182, 212, 0.5);
+}
+
+/* 11. Animação WhatsApp */
+@keyframes pulse-whatsapp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+.animate-pulse-whatsapp {
+  animation: pulse-whatsapp 2s infinite;
+}
+.whatsapp-btn {
+  background-color: #25D366;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.whatsapp-btn:hover {
+  background-color: #1DA851;
+  transform: scale(1.1);
+}
+
     </style>
     
     <script type="application/ld+json">
@@ -176,7 +225,7 @@
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">Barbearia André</h3>
                     <p class="text-gray-400 mb-4">Um projeto de site moderno e responsivo para uma barbearia, focado na experiência do usuário e agendamento online.</p>
-                    <a href="barbearia-andre.png" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
+                    <a href="https://www.instagram.com/barbeariandreoficial032013/" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
                 </div>
             </div>
 
@@ -185,25 +234,16 @@
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">StudiomelBH</h3>
                     <p class="text-gray-400 mb-4">Desenvolvimento de um site para estúdio de fotografia, com galeria de trabalhos e informações de contato.</p>
-                    <a href="URL_DO_PROJETO_STUDIOMELBH" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
+                    <a href="https://studiomelbh.vercel.app/" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
                 </div>
             </div>
 
             <div class="project-card rounded-lg shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300">
                 <img src="sunrisehq.png" alt="SunriseHQ" class="w-full h-48 object-cover">
                 <div class="p-6">
-                    <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">SunriseHQ</h3>
+                    <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">HQ - Sunrise</h3>
                     <p class="text-gray-400 mb-4">Um projeto para plataforma ou comunidade online, focado em interação e conteúdo dinâmico.</p>
-                    <a href="URL_DO_PROJETO_SUNRISEHQ" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
-                </div>
-            </div>
-
-            <div class="project-card rounded-lg shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300">
-                <img src="megatip.png" alt="MegaTIP" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">MegaTIP</h3>
-                    <p class="text-gray-400 mb-4">Criação de um portal ou plataforma de dicas e tutoriais, com foco em usabilidade e busca de conteúdo.</p>
-                    <a href="URL_DO_PROJETO_MEGATIP" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
+                    <a href="https://hqsunrise.vercel.app/" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
                 </div>
             </div>
 
@@ -212,7 +252,7 @@
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">Guild Origem</h3>
                     <p class="text-gray-400 mb-4">Desenvolvimento de um site para guilda de jogos, com informações sobre membros, regras e eventos.</p>
-                    <a href="URL_DO_PROJETO_GUILD_ORIGEM" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
+                    <a href="https://guildorigem.vercel.app/" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
                 </div>
             </div>
 
@@ -221,7 +261,7 @@
                 <div class="p-6">
                     <h3 class="text-2xl font-semibold mb-2 text-white font-serif-display">otip</h3>
                     <p class="text-gray-400 mb-4">Criação de um site ou aplicativo com foco em dicas personalizadas ou soluções inovadoras.</p>
-                    <a href="URL_DO_PROJETO_OTIP" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
+                    <a href="https://otip.vercel.app/index.html" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-md">Ver Projeto</a>
                 </div>
             </div>
             
