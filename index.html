@@ -19,7 +19,7 @@
                     colors: {
                         'primary': '#0D9488', 
                         'accent': '#06B6D4',  // Cyan 500 - Destaque Neon
-                        // Cores de fundo base
+                        // CORES CORRIGIDAS/CONFIRMADAS
                         'background-base': '#171717', 
                         'background-dark': '#1a1a1a', 
                         'background-light': '#222222', 
@@ -37,16 +37,17 @@
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
                         },
+                        // KEYFRAME DO WHATSAPP REVISADO
                         whatsappPulse: {
-                            '0%': { transform: 'scale(0.9)', opacity: 0.7 },
-                            '70%': { transform: 'scale(1.1)', opacity: 0.9 },
-                            '100%': { transform: 'scale(0.9)', opacity: 0.7 },
+                            '0%, 100%': { transform: 'scale(1)', opacity: 1 },
+                            '50%': { transform: 'scale(1.1)', opacity: 0.9 },
                         }
                     },
                     animation: {
                         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                         'bounce-slow': 'bounceSlow 2s infinite ease-in-out',
-                        'whatsapp-pulse': 'whatsappPulse 2s infinite ease-in-out',
+                        // Animação para uso no CSS customizado
+                        'whatsapp-pulse': 'whatsappPulse 1.5s infinite ease-in-out', 
                     },
                 }
             }
@@ -55,9 +56,12 @@
 
     <style>
         body {
-            /* CORREÇÃO: Impede o scroll horizontal */
-            overflow-x: hidden;
+            /* CORREÇÃO 1: Fundo Base */
+            background-color: #171717;
+            /* Fundo gradiente sutil com base #171717 para dar profundidade */
             background: radial-gradient(circle at top left, #171717, #1a1a1a);
+            /* Impede o scroll horizontal */
+            overflow-x: hidden;
         }
         
         /* Ajuste de Tipografia para Mobile */
@@ -71,24 +75,24 @@
             section h2 { font-size: 2.25rem; }
         }
         
-        /* Ícone do WhatsApp Perfeitamente Redondo e Pulsando */
+        /* CORREÇÃO 2: Ícone do WhatsApp Perfeitamente Redondo e PULSANDO */
         .whatsapp-btn {
-            background-color: #25D366; 
+            background-color: #25D366; /* Verde Padrão WhatsApp */ 
             width: 3.5rem; 
             height: 3.5rem; 
-            line-height: 3.5rem; 
             padding: 0; 
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%; 
-            /* GARANTIDO: Aplicando a animação de pulsação */
-            animation: whatsappPulse 2s infinite ease-in-out; 
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); 
+            /* Aplicando a animação diretamente no CSS customizado para garantir prioridade */
+            animation: whatsappPulse 1.5s infinite ease-in-out; 
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6); /* Sombra mais visível */
         }
         .whatsapp-hover:hover {
-            background-color: #128C7E;
+            background-color: #128C7E; /* Verde escuro no hover */
             animation: none; /* Para a pulsação ao fazer hover */
+            transform: scale(1.1);
         }
 
         /* Classes do Menu Hambúrguer */
@@ -259,7 +263,7 @@
     </footer>
 
     <a href="https://wa.me/31982042552" target="_blank"
-        class="fixed bottom-6 right-6 z-50 shadow-2xl transition duration-300 transform hover:scale-110 whatsapp-btn whatsapp-hover"
+        class="fixed bottom-6 right-6 z-50 whatsapp-btn whatsapp-hover"
         aria-label="Fale comigo pelo WhatsApp">
         <i class="fab fa-whatsapp text-white text-xl"></i>
     </a>
