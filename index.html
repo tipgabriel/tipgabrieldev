@@ -10,7 +10,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -23,8 +23,9 @@
                         'background-light': '#262626', 
                     },
                     fontFamily: {
-                        sans: ['"Baloo 2"', 'sans-serif'],
-                        'serif-display': ['"Baloo 2"', 'sans-serif'],
+                        // NOVO: Usando Public Sans como fonte principal
+                        sans: ['"Public Sans"', 'sans-serif'],
+                        'serif-display': ['"Public Sans"', 'sans-serif'],
                     },
                     keyframes: {
                         fadeInUp: {
@@ -56,8 +57,7 @@
             background: radial-gradient(circle at top left, #0a0a0a, #1a1a1a);
         }
         
-        /* Ajuste de Tipografia para Mobile */
-        /* h1 na seção Hero: 6xl por padrão, 5xl em telas menores */
+        /* Ajuste de Tipografia para Mobile (MANTIDO) */
         #hero h1 {
             font-size: 3.75rem; /* 6xl */
         }
@@ -67,7 +67,6 @@
             }
         }
 
-        /* h2 nas Seções: 5xl por padrão, 4xl em telas menores */
         section h2 {
             font-size: 3rem; /* 5xl */
         }
@@ -76,12 +75,19 @@
                 font-size: 2.25rem; /* 4xl no mobile */
             }
         }
-
+        
+        /* NOVO: Ícone do WhatsApp Perfeitamente Redondo */
         .whatsapp-btn {
             background-color: #25D366; 
-            padding: 1rem;
-            line-height: 0;
-            /* Aplicando a nova animação de pulsação */
+            width: 3.5rem; /* Largura definida */
+            height: 3.5rem; /* Altura igual à largura */
+            line-height: 3.5rem; /* Centraliza verticalmente o ícone */
+            padding: 0; /* Remove padding */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%; /* Torna-o perfeitamente redondo */
+            /* Aplicando a animação de pulsação */
             animation: whatsappPulse 2s infinite ease-in-out; 
         }
         .whatsapp-hover:hover {
@@ -89,7 +95,7 @@
             animation: none; /* Para a pulsação ao fazer hover */
         }
 
-        /* Classes do Menu Hambúrguer */
+        /* Classes do Menu Hambúrguer (MANTIDAS) */
         .mobile-menu-open {
             display: flex;
         }
@@ -163,6 +169,7 @@
             Projetos Recentes
         </h2>
         <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+            
             <div class="project-card bg-background-light rounded-xl shadow-xl overflow-hidden transform hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition duration-500 border border-gray-700/50">
                 <img src="barbearia-andre.png" alt="Barbearia André" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
                 <div class="p-6">
@@ -183,7 +190,7 @@
                 <img src="sunrisehq.png" alt="SunriseHQ" class="w-full h-48 object-cover transition duration-500 hover:opacity-80">
                 <div class="p-6">
                     <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white border-b border-gray-700/50 pb-2">HQ - Sunrise</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Projeto para plataforma ou comunidade online.</p>
+                    <p class="text-gray-400 mb-4 text-sm">Plataforma de conteúdo com layout dinâmico.</p>
                     <a href="https://hqsunrise.vercel.app/" target="_blank" class="w-full inline-block text-center bg-primary hover:bg-accent text-white font-bold py-2 rounded transition duration-300 shadow-lg shadow-primary/30">Ver Projeto</a>
                 </div>
             </div>
@@ -260,17 +267,15 @@
     </footer>
 
     <a href="https://wa.me/31982042552" target="_blank"
-        class="fixed bottom-6 right-6 z-50 rounded-full shadow-2xl transition duration-300 transform hover:scale-110 whatsapp-btn whatsapp-hover"
+        class="fixed bottom-6 right-6 z-50 shadow-2xl transition duration-300 transform hover:scale-110 whatsapp-btn whatsapp-hover"
         aria-label="Fale comigo pelo WhatsApp">
-        <i class="fab fa-whatsapp text-white text-3xl"></i>
+        <i class="fab fa-whatsapp text-white text-xl"></i>
     </a>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // ---------------------------------------------
             // LÓGICA DO MENU HAMBÚRGUER
-            // ---------------------------------------------
             const menuButton = document.getElementById('menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuLinks = mobileMenu.querySelectorAll('a');
@@ -287,17 +292,13 @@
                 link.addEventListener('click', toggleMenu);
             });
 
-            // ---------------------------------------------
             // ATUALIZAÇÃO AUTOMÁTICA DO ANO NO RODAPÉ
-            // ---------------------------------------------
             const yearSpan = document.getElementById('current-year');
             if (yearSpan) {
                 yearSpan.textContent = new Date().getFullYear();
             }
 
-            // ---------------------------------------------
-            // SMOOTH SCROLL E ANIMAÇÕES (MANTIDAS)
-            // ---------------------------------------------
+            // SMOOTH SCROLL E ANIMAÇÕES
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
