@@ -10,152 +10,83 @@
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Fontes arredondadas -->
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&family=Poppins:wght@400;600&family=Nunito:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <!-- Importando fonte arredondada -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-/* ======== ESTILO TIPGABRIELDEV FUTURISTA ROUND ======== */
+    body {
+      font-family: 'Baloo 2', sans-serif;
+      background: radial-gradient(circle at top left, #0a0a0a, #1a1a1a);
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-body {
-  font-family: 'Nunito', sans-serif;
-  background: radial-gradient(circle at top, #050505, #000 70%);
-  color: #d1d5db;
-  overflow-x: hidden;
-}
+    header {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
 
-/* Cabeçalho neon */
-header {
-  background: rgba(15, 15, 25, 0.95);
-  border-bottom: 1px solid rgba(0, 255, 204, 0.4);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.15);
-}
-header a {
-  font-family: 'Poppins', sans-serif;
-  text-transform: uppercase;
-  text-shadow: 0 0 6px rgba(0, 255, 204, 0.4);
-}
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #8A2BE2; /* Roxo da logo */
+      text-shadow: 2px 2px 15px rgba(138, 43, 226, 0.6);
+      letter-spacing: 2px;
+    }
 
-/* Links do header */
-.header-link {
-  position: relative;
-  transition: color 0.3s ease;
-}
-.header-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -6px;
-  left: 0;
-  background-color: #00ffcc;
-  transition: width 0.3s ease-in-out;
-}
-.header-link:hover {
-  color: #00ffcc;
-}
-.header-link:hover::after {
-  width: 100%;
-}
+    header p {
+      font-size: 1.4rem;
+      color: #ccc;
+      margin-top: 0.5rem;
+    }
 
-/* Hero */
-#hero h1 {
-  font-family: 'Exo 2', sans-serif;
-  font-size: 3.5rem;
-  color: #00ffcc;
-  text-shadow: 0 0 12px #00ffcc, 0 0 20px #007766;
-}
-#hero p {
-  font-family: 'Nunito', sans-serif;
-  color: #aaa;
-}
-#hero a {
-  background: linear-gradient(90deg, #00ffcc, #0099ff);
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
-  border-radius: 8px;
-}
-#hero a:hover {
-  box-shadow: 0 0 30px rgba(0, 255, 204, 0.9);
-  background: linear-gradient(90deg, #0099ff, #00ffcc);
-}
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      margin-top: 2rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #8A2BE2, #6d1bb5);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+    }
 
-/* Cards de projeto */
-.project-card {
-  background: rgba(15, 20, 35, 0.9);
-  border: 1px solid rgba(0, 255, 204, 0.3);
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 12px;
-}
-.project-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 0 25px rgba(0, 255, 204, 0.4);
-}
-.project-card h3 {
-  font-family: 'Exo 2', sans-serif;
-  color: #00ffcc;
-  text-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
-}
+    .btn:hover {
+      background: linear-gradient(135deg, #a950ff, #8A2BE2);
+      transform: scale(1.05);
+    }
 
-/* Inputs */
-.contact-input {
-  background: rgba(15, 20, 35, 0.85);
-  border: 1px solid rgba(0, 255, 204, 0.3);
-  font-family: 'Nunito', sans-serif;
-  border-radius: 8px;
-}
-.contact-input:focus {
-  border-color: #00ffcc;
-  box-shadow: 0 0 12px rgba(0, 255, 204, 0.6);
-}
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
 
-/* Botão enviar */
-button[type="submit"] {
-  background: linear-gradient(90deg, #00ffcc, #0099ff);
-  box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
-  font-family: 'Exo 2', sans-serif;
-  text-transform: uppercase;
-  border-radius: 8px;
-}
-button[type="submit"]:hover {
-  background: linear-gradient(90deg, #0099ff, #00ffcc);
-  box-shadow: 0 0 25px rgba(0, 255, 204, 0.7);
-}
+    section h2 {
+      font-size: 2.5rem;
+      color: #8A2BE2;
+      margin-bottom: 1.5rem;
+    }
 
-/* Footer */
-footer {
-  border-top: 1px solid rgba(0, 255, 204, 0.2);
-  color: #666;
-  font-family: 'Nunito', sans-serif;
-}
-footer span {
-  text-shadow: 0 0 6px rgba(0, 255, 204, 0.6);
-}
+    section p {
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+    }
 
-/* Botão WhatsApp neon */
-@keyframes pulse-whatsapp {
-  0% { box-shadow: 0 0 0 0 rgba(0, 255, 153, 0.7); }
-  70% { box-shadow: 0 0 0 25px rgba(0, 255, 153, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 255, 153, 0); }
-}
-.animate-pulse-whatsapp {
-  animation: pulse-whatsapp 2s infinite;
-}
-.whatsapp-btn {
-  background-color: #00ff99;
-  width: 65px;
-  height: 65px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0, 255, 153, 0.6);
-  transition: transform 0.3s ease;
-}
-.whatsapp-btn:hover {
-  background-color: #00cc77;
-  transform: scale(1.1);
-}
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body class="text-gray-200 font-sans">
