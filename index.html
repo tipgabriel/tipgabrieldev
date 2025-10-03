@@ -7,13 +7,18 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Configuração opcional do Tailwind para cores customizadas
+        // Configuração customizada do Tailwind
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'inov-indigo': '#4F46E5', // Um índigo mais vibrante
-                        'inov-gray': '#1F2937',
+                        'inov-indigo': '#4F46E5', // Principal: Um índigo mais vibrante (Inovação/Foco)
+                        'inov-gray': '#1F2937',   // Secundária: Cinza escuro para texto e fundo (Contraste/Legibilidade)
+                    },
+                    // Definição de tamanhos de fonte responsivos para o Hero
+                    fontSize: {
+                        '6xl': ['3.75rem', { lineHeight: '1' }], // Tamanho padrão (desktop)
+                        '5xl-sm': ['3rem', { lineHeight: '1' }], // Tamanho para telas menores (mobile)
                     }
                 }
             }
@@ -26,7 +31,19 @@
         }
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4); /* Sombra com a cor de inovação */
+            /* Sombra mais proeminente e colorida no hover para destacar a inovação */
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4); 
+        }
+        .tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        /* Garantir que o botão ativo do filtro tenha um estilo claro */
+        .filter-btn.active {
+             background-color: #4F46E5; 
+             color: white; 
         }
     </style>
 
@@ -34,13 +51,13 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Alexandre Silva",
-      "url": "https://seulinkdoportfolio.com",
-      "image": "https://seulinkdofoto.com/foto.jpg",
-      "jobTitle": "Engenheiro de Front-end | Foco em Inovação",
+      "name": "**[SEU NOME COMPLETO]**",
+      "url": "https://tipgabrieldev.vercel.app",
+      "image": "https://**[SEU LINK DA FOTO]**/foto.jpg",
+      "jobTitle": "Engenheiro de Front-end | Foco em Inovação e Performance",
       "sameAs": [
-        "https://www.linkedin.com/in/seulinkedin",
-        "https://github.com/seuusuario"
+        "https://www.linkedin.com/in/**[SEU LINKEDIN]**",
+        "https://github.com/**[SEU USUÁRIO GITHUB]**"
       ],
       "description": "Portfólio de desenvolvimento front-end com ênfase em performance, arquitetura moderna (Grid/Flexbox/Tailwind) e soluções criativas."
     }
@@ -59,7 +76,7 @@
                 <a href="#contato" class="hover:text-inov-indigo transition duration-200">Contato</a>
             </nav>
 
-            <button id="menu-toggle" class="md:hidden p-2 rounded-md hover:bg-gray-100 transition duration-200">
+            <button id="menu-toggle" aria-label="Abrir Menu" class="md:hidden p-2 rounded-md hover:bg-gray-100 transition duration-200">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
@@ -73,23 +90,23 @@
 
     <main class="container mx-auto p-4 sm:p-8">
 
-        <section id="hero" class="py-20 text-center bg-inov-indigo text-white rounded-xl shadow-2xl mb-16">
-            <h2 class="text-6xl font-black mb-4">Inovação e Performance</h2>
-            <p class="text-xl max-w-3xl mx-auto opacity-90">Soluções digitais com **Foco Máximo** na experiência do usuário e na arquitetura de código moderna: **Grid, Flexbox e Tailwind**.
+        <section id="hero" class="py-16 sm:py-20 text-center bg-inov-indigo text-white rounded-xl shadow-2xl mb-16">
+            <h2 class="text-5xl-sm sm:text-6xl font-black mb-4 px-2">Inovação e Performance</h2>
+            <p class="text-lg sm:text-xl max-w-3xl mx-auto opacity-90 px-4">Soluções digitais com **Foco Máximo** na experiência do usuário e na arquitetura de código moderna: **Grid, Flexbox e Tailwind**.
             </p>
             <a href="#projetos" class="mt-8 inline-block bg-white text-inov-indigo text-lg px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 transform hover:scale-105">Veja os Projetos Chave</a>
         </section>
 
         <section id="projetos" class="mb-20">
-            <h3 class="text-4xl font-bold text-center mb-12 text-inov-indigo">Portfólio Modular</h3>
+            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-inov-indigo">Portfólio Modular</h3>
             
             <div id="project-grid" class="grid gap-8 
-                                            grid-cols-1       /* Mobile */
-                                            md:grid-cols-2    /* Tablet */
-                                            xl:grid-cols-3">  /* Desktop */
+                                         grid-cols-1      /* Mobile (Padrão) */
+                                         md:grid-cols-2   /* Tablet */
+                                         xl:grid-cols-3"> /* Desktop */
                 
                 <div class="project-card bg-white p-6 rounded-lg shadow-lg border-t-4 border-inov-indigo cursor-pointer" data-tech="Grid Tailwind">
-                    <h4 class="text-2xl font-bold mb-3">01. Arquitetura Modular (Grid)</h4>
+                    <h4 class="text-xl sm:text-2xl font-bold mb-3">01. Arquitetura Modular (Grid)</h4>
                     <p class="text-gray-600 mb-4">Desenvolvimento de um dashboard complexo utilizando **CSS Grid** e layout Bento Box para foco e visualização de dados.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag bg-inov-indigo/20 text-inov-indigo">Grid Layout</span>
@@ -98,7 +115,7 @@
                 </div>
 
                 <div class="project-card bg-white p-6 rounded-lg shadow-lg border-t-4 border-yellow-500 cursor-pointer" data-tech="Flexbox JavaScript">
-                    <h4 class="text-2xl font-bold mb-3">02. Micro-Interações (JS)</h4>
+                    <h4 class="text-xl sm:text-2xl font-bold mb-3">02. Micro-Interações (JS)</h4>
                     <p class="text-gray-600 mb-4">Criação de componentes dinâmicos com **Flexbox** e Vanilla **JavaScript** para alta performance sem frameworks.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag bg-yellow-500/20 text-yellow-700">Flexbox</span>
@@ -107,7 +124,7 @@
                 </div>
 
                 <div class="project-card bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500 cursor-pointer" data-tech="SEO Inovação">
-                    <h4 class="text-2xl font-bold mb-3">03. Otimização Estrutural (JSON-LD)</h4>
+                    <h4 class="text-xl sm:text-2xl font-bold mb-3">03. Otimização Estrutural (JSON-LD)</h4>
                     <p class="text-gray-600 mb-4">Estratégia de SEO técnico com **JSON-LD** e código limpo para **foco máximo** na indexação e visibilidade.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag bg-green-500/20 text-green-700">JSON-LD</span>
@@ -115,31 +132,31 @@
                     </div>
                 </div>
 
-                </div>
+            </div>
             
-            <div class="flex justify-center mt-12 gap-4">
-                <button class="filter-btn bg-inov-indigo text-white px-4 py-2 rounded-full hover:bg-inov-indigo/80 transition" data-filter="Todos">Todos</button>
-                <button class="filter-btn bg-gray-200 text-inov-gray px-4 py-2 rounded-full hover:bg-inov-indigo hover:text-white transition" data-filter="Grid">Grid Layout</button>
-                <button class="filter-btn bg-gray-200 text-inov-gray px-4 py-2 rounded-full hover:bg-inov-indigo hover:text-white transition" data-filter="JavaScript">JavaScript</button>
+            <div class="flex justify-center flex-wrap mt-12 gap-3 sm:gap-4">
+                <button class="filter-btn active bg-inov-indigo text-white px-4 py-2 rounded-full hover:bg-inov-indigo/80 transition text-sm sm:text-base" data-filter="Todos">Todos</button>
+                <button class="filter-btn bg-gray-200 text-inov-gray px-4 py-2 rounded-full hover:bg-inov-indigo hover:text-white transition text-sm sm:text-base" data-filter="Grid">Grid Layout</button>
+                <button class="filter-btn bg-gray-200 text-inov-gray px-4 py-2 rounded-full hover:bg-inov-indigo hover:text-white transition text-sm sm:text-base" data-filter="JavaScript">JavaScript</button>
             </div>
         </section>
 
         <section id="foco" class="mb-20">
-            <h3 class="text-4xl font-bold text-center mb-12 text-inov-indigo">Foco Máximo em Tecnologia</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 text-center">
-                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">HTML5</div>
-                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">CSS3</div>
-                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">JavaScript</div>
-                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">Tailwind CSS</div>
-                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">Grid Layout</div>
-                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50">Flexbox</div>
+            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-inov-indigo">Foco Máximo em Tecnologia</h3>
+            <div class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 text-center">
+                <div class="p-4 sm:p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50 font-medium">HTML5</div>
+                <div class="p-4 sm:p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50 font-medium">CSS3</div>
+                <div class="p-4 sm:p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50 font-medium">JavaScript</div>
+                <div class="p-4 sm:p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50 font-medium">Tailwind CSS</div>
+                <div class="p-4 sm:p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50 font-medium">Grid Layout</div>
+                <div class="p-4 sm:p-6 bg-white rounded-lg shadow-md border-b-4 border-inov-indigo/50 font-medium">Flexbox</div>
             </div>
         </section>
         
-        <section id="contato" class="py-16 bg-inov-indigo/10 rounded-xl mb-12 text-center">
-            <h3 class="text-3xl font-bold mb-4">Pronto para Inovar?</h3>
-            <p class="text-lg mb-8 text-inov-gray/80">Entre em contato para discutir seu próximo projeto com foco máximo.</p>
-            <a href="mailto:seuemail@dominio.com" class="inline-block bg-inov-indigo text-white text-xl px-10 py-4 rounded-full font-semibold shadow-lg hover:bg-inov-indigo/90 transition duration-300">Vamos Conversar</a>
+        <section id="contato" class="py-12 sm:py-16 bg-inov-indigo/10 rounded-xl mb-12 text-center">
+            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Pronto para Inovar?</h3>
+            <p class="text-base sm:text-lg mb-8 text-inov-gray/80 px-4">Entre em contato para discutir seu próximo projeto com foco máximo.</p>
+            <a href="mailto:**[SEU EMAIL AQUI]**" class="inline-block bg-inov-indigo text-white text-lg sm:text-xl px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold shadow-lg hover:bg-inov-indigo/90 transition duration-300">Vamos Conversar</a>
         </section>
     </main>
 
@@ -147,12 +164,61 @@
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
             <p class="mb-4 md:mb-0">Construído com Inovação e Foco. 2025</p>
             <div class="flex space-x-4">
-                <a href="https://github.com/seuusuario" target="_blank" class="hover:text-inov-indigo">GitHub</a>
-                <a href="https://www.linkedin.com/in/seulinkedin" target="_blank" class="hover:text-inov-indigo">LinkedIn</a>
+                <a href="https://github.com/**[SEU USUÁRIO GITHUB]**" target="_blank" class="hover:text-inov-indigo">GitHub</a>
+                <a href="https://www.linkedin.com/in/**[SEU LINKEDIN]**" target="_blank" class="hover:text-inov-indigo">LinkedIn</a>
             </div>
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script>
+        // 1. Lógica do Menu Mobile
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            // Alterna a classe 'hidden' para mostrar/esconder o menu
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 2. Lógica do Filtro de Projetos
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('project-grid');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+
+                    // Remove a classe 'active' de todos os botões e adiciona ao clicado
+                    filterButtons.forEach(btn => btn.classList.remove('active', 'bg-inov-indigo', 'text-white'));
+                    filterButtons.forEach(btn => {
+                        // Reseta para o estado inativo
+                        if (!btn.classList.contains('active')) {
+                            btn.classList.add('bg-gray-200', 'text-inov-gray');
+                        }
+                    });
+
+                    // Adiciona a classe 'active' ao botão clicado
+                    button.classList.add('active', 'bg-inov-indigo', 'text-white');
+                    button.classList.remove('bg-gray-200', 'text-inov-gray');
+
+                    // Itera sobre os cards para mostrar/esconder
+                    projectCards.forEach(card => {
+                        const tech = card.getAttribute('data-tech');
+                        // Se for 'Todos' ou se a tecnologia do card estiver no filtro
+                        if (filter === 'Todos' || tech.includes(filter)) {
+                            card.style.display = 'block';
+                            // Re-aplica classes de grid para manter o layout
+                            card.classList.remove('hidden'); 
+                            card.classList.add('block');
+                        } else {
+                            card.style.display = 'none';
+                            card.classList.remove('block');
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
