@@ -1,10 +1,18 @@
 // Menu Mobile - TELA CHEIA
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
+const body = document.body;
 
 navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
+    
+    // Prevenir scroll do body quando menu está aberto
+    if (navMenu.classList.contains('active')) {
+        body.classList.add('menu-open');
+    } else {
+        body.classList.remove('menu-open');
+    }
     
     // Adicionar efeito de toggle no ícone
     const icon = navToggle.querySelector('i');
@@ -22,6 +30,7 @@ document.querySelectorAll('.nav__link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
+        body.classList.remove('menu-open');
         const icon = navToggle.querySelector('i');
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
@@ -33,6 +42,21 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
+        body.classList.remove('menu-open');
+        const icon = navToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+});
+
+// Fechar menu ao clicar fora
+document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('active') && 
+        !navMenu.contains(e.target) && 
+        !navToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        body.classList.remove('menu-open');
         const icon = navToggle.querySelector('i');
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
@@ -84,12 +108,14 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Animar barras de habilidades quando visíveis
+// CORREÇÃO DAS BARRAS DE HABILIDADES
 const animateSkills = () => {
     const skills = document.querySelectorAll('.skill__level');
     skills.forEach((skill, index) => {
         setTimeout(() => {
             const level = skill.getAttribute('data-level');
+            // Usar transition em vez de animation para melhor controle
+            skill.style.transition = 'width 1.5s ease-in-out';
             skill.style.width = level + '%';
         }, index * 200);
     });
@@ -168,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .about__text p,
         .stat,
         .skill__category,
+        .skill,
         .portfolio__item,
         .contact__item,
         .contact__form,
@@ -182,57 +209,24 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // GARANTIR QUE O FOOTER SEJA OBSERVADO
+    const footer = document.querySelector('.footer');
+    if (footer) {
+        observer.observe(footer);
+    }
+
     // Adicionar ano atual no footer
     const yearSpan = document.querySelector('.footer__bottom p');
     if (yearSpan) {
         const currentYear = new Date().getFullYear();
         yearSpan.innerHTML = yearSpan.innerHTML.replace('2024', currentYear);
     }
-});
 
-// Efeito de digitação no título (opcional)
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    type();
-}
-
-// Loading skeleton (opcional)
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    
-    // Aplicar efeito de digitação no título (opcional)
-    const heroTitle = document.querySelector('.hero__title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 80);
-    }
-});
-
-// Otimização de performance
-let scrollTimeout;
-window.addEventListener('scroll', () => {
-    if (!scrollTimeout) {
-        scrollTimeout = setTimeout(() => {
-            scrollTimeout = null;
-            // Atualizar elementos visíveis
-            const visibleElements = document.querySelectorAll('.visible');
-            visibleElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    el.style.animationPlayState = 'running';
-                }
-            });
-        }, 100);
-    }
+    // CORREÇÃO: Inicializar barras de habilidades com 0
+    const skillBars = document.querySelectorAll('.skill__level');
+    skillBars.forEach(bar => {
+        bar.style.width = '0%';
+    });
 });
 
 // Prevenir animações durante o redimensionamento
@@ -247,3 +241,23 @@ window.addEventListener('resize', () => {
         });
     }, 250);
 });
+
+// CORREÇÃO: Prevenir scroll horizontal
+window.addEventListener('resize', () => {
+    document.body.style.overflowX = 'hidden';
+});
+
+// Garantir que não há overflow horizontal
+function checkOverflow() {
+    const bodyWidth = document.body.scrollWidth;
+    const windowWidth = window.innerWidth;
+    
+    if (bodyWidth > windowWidth) {
+        console.log('Overflow detectado, corrigindo...');
+        document.body.style.overflowX = 'hidden';
+    }
+}
+
+// Verificar overflow periodicamente
+setInterval(checkOverflow, 1000);
+checkOverflow();
