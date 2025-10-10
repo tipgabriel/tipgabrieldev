@@ -1,51 +1,69 @@
-// Menu Mobile
+// Menu Mobile - CORREÇÃO COMPLETA
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 const body = document.body;
 
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-    
-    if (navMenu.classList.contains('active')) {
-        body.classList.add('menu-open');
-    } else {
-        body.classList.remove('menu-open');
-    }
-    
-    const icon = navToggle.querySelector('i');
-    if (navMenu.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
-
-// Fechar menu ao clicar em um link
-document.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-        body.classList.remove('menu-open');
+// CORREÇÃO: Adicionar evento de clique no toggle
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+        
+        if (navMenu.classList.contains('active')) {
+            body.classList.add('menu-open');
+        } else {
+            body.classList.remove('menu-open');
+        }
+        
         const icon = navToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+        if (navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
     });
-});
 
-// Fechar menu ao pressionar ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-        body.classList.remove('menu-open');
-        const icon = navToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
+    // Fechar menu ao clicar em um link
+    document.querySelectorAll('.nav__link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            body.classList.remove('menu-open');
+            const icon = navToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        });
+    });
+
+    // Fechar menu ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !navToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            body.classList.remove('menu-open');
+            const icon = navToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Fechar menu ao pressionar ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            body.classList.remove('menu-open');
+            const icon = navToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+}
 
 // Scroll suave para links internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -64,18 +82,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Header scroll effect
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.boxShadow = 'var(--shadow)';
-    } else {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = 'none';
+    if (header) {
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = 'var(--shadow)';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.boxShadow = 'none';
+        }
     }
 });
 
 // Sistema de animação avançado ao scroll
 const observerOptions = {
-    threshold: 0.2,
+    threshold: 0.3,
     rootMargin: '0px 0px -50px 0px'
 };
 
@@ -84,54 +104,93 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
             
-            // Animar barras de habilidades
+            // CORREÇÃO: Animar barras de habilidades
             if (entry.target.classList.contains('skills__container')) {
-                animateSkills();
+                setTimeout(() => {
+                    animateSkills();
+                }, 300);
             }
             
-            // Animar contadores
+            // CORREÇÃO: Animar contadores
             if (entry.target.classList.contains('about__container')) {
-                animateCounters();
+                setTimeout(() => {
+                    animateCounters();
+                }, 300);
             }
         }
     });
 }, observerOptions);
 
-// Animação das barras de habilidades
-const animateSkills = () => {
+// CORREÇÃO: Animação das barras de habilidades
+function animateSkills() {
     const skills = document.querySelectorAll('.skill__level');
+    
     skills.forEach((skill, index) => {
+        // Reset para garantir que começa do zero
+        skill.style.width = '0%';
+        
         setTimeout(() => {
             const level = skill.getAttribute('data-level');
-            skill.style.transition = 'width 2s ease-in-out';
-            skill.style.width = level + '%';
-        }, index * 300);
+            
+            // Usar requestAnimationFrame para animação suave
+            let startWidth = 0;
+            const targetWidth = parseInt(level);
+            const duration = 1500; // 1.5 segundos
+            const startTime = performance.now();
+            
+            function animateBar(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function para suavizar
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const currentWidth = startWidth + (targetWidth - startWidth) * easeOutQuart;
+                
+                skill.style.width = currentWidth + '%';
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animateBar);
+                }
+            }
+            
+            requestAnimationFrame(animateBar);
+        }, index * 200); // Delay entre cada barra
     });
-};
+}
 
-// Animação dos contadores
-const animateCounters = () => {
+// CORREÇÃO: Animação dos contadores
+function animateCounters() {
     const counters = document.querySelectorAll('.stat h3');
     
     counters.forEach(counter => {
         const target = parseInt(counter.getAttribute('data-target'));
         const duration = 2000; // 2 segundos
-        const step = target / (duration / 16); // 60fps
-        let current = 0;
+        const startTime = performance.now();
+        const startValue = 0;
         
-        const updateCounter = () => {
-            current += step;
-            if (current < target) {
-                counter.textContent = Math.floor(current);
+        // Reset para garantir que começa do zero
+        counter.textContent = '0';
+        
+        function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function para suavizar
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart);
+            
+            counter.textContent = currentValue;
+            
+            if (progress < 1) {
                 requestAnimationFrame(updateCounter);
             } else {
-                counter.textContent = target;
+                counter.textContent = target + '+';
             }
-        };
+        }
         
-        updateCounter();
+        requestAnimationFrame(updateCounter);
     });
-};
+}
 
 // Atualizar copyright automaticamente
 const updateCopyright = () => {
@@ -145,16 +204,17 @@ const updateCopyright = () => {
 // Formulário de contato
 const contactForm = document.getElementById('contact-form');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    console.log('Dados do formulário:', data);
-    showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
-    contactForm.reset();
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+        
+        showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
+        contactForm.reset();
+    });
+}
 
 // Função para mostrar notificação
 function showNotification(message, type) {
@@ -191,7 +251,7 @@ function showNotification(message, type) {
     }, 5000);
 }
 
-// Inicializar quando o DOM carregar
+// CORREÇÃO: Inicialização completa
 document.addEventListener('DOMContentLoaded', () => {
     // Animar elementos da seção hero
     const heroElements = document.querySelectorAll('.hero__content > *');
@@ -234,10 +294,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Atualizar copyright
     updateCopyright();
 
-    // Inicializar barras de habilidades com 0
+    // CORREÇÃO: Inicializar barras de habilidades com 0
     const skillBars = document.querySelectorAll('.skill__level');
     skillBars.forEach(bar => {
         bar.style.width = '0%';
+    });
+});
+
+// CORREÇÃO: Prevenir problemas de carregamento
+window.addEventListener('load', () => {
+    // Re-inicializar observadores se necessário
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        observer.observe(section);
     });
 });
 
@@ -245,37 +314,3 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('resize', () => {
     document.body.style.overflowX = 'hidden';
 });
-
-// CSS para notificações
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    .notification button {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0;
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .notification button:hover {
-        opacity: 0.8;
-    }
-`;
-document.head.appendChild(style);
