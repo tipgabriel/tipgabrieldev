@@ -81,19 +81,30 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px' 
 };
 
+let skillsAnimated = false;
+let countersAnimated = false;
+
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
 
-            if (entry.target.classList.contains('skills__container')) {
-                setTimeout(() => animateSkills(), 300);
-                observer.unobserve(entry.target);
+            // Animar habilidades apenas uma vez
+            if (entry.target.classList.contains('skills__container') && !skillsAnimated) {
+                console.log('🔧 Iniciando animação das barras de habilidades');
+                setTimeout(() => {
+                    animateSkills();
+                    skillsAnimated = true;
+                }, 500);
             }
 
-            if (entry.target.classList.contains('about__container')) {
-                setTimeout(() => animateCounters(), 300);
-                observer.unobserve(entry.target);
+            // Animar contadores apenas uma vez
+            if (entry.target.classList.contains('about__container') && !countersAnimated) {
+                console.log('🔢 Iniciando animação dos contadores');
+                setTimeout(() => {
+                    animateCounters();
+                    countersAnimated = true;
+                }, 500);
             }
         }
     });
@@ -103,39 +114,38 @@ const observer = new IntersectionObserver((entries, observer) => {
 function animateSkills() {
     const skills = document.querySelectorAll('.skill__level');
     
-    console.log('Iniciando animação das barras de habilidades:', skills.length);
+    console.log(`🎯 Encontradas ${skills.length} barras para animar`);
     
-    // Reset para garantir que todas começam do zero
+    // Reset completo das barras
     skills.forEach(skill => {
+        skill.style.transition = 'none';
         skill.style.width = '0%';
-        skill.style.transition = 'none'; // Remove transição inicial
     });
 
-    // Forçar reflow
-    void document.body.offsetHeight;
+    // Forçar reflow do navegador
+    void skills[0]?.offsetHeight;
 
+    // Animar cada barra com delay progressivo
     skills.forEach((skill, index) => {
         setTimeout(() => {
-            const target = parseInt(skill.getAttribute('data-level')) || 0;
-            console.log(`Animando barra ${index + 1} para ${target}%`);
+            const targetWidth = skill.getAttribute('data-level');
+            console.log(`📊 Animando barra ${index + 1} para ${targetWidth}%`);
             
-            // Adiciona transição suave
+            // Aplicar transição suave
             skill.style.transition = 'width 1.8s cubic-bezier(0.22, 0.61, 0.36, 1)';
+            skill.style.width = targetWidth + '%';
             
-            // Define a largura final
-            skill.style.width = target + '%';
-            
-        }, index * 150); // Delay progressivo entre as barras
+        }, index * 200); // Delay entre barras
     });
 }
 
-// ===================== ANIMAÇÃO DOS CONTADORES SINCRONIZADA =====================
+// ===================== ANIMAÇÃO DOS CONTADORES SINCRONIZADOS =====================
 function animateCounters() {
     const counters = document.querySelectorAll('.stat h3');
     
-    console.log('Iniciando animação dos contadores:', counters.length);
+    console.log(`🔢 Encontrados ${counters.length} contadores para animar`);
     
-    // Reset para garantir que todos começam do zero
+    // Reset dos contadores
     counters.forEach(counter => {
         counter.textContent = '0';
     });
@@ -150,7 +160,7 @@ function animateCounters() {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
         
-        // Easing function para movimento suave
+        // Easing function suave
         const easeOutQuart = 1 - Math.pow(1 - progress, 4);
         
         counters.forEach((counter, index) => {
@@ -166,6 +176,7 @@ function animateCounters() {
             counters.forEach((counter, index) => {
                 counter.textContent = targets[index] + '+';
             });
+            console.log('✅ Contadores finalizados');
         }
     }
 
@@ -187,7 +198,7 @@ if (contactForm) {
         // Simular envio do formulário
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData);
-        console.log('Dados do formulário:', data);
+        console.log('📧 Dados do formulário:', data);
         
         contactForm.reset();
         showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
@@ -228,7 +239,7 @@ function showNotification(message, type) {
 
 // ===================== INICIALIZAÇÃO =====================
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM Carregado - Inicializando...');
+    console.log('🚀 DOM Carregado - Inicializando animações...');
     
     // Animar elementos hero
     const heroElements = document.querySelectorAll('.hero__content > *');
@@ -238,20 +249,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Observar seções principais
     const aboutSection = document.querySelector('.about__container');
+    const skillsSection = document.querySelector('.skills__container');
+    
     if (aboutSection) {
-        console.log('Seção About encontrada');
+        console.log('📍 Seção About encontrada');
         observer.observe(aboutSection);
     }
-
-    const skillsSection = document.querySelector('.skills__container');
+    
     if (skillsSection) {
-        console.log('Seção Skills encontrada');
+        console.log('📍 Seção Skills encontrada');
         observer.observe(skillsSection);
     }
 
-    // Observar outras seções
+    // Observar outras seções para animações de entrada
     const sections = document.querySelectorAll('.section');
-    console.log('Seções encontradas:', sections.length);
+    console.log(`📄 ${sections.length} seções encontradas`);
     sections.forEach(sec => observer.observe(sec));
 
     // Observar elementos específicos para animações
@@ -270,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .footer__bottom
     `);
     
-    console.log('Elementos animados encontrados:', animatedElements.length);
+    console.log(`🎭 ${animatedElements.length} elementos animados encontrados`);
     animatedElements.forEach(el => observer.observe(el));
 
     // Observar footer
@@ -280,19 +292,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Atualizar copyright
     updateCopyright();
 
-    // Inicializar skill bars com 0 e garantir que estão visíveis
+    // Inicializar skill bars com 0%
     const skillBars = document.querySelectorAll('.skill__level');
-    console.log('Barras de habilidades encontradas:', skillBars.length);
+    console.log(`📊 ${skillBars.length} barras de habilidades inicializadas em 0%`);
     
     skillBars.forEach(bar => {
         bar.style.width = '0%';
-        bar.style.opacity = '1'; // Garantir que são visíveis
+        bar.style.opacity = '1';
     });
-});
-
-// ===================== PREVENÇÃO DE SCROLL HORIZONTAL =====================
-window.addEventListener('resize', () => { 
-    document.body.style.overflowX = 'hidden'; 
 });
 
 // ===================== CSS DINÂMICO PARA ANIMAÇÕES =====================
@@ -326,29 +333,17 @@ animationStyles.textContent = `
     .notification button:hover {
         opacity: 0.8;
     }
-    
-    /* Garantir que as barras são visíveis e animáveis */
-    .skill__level {
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    /* Animações suaves para números */
-    .stat h3 {
-        transition: all 0.3s ease-out;
-    }
 `;
 document.head.appendChild(animationStyles);
 
-// ===================== DEBUG E VERIFICAÇÃO =====================
+// ===================== VERIFICAÇÃO FINAL =====================
 window.addEventListener('load', () => {
-    console.log('Página completamente carregada');
-    
-    // Verificar se elementos críticos estão presentes
-    console.log('Skill bars no load:', document.querySelectorAll('.skill__level').length);
-    console.log('Contadores no load:', document.querySelectorAll('.stat h3').length);
-    
-    // Verificar se as seções estão sendo observadas
-    const observedSections = document.querySelectorAll('.about__container, .skills__container');
-    console.log('Seções observadas:', observedSections.length);
+    console.log('✅ Página completamente carregada');
+    console.log('🎯 Barras de habilidades:', document.querySelectorAll('.skill__level').length);
+    console.log('🔢 Contadores:', document.querySelectorAll('.stat h3').length);
+});
+
+// ===================== PREVENÇÃO DE SCROLL HORIZONTAL =====================
+window.addEventListener('resize', () => { 
+    document.body.style.overflowX = 'hidden'; 
 });
