@@ -100,25 +100,31 @@ function animateSkills() {
     const skills = document.querySelectorAll('.skill__level');
 
     skills.forEach((skill, index) => {
+        // Reset para garantir que começa do zero
         skill.style.width = '0%';
+
         setTimeout(() => {
-            const level = parseInt(skill.getAttribute('data-level'));
-            let start = 0;
-            const duration = 1500;
+            const target = parseInt(skill.getAttribute('data-level')) || 0;
+            const duration = 1500; // 1.5 segundos
             const startTime = performance.now();
 
             function animateBar(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                const ease = 1 - Math.pow(1 - progress, 4);
-                skill.style.width = Math.floor(start + (level - start) * ease) + '%';
-                if (progress < 1) requestAnimationFrame(animateBar);
+                const ease = 1 - Math.pow(1 - progress, 4); // easing
+
+                skill.style.width = Math.floor(target * ease) + '%';
+
+                if (progress < 1) {
+                    requestAnimationFrame(animateBar);
+                }
             }
 
             requestAnimationFrame(animateBar);
-        }, index * 200);
+        }, index * 200); // delay entre cada barra
     });
 }
+
 
 // ===================== ANIMAÇÃO DOS CONTADORES =====================
 function animateCounters() {
@@ -126,25 +132,25 @@ function animateCounters() {
 
     counters.forEach(counter => {
         const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 2000;
-        const startTime = performance.now();
+        const duration = 3000; // 3 segundos para contagem mais lenta
+        const stepTime = 50; // atualiza a cada 50ms
+        let current = 0;
 
-        counter.textContent = '0';
+        // calcula o quanto incrementar a cada intervalo
+        const increment = target / (duration / stepTime);
 
-        function updateCounter(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const ease = 1 - Math.pow(1 - progress, 4);
-            const value = Math.floor(target * ease);
-            counter.textContent = value;
-
-            if (progress < 1) requestAnimationFrame(updateCounter);
-            else counter.textContent = target;
-        }
-
-        requestAnimationFrame(updateCounter);
+        const interval = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                counter.textContent = target;
+                clearInterval(interval);
+            } else {
+                counter.textContent = Math.floor(current);
+            }
+        }, stepTime);
     });
 }
+
 
 // ===================== COPYRIGHT =====================
 function updateCopyright() {
