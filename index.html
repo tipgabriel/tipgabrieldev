@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tipgabrieldev — O nome do Front-End em Belo Horizonte</title>
-    <meta name="description" content="Desenvolvedor Full Stack especializado em React, Node.js e soluções web modernas">
+    <meta name="description" content="Desenvolvedor Front-End especializado em HTML, CSS, JavaScript e soluções web modernas">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,8 @@
                 <h1 class="hero__title">Olá, eu sou <span class="hero__highlight">TIP</span></h1>
                 <h2 class="hero__subtitle">Desenvolvedor Front-End</h2>
                 <p class="hero__description">
-Dou vida a ideias com soluções digitais únicas, unindo código limpo, alta performance e uma experiência que se destaca.</p>
+                    Dou vida a ideias com soluções digitais únicas, unindo código limpo, alta performance e uma experiência que se destaca.
+                </p>
                 <div class="hero__buttons">
                     <a href="#portfolio" class="btn btn--primary">Ver Projetos</a>
                     <a href="#contact" class="btn btn--secondary">Entrar em Contato</a>
@@ -60,23 +61,23 @@ Dou vida a ideias com soluções digitais únicas, unindo código limpo, alta pe
                 <div class="about__text">
                     <p>
                         Sou o tipgabrieldev, desenvolvedor Front-End em Belo Horizonte.
-Transformo ideias em experiências digitais rápidas, bonitas e cheias de propósito.
-Código limpo, performance alta e resultado real — simples assim. ⚡
+                        Transformo ideias em experiências digitais rápidas, bonitas e cheias de propósito.
+                        Código limpo, performance alta e resultado real — simples assim. ⚡
                     </p>
                     <p>
-Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScript, Tailwind e JSON-LD. Com foco em código limpo, performance e experiência do usuário, transformo ideias em projetos funcionais e visualmente impactantes.
+                        Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScript, Tailwind e JSON-LD. Com foco em código limpo, performance e experiência do usuário, transformo ideias em projetos funcionais e visualmente impactantes.
                     </p>
                     <div class="about__stats">
                         <div class="stat">
-                            <h3>4+</h3>
+                            <h3 data-target="4">0</h3>
                             <p>Projetos Concluídos</p>
                         </div>
                         <div class="stat">
-                            <h3>3+</h3>
+                            <h3 data-target="3">0</h3>
                             <p>Anos de Experiência</p>
                         </div>
                         <div class="stat">
-                            <h3>5+</h3>
+                            <h3 data-target="5">0</h3>
                             <p>Clientes Satisfeitos</p>
                         </div>
                     </div>
@@ -91,8 +92,14 @@ Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScr
             <h2 class="section__title">Habilidades</h2>
             <div class="skills__grid">
                 <div class="skill__category">
-                    <h3>HTML5</h3>
+                    <h3>Front-End</h3>
                     <div class="skills__list">
+                        <div class="skill">
+                            <span>HTML5</span>
+                            <div class="skill__bar">
+                                <div class="skill__level" data-level="95"></div>
+                            </div>
+                        </div>
                         <div class="skill">
                             <span>CSS3</span>
                             <div class="skill__bar">
@@ -102,13 +109,13 @@ Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScr
                         <div class="skill">
                             <span>Tailwind CSS</span>
                             <div class="skill__bar">
-                                <div class="skill__level" data-level="95"></div>
+                                <div class="skill__level" data-level="85"></div>
                             </div>
                         </div>
                         <div class="skill">
-                            <span>Javascript</span>
+                            <span>JavaScript</span>
                             <div class="skill__bar">
-                                <div class="skill__level" data-level="85"></div>
+                                <div class="skill__level" data-level="80"></div>
                             </div>
                         </div>
                         <div class="skill">
@@ -126,7 +133,19 @@ Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScr
                         <div class="skill">
                             <span>Canva</span>
                             <div class="skill__bar">
-                                <div class="skill__level" data-level="92"></div>
+                                <div class="skill__level" data-level="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Git</span>
+                            <div class="skill__bar">
+                                <div class="skill__level" data-level="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Figma</span>
+                            <div class="skill__bar">
+                                <div class="skill__level" data-level="70"></div>
                             </div>
                         </div>
                     </div>
@@ -142,7 +161,10 @@ Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScr
             <div class="portfolio__grid">
                 <article class="portfolio__item">
                     <div class="portfolio__image">
-    <img src="studiomelbh.png" alt="StudiomelBH" class="w-full h-full object-contain">                    
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="StudiomelBH - Studio de Beleza" class="portfolio__img">
+                        <div class="portfolio__overlay">
+                            <span class="portfolio__view">Ver Projeto</span>
+                        </div>
                     </div>
                     <div class="portfolio__content">
                         <h3>StudiomelBH</h3>
@@ -151,17 +173,21 @@ Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScr
                             <span>HTML5</span>
                             <span>CSS3</span>
                             <span>Tailwind CSS</span>
-                            <span>Javascript</span>
+                            <span>JavaScript</span>
                             <span>JSON-LD</span>
-                            <span>Canva</span>
                         </div>
-                        <a href="https://studiomelbh.vercel.app/" class="portfolio__link">Ver Detalhes</a>
+                        <a href="https://studiomelbh.vercel.app/" target="_blank" class="portfolio__link">
+                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
 
                 <article class="portfolio__item">
                     <div class="portfolio__image">
-                        <i class="fa-solid fa-mask portfolio__icon"></i>
+                        <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="HQ Sunrise - Universo de Heroínas" class="portfolio__img">
+                        <div class="portfolio__overlay">
+                            <span class="portfolio__view">Ver Projeto</span>
+                        </div>
                     </div>
                     <div class="portfolio__content">
                         <h3>HQ Sunrise</h3>
@@ -170,30 +196,35 @@ Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScr
                             <span>HTML5</span>
                             <span>CSS3</span>
                             <span>Tailwind CSS</span>
-                            <span>Javascript</span>
+                            <span>JavaScript</span>
                             <span>JSON-LD</span>
-                            <span>Canva</span>
                         </div>
-                        <a href="https://hqsunrise.vercel.app/" class="portfolio__link">Ver Detalhes</a>
+                        <a href="https://hqsunrise.vercel.app/" target="_blank" class="portfolio__link">
+                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
 
                 <article class="portfolio__item">
                     <div class="portfolio__image">
-                        <i class="fa-solid fa-newspaper portfolio__icon"></i>
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Otip - Jornal de Boas Notícias" class="portfolio__img">
+                        <div class="portfolio__overlay">
+                            <span class="portfolio__view">Ver Projeto</span>
+                        </div>
                     </div>
                     <div class="portfolio__content">
                         <h3>Otip</h3>
-                        <p>Jornal diário de boas notícias.</p>
+                        <p>Jornal diário de boas notícias com foco em conteúdo positivo e inspirador.</p>
                         <div class="portfolio__tags">
                             <span>HTML5</span>
                             <span>CSS3</span>
                             <span>Tailwind CSS</span>
-                            <span>Javascript</span>
+                            <span>JavaScript</span>
                             <span>JSON-LD</span>
-                            <span>Canva</span>
                         </div>
-                        <a href="#" class="portfolio__link">Ver Detalhes</a>
+                        <a href="#" class="portfolio__link">
+                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
             </div>
@@ -253,12 +284,16 @@ Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScr
                     <p>A energia flui para onde vai a atenção.</p>
                 </div>
                 <div class="footer__social">
-                    <a href="https://github.com/tipgabriel?tab=repositories" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/tipgabriel/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/tipgabriel?tab=repositories" aria-label="GitHub" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tipgabriel/" aria-label="Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
             <div class="footer__bottom">
-                <p>&copy; 2025 tipgabrieldev. Todos os direitos reservados.</p>
+                <p>&copy; <span id="current-year">2025</span> tipgabrieldev. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -271,24 +306,24 @@ Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScr
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Gabriel - tipgabrieldev",
-        "jobTitle": "Desenvolvedor Front-End,
-        "description": "Sou o tipgabrieldev, desenvolvedor Front-End em Belo Horizonte. Transformo ideias em experiências digitais rápidas, bonitas e cheias de propósito. Código limpo, performance alta e resultado real — simples assim. ⚡",
+        "jobTitle": "Desenvolvedor Front-End",
+        "description": "Sou o tipgabrieldev, desenvolvedor Front-End em Belo Horizonte. Transformo ideias em experiências digitais rápidas, bonitas e cheias de propósito. Código limpo, performance alta e resultado real — simples assim.",
         "url": "https://tipgabrieldev.com",
         "sameAs": [
-            "https://github.com/tipgabrieldev",
-            "https://linkedin.com/in/tipgabrieldev"
+            "https://github.com/tipgabriel",
+            "https://instagram.com/tipgabriel"
         ],
         "knowsAbout": [
             "HTML5",
             "CSS3",
             "Tailwind CSS",
-            "Javascript",
+            "JavaScript",
             "JSON-LD",
-            "Canva",
+            "Canva"
         ],
         "hasOccupation": {
             "@type": "Occupation",
-            "name": "O nome do Front-End em Belo Horizonte",
+            "name": "Desenvolvedor Front-End",
             "description": "Dou vida a ideias com soluções digitais únicas, unindo código limpo, alta performance e uma experiência que se destaca."
         },
         "contactPoint": {
