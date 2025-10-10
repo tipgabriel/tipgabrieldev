@@ -23,7 +23,7 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* IMPEDIR SCROLL HORIZONTAL */
+    overflow-x: hidden;
     position: relative;
 }
 
@@ -36,7 +36,7 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     overflow-x: hidden;
-    max-width: 100%; /* GARANTIR QUE NÃO ULTRAPASSE A LARGURA */
+    max-width: 100%;
 }
 
 .container {
@@ -124,7 +124,7 @@ body {
     z-index: 1001;
 }
 
-/* Menu Mobile - TELA CHEIA */
+/* Menu Mobile */
 @media (max-width: 768px) {
     .nav__menu {
         position: fixed;
@@ -185,7 +185,6 @@ body {
         color: white;
     }
 
-    /* CORREÇÃO PARA MOBILE - EVITAR SCROLL LATERAL */
     body.menu-open {
         overflow: hidden;
         position: fixed;
@@ -378,6 +377,7 @@ body {
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+    transition: all 0.8s ease-out;
 }
 
 .stat p {
@@ -438,35 +438,9 @@ body {
     height: 100%;
     background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
     border-radius: 4px;
-    width: 0; /* COMEÇA COM 0 */
-    transition: width 1.5s ease-in-out;
+    width: 0;
+    transition: width 2s ease-in-out;
     position: relative;
-}
-
-/* Efeito de brilho nas barras de habilidades */
-.skill__level::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
-    animation: shine 2s infinite;
-}
-
-@keyframes shine {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
 }
 
 /* Portfolio Section */
@@ -493,27 +467,54 @@ body {
     box-shadow: var(--shadow);
     transition: var(--transition);
     opacity: 0;
-    transform: translateY(30px) rotateX(90deg);
+    transform: translateY(30px);
     width: 100%;
 }
 
 .portfolio__item:hover {
-    transform: translateY(-5px) rotateX(0);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
 }
 
 .portfolio__image {
-    height: 200px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.portfolio__item:hover .portfolio__img {
+    transform: scale(1.05);
+}
+
+.portfolio__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(37, 99, 235, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
 }
 
-.portfolio__icon {
-    font-size: 4rem;
+.portfolio__item:hover .portfolio__overlay {
+    opacity: 1;
+}
+
+.portfolio__view {
     color: white;
-    opacity: 0.9;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .portfolio__content {
@@ -554,10 +555,14 @@ body {
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .portfolio__link:hover {
     color: var(--primary-dark);
+    gap: 0.8rem;
 }
 
 /* Contact Section */
@@ -648,13 +653,13 @@ body {
     border-color: var(--primary-color);
 }
 
-/* FOOTER CORRIGIDO */
+/* Footer */
 .footer {
     background: var(--text-dark);
     color: white;
     padding: 3rem 0 1rem;
     width: 100%;
-    display: block !important; /* GARANTIR QUE ESTEJA VISÍVEL */
+    display: block;
     position: relative;
 }
 
@@ -711,7 +716,7 @@ body {
     width: 100%;
 }
 
-/* NOVAS ANIMAÇÕES */
+/* Animações */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -800,12 +805,14 @@ body {
     }
 }
 
-@keyframes skillBarFill {
+@keyframes countUp {
     from {
-        width: 0;
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
-        width: var(--target-width);
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -834,12 +841,8 @@ body {
     animation: bounceIn 0.8s ease forwards;
 }
 
-.slide-in-left {
-    animation: fadeInLeft 0.8s ease forwards;
-}
-
-.slide-in-right {
-    animation: fadeInRight 0.8s ease forwards;
+.count-up {
+    animation: countUp 0.8s ease-out forwards;
 }
 
 /* Elementos visíveis */
@@ -864,7 +867,6 @@ body {
 
 .visible .skill__category:nth-child(1) { animation-delay: 0.1s; }
 .visible .skill__category:nth-child(2) { animation-delay: 0.2s; }
-.visible .skill__category:nth-child(3) { animation-delay: 0.3s; }
 
 .visible .skill {
     animation: fadeInLeft 0.6s ease forwards;
@@ -874,11 +876,10 @@ body {
 .visible .skill:nth-child(2) { animation-delay: 0.2s; }
 .visible .skill:nth-child(3) { animation-delay: 0.3s; }
 .visible .skill:nth-child(4) { animation-delay: 0.4s; }
+.visible .skill:nth-child(5) { animation-delay: 0.5s; }
 
-/* BARRAS DE HABILIDADES ANIMADAS */
 .visible .skill__level {
-    animation: skillBarFill 1.5s ease-out forwards;
-    animation-delay: 0.5s;
+    transition: width 2s ease-in-out;
 }
 
 .visible .portfolio__item {
@@ -920,13 +921,12 @@ body {
 
 .visible .footer__social a:nth-child(1) { animation-delay: 0.3s; }
 .visible .footer__social a:nth-child(2) { animation-delay: 0.4s; }
-.visible .footer__social a:nth-child(3) { animation-delay: 0.5s; }
 
 .visible .footer__bottom {
     animation: fadeInUp 0.8s ease 0.4s forwards;
 }
 
-/* Responsive Design CORRIGIDO */
+/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         padding: 0 15px;
@@ -971,7 +971,6 @@ body {
         font-size: 2rem;
     }
 
-    /* GARANTIR QUE TUDO CAIBA NA TELA */
     .skills__grid,
     .portfolio__grid {
         grid-template-columns: 1fr;
@@ -1014,51 +1013,4 @@ body {
     .hero__icon {
         font-size: 6rem;
     }
-}
-
-/* Notificações */
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.notification {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    background: #10b981;
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    animation: slideInRight 0.3s ease;
-    max-width: 400px;
-}
-
-.notification button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.notification button:hover {
-    opacity: 0.8;
 }
