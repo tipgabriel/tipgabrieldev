@@ -76,19 +76,23 @@ window.addEventListener('scroll', () => {
 });
 
 // ===================== INTERSECTION OBSERVER =====================
-const observerOptions = { threshold: 0.3, rootMargin: '0px 0px -50px 0px' };
+const observerOptions = { 
+    threshold: 0.3, 
+    rootMargin: '0px 0px -50px 0px' 
+};
+
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
 
             if (entry.target.classList.contains('skills__container')) {
-                animateSkills();
+                setTimeout(() => animateSkills(), 300);
                 observer.unobserve(entry.target);
             }
 
             if (entry.target.classList.contains('about__container')) {
-                animateCounters();
+                setTimeout(() => animateCounters(), 300);
                 observer.unobserve(entry.target);
             }
         }
@@ -98,59 +102,75 @@ const observer = new IntersectionObserver((entries, observer) => {
 // ===================== ANIMAÇÃO DAS BARRAS DE HABILIDADES =====================
 function animateSkills() {
     const skills = document.querySelectorAll('.skill__level');
+    
+    console.log('Iniciando animação das barras de habilidades:', skills.length);
+    
+    // Reset para garantir que todas começam do zero
+    skills.forEach(skill => {
+        skill.style.width = '0%';
+        skill.style.transition = 'none'; // Remove transição inicial
+    });
+
+    // Forçar reflow
+    void document.body.offsetHeight;
 
     skills.forEach((skill, index) => {
-        // Reset para garantir que começa do zero
-        skill.style.width = '0%';
-
         setTimeout(() => {
             const target = parseInt(skill.getAttribute('data-level')) || 0;
-            const duration = 1500; // 1.5 segundos
-            const startTime = performance.now();
-
-            function animateBar(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const ease = 1 - Math.pow(1 - progress, 4); // easing
-
-                skill.style.width = Math.floor(target * ease) + '%';
-
-                if (progress < 1) {
-                    requestAnimationFrame(animateBar);
-                }
-            }
-
-            requestAnimationFrame(animateBar);
-        }, index * 200); // delay entre cada barra
+            console.log(`Animando barra ${index + 1} para ${target}%`);
+            
+            // Adiciona transição suave
+            skill.style.transition = 'width 1.8s cubic-bezier(0.22, 0.61, 0.36, 1)';
+            
+            // Define a largura final
+            skill.style.width = target + '%';
+            
+        }, index * 150); // Delay progressivo entre as barras
     });
 }
 
-
-// ===================== ANIMAÇÃO DOS CONTADORES =====================
+// ===================== ANIMAÇÃO DOS CONTADORES SINCRONIZADA =====================
 function animateCounters() {
     const counters = document.querySelectorAll('.stat h3');
-
+    
+    console.log('Iniciando animação dos contadores:', counters.length);
+    
+    // Reset para garantir que todos começam do zero
     counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 3000; // 3 segundos para contagem mais lenta
-        const stepTime = 50; // atualiza a cada 50ms
-        let current = 0;
-
-        // calcula o quanto incrementar a cada intervalo
-        const increment = target / (duration / stepTime);
-
-        const interval = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                counter.textContent = target;
-                clearInterval(interval);
-            } else {
-                counter.textContent = Math.floor(current);
-            }
-        }, stepTime);
+        counter.textContent = '0';
     });
-}
 
+    const duration = 2000; // 2 segundos para todos
+    const startTime = performance.now();
+    const targets = Array.from(counters).map(counter => 
+        parseInt(counter.getAttribute('data-target'))
+    );
+
+    function updateCounters(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function para movimento suave
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        
+        counters.forEach((counter, index) => {
+            const target = targets[index];
+            const currentValue = Math.floor(target * easeOutQuart);
+            counter.textContent = currentValue;
+        });
+
+        if (progress < 1) {
+            requestAnimationFrame(updateCounters);
+        } else {
+            // Garantir valores finais exatos
+            counters.forEach((counter, index) => {
+                counter.textContent = targets[index] + '+';
+            });
+        }
+    }
+
+    requestAnimationFrame(updateCounters);
+}
 
 // ===================== COPYRIGHT =====================
 function updateCopyright() {
@@ -163,6 +183,12 @@ const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        
+        // Simular envio do formulário
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+        console.log('Dados do formulário:', data);
+        
         contactForm.reset();
         showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
     });
@@ -193,25 +219,42 @@ function showNotification(message, type) {
         max-width: 400px;
     `;
     document.body.appendChild(notification);
-    setTimeout(() => notification.remove(), 5000);
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 5000);
 }
 
 // ===================== INICIALIZAÇÃO =====================
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Carregado - Inicializando...');
+    
     // Animar elementos hero
     const heroElements = document.querySelectorAll('.hero__content > *');
-    heroElements.forEach((el, i) => el.style.animationDelay = `${i * 0.2}s`);
+    heroElements.forEach((el, i) => {
+        el.style.animationDelay = `${i * 0.2}s`;
+    });
 
-    // Observar seções
+    // Observar seções principais
     const aboutSection = document.querySelector('.about__container');
-    if (aboutSection) observer.observe(aboutSection);
+    if (aboutSection) {
+        console.log('Seção About encontrada');
+        observer.observe(aboutSection);
+    }
 
     const skillsSection = document.querySelector('.skills__container');
-    if (skillsSection) observer.observe(skillsSection);
+    if (skillsSection) {
+        console.log('Seção Skills encontrada');
+        observer.observe(skillsSection);
+    }
 
+    // Observar outras seções
     const sections = document.querySelectorAll('.section');
+    console.log('Seções encontradas:', sections.length);
     sections.forEach(sec => observer.observe(sec));
 
+    // Observar elementos específicos para animações
     const animatedElements = document.querySelectorAll(`
         .about__text p,
         .stat,
@@ -226,16 +269,86 @@ document.addEventListener('DOMContentLoaded', () => {
         .footer__social a,
         .footer__bottom
     `);
+    
+    console.log('Elementos animados encontrados:', animatedElements.length);
     animatedElements.forEach(el => observer.observe(el));
 
+    // Observar footer
     const footer = document.querySelector('.footer');
     if (footer) observer.observe(footer);
 
+    // Atualizar copyright
     updateCopyright();
 
-    // Inicializar skill bars com 0
-    document.querySelectorAll('.skill__level').forEach(bar => bar.style.width = '0%');
+    // Inicializar skill bars com 0 e garantir que estão visíveis
+    const skillBars = document.querySelectorAll('.skill__level');
+    console.log('Barras de habilidades encontradas:', skillBars.length);
+    
+    skillBars.forEach(bar => {
+        bar.style.width = '0%';
+        bar.style.opacity = '1'; // Garantir que são visíveis
+    });
 });
 
 // ===================== PREVENÇÃO DE SCROLL HORIZONTAL =====================
-window.addEventListener('resize', () => { document.body.style.overflowX = 'hidden'; });
+window.addEventListener('resize', () => { 
+    document.body.style.overflowX = 'hidden'; 
+});
+
+// ===================== CSS DINÂMICO PARA ANIMAÇÕES =====================
+const animationStyles = document.createElement('style');
+animationStyles.textContent = `
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    .notification button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .notification button:hover {
+        opacity: 0.8;
+    }
+    
+    /* Garantir que as barras são visíveis e animáveis */
+    .skill__level {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Animações suaves para números */
+    .stat h3 {
+        transition: all 0.3s ease-out;
+    }
+`;
+document.head.appendChild(animationStyles);
+
+// ===================== DEBUG E VERIFICAÇÃO =====================
+window.addEventListener('load', () => {
+    console.log('Página completamente carregada');
+    
+    // Verificar se elementos críticos estão presentes
+    console.log('Skill bars no load:', document.querySelectorAll('.skill__level').length);
+    console.log('Contadores no load:', document.querySelectorAll('.stat h3').length);
+    
+    // Verificar se as seções estão sendo observadas
+    const observedSections = document.querySelectorAll('.about__container, .skills__container');
+    console.log('Seções observadas:', observedSections.length);
+});
