@@ -104,7 +104,7 @@
             transform: translateY(-10px);
         }
         
-         /* Mobile Menu */
+        /* Mobile Menu */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -180,25 +180,63 @@
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </nav>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-lg p-6 md:hidden">
-            <div class="flex justify-between items-center mb-8">
-                <div class="text-xl font-bold text-indigo-600">tipgabrieldev</div>
-                <button id="close-menu" class="text-gray-700">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            
-            <ul class="space-y-6">
-                <li><a href="#home" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-2">Início</a></li>
-                <li><a href="#about" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-2">Sobre</a></li>
-                <li><a href="#skills" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-2">Habilidades</a></li>
-                <li><a href="#portfolio" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-2">Portfólio</a></li>
-                <li><a href="#contact" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-2">Contato</a></li>
-            </ul>
-        </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="flex justify-between items-center mb-8">
+            <div class="text-xl font-bold text-indigo-600">tipgabrieldev</div>
+            <button id="close-menu" class="text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        
+        <ul class="space-y-4">
+            <li>
+                <a href="#home" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-gray-50">
+                    <i class="fas fa-home mr-3 w-5 text-center"></i>Início
+                </a>
+            </li>
+            <li>
+                <a href="#about" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-gray-50">
+                    <i class="fas fa-user mr-3 w-5 text-center"></i>Sobre
+                </a>
+            </li>
+            <li>
+                <a href="#skills" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-gray-50">
+                    <i class="fas fa-code mr-3 w-5 text-center"></i>Habilidades
+                </a>
+            </li>
+            <li>
+                <a href="#portfolio" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-gray-50">
+                    <i class="fas fa-briefcase mr-3 w-5 text-center"></i>Portfólio
+                </a>
+            </li>
+            <li>
+                <a href="#contact" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-gray-50">
+                    <i class="fas fa-envelope mr-3 w-5 text-center"></i>Contato
+                </a>
+            </li>
+        </ul>
+
+        <!-- Social Links in Mobile Menu -->
+        <div class="mt-12 pt-8 border-t border-gray-200">
+            <p class="text-gray-600 mb-4">Conecte-se comigo:</p>
+            <div class="flex space-x-4">
+                <a href="https://github.com/tipgabriel?tab=repositories" target="_blank" 
+                   class="bg-gray-100 hover:bg-gray-200 text-gray-700 p-3 rounded-lg transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/tipgabriel/" target="_blank" 
+                   class="bg-gray-100 hover:bg-gray-200 text-gray-700 p-3 rounded-lg transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
@@ -351,17 +389,17 @@
                                 <span class="text-gray-500 percentage" data-target="90">0%</span>
                             </div>
                             <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="skill-level h-full bg-amber-500 rounded-full" data-level="85"></div>
+                                <div class="skill-level h-full bg-amber-500 rounded-full" data-level="90"></div>
                             </div>
                         </div>
                         
                         <div class="skill-item">
                             <div class="flex justify-between mb-2">
-                                <span class="font-medium text-gray-700">Github</span>
+                                <span class="font-medium text-gray-700">GitHub</span>
                                 <span class="text-gray-500 percentage" data-target="80">0%</span>
                             </div>
                             <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="skill-level h-full bg-amber-500 rounded-full" data-level="75"></div>
+                                <div class="skill-level h-full bg-amber-500 rounded-full" data-level="80"></div>
                             </div>
                         </div>
                         
@@ -371,7 +409,7 @@
                                 <span class="text-gray-500 percentage" data-target="95">0%</span>
                             </div>
                             <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="skill-level h-full bg-amber-500 rounded-full" data-level="70"></div>
+                                <div class="skill-level h-full bg-amber-500 rounded-full" data-level="95"></div>
                             </div>
                         </div>
                     </div>
@@ -389,7 +427,7 @@
                 <!-- Project 1 -->
                 <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100">
                     <div class="relative overflow-hidden">
-                        <img src="studiomelbh.png" 
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
                              alt="StudiomelBH - Studio de Beleza" 
                              class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -417,7 +455,7 @@
                 <!-- Project 2 -->
                 <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100">
                     <div class="relative overflow-hidden">
-                        <img src="sunrisehq.png" 
+                        <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
                              alt="HQ Sunrise - Universo de Heroínas" 
                              class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -445,7 +483,7 @@
                 <!-- Project 3 -->
                 <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100">
                     <div class="relative overflow-hidden">
-                        <img src="otip.png" 
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
                              alt="Otip - Jornal de Boas Notícias" 
                              class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -464,7 +502,7 @@
                             <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">JSON-LD</span>
                         </div>
                         
-                        <a href="#" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800 transition-colors">
+                        <a href="https://otip.vercel.app/" target="_blank" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800 transition-colors">
                             Ver Detalhes <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
@@ -650,7 +688,9 @@
                 
                 // Animate percentage text
                 const percentageElement = bar.parentElement.previousElementSibling.querySelector('.percentage');
-                animateCounter(percentageElement, parseInt(level), 1500);
+                if (percentageElement) {
+                    animateCounter(percentageElement, parseInt(level), 1500);
+                }
             });
         }
         
