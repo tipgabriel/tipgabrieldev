@@ -1,32 +1,21 @@
-// Menu Mobile - CORREÇÃO COMPLETA
+// ===================== MENU MOBILE =====================
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 const body = document.body;
 
-// CORREÇÃO: Adicionar evento de clique no toggle
 if (navToggle && navMenu) {
     navToggle.addEventListener('click', (e) => {
         e.stopPropagation();
         navMenu.classList.toggle('active');
         navToggle.classList.toggle('active');
-        
-        if (navMenu.classList.contains('active')) {
-            body.classList.add('menu-open');
-        } else {
-            body.classList.remove('menu-open');
-        }
-        
+        body.classList.toggle('menu-open', navMenu.classList.contains('active'));
+
         const icon = navToggle.querySelector('i');
-        if (navMenu.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
+        icon.classList.toggle('fa-bars', !navMenu.classList.contains('active'));
+        icon.classList.toggle('fa-times', navMenu.classList.contains('active'));
     });
 
-    // Fechar menu ao clicar em um link
+    // Fechar menu ao clicar em link
     document.querySelectorAll('.nav__link').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -40,9 +29,7 @@ if (navToggle && navMenu) {
 
     // Fechar menu ao clicar fora
     document.addEventListener('click', (e) => {
-        if (navMenu.classList.contains('active') && 
-            !navMenu.contains(e.target) && 
-            !navToggle.contains(e.target)) {
+        if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
             body.classList.remove('menu-open');
@@ -65,158 +52,117 @@ if (navToggle && navMenu) {
     });
 }
 
-// Scroll suave para links internos
+// ===================== SCROLL SUAVE =====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });
 
-// Header scroll effect
+// ===================== HEADER SCROLL EFFECT =====================
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    if (header) {
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = 'var(--shadow)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = 'none';
-        }
+    if (!header) return;
+
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = 'var(--shadow)';
+    } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = 'none';
     }
 });
 
-// Sistema de animação avançado ao scroll
-const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
+// ===================== INTERSECTION OBSERVER =====================
+const observerOptions = { threshold: 0.3, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            
-            // CORREÇÃO: Animar barras de habilidades
+
             if (entry.target.classList.contains('skills__container')) {
-                setTimeout(() => {
-                    animateSkills();
-                }, 300);
+                animateSkills();
+                observer.unobserve(entry.target);
             }
-            
-            // CORREÇÃO: Animar contadores
+
             if (entry.target.classList.contains('about__container')) {
-                setTimeout(() => {
-                    animateCounters();
-                }, 300);
+                animateCounters();
+                observer.unobserve(entry.target);
             }
         }
     });
 }, observerOptions);
 
-// CORREÇÃO: Animação das barras de habilidades
+// ===================== ANIMAÇÃO DAS BARRAS DE HABILIDADES =====================
 function animateSkills() {
     const skills = document.querySelectorAll('.skill__level');
-    
+
     skills.forEach((skill, index) => {
-        // Reset para garantir que começa do zero
         skill.style.width = '0%';
-        
         setTimeout(() => {
-            const level = skill.getAttribute('data-level');
-            
-            // Usar requestAnimationFrame para animação suave
-            let startWidth = 0;
-            const targetWidth = parseInt(level);
-            const duration = 1500; // 1.5 segundos
+            const level = parseInt(skill.getAttribute('data-level'));
+            let start = 0;
+            const duration = 1500;
             const startTime = performance.now();
-            
+
             function animateBar(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                
-                // Easing function para suavizar
-                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                const currentWidth = startWidth + (targetWidth - startWidth) * easeOutQuart;
-                
-                skill.style.width = currentWidth + '%';
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animateBar);
-                }
+                const ease = 1 - Math.pow(1 - progress, 4);
+                skill.style.width = Math.floor(start + (level - start) * ease) + '%';
+                if (progress < 1) requestAnimationFrame(animateBar);
             }
-            
+
             requestAnimationFrame(animateBar);
-        }, index * 200); // Delay entre cada barra
+        }, index * 200);
     });
 }
 
-// CORREÇÃO: Animação dos contadores
+// ===================== ANIMAÇÃO DOS CONTADORES =====================
 function animateCounters() {
     const counters = document.querySelectorAll('.stat h3');
-    
+
     counters.forEach(counter => {
         const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 2000; // 2 segundos
+        const duration = 2000;
         const startTime = performance.now();
-        const startValue = 0;
-        
-        // Reset para garantir que começa do zero
+
         counter.textContent = '0';
-        
+
         function updateCounter(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
-            // Easing function para suavizar
-            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-            const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart);
-            
-            counter.textContent = currentValue;
-            
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target + '+';
-            }
+            const ease = 1 - Math.pow(1 - progress, 4);
+            const value = Math.floor(target * ease);
+            counter.textContent = value;
+
+            if (progress < 1) requestAnimationFrame(updateCounter);
+            else counter.textContent = target;
         }
-        
+
         requestAnimationFrame(updateCounter);
     });
 }
 
-// Atualizar copyright automaticamente
-const updateCopyright = () => {
+// ===================== COPYRIGHT =====================
+function updateCopyright() {
     const yearElement = document.getElementById('current-year');
-    if (yearElement) {
-        const currentYear = new Date().getFullYear();
-        yearElement.textContent = currentYear;
-    }
-};
+    if (yearElement) yearElement.textContent = new Date().getFullYear();
+}
 
-// Formulário de contato
+// ===================== FORMULÁRIO DE CONTATO =====================
 const contactForm = document.getElementById('contact-form');
-
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
         contactForm.reset();
+        showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
     });
 }
 
-// Função para mostrar notificação
+// ===================== NOTIFICAÇÃO =====================
 function showNotification(message, type) {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
@@ -224,7 +170,6 @@ function showNotification(message, type) {
         <span>${message}</span>
         <button onclick="this.parentElement.remove()">&times;</button>
     `;
-    
     notification.style.cssText = `
         position: fixed;
         top: 100px;
@@ -233,7 +178,7 @@ function showNotification(message, type) {
         color: white;
         padding: 1rem 1.5rem;
         border-radius: 8px;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
         z-index: 10000;
         display: flex;
         align-items: center;
@@ -241,31 +186,26 @@ function showNotification(message, type) {
         animation: slideInRight 0.3s ease;
         max-width: 400px;
     `;
-    
     document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        if (notification.parentElement) {
-            notification.remove();
-        }
-    }, 5000);
+    setTimeout(() => notification.remove(), 5000);
 }
 
-// CORREÇÃO: Inicialização completa
+// ===================== INICIALIZAÇÃO =====================
 document.addEventListener('DOMContentLoaded', () => {
-    // Animar elementos da seção hero
+    // Animar elementos hero
     const heroElements = document.querySelectorAll('.hero__content > *');
-    heroElements.forEach((el, index) => {
-        el.style.animationDelay = `${index * 0.2}s`;
-    });
+    heroElements.forEach((el, i) => el.style.animationDelay = `${i * 0.2}s`);
 
-    // Observar seções para animação
+    // Observar seções
+    const aboutSection = document.querySelector('.about__container');
+    if (aboutSection) observer.observe(aboutSection);
+
+    const skillsSection = document.querySelector('.skills__container');
+    if (skillsSection) observer.observe(skillsSection);
+
     const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    sections.forEach(sec => observer.observe(sec));
 
-    // Observar elementos específicos
     const animatedElements = document.querySelectorAll(`
         .about__text p,
         .stat,
@@ -280,37 +220,16 @@ document.addEventListener('DOMContentLoaded', () => {
         .footer__social a,
         .footer__bottom
     `);
-    
-    animatedElements.forEach(el => {
-        observer.observe(el);
-    });
+    animatedElements.forEach(el => observer.observe(el));
 
-    // Garantir que o footer seja observado
     const footer = document.querySelector('.footer');
-    if (footer) {
-        observer.observe(footer);
-    }
+    if (footer) observer.observe(footer);
 
-    // Atualizar copyright
     updateCopyright();
 
-    // CORREÇÃO: Inicializar barras de habilidades com 0
-    const skillBars = document.querySelectorAll('.skill__level');
-    skillBars.forEach(bar => {
-        bar.style.width = '0%';
-    });
+    // Inicializar skill bars com 0
+    document.querySelectorAll('.skill__level').forEach(bar => bar.style.width = '0%');
 });
 
-// CORREÇÃO: Prevenir problemas de carregamento
-window.addEventListener('load', () => {
-    // Re-inicializar observadores se necessário
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-});
-
-// Prevenir scroll horizontal
-window.addEventListener('resize', () => {
-    document.body.style.overflowX = 'hidden';
-});
+// ===================== PREVENÇÃO DE SCROLL HORIZONTAL =====================
+window.addEventListener('resize', () => { document.body.style.overflowX = 'hidden'; });
