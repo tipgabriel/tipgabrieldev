@@ -995,3 +995,43 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===================== CORREÇÕES CRÍTICAS ===================== */
+
+/* GARANTIR que as barras começam em 0% e são resetadas */
+.skill__level {
+    width: 0% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Remover qualquer animação CSS que possa estar conflitando */
+.visible .skill__level {
+    /* REMOVER qualquer animation CSS aqui */
+}
+
+/* Quando a seção skills fica visível, permitir animação via JS */
+.skills__container.visible .skill__level {
+    transition: width 1.8s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+}
+
+/* Garantir que os contadores têm altura consistente */
+.stat h3 {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Debug visual - pode remover depois */
+.debug-border {
+    border: 2px solid red !important;
+}
+
+.skills__container.visible {
+    background: rgba(0, 255, 0, 0.05) !important;
+}
+
+.about__container.visible {
+    background: rgba(255, 0, 0, 0.05) !important;
+}
