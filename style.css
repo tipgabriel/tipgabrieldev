@@ -122,6 +122,13 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1001;
+    background: none;
+    border: none;
+    color: var(--text-dark);
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Menu Mobile */
@@ -136,7 +143,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: var(--transition);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
     }
 
@@ -150,7 +157,7 @@ body {
         padding: 1rem 2rem;
         display: block;
         text-align: center;
-        transition: var(--transition);
+        transition: all 0.4s ease;
         opacity: 0;
         transform: translateX(50px);
     }
@@ -176,9 +183,7 @@ body {
     }
 
     .nav__toggle {
-        display: block;
-        color: var(--text-dark);
-        transition: var(--transition);
+        display: flex !important;
     }
 
     .nav__toggle.active {
@@ -377,6 +382,10 @@ body {
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.8s ease-out;
 }
 
@@ -438,7 +447,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
     border-radius: 4px;
-    width: 0;
+    width: 0% !important;
     transition: width 2s ease-in-out;
     position: relative;
 }
@@ -805,14 +814,12 @@ body {
     }
 }
 
-@keyframes countUp {
+@keyframes fillSkillBar {
     from {
-        opacity: 0;
-        transform: translateY(20px);
+        width: 0%;
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        width: var(--target-width);
     }
 }
 
@@ -839,10 +846,6 @@ body {
 
 .bounce-in {
     animation: bounceIn 0.8s ease forwards;
-}
-
-.count-up {
-    animation: countUp 0.8s ease-out forwards;
 }
 
 /* Elementos visíveis */
@@ -879,7 +882,7 @@ body {
 .visible .skill:nth-child(5) { animation-delay: 0.5s; }
 
 .visible .skill__level {
-    transition: width 2s ease-in-out;
+    animation: fillSkillBar 2s ease-in-out forwards !important;
 }
 
 .visible .portfolio__item {
@@ -924,6 +927,53 @@ body {
 
 .visible .footer__bottom {
     animation: fadeInUp 0.8s ease 0.4s forwards;
+}
+
+/* Notificações */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: #10b981;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: slideInRight 0.3s ease;
+    max-width: 400px;
+}
+
+.notification button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification button:hover {
+    opacity: 0.8;
 }
 
 /* Responsive Design */
