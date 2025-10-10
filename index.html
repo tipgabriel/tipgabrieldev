@@ -5,80 +5,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tipgabrieldev — O nome do Front-End em Belo Horizonte</title>
     <meta name="description" content="Desenvolvedor Front-End especializado em HTML, CSS, JavaScript e soluções web modernas">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Hero Background Animation */
+        .hero-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Custom Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        /* Skill Bar Animation */
+        .skill-level {
+            height: 100%;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        /* Portfolio Hover Effect */
+        .portfolio-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans">
     <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav__logo">
-                <h2>tipgabrieldev</h2>
-            </div>
-            <ul class="nav__menu" id="nav-menu">
-                <li><a href="#home" class="nav__link">Início</a></li>
-                <li><a href="#about" class="nav__link">Sobre</a></li>
-                <li><a href="#skills" class="nav__link">Habilidades</a></li>
-                <li><a href="#portfolio" class="nav__link">Portfólio</a></li>
-                <li><a href="#contact" class="nav__link">Contato</a></li>
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-600">tipgabrieldev</div>
+            
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#home" class="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Início</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Sobre</a></li>
+                <li><a href="#skills" class="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Habilidades</a></li>
+                <li><a href="#portfolio" class="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Portfólio</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Contato</a></li>
             </ul>
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
         </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-lg p-6 md:hidden">
+            <div class="flex justify-between items-center mb-8">
+                <div class="text-xl font-bold text-indigo-600">tipgabrieldev</div>
+                <button id="close-menu" class="text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <ul class="space-y-6">
+                <li><a href="#home" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-2">Início</a></li>
+                <li><a href="#about" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-2">Sobre</a></li>
+                <li><a href="#skills" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-2">Habilidades</a></li>
+                <li><a href="#portfolio" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-2">Portfólio</a></li>
+                <li><a href="#contact" class="block text-gray-700 hover:text-indigo-600 transition-colors font-medium py-2">Contato</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero__container container">
-            <div class="hero__content">
-                <h1 class="hero__title">Olá, eu sou <span class="hero__highlight">TIP</span></h1>
-                <h2 class="hero__subtitle">Desenvolvedor Front-End</h2>
-                <p class="hero__description">
-                    Dou vida a ideias com soluções digitais únicas, unindo código limpo, alta performance e uma experiência que se destaca.
-                </p>
-                <div class="hero__buttons">
-                    <a href="#portfolio" class="btn btn--primary">Ver Projetos</a>
-                    <a href="#contact" class="btn btn--secondary">Entrar em Contato</a>
+    <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="container mx-auto px-6 py-20 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0 animate-fadeInUp">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+                        Olá, eu sou <span class="text-amber-400">TIP</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl text-white/90 mb-6">Desenvolvedor Front-End</h2>
+                    <p class="text-lg text-white/80 mb-8 max-w-lg">
+                        Dou vida a ideias com soluções digitais únicas, unindo código limpo, alta performance e uma experiência que se destaca.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#portfolio" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center">
+                            Ver Projetos
+                        </a>
+                        <a href="#contact" class="bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center backdrop-blur-sm">
+                            Entrar em Contato
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-2/5 flex justify-center animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                            <i class="fas fa-code text-white text-6xl md:text-8xl"></i>
+                        </div>
+                        <div class="absolute -top-4 -right-4 w-24 h-24 bg-amber-400 rounded-full opacity-80 animate-pulse"></div>
+                        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-indigo-500 rounded-full opacity-80 animate-pulse" style="animation-delay: 0.5s;"></div>
+                    </div>
                 </div>
             </div>
-            <div class="hero__image">
-                <div class="hero__avatar">
-                    <i class="fas fa-code hero__icon"></i>
-                </div>
-            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <a href="#about" class="text-white animate-bounce">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about section" id="about">
-        <div class="about__container container">
-            <h2 class="section__title">Sobre Mim</h2>
-            <div class="about__content">
-                <div class="about__text">
-                    <p>
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">Sobre Mim</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-indigo-50 to-amber-50 p-8 rounded-2xl shadow-sm">
+                    <p class="text-lg text-gray-700 mb-6">
                         Sou o tipgabrieldev, desenvolvedor Front-End em Belo Horizonte.
                         Transformo ideias em experiências digitais rápidas, bonitas e cheias de propósito.
                         Código limpo, performance alta e resultado real — simples assim. ⚡
                     </p>
-                    <p>
+                    <p class="text-lg text-gray-700 mb-10">
                         Minha especialidade é criar aplicações web modernas usando HTML, CSS, JavaScript, Tailwind e JSON-LD. Com foco em código limpo, performance e experiência do usuário, transformo ideias em projetos funcionais e visualmente impactantes.
                     </p>
-                    <div class="about__stats">
-                        <div class="stat">
-                            <h3 data-target="4">0</h3>
-                            <p>Projetos Concluídos</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                        <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                            <h3 class="text-4xl font-bold text-indigo-600 mb-2" id="projects-count">0</h3>
+                            <p class="text-gray-600">Projetos Concluídos</p>
                         </div>
-                        <div class="stat">
-                            <h3 data-target="3">0</h3>
-                            <p>Anos de Experiência</p>
+                        <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                            <h3 class="text-4xl font-bold text-indigo-600 mb-2" id="experience-count">0</h3>
+                            <p class="text-gray-600">Anos de Experiência</p>
                         </div>
-                        <div class="stat">
-                            <h3 data-target="5">0</h3>
-                            <p>Clientes Satisfeitos</p>
+                        <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                            <h3 class="text-4xl font-bold text-indigo-600 mb-2" id="clients-count">0</h3>
+                            <p class="text-gray-600">Clientes Satisfeitos</p>
                         </div>
                     </div>
                 </div>
@@ -87,65 +251,100 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="skills section" id="skills">
-        <div class="skills__container container">
-            <h2 class="section__title">Habilidades</h2>
-            <div class="skills__grid">
-                <div class="skill__category">
-                    <h3>Front-End</h3>
-                    <div class="skills__list">
-                        <div class="skill">
-                            <span>HTML5</span>
-                            <div class="skill__bar">
-                                <div class="skill__level" data-level="95"></div>
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">Habilidades</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Front-End Skills -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b border-gray-200">Front-End</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">HTML5</span>
+                                <span class="text-gray-500" data-target="95">0%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-level h-full bg-indigo-600 rounded-full" data-level="95"></div>
                             </div>
                         </div>
-                        <div class="skill">
-                            <span>CSS3</span>
-                            <div class="skill__bar">
-                                <div class="skill__level" data-level="90"></div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">CSS3</span>
+                                <span class="text-gray-500" data-target="90">0%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-level h-full bg-indigo-600 rounded-full" data-level="90"></div>
                             </div>
                         </div>
-                        <div class="skill">
-                            <span>Tailwind CSS</span>
-                            <div class="skill__bar">
-                                <div class="skill__level" data-level="85"></div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Tailwind CSS</span>
+                                <span class="text-gray-500" data-target="85">0%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-level h-full bg-indigo-600 rounded-full" data-level="85"></div>
                             </div>
                         </div>
-                        <div class="skill">
-                            <span>JavaScript</span>
-                            <div class="skill__bar">
-                                <div class="skill__level" data-level="80"></div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">JavaScript</span>
+                                <span class="text-gray-500" data-target="80">0%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-level h-full bg-indigo-600 rounded-full" data-level="80"></div>
                             </div>
                         </div>
-                        <div class="skill">
-                            <span>JSON-LD</span>
-                            <div class="skill__bar">
-                                <div class="skill__level" data-level="90"></div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">JSON-LD</span>
+                                <span class="text-gray-500" data-target="90">0%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-level h-full bg-indigo-600 rounded-full" data-level="90"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="skill__category">
-                    <h3>Ferramentas</h3>
-                    <div class="skills__list">
-                        <div class="skill">
-                            <span>Canva</span>
-                            <div class="skill__bar">
-                                <div class="skill__level" data-level="85"></div>
+                
+                <!-- Tools Skills -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b border-gray-200">Ferramentas</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Canva</span>
+                                <span class="text-gray-500" data-target="85">0%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-level h-full bg-amber-500 rounded-full" data-level="85"></div>
                             </div>
                         </div>
-                        <div class="skill">
-                            <span>Git</span>
-                            <div class="skill__bar">
-                                <div class="skill__level" data-level="75"></div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Git</span>
+                                <span class="text-gray-500" data-target="75">0%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-level h-full bg-amber-500 rounded-full" data-level="75"></div>
                             </div>
                         </div>
-                        <div class="skill">
-                            <span>Figma</span>
-                            <div class="skill__bar">
-                                <div class="skill__level" data-level="70"></div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Figma</span>
+                                <span class="text-gray-500" data-target="70">0%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-level h-full bg-amber-500 rounded-full" data-level="70"></div>
                             </div>
                         </div>
                     </div>
@@ -155,150 +354,341 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section class="portfolio section" id="portfolio">
-        <div class="portfolio__container container">
-            <h2 class="section__title">Portfólio</h2>
-            <div class="portfolio__grid">
-                <article class="portfolio__item">
-                    <div class="portfolio__image">
-                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="StudiomelBH - Studio de Beleza" class="portfolio__img">
-                        <div class="portfolio__overlay">
-                            <span class="portfolio__view">Ver Projeto</span>
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">Portfólio</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="StudiomelBH - Studio de Beleza" 
+                             class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">Ver Projeto</span>
                         </div>
                     </div>
-                    <div class="portfolio__content">
-                        <h3>StudiomelBH</h3>
-                        <p>Renomado estúdio de beleza especializado em Tranças e Nail Design em Belo Horizonte.</p>
-                        <div class="portfolio__tags">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>Tailwind CSS</span>
-                            <span>JavaScript</span>
-                            <span>JSON-LD</span>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">StudiomelBH</h3>
+                        <p class="text-gray-600 mb-4">Renomado estúdio de beleza especializado em Tranças e Nail Design em Belo Horizonte.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">HTML5</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">CSS3</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">JavaScript</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">JSON-LD</span>
                         </div>
-                        <a href="https://studiomelbh.vercel.app/" target="_blank" class="portfolio__link">
-                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                        
+                        <a href="https://studiomelbh.vercel.app/" target="_blank" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800 transition-colors">
+                            Ver Detalhes <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
-                </article>
-
-                <article class="portfolio__item">
-                    <div class="portfolio__image">
-                        <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="HQ Sunrise - Universo de Heroínas" class="portfolio__img">
-                        <div class="portfolio__overlay">
-                            <span class="portfolio__view">Ver Projeto</span>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="HQ Sunrise - Universo de Heroínas" 
+                             class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">Ver Projeto</span>
                         </div>
                     </div>
-                    <div class="portfolio__content">
-                        <h3>HQ Sunrise</h3>
-                        <p>A história das heroínas Azul Estelar e Verde Neon do universo Sunrise.</p>
-                        <div class="portfolio__tags">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>Tailwind CSS</span>
-                            <span>JavaScript</span>
-                            <span>JSON-LD</span>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">HQ Sunrise</h3>
+                        <p class="text-gray-600 mb-4">A história das heroínas Azul Estelar e Verde Neon do universo Sunrise.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">HTML5</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">CSS3</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">JavaScript</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">JSON-LD</span>
                         </div>
-                        <a href="https://hqsunrise.vercel.app/" target="_blank" class="portfolio__link">
-                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                        
+                        <a href="https://hqsunrise.vercel.app/" target="_blank" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800 transition-colors">
+                            Ver Detalhes <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
-                </article>
-
-                <article class="portfolio__item">
-                    <div class="portfolio__image">
-                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Otip - Jornal de Boas Notícias" class="portfolio__img">
-                        <div class="portfolio__overlay">
-                            <span class="portfolio__view">Ver Projeto</span>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Otip - Jornal de Boas Notícias" 
+                             class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium">Ver Projeto</span>
                         </div>
                     </div>
-                    <div class="portfolio__content">
-                        <h3>Otip</h3>
-                        <p>Jornal diário de boas notícias com foco em conteúdo positivo e inspirador.</p>
-                        <div class="portfolio__tags">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>Tailwind CSS</span>
-                            <span>JavaScript</span>
-                            <span>JSON-LD</span>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Otip</h3>
+                        <p class="text-gray-600 mb-4">Jornal diário de boas notícias com foco em conteúdo positivo e inspirador.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">HTML5</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">CSS3</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">JavaScript</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">JSON-LD</span>
                         </div>
-                        <a href="#" class="portfolio__link">
-                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                        
+                        <a href="#" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800 transition-colors">
+                            Ver Detalhes <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
-                </article>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact section" id="contact">
-        <div class="contact__container container">
-            <h2 class="section__title">Vamos Trabalhar Juntos?</h2>
-            <div class="contact__content">
-                <div class="contact__info">
-                    <div class="contact__item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>gpazsant@proton.me</p>
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">Vamos Trabalhar Juntos?</h2>
+            
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Entre em Contato</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-envelope text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Email</h4>
+                                    <p class="text-gray-600">gpazsant@proton.me</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-phone text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Telefone</h4>
+                                    <p class="text-gray-600">+55 (31) 98204-2552</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Localização</h4>
+                                    <p class="text-gray-600">Belo Horizonte, Brasil</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact__item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Telefone</h3>
-                            <p>+55 (31) 98204-2552</p>
-                        </div>
-                    </div>
-                    <div class="contact__item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Localização</h3>
-                            <p>Belo Horizonte, Brasil</p>
+                    
+                    <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 p-8 rounded-2xl text-white">
+                        <h3 class="text-2xl font-bold mb-4">Disponível para novos projetos</h3>
+                        <p class="mb-6">Estou sempre aberto a discutir novas oportunidades e colaborações.</p>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/tipgabriel?tab=repositories" target="_blank" class="bg-white text-indigo-600 p-3 rounded-lg hover:bg-gray-100 transition-colors">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.instagram.com/tipgabriel/" target="_blank" class="bg-white text-indigo-600 p-3 rounded-lg hover:bg-gray-100 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <form class="contact__form" id="contact-form">
-                    <div class="form__group">
-                        <input type="text" name="name" placeholder="Como podemos te chamar?" required>
-                    </div>
-                    <div class="form__group">
-                        <input type="email" name="email" placeholder="Qual seu melhor email?" required>
-                    </div>
-                    <div class="form__group">
-                        <textarea name="message" placeholder="Sua Mensagem" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn--primary">Enviar Mensagem</button>
-                </form>
+                
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Como podemos te chamar?</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Qual seu melhor email?</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Sua Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg font-medium transition-colors">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer__container container">
-            <div class="footer__content">
-                <div class="footer__logo">
-                    <h3>tipgabrieldev</h3>
-                    <p>A energia flui para onde vai a atenção.</p>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">tipgabrieldev</h3>
+                    <p class="text-gray-400">A energia flui para onde vai a atenção.</p>
                 </div>
-                <div class="footer__social">
-                    <a href="https://github.com/tipgabriel?tab=repositories" aria-label="GitHub" target="_blank">
+                
+                <div class="flex space-x-4">
+                    <a href="https://github.com/tipgabriel?tab=repositories" target="_blank" 
+                       class="bg-gray-700 hover:bg-gray-600 p-3 rounded-lg transition-colors">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.instagram.com/tipgabriel/" aria-label="Instagram" target="_blank">
+                    <a href="https://www.instagram.com/tipgabriel/" target="_blank" 
+                       class="bg-gray-700 hover:bg-gray-600 p-3 rounded-lg transition-colors">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>
             </div>
-            <div class="footer__bottom">
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
                 <p>&copy; <span id="current-year">2025</span> tipgabrieldev. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('active');
+        });
+        
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('active');
+            });
+        });
+        
+        // Update copyright year automatically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Counter Animation for Stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+        
+        // Animate skill bars
+        function animateSkillBars() {
+            document.querySelectorAll('.skill-level').forEach(bar => {
+                const level = bar.getAttribute('data-level');
+                bar.style.width = level + '%';
+                
+                // Animate percentage text
+                const percentageElement = bar.parentElement.previousElementSibling.querySelector('span');
+                animateCounter(percentageElement, parseInt(level), 1500);
+            });
+        }
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'about') {
+                        // Animate counters
+                        animateCounter(document.getElementById('projects-count'), 4);
+                        animateCounter(document.getElementById('experience-count'), 3);
+                        animateCounter(document.getElementById('clients-count'), 5);
+                    } else if (entry.target.id === 'skills') {
+                        // Animate skill bars
+                        animateSkillBars();
+                    }
+                    
+                    // Add animation class for fade-in effect
+                    if (!entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observe sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                // In a real application, you would send the form data to a server here
+                alert('Obrigado pela sua mensagem! Entrarei em contato em breve.');
+                this.reset();
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-white', 'shadow-md');
+                header.classList.remove('bg-white/90');
+            } else {
+                header.classList.remove('bg-white', 'shadow-md');
+                header.classList.add('bg-white/90');
+            }
+        });
+    </script>
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
