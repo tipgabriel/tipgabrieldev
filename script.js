@@ -1,4 +1,4 @@
-// Menu Mobile - TELA CHEIA
+// Menu Mobile
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 const body = document.body;
@@ -7,14 +7,12 @@ navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
     
-    // Prevenir scroll do body quando menu está aberto
     if (navMenu.classList.contains('active')) {
         body.classList.add('menu-open');
     } else {
         body.classList.remove('menu-open');
     }
     
-    // Adicionar efeito de toggle no ícone
     const icon = navToggle.querySelector('i');
     if (navMenu.classList.contains('active')) {
         icon.classList.remove('fa-bars');
@@ -40,20 +38,6 @@ document.querySelectorAll('.nav__link').forEach(link => {
 // Fechar menu ao pressionar ESC
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-        body.classList.remove('menu-open');
-        const icon = navToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
-
-// Fechar menu ao clicar fora
-document.addEventListener('click', (e) => {
-    if (navMenu.classList.contains('active') && 
-        !navMenu.contains(e.target) && 
-        !navToggle.contains(e.target)) {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
         body.classList.remove('menu-open');
@@ -91,7 +75,7 @@ window.addEventListener('scroll', () => {
 
 // Sistema de animação avançado ao scroll
 const observerOptions = {
-    threshold: 0.1,
+    threshold: 0.2,
     rootMargin: '0px 0px -50px 0px'
 };
 
@@ -100,25 +84,62 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
             
-            // Animar barras de habilidades individualmente
+            // Animar barras de habilidades
             if (entry.target.classList.contains('skills__container')) {
                 animateSkills();
+            }
+            
+            // Animar contadores
+            if (entry.target.classList.contains('about__container')) {
+                animateCounters();
             }
         }
     });
 }, observerOptions);
 
-// CORREÇÃO DAS BARRAS DE HABILIDADES
+// Animação das barras de habilidades
 const animateSkills = () => {
     const skills = document.querySelectorAll('.skill__level');
     skills.forEach((skill, index) => {
         setTimeout(() => {
             const level = skill.getAttribute('data-level');
-            // Usar transition em vez de animation para melhor controle
-            skill.style.transition = 'width 1.5s ease-in-out';
+            skill.style.transition = 'width 2s ease-in-out';
             skill.style.width = level + '%';
-        }, index * 200);
+        }, index * 300);
     });
+};
+
+// Animação dos contadores
+const animateCounters = () => {
+    const counters = document.querySelectorAll('.stat h3');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000; // 2 segundos
+        const step = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += step;
+            if (current < target) {
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        updateCounter();
+    });
+};
+
+// Atualizar copyright automaticamente
+const updateCopyright = () => {
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        const currentYear = new Date().getFullYear();
+        yearElement.textContent = currentYear;
+    }
 };
 
 // Formulário de contato
@@ -130,10 +151,7 @@ contactForm.addEventListener('submit', (e) => {
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
     
-    // Simular envio do formulário
     console.log('Dados do formulário:', data);
-    
-    // Mostrar mensagem de sucesso com animação
     showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
     contactForm.reset();
 });
@@ -147,7 +165,6 @@ function showNotification(message, type) {
         <button onclick="this.parentElement.remove()">&times;</button>
     `;
     
-    // Estilos da notificação
     notification.style.cssText = `
         position: fixed;
         top: 100px;
@@ -167,7 +184,6 @@ function showNotification(message, type) {
     
     document.body.appendChild(notification);
     
-    // Auto-remover após 5 segundos
     setTimeout(() => {
         if (notification.parentElement) {
             notification.remove();
@@ -175,7 +191,7 @@ function showNotification(message, type) {
     }, 5000);
 }
 
-// Inicializar observadores quando o DOM carregar
+// Inicializar quando o DOM carregar
 document.addEventListener('DOMContentLoaded', () => {
     // Animar elementos da seção hero
     const heroElements = document.querySelectorAll('.hero__content > *');
@@ -189,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Observar elementos específicos para animações individuais
+    // Observar elementos específicos
     const animatedElements = document.querySelectorAll(`
         .about__text p,
         .stat,
@@ -209,55 +225,57 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // GARANTIR QUE O FOOTER SEJA OBSERVADO
+    // Garantir que o footer seja observado
     const footer = document.querySelector('.footer');
     if (footer) {
         observer.observe(footer);
     }
 
-    // Adicionar ano atual no footer
-    const yearSpan = document.querySelector('.footer__bottom p');
-    if (yearSpan) {
-        const currentYear = new Date().getFullYear();
-        yearSpan.innerHTML = yearSpan.innerHTML.replace('2024', currentYear);
-    }
+    // Atualizar copyright
+    updateCopyright();
 
-    // CORREÇÃO: Inicializar barras de habilidades com 0
+    // Inicializar barras de habilidades com 0
     const skillBars = document.querySelectorAll('.skill__level');
     skillBars.forEach(bar => {
         bar.style.width = '0%';
     });
 });
 
-// Prevenir animações durante o redimensionamento
-let resizeTimeout;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        // Re-inicializar observadores após redimensionamento
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    }, 250);
-});
-
-// CORREÇÃO: Prevenir scroll horizontal
+// Prevenir scroll horizontal
 window.addEventListener('resize', () => {
     document.body.style.overflowX = 'hidden';
 });
 
-// Garantir que não há overflow horizontal
-function checkOverflow() {
-    const bodyWidth = document.body.scrollWidth;
-    const windowWidth = window.innerWidth;
-    
-    if (bodyWidth > windowWidth) {
-        console.log('Overflow detectado, corrigindo...');
-        document.body.style.overflowX = 'hidden';
+// CSS para notificações
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
-}
-
-// Verificar overflow periodicamente
-setInterval(checkOverflow, 1000);
-checkOverflow();
+    
+    .notification button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .notification button:hover {
+        opacity: 0.8;
+    }
+`;
+document.head.appendChild(style);
