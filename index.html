@@ -49,23 +49,30 @@
             overflow-x: hidden;
         }
         
-        /* Hero Background Animation */
+        /* Hero Background */
         .hero-bg {
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+            background-color: #171717;
+            position: relative;
+            overflow: hidden;
         }
         
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero-bg > * {
+            position: relative;
+            z-index: 2;
         }
         
         /* Dark Section Design */
@@ -196,6 +203,20 @@
             max-width: 100%;
             height: auto;
         }
+        
+        /* Floating animation for hero elements */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -278,7 +299,6 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/20"></div>
         <div class="container mx-auto px-4 sm:px-6 py-20 relative z-10">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="md:w-1/2 mb-12 md:mb-0 animate-fadeInUp">
@@ -293,13 +313,13 @@
                         <a href="#portfolio" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center">
                             Ver Projetos
                         </a>
-                        <a href="#contact" class="bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center backdrop-blur-sm">
+                        <a href="#contact" class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center backdrop-blur-sm border border-white/20">
                             Entrar em Contato
                         </a>
                     </div>
                 </div>
                 <div class="md:w-2/5 flex justify-center animate-fadeInUp" style="animation-delay: 0.2s;">
-                    <div class="relative">
+                    <div class="relative floating">
                         <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
                             <i class="fas fa-code text-white text-6xl md:text-8xl"></i>
                         </div>
@@ -465,7 +485,7 @@
                 <!-- Project 1 -->
                 <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                        <img src="studiomelbh.png" 
                              alt="StudiomelBH - Studio de Beleza" 
                              class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -493,7 +513,7 @@
                 <!-- Project 2 -->
                 <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                        <img src="sunrisehq.png" 
                              alt="HQ Sunrise - Universo de Heroínas" 
                              class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -521,7 +541,7 @@
                 <!-- Project 3 -->
                 <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                        <img src="otip.png" 
                              alt="Otip - Jornal de Boas Notícias" 
                              class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -549,7 +569,7 @@
                 <!-- Project 4 -->
                 <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                        <img src="barbearia-andre.png" 
                              alt="Logomarca da Barbearia André" 
                              class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
